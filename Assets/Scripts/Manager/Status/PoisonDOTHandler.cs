@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Helpers.Events.Combat;
 using Helpers.Events.Status;
+using Manager.ProgressionMangers;
 using Manager.Status.Scriptable;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
@@ -25,6 +26,12 @@ namespace Manager.Status
         [SerializeField] List<string> poisonEffectIDs;
 
         [SerializeField] MMFeedbacks antidoteAppliedFeedbacks;
+
+        [SerializeField] float poisonResistChancePerToughness = 0.125f;
+        [SerializeField] float poisonDurationDecreasePerToughness = 0.07f;
+
+
+        int _currentToughness;
 
         bool _isPoisoned;
 
@@ -72,6 +79,24 @@ namespace Manager.Status
 
         void StartPoison(StatusEffect statusEffect)
         {
+            if (AttributesManager.Instance != null && _currentToughness <= 8)
+                _currentToughness = AttributesManager.Instance.Toughness;
+            else if (_currentToughness > 8)
+                _currentToughness = 8;
+            else
+                _currentToughness = 1;
+
+            var chanceToResist = _currentToughness * poisonResistChancePerToughness;
+
+            if (Random.value < chanceToResist)
+            {
+                StatusDebuffEvent.Trigger(
+                    StatusDebuffEvent.StatusDebuffEventType.Resisted,
+                    StatusDebuffEvent.DebuffType.Poison, statusEffect.effectID);
+
+                return;
+            }
+
             if (!statusEffect.causesPoisoning) return;
             if (_isPoisoned) return;
             _isPoisoned = true;
@@ -101,6 +126,8 @@ namespace Manager.Status
         IEnumerator PoisonDrainRoutine(StatusEffect statusEffect)
         {
             var elapsed = 0f;
+            var adjustedDuration = statusEffect.poisonDuration *
+                                   (1f - (_currentToughness - 1) * poisonDurationDecreasePerToughness);
 
             while (elapsed < statusEffect.poisonDuration)
             {

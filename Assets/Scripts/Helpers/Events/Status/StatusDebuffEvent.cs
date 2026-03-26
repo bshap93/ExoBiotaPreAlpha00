@@ -7,7 +7,8 @@ namespace Helpers.Events.Status
         public enum StatusDebuffEventType
         {
             Apply,
-            Remove
+            Remove,
+            Resisted
         }
 
         public enum DebuffType

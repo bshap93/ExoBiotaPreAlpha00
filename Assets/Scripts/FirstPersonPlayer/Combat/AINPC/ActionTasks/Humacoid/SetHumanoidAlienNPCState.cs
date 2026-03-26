@@ -21,7 +21,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         //EndAction can be called from anywhere.
         protected override void OnExecute()
         {
-            if (HumanoidNPCCreatureInst.value == null) 
+            if (HumanoidNPCCreatureInst.value != null) 
                 HumanoidNPCCreatureInst.value.SetState(NewState.value, IsHostile.value);
             EndAction(true);
         }

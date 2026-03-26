@@ -41,8 +41,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         Unavailable,
         Pursuing,
         CombatInRange,
+        Watching
     }
-
 
 
     public class AlienNPCController : CreatureController, IInteractable, IHoverable, IBillboardable

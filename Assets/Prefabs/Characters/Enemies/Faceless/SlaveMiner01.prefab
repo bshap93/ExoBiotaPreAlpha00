@@ -3359,6 +3359,8 @@ MonoBehaviour:
   highlightEffectController: {fileID: 7432845600046818955}
   blackboard: {fileID: 4884309355904347907}
   fsmOwner: {fileID: 3311436234791006107}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: f69a31cb8cb3fb740b124cf55789fb20, type: 2}
   animancerComponent: {fileID: 5610557049203597732}
   initialCreatureInitializationState: 1
@@ -3467,7 +3469,8 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"timeToGoBackToWork":{"_value":9.0,"_name":"timeToGoBackToWork","_id":"232fa081-9e44-42e1-8ed3-9405a1af9e7b","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"equippedHoldPose":{"_value":4,"_name":"equippedHoldPose","_id":"ba1c5219-3337-45dc-ad66-2a44635e0622","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"walkSpeed":{"_value":1.5,"_name":"walkSpeed","_id":"edcd56ad-0aae-4055-8940-983d1cfea94f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"runSpeed":{"_value":2.5,"_name":"runSpeed","_id":"5091f458-3136-474c-bf8b-1ce15b66ead8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"jogSpeed":{"_value":2.5,"_name":"jogSpeed","_id":"d629c492-44aa-4539-af40-6de62a2a1de0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"runSpeed":{"_value":4.0,"_name":"runSpeed","_id":"5091f458-3136-474c-bf8b-1ce15b66ead8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isBeingAttacked":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.isBeingAttacked","_name":"isBeingAttacked","_id":"5a53244f-b81b-4b03-91eb-ff817cfbe2e5","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"dodgeAnimationClip":{"_value":5,"_name":"dodgeAnimationClip","_id":"8624e5ef-99c3-4651-954f-9eb726ee6700","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"wasHit":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.wasHit","_name":"wasHit","_id":"c99e1a1d-6314-42b9-8f0d-18bc8305e6d7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
@@ -3477,7 +3480,8 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"swingFeedbacks":{"_value":7,"_name":"swingFeedbacks","_id":"fa4ac93f-113f-423c-87cb-d3fbf7617bc2","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
     MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"wasHitHeavy":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.wasHitHeavy","_name":"wasHitHeavy","_id":"96c88b4d-0cce-4c46-b815-0ea1406fd907","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"getHitHeavyAnimationClip":{"_value":8,"_name":"getHitHeavyAnimationClip","_id":"685817fd-3625-4c22-abcc-6f03b8daa30e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IsHostile":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 7392371710694596478}
@@ -3554,7 +3558,10 @@ MonoBehaviour:
   - _json: '{"_value":1.5,"_name":"walkSpeed","_id":"edcd56ad-0aae-4055-8940-983d1cfea94f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":2.5,"_name":"runSpeed","_id":"5091f458-3136-474c-bf8b-1ce15b66ead8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":2.5,"_name":"jogSpeed","_id":"d629c492-44aa-4539-af40-6de62a2a1de0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":4.0,"_name":"runSpeed","_id":"5091f458-3136-474c-bf8b-1ce15b66ead8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.isBeingAttacked","_name":"isBeingAttacked","_id":"5a53244f-b81b-4b03-91eb-ff817cfbe2e5","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
@@ -3592,6 +3599,9 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 3094330708855449807, guid: 97122988e12a9754e841333bdbbe644b, type: 3}
+  - _json: '{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &3311436234791006107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4300,9 +4310,9 @@ MonoBehaviour:
         Sfx: {fileID: 0}
         AudioResourceToPlay: {fileID: 0}
         RandomSfx:
-        - {fileID: 8300000, guid: a7941eba7a2b9574bbbf83113c1a5d84, type: 3}
-        - {fileID: 8300000, guid: b7a48005b8e95254d8a75368b4a7d891, type: 3}
-        - {fileID: 8300000, guid: f16ff058f0548164283c8203e0953376, type: 3}
+        - {fileID: 8300000, guid: ab38c8f953789430691b634dd685119b, type: 3}
+        - {fileID: 8300000, guid: 7cbfafc671f0e4426a71d276a8bb71ec, type: 3}
+        - {fileID: 8300000, guid: e945ae282c1c548c3bb168b0606333ba, type: 3}
         SequentialOrder: 1
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
@@ -7947,6 +7957,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1892041578926017469, guid: 19d73562ba5bb18489b22046c9dad517, type: 3}
+      propertyPath: managedReferences[1616504639524700662].TargetTransform
+      value: 
+      objectReference: {fileID: 1687858355917931444}
     - target: {fileID: 1892041578926017469, guid: 19d73562ba5bb18489b22046c9dad517, type: 3}
       propertyPath: managedReferences[2956590283608293730].AnimateScaleTarget
       value: 

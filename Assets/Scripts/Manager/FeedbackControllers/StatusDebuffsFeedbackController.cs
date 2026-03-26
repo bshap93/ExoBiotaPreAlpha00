@@ -39,6 +39,10 @@ namespace Manager.FeedbackControllers
                         Debug.LogWarning("Unhandled DebuffType: " + eventType.Debuff);
                         break;
                 }
+            else if (eventType.Type == StatusDebuffEvent.StatusDebuffEventType.Resisted)
+                switch (eventType.Debuff)
+                {
+                }
             else Debug.LogWarning("Unhandled StatusDebuffEventType: " + eventType.Type);
         }
     }

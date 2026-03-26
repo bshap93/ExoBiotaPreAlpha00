@@ -55,6 +55,12 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         [FormerlySerializedAs("owner")] [SerializeField]
         protected
             FSMOwner fsmOwner;
+        
+        [SerializeField] protected bool isInitiallyHostile;
+
+        public bool IsHostile { get; protected set; }
+
+        public string[] uniqueIdOfFriends;
 
 
         [Header("Creature Info")] [SerializeField]

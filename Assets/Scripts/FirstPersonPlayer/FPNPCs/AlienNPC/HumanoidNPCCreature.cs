@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Animancer;
 using FirstPersonPlayer.Combat.AINPC.ScriptableObjects;
-using FirstPersonPlayer.Combat.Player.ScriptableObjects;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using FirstPersonPlayer.ScriptableObjects;
 using Helpers.Events.Combat;
@@ -13,7 +12,7 @@ using UnityEngine;
 namespace FirstPersonPlayer.FPNPCs.AlienNPC
 {
     [RequireComponent(typeof(AlienNPCAnimancerController))]
-    public class HumanoidNPCCreature : EnemyController
+    public class HumanoidNPCCreature : EnemyController, MMEventListener<AlienNotifyFriendsOfStateEvent>
     {
         [SerializeField] bool hasWeapon;
         [ShowIf("hasWeapon")] [SerializeField] EnemyWeaponDefinition defaultWeaponDefinition;
@@ -32,11 +31,6 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         public GameObject CurrentWeaponInstance { get; private set; }
 
-        [SerializeField] bool isInitiallyHostile;
-
-        bool _isHostile;
-
-        public bool IsHostile => _isHostile;
 
         AlienNPCState CurrentState { get; set; }
 
@@ -48,8 +42,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         {
             base.Start();
             if (hasWeapon) EquipWeapon(defaultWeaponDefinition);
-            
-            _isHostile = isInitiallyHostile;
+
+            IsHostile = isInitiallyHostile;
 
 
             SetState(animancerController.CurrentState, IsHostile);
@@ -106,19 +100,25 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         {
             base.OnEnable();
             this.MMEventStartListening<PlayerStartsAttackEvent>();
+            this.MMEventStartListening<AlienNotifyFriendsOfStateEvent>();
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
             this.MMEventStopListening<PlayerStartsAttackEvent>();
+            this.MMEventStopListening<AlienNotifyFriendsOfStateEvent>();
         }
-        public void OnMMEvent(PlayerStartsAttackEvent eventType)
+        public void OnMMEvent(AlienNotifyFriendsOfStateEvent eventType)
         {
-            if (eventType.Attack.attackType == PlayerAttackType.Melee)
-            {
-            }
+            if (uniqueIdOfFriends.Contains(eventType.UniqueID) && eventType.IsHostile) SetState(CurrentState, true);
         }
+        // public void OnMMEvent(PlayerStartsAttackEvent eventType)
+        // {
+        //     if (eventType.Attack.attackType == PlayerAttackType.Melee)
+        //     {
+        //     }
+        // }
 
         public void ApplyAttack(EnemyAttack attack)
         {
@@ -131,15 +131,20 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         /// </summary>
         public void SetState(AlienNPCState newState, bool isHostile)
         {
+            var stateChanged = newState != CurrentState || isHostile != IsHostile;
+
             CurrentState = newState;
+            IsHostile = isHostile;
 
             // Working/stationary states are "custom" from EnemyController's perspective —
             // this prevents Update() from stomping them with IdleState.
             IsPlayingCustomAnimation = newState == AlienNPCState.Working
                                        || newState == AlienNPCState.InDialogue
                                        || newState == AlienNPCState.FriendlyAndHailable;
-            
-            
+
+
+            if (stateChanged)
+                AlienNotifyFriendsOfStateEvent.Trigger(uniqueID, isHostile, newState);
 
 
             if (statesWithFullBodyAnimations.Contains(newState))
