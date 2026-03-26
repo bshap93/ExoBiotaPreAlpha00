@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4091363715673212837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852780397791924398}
+  - component: {fileID: 2972062725727191734}
+  - component: {fileID: 8706215024985248498}
+  - component: {fileID: 7734755520555150034}
+  m_Layer: 8
+  m_Name: GateExplainerEntryCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852780397791924398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091363715673212837}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.02862853, z: -0, w: 0.99959016}
+  m_LocalPosition: {x: -8.924004, y: 2.428, z: -62.44}
+  m_LocalScale: {x: 0.10874001, y: 2.6622002, z: 4.0413003}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.281, z: 0}
+--- !u!33 &2972062725727191734
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091363715673212837}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &8706215024985248498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091363715673212837}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7734755520555150034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091363715673212837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286efce2aaab7984a9b48948327f8ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  npcId: NarratorInnerVoice
+  startDialogueFeedback: {fileID: 0}
+  defaultStartNode: HotspringGateWrongside_Start
+  nodeToUse: HotspringGateWrongside_Start
+  uniqueID: GateExplainerEntryCollider
+  interactionDistance: 3.3
+  actionId: 43
+  destroyAfterProviding: 0
+  textToRepresentEntry: Examine Gate
+  iconToRepresentEntry: {fileID: 21300000, guid: a137fef3fb91a1b46baf93deb30a17c8, type: 3}
+  initialJournalProviderState: 0
+  hasDialogueFocusPoint: 0
+  dialogueFocusPoint: {fileID: 0}
+  initialEntryProviderInitialization: 1

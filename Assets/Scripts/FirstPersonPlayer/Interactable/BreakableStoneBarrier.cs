@@ -5,6 +5,7 @@ using Helpers.Events;
 using HighlightPlus;
 using Manager.ProgressionMangers;
 using Manager.SceneManagers;
+using Manager.StateManager;
 using MoreMountains.Feedbacks;
 using RayFire;
 using UnityEngine;
@@ -24,6 +25,8 @@ namespace FirstPersonPlayer.Interactable
         public MMFeedbacks onBreakFeedbacks;
         public MMFeedbacks onHitFeedbacks;
         HighlightEffect _highlightEffect;
+
+        public ConditionalBarrierManager.BarrierInitializationState initialBreakableBarrier;
 
 
         void Awake()
