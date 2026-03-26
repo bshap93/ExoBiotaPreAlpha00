@@ -2523,15 +2523,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee07663f137f40fe825f98feedc4847f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.FPNPCs.AlienNPC.SlaverMotile
-  isDead: 0
-  isBeingAttacked: 0
-  uniqueID: 
+  uniqueID: 9acda6aa-7e9b-4498-ad1a-abd636e7e9b9
+  extractableInteractable: {fileID: 0}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 1387839809914569608}
+  highlightEffectController: {fileID: 8354960313994117910}
   blackboard: {fileID: 8706609048684020976}
-  animancerComponent: {fileID: 1977752759973705609}
   fsmOwner: {fileID: 4829423555163603725}
-  feedbacksContainer: {fileID: 3440841182233626767}
   creatureType: {fileID: 11400000, guid: 12879314eae9b274788476150360da17, type: 2}
+  animancerComponent: {fileID: 1977752759973705609}
   initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 3440841182233626767}
   deathFeedbacks: {fileID: 0}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
@@ -2541,28 +2543,29 @@ MonoBehaviour:
   rangedHitFeedbacksHeavy: {fileID: 0}
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
-  secondsBeforeSettingShouldBeDestroyed: 5
-  wasHit: 0
-  wasHitHeavy: 0
-  currentHealth: 50
-  attackCount: 1
-  attackInstances: []
-  currentStunDamage: 0
-  highlightEffect: {fileID: 1387839809914569608}
-  highlightEffectController: {fileID: 8354960313994117910}
   startAsActivated: 0
-  isStunned: 0
-  isPlacated: 0
   destroyAfterDeath: 1
-  deathDelay: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
+  secondsBeforeSettingShouldBeDestroyed: 5
+  deathDelay: 1
+  attackCount: 1
+  attackInstances: []
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
+  isStunned: 0
+  isPlacated: 0
+  currentStunDamage: 0
+  currentHealth: 50
   navMeshAgent: {fileID: 1397535376888795629}
   movementSpeedThreshold: 0.1
+  walkRunThreshold: 2
   hasRangedAttack: 1
   rangedAttackOrigin: {fileID: 9140627762786910618}
+  onDeathLayer: 0
   doNotUseIdleState: 1
-  walkRunThreshold: 2
   movementLoopFeedbacks: {fileID: 0}
   deathParticlesDustPrefab: {fileID: 0}
   tentacleAnchors:
@@ -2698,8 +2701,8 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"canSeeLayerMask":{"_value":{"value":428429065},"_name":"canSeeLayerMask","_id":"b65a5ab7-7fed-4eb3-ba87-fa15fb7c5c0a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.LayerMask,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"mySlaverMotile":{"_value":3,"_name":"mySlaverMotile","_id":"c73ad437-31aa-486e-9302-4d142376231e","$type":"NodeCanvas.Framework.Variable`1[[FirstPersonPlayer.FPNPCs.AlienNPC.SlaverMotile,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"minimumAttackDistance":{"_value":6.0,"_name":"minimumAttackDistance","_id":"af363ce2-8268-4d52-84d3-28e5e93a76f2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"mainMovementSpeed":{"_value":1.0,"_name":"mainMovementSpeed","_id":"371c0c65-b4e0-4f1b-9c44-20b135454b45","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"rushedMovementSpeed":{"_value":2.0,"_name":"rushedMovementSpeed","_id":"8c0637c3-9911-4cbf-b78b-7a3004be0049","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"mainMovementSpeed":{"_value":2.0,"_name":"mainMovementSpeed","_id":"371c0c65-b4e0-4f1b-9c44-20b135454b45","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"rushedMovementSpeed":{"_value":4.0,"_name":"rushedMovementSpeed","_id":"8c0637c3-9911-4cbf-b78b-7a3004be0049","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"minePatrolRoute":{"_value":[null,null,null,null],"_name":"minePatrolRoute","_id":"8164e766-b8ef-4051-86f3-f8a3bd9643e8","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"CurrentSlaverMotileState":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.SlaverMotile.CurrentSlaverMotileState","_name":"CurrentSlaverMotileState","_id":"82dafc95-2c73-4d4a-9f48-42f42169bd16","$type":"NodeCanvas.Framework.Variable`1[[FirstPersonPlayer.FPNPCs.AlienNPC.SlaverMotile+SlaverMotileState,
@@ -2768,10 +2771,10 @@ MonoBehaviour:
   - _json: '{"_value":6.0,"_name":"minimumAttackDistance","_id":"af363ce2-8268-4d52-84d3-28e5e93a76f2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":1.0,"_name":"mainMovementSpeed","_id":"371c0c65-b4e0-4f1b-9c44-20b135454b45","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":2.0,"_name":"mainMovementSpeed","_id":"371c0c65-b4e0-4f1b-9c44-20b135454b45","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":2.0,"_name":"rushedMovementSpeed","_id":"8c0637c3-9911-4cbf-b78b-7a3004be0049","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":4.0,"_name":"rushedMovementSpeed","_id":"8c0637c3-9911-4cbf-b78b-7a3004be0049","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_value":[null,null,null,null],"_name":"minePatrolRoute","_id":"8164e766-b8ef-4051-86f3-f8a3bd9643e8","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
@@ -3131,7 +3134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0986de822ecb4835bfb249feaeb7996f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 
+  targetID: 80ed4fac-cfd0-40a0-8eb0-51bab0bc6d1b
   seeThroughDuration: 5
   onScanned:
     m_PersistentCalls:

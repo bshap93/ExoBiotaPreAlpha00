@@ -101,7 +101,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             switch (broadcastType)
             {
                 case BroadcastType.HostileAgent:
-                    foreach (var thrall in thrallCreatureCharacters) thrall.SetState(AlienNPCState.Searching);
+                    foreach (var thrall in thrallCreatureCharacters) 
+                        thrall.SetState(AlienNPCState.Searching, isHostile: true);
 
                     break;
                 default:

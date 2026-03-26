@@ -32,6 +32,11 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         public GameObject CurrentWeaponInstance { get; private set; }
 
+        [SerializeField] bool isInitiallyHostile;
+
+        bool _isHostile;
+
+        public bool IsHostile => _isHostile;
 
         AlienNPCState CurrentState { get; set; }
 
@@ -43,9 +48,11 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         {
             base.Start();
             if (hasWeapon) EquipWeapon(defaultWeaponDefinition);
+            
+            _isHostile = isInitiallyHostile;
 
 
-            SetState(animancerController.CurrentState);
+            SetState(animancerController.CurrentState, IsHostile);
         }
 
 
@@ -122,7 +129,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         ///     Central state setter — call this from NodeCanvas FSM state entry
         ///     actions when you're ready to wire those up.
         /// </summary>
-        public void SetState(AlienNPCState newState)
+        public void SetState(AlienNPCState newState, bool isHostile)
         {
             CurrentState = newState;
 
@@ -131,6 +138,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             IsPlayingCustomAnimation = newState == AlienNPCState.Working
                                        || newState == AlienNPCState.InDialogue
                                        || newState == AlienNPCState.FriendlyAndHailable;
+            
+            
 
 
             if (statesWithFullBodyAnimations.Contains(newState))

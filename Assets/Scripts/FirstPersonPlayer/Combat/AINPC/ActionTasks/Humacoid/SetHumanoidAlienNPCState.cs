@@ -8,6 +8,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
     {
         public BBParameter<HumanoidNPCCreature> HumanoidNPCCreatureInst;
         public BBParameter<AlienNPCState> NewState;
+        public BBParameter<bool> IsHostile;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit()
@@ -21,7 +22,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         protected override void OnExecute()
         {
             if (HumanoidNPCCreatureInst.value == null) 
-                HumanoidNPCCreatureInst.value.SetState(NewState.value);
+                HumanoidNPCCreatureInst.value.SetState(NewState.value, IsHostile.value);
             EndAction(true);
         }
     }
