@@ -249,10 +249,12 @@ namespace Manager
                 "StartSpawn", "TerminalSpawn00", "FacilityUtilityC2Spawn", "DownwardPsgTopSpawn",
                 "BattlefieldGateSpawn", "hotspring_gate", "BunkerSpawnL2",
                 "spawnpoint_terr_gate", "mine_embankment_spawn",
+                "StrengthAlleySpawn",
                 // Kinship Magnium Mine,
                 "ElevatorRoomInitSpawn", "treeside_spawn", "ShoalAlcoveSpawn",
                 "SupervisorHouse", "OpeningToTeeGap", "SmallRoomL1Spawn",
-                "SouthernTeeSpawn"
+                "SouthernTeeSpawn",
+
             };
         }
 
