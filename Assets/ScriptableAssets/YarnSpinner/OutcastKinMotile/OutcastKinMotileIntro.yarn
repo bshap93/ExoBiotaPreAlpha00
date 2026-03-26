@@ -1,0 +1,113 @@
+title: OutcastKinMotileIntro
+position: -30,-215
+---
+<<if !has_npc_been_contacted("OutcastKinMotile")>>
+    Outcast Kin: Greetings. I had hoped you'd find your way here. Please make yourself comfortable.
+    Outcast Kin: So long as you are peaceful while here, you may rest here as long as you like.
+    <<make_contact_with_npc "OutcastKinMotile">>
+<<endif>>
+<<if has_started_quest("ZinniasCure") && get_quantity_of_item_player_has("NimTreeHangerSample") > 0 && get_quantity_of_item_player_has("ZinniasPrimerSerumB") > 0>>
+    -> I have the ingredients Zinnia said I needed for the blight cure. You'll help me concoct the finished serum?
+            <<jump OutcastHelpsPlayerConcoctSerum>>
+    -> I do have some questions.
+        <<jump QuestionsForTheOutcastMotile>>
+    -> I have to go. I'll be seeing you.
+<<elseif has_started_quest("ZinniasCure")>>
+    -> I talked to Zinnia at the hot springs. She said you could help with the cure to the blight that afflicts her kind.
+        <<jump QuestionsForTheOutcastMotileZinnia>>
+    -> I thank you. I do have some questions.
+        <<jump QuestionsForTheOutcastMotile>>
+    -> I have to go. I'll be seeing you.
+<<else>>
+    -> I do have some questions.
+        <<jump QuestionsForTheOutcastMotile>>
+    -> I have to go. I'll be seeing you.
+<<endif>>
+===
+
+
+title: QuestionsForTheOutcastMotile
+position: -54,-46
+---
+-> What can I call you?
+    Outcast Kin: I am namless. Exiled as I am, I was stripped of my name by my people when they cast me out.
+    <<jump QuestionsForTheOutcastMotile>>
+-> Ask about the surrounding area
+    Outcast Kin: To the north is the true no man's land. Not much reason to go there, except that beyond it is the only way back to the crystal palace, the seat of Kin rule in Midsheol.
+    Outcast Kin: To the south is human controlled territory, as you may know. For one such as me, and I suspect for you, tis barred to us.
+    <<jump QuestionsForTheOutcastMotile>>
+-> What kind of store is this?
+    Outcast Kin: It is not currently much of a store. These are hard times, and we get so few travelers these days. It used to be quite the bustling little local hub.
+    <<if is_playtest()>>
+        <<jump QuestionsForTheOutcastMotile>>
+    <<endif>>
+    Outcast Kin: On top of that, my former business partner, I fear, has been captured by local slavers. I would go after it if I still had my biotic abilities. Without them, these warrens are certain death.
+    <<jump QuestionsOutcastStore>>
+-> What are the Kin really? My memories are still coming back in bits and pieces. But everywhere I go I find their influence.
+    Outcast Kin: Three species: Keepers, the Cores, and the Motiles, evolved as a unity millions of years ago. Their covenant is ancient.
+    Outcast Kin: The Kinship dominated this world for untold millenia. Once, their city states dotted the surface.
+    Outcast Kin: Gradually, the surface's life bearing capacity gave out, unable to bounce back after centuries of abuse. They brought their feuds underground, unable to collectively learn their lesson.
+    Outcast Kin: I am one who objects to constant war, and that makes me an outcast, cut off from the Kinship. Astray as I am, I must get by without the Womb Keepers' gentle caress.
+    <<jump AskAboutSpecificKinSpecies>>
+-> [Leave]
+===
+
+title: QuestionsOutcastStore
+---
+-> Tell me about these slavers.
+    Outcast Kin: Yes, in Midsheol, we have quite the problem with outcast or errant Kin forming their own smaller versions of a Kinship Pod.
+    Outcast Kin: They raid even peaceful settlements and put slaves they take to work mining, or some such labor. My friend and partner, an Automaton, was taken.
+    Outcast Kin: The slavers, like the Kin at large, see these Automatons as belongings. They are not merely machines analagous to the machines of humans.
+    Outcast Kin: My friend was as much an individual as I. We formed a partnership, but it was broken, and I haven't the heart to run this store alone.
+    <<jump QuestionsOutcastStore>>
+-> Where did they take him?
+    Outcast Kin: Likely, the Magnium mines to the south. It lies deeper down, but there should be a service elevator in the caverns south of here.
+    Outcast Kin: The  Pod I hear about most often runs that illegal operation there. My friend is probably dead or in a deep hole somewhere. It never was good at taking orders.
+    <<jump QuestionsOutcastStore>>
+-> You'd open your store again if this Automaton was freed and able to return here?
+    Outcast Kin: Oh, most certainly!
+    <<jump QuestionsOutcastStore>>
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
+-> [Leave]
+===
+
+title: OutcastHelpsPlayerConcoctSerum
+---
+Outcast Kin: Well done! Let's get that serum concocted. Be right back.
+<<trigger_fade_out>>
+<<wait  2>>
+<<trigger_fade_in>>
+<<wait  1>>
+Outcast Kin: Here is the finished serum. Good luck and be careful.
+<<give_player_item "ZinniasCureSyringeObject" 1>>
+===
+
+title: QuestionsForTheOutcastMotileZinnia
+---
+Outcast Kin: Tis true? She finally finished the primer serum? Yes, friend, I can help you once you have the materials. My modest equipment is yours to use in this pursuit.
+Outcast Kin: The primer serum was the true trick. We worked out the other parts years ago. You agreed to be the host? You are a good friend. I would do it myself if I had not been stripped of my biotic abilities.
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
+-> I should go.
+===
+
+title: AskAboutSpecificKinSpecies
+position: -32,156
+---
+-> Ask about the Motiles
+    Outcast Kin: Each has a role to play. Motiles such as I are defined by our mobility, and not our intellect.
+    <<jump AskAboutSpecificKinSpecies>>
+-> Ask about the Womb Keepers
+    Outcast Kin: Keepers are our nurturers, and they are natural mediators. They are the hearth keepers, womb mothers, and their empathy drives them.
+    Outcast Kin: We motiles are taken at an early age, and raised by the Keepers, instead of our own true motile parents. Tis a tradition as old as the Kinship.
+    <<jump AskAboutSpecificKinSpecies>>
+-> Ask about the Cores
+    Outcast Kin: Cores are our thinkers, scientists, and philosophers. Direct links, they have to the Keepers, and the Keepers mediate and relay orders to the motiles.
+    Outcast Kin: Humans misunderstand them. They think the Kin use them, like humans use their machines. Human force and enslavement of the Cores is what drove the Kin to war. 
+    Outcast Kin: I believe they may not have known what they did to be so grievous. Alas, ichor has been spilled on both sides.
+    <<jump AskAboutSpecificKinSpecies>>
+-> Actually I had a different questions
+    <<jump QuestionsForTheOutcastMotile>>
+-> [Leave]
+===

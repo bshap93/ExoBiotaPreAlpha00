@@ -1,0 +1,59 @@
+title: ElevatorSystemServer01Switch
+color: blue
+position: -40,-278
+---
+<<enum ElevatorSystem01Level>>
+    <<case AshpoolSpringsLevel1>>
+    <<case AshpoolSpringsLevel2>>
+    <<case MagniumMinesFloorLevel>>
+<<endenum>>
+<<declare $currentLevel00A = "AshpoolSpringsL2">>
+<<set $currentLevel00A = get_current_elevator_destination("ElevatorSystem01")>>
+Elevator Server: What is your destination?
+<<jump ElevatorSystemServer01SwitchQA>>
+===
+
+title: ElevatorSystemServer01SwitchQA
+color: red
+position: -147,-87
+---
+<<if $currentLevel00A == "AshpoolSpringsL2">>
+    -> Magnium Mines Floor Level
+        <<jump GoToMagniumMinesL1>>
+    -> [Leave]
+<<endif>>
+<<if $currentLevel00A == "FormerKinshipMineL1">>
+    -> Ashpool Springs Level 2
+        <<jump GoToAshpoolSpringsL2_01>>
+    -> [Leave]
+<<endif>>
+<<if $currentLevel00A == "None">>
+    Elevator Server: We couldn't determine a departure location.
+<<endif>>
+===
+
+
+
+title: GoToMagniumMinesL1
+position: 115,224
+---
+Elevator Server: Are you sure?
+-> Yes.
+    <<trigger_scene_load "KinshipMagniumMine">>
+    <<wait  2>>
+    <<trigger_elevator_move "ElevatorSystem01" "FormerKinshipMineL1">>
+-> No.
+    <<jump ElevatorSystemServer01SwitchQA>>
+===
+
+title: GoToAshpoolSpringsL2_01
+position: 115,224
+---
+Elevator Server: Are you sure?
+-> Yes.
+    <<trigger_scene_load "AshpoolMine">>
+    <<wait 2>>
+    <<trigger_elevator_move "ElevatorSystem01" "AshpoolSpringsL2">>
+-> No.
+    <<jump ElevatorSystemServer01SwitchQA>>
+===

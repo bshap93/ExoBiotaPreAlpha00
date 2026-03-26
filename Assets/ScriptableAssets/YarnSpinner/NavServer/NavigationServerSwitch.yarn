@@ -1,0 +1,34 @@
+title: NavigationServerSwitch
+---
+Navigation Server: Stand by for navigation data...
+<<jump NavHelp_C1_BH>>
+===
+
+title: NavHelp_C1_BH
+---
+Navigation Server: What is your bearing?
+-> East
+    <<jump NavHelp_C1_BH_East>>
+-> North
+    <<jump NavHelp_C1_BH_North>>
+// -> South
+//     <<jump NavHelp_C1_BH_South>>
+-> Save my Game
+    <<jump SaveMyGameAtNavHolo>>
+=== 
+
+title: NavHelp_C1_BH_North
+---
+Navigation Server: Ruins, Hot Springs Access
+===
+
+title: NavHelp_C1_BH_East
+---
+Navigation Server: Access Shaft to Blue Gap
+===
+
+title: NavHelp_C1_BH_South
+---
+Navigation Server: Forward Operating Base, Science Directorate
+===
+

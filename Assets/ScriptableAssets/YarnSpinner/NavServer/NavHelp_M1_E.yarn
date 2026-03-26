@@ -1,0 +1,36 @@
+
+
+title: NavHelp_M1_E
+---
+Navigation Server: What is your bearing?
+// -> East
+//     <<jump NavHelp_M1_North>>
+-> North
+    <<jump NavHelp_M1_North>>
+-> South
+    <<jump NavHelp_M1_South>>
+-> Save my game here
+    <<jump SaveMyGameAtNavHolo>>
+-> Nothing for now
+
+===
+title: SaveMyGameAtNavHolo
+---
+Navigation Terminal: Saving Game...
+<<wait  2>>
+<<set_last_spawn_point>>
+<<save_game>>
+Navigation Terminal: Game Saved!
+===
+
+title: NavHelp_M1_North
+---
+Navigation Server: Lower Levels
+===
+
+
+title: NavHelp_M1_South
+---
+Navigation Server: Forward Operating Base
+===
+

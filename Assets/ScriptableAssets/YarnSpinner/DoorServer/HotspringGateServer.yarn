@@ -1,0 +1,7 @@
+title: HotspringGateDoorServerNode
+---
+Door Server: This gate is locked by the authority of the Science Directorate. Present your credentials.
+<<if get_strength() > 1>>
+    -> I don't have the key but I think I could break this gate with my hatchet.
+<<endif>>
+===

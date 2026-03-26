@@ -1,0 +1,187 @@
+title: InitialTutorialCommunication
+---
+<<trigger_gesture ScientistHypolita HiGreetingHypolita>>
+-> Ok, Dr. Hypolita. I'm in place at the cavern atrium. 
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: Good, you're in position to start your training. Any questions?
+-> What is this training for again?
+    <<jump WhatIsThisTrainingFor>>
+-> No, I'm ready to start.
+    <<jump ReadyToBeginTrainingForSubter>>
+===
+
+title: WhatIsThisTrainingFor
+---
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: You needed a crash course in situational readiness.
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: We agreed that your skills navigating our hazardous subterranean environs needed an update.
+Hypolita: Let's begin. I can answer any further questions when you're done.
+<<jump ReadyToBeginTrainingForSubter>>
+===
+
+title: ReadyToBeginTrainingForSubter
+---
+<<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+Hypolita: Now, then, you'll find a hatchet on the table to your right. And the bailout facility just past that.
+
+===
+
+title: SlightHiccupTutorial
+---
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: ....Slight hiccup: I've got a visual on the facility. Looks like those Stalks cropped up again, blocking the the facility's entrance.
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+<<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+Hypolita: Use your axe to clear out those obstructing your way. They are quite brittle. Two or so hits will cause a section to crumble. 
+
+===
+
+title: HasAccessedTheBailoutFacility
+---
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: Good, you're in the facility. This is about as basic a bailout facility as you'll find.
+Hypolita: Not to worry. You've got the two systems required by the Sheol Mining Guild.
+Hypolita: I'm happy to explain their purpose if you need me to.
+-> Please, doctor. Refresh my memory.
+    <<jump ExplainTheSystemsOfTheBailoutFacility>>
+-> I believe I am up to date on that front.
+    <<trigger_gesture ScientistHypolita LayingItAllOut>>
+    <<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+    <<add_objective GetKeyAccessForMine01>>
+    <<activate_objective GetKeyAccessForMine01>>
+    Hypolita: Ok, good. Now get my old Stunner Pistol and use the key terminal to authenticate yourself. Then proceed to the first door you passed on the way in.
+
+===
+
+
+title: ExplainTheSystemsOfTheBailoutFacility
+---
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: Certainly. To your right is a MediStat cryo-recovery pod. 
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: Should you befall overwhelming injury, a Science Directory mech will be dispatched to bring you to this pod.
+Hypolita: Additionaly, when you enter a cavern or mine, be sure to note the location of the MediStat pod and which organization, if any, will coordinate your rescue.
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: To your left, is our EquiBap decontamination chamber. Contamination is a constant concern in any cavern you enter upon our planet.
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: You'll be familiar with chambers like these on the entrances to the planetary capital.
+Hypolita: Be vigilant and track your status if you're contaminated with microbes, plant spores or any other life forms you come in contact with.
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: In addition to decontaminating you fully, minor infections are treatable with this system.
+<<trigger_gesture ScientistHypolita ShakeHead>>
+Hypolita: If your infections progress to moderate severity, don't use the decontamination chamber. 
+Hypolita: The worse your infection, the greater is the risk of killing biomass that has replaced your internal organs' functions. 
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+-> You mean it would eat my organ while gradually taking over its failing function, without triggering a massive immune response.
+    Hypolita: Precisely, the life of this planet does not alert the immune system to widespread colonization until it's too late. 
+    Hypolita: Beyond the confines of this training, which is not long enough for such a fate to befall you, manual biometric tracking is vital. 
+    <<trigger_gesture ScientistHypolita ShakeHead>>
+    Hypolita: It's not a sudden thing, this organ replacement phenomenon's progression. If you monitor biometrics, you need not panic if you're contaminated or infected.
+    Hypolita: Don't feel the need to rush back to an EquiBap tank every time you are conaminated. 
+    Hypolita: Even minor infections should not be cause for the abortion of your current tasks, so long as you take care to decontaminate on the way back out.
+-> Gross. Don't tell me this is going to happen here in your caverns...
+    <<trigger_gesture ScientistHypolita ShakeHead>>
+    Hypolita: No, not to worry. This training is too short for any infection to progress that far. It's gross, but it's important ground to cover.
+-> Got it. Thank you, doctor.
+Hypolita: Certainly. Now then, straight ahead is a storage room. You'll find my old Stunner Pistol and a key access terminal.
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: Do you need me to explain further?
+<<add_objective GetKeyAccessForMine01>>
+<<activate_objective GetKeyAccessForMine01>>
+-> Please do, doctor.
+    <<jump HypolitaExplainsHeatGunAndKeyAccess>>
+-> No need, I know what to do.
+<<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+Hypolita: Excellent, I'll standby.
+===
+
+title: HypolitaExplainsHeatGunAndKeyAccess
+---
+<<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+Hypolita: Ok, that Stunner Pistol is standard issue Science Directorate defense weapon, and is powered by standard weapons-grade Magnium-ion cells.
+Hypolita: The model is old but it's plenty powerful for self-defense and neutralizing contaminating flora and fauna you'll find in this cavern complex.
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: The sampling tool is pretty simple to use. Just equip it and point it at a juicy liquid filled alien plant and jab at close range.
+Hypolita: Additionaly, when you enter a cavern or mine, be sure to note the location of the MediStat pod and which organization, if any, will coordinate your rescue.
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: All the mines and caverns of this particular region share a host of possible creatures or organisms, all of which you should manage.
+Hypolita: Your pickaxe, light source, hatchet, and stunner pistol all collected, and you're equipped to handle those subterranean tunnels.
+Hypolita: Of course you'll have chances to upgrade and get better gear, but this is the core gear needed for this training.
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: You'll find it most effective in the upper levels of the caverns here.
+Hypolita: The key terminal will grant you key access to the other areas of this cavern complex, through the door to the left of where you entered the atrium.
+
+-> And lower levels?
+    <<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+    Hypolita: This cavern complex doesn't access lower levels. I can fill you in on going into lower levels if you wish to discuss it after the training.
+-> Thank you, doctor. I'm ready to proceed.
+===
+
+title: HypolitaGivesFurtherInstructionAfterFacility
+---
+Hypolita: Ok, go and use the Door Access Panel's switch to access that door. The door will automatically unlock and open for you, now you have key access.
+-> Will do.
+<<trigger_gesture ScientistHypolita HandsMidUpPointByPoint>>
+Hypolita: My scanners show life-signs just on the other side of the door. It's definitely a couple of Urchins. That's the layman's name anyway. They're immobile,
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: but they spew a corrosive gas that has a knack for getting through our best hazard suits, so don't stay close to them for too long. Go ahead and use your 
+<<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+Hypolita: stunner pistol to neutralize them. Again, don't feel the need to rush back to an EquiBap tank every time you are conaminated. Minor infections can be kept from woresening with a antiexobiotic salve.
+<<add_objective StunTheTwoUrchins>>
+<<activate_objective StunTheTwoUrchins>>
+===
+
+
+title: QuestionsAboutCorePatchTutorial
+---
+Hypolita: Any questions?
+-> Core Fruit?
+    <<trigger_gesture ScientistHypolita LayingItAllOut>>
+    Hypolita: Yes, at the center of the next room, the plant growth is centered around the patch of coral-analogues which is where the famous Cores grow. You 
+    Hypolita: can usually find two or more just in this cave. This cave is not open to prospectors, so the Core patch is not picked clean.
+    <<jump QuestionsAboutCorePatchTutorial>>
+-> What are these alien organisms?
+    <<trigger_gesture ScientistHypolita LayingItAllOut>>
+    Hypolita: They are part of the cave's symbiotic system and because they are filled with fluid, they appear a dark red. The two types living in this cave are easy to spot.
+    Hypolita: One looks like a pair of kidneys and the other looks a bit like a mushroom. Both red, and pulsating. Not to be confused with the organisms you just stunned, they
+    <<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+    Hypolita: are not going to spew contaminated waste in your face. These liquid sacs can leak contaminant but you can avoid exposure by being gentle.
+    <<jump QuestionsAboutCorePatchTutorial>>
+-> No, doctor.
+<<trigger_gesture ScientistHypolita HandsDownSayingOK>>
+Hypolita: Ok, get the Core and samples.
+===
+
+title: HypolitaGivesInstructionsCorePatch
+---
+<<trigger_gesture  ScientitstHypolita ConcedingAPoint>>
+Hypolita: Ok, go ahead and get Core fruit from the patch up ahead. And use the sampling tool to get fluid samples from the two red bulging alien structures.
+Hypolita: Then, proceed past the groupings of biomass toward the ladder at the back of the cavern.
+<<add_objective HarvestTwoCoresTutorial>>
+<<activate_objective HarvestTwoCoresTutorial>>
+<<add_objective GetTwoFluidSamplesTutorial>>
+<<activate_objective GetTwoFluidSamplesTutorial>>
+<<trigger_gesture  ScientitstHypolita HandsDownSayingOK>>
+<<jump QuestionsAboutCorePatchTutorial>>
+===
+
+title: HypolitaGivesInstructionsCombatTutorial
+---
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: There's a Limacoid in the next chamber. You've seen earth slugs, no? This is like that but bigger and with more biting and spewing.
+Hypolita: Be careful to avoid its bite and noxious spewing of contaminated gas.
+<<trigger_gesture ScientistHypolita ShakeHead>>
+Hypolita: I'm not fond of this part of the training. I would much rather you just stun it, but the guidelines of this training leave it to you.
+Hypolita: My old stunner will stun the beast without trouble. Your hatchet will serve you if you choose to kill it.
+Hypolita: Any questions?
+-> No, doctor.
+===
+
+title: SecretsInUndergroundTutorial
+---
+Hypolita: Keep your eyes peeled when roaming the tunnels for breakable walls, doors, and other detours. Right here is a wall.
+Hypolita: I happen to know there is a Magnium vein that runs through there. I can show you how to craft power cells if you mine the ore.
+<<trigger_gesture ScientistHypolita LayingItAllOut>>
+Hypolita: Have a swing with your pickaxe, I left you something behind it when I set up this training.
+===

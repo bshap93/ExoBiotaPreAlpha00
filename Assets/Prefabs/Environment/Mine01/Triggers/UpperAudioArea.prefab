@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8896285320562803870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4138846331458505118}
+  - component: {fileID: 180293585416479541}
+  m_Layer: 20
+  m_Name: UpperAudioArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4138846331458505118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896285320562803870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.83, z: -12.52}
+  m_LocalScale: {x: 44.60249, y: 12.178, z: 41.75408}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180293585416479541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896285320562803870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c491fb4351d4146b68986bd178b4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sequences:
+  - {fileID: 11400000, guid: 4cc94354546a72d41ae6cb2fedd9c93b, type: 2}
+  - {fileID: 11400000, guid: dcb83fc0af6c82e4692283acebffd92d, type: 2}
+  m_outputType: 0
+  m_outputPrefab: {fileID: 0}
+  m_outputDistance: {x: 0, y: 0}
+  m_outputSetAudioRanges: 0
+  m_outputAudioRangesFollowSpawnDistance: 1
+  m_outputAudioRanges: {x: 0, y: 0}
+  m_outputVerticalAngle: {x: -180, y: 180}
+  m_outputHorizontalAngle: {x: -180, y: 180}
+  m_outputFollowPosition: 1
+  m_outputFollowRotation: 0
+  m_dimensions: 0
+  m_shape: 0
+  m_directon: 1
+  m_areaSize: {x: 1, y: 1, z: 1}
+  m_falloff: {x: 0, y: 0, z: 0}
+  m_displayColour: {r: 0, g: 1, b: 0, a: 0.5}
+  m_alwaysDisplayGizmo: 0
+  m_1D_GizmoSize: 20

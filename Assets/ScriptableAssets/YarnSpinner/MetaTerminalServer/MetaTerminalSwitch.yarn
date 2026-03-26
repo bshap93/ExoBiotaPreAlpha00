@@ -1,0 +1,361 @@
+
+title: DebugLocationTerminal
+---
+Meta Terminal: You're using the debug terminal.
+<<jump TerminalGeneralDirectory>>
+===
+
+title: StartingFacilityTerminal
+---
+Meta Terminal: You're using the Womb facility self-service terminal array.
+<<jump TerminalGeneralDirectory>>
+===
+
+title: ChapelMetaTerminal
+---
+Meta Terminal: You're using the Outcast Refuge temple terminal.
+<<jump TerminalGeneralDirectory>>
+===
+
+title: MetaTerminalSwitch
+---
+Meta Terminal: Stand by for terminal data...
+===
+
+title: IntroduceAttributeClass
+---
+Meta Terminal: This system has been notified of your situation, and quite understand the amnesia you're feeling. We will work with you to re-capture your basic competencies, as best we can.
+Meta Terminal: I will start by asking you to try to reach out and focus your attention on your deepest seated memories, or fragments. This system will probe newly rearranged brain areas for activity.
+Meta Terminal: Think far back as you can remember, then go further. And again, until I tell you... 
+Meta Terminal: Specifically, think on five competencies: Strength, Dexterity, and Agility, Toughness, and Intelligence.
+<<jump ExplainAttributes>>
+===
+
+title: ExplainAttributes
+---
+<<if get_current_class_id() == 0>>
+    -> I'll try to recall my competencies now.
+        <<jump ChooseAttributeClass>>
+<<else>>
+    -> I'll choose an competency to enhance now.
+        <<jump ChooseAttributeToIncrement>>
+<<endif>>
+-> Explain Strength
+    Meta Terminal: You hit harder with heavy tools and melee weapons. You carry more weight in your inventory. 
+    Meta Terminal: Some areas are blocked by breakable doors or walls, requiring certain strength level to break. 
+    Meta Terminal: Additionally, you must have specified Strength to use some melee weapons.
+    <<jump ExplainAttributes>>
+-> Explain Dexterity
+    Meta Terminal: You're more accurate with tools and ranged weapons. You are able to fix machines and mod weapons the higher your Dexterity.
+    Meta Terminal: Additionally, you must have this high to use some must have this high to use some ranged weapon.
+    <<jump ExplainAttributes>>
+-> Explain Agility
+    Meta Terminal: Your movement speed is faster and you jump higher. You strike with melee weapons or tools faster.
+    Meta Terminal: You don't lose stamina as quickly when sprinting, fighting, or using tools. 
+    Meta Terminal: Certain mobility tools and equippable items require this to be used.
+    <<jump ExplainAttributes>>
+-> Explain Toughness
+    Meta Terminal: Your Max Vitality is increased, and you are less susceptible to status effects like staggering or poison.
+    Meta Terminal: Your bones can withstand further falls without breaking and your skin is thicker, so it's harder for enemies to make you bleed.
+    <<jump ExplainAttributes>>
+-> Explain Intelligence/Biotic Strength
+    Meta Terminal: Your exobiotic abilities are stronger, use less contamination, and with fewer ill effects.
+    Meta Terminal: You must have this at certain level to use certain Biotic abilities. 
+    Meta Terminal: You must have this at a certain level to communicate with some species of Xenobiological organisms.
+    <<jump ExplainAttributes>>
+===
+
+title: ChooseAttributeToIncrement
+---
+Meta Terminal: Choose one of the following attributes to level:
+<<declare $currentStrength = 0>>
+<<declare $newStrength = 0>>
+<<set $currentStrength = get_strength()>>
+<<declare $currentAgility = 0>>
+<<declare $newAgility = 0>>
+<<set $currentAgility = get_agility()>>
+<<declare $currentDexterity = 0>>
+<<declare $newDexterity = 0>>
+<<set $currentDexterity = get_dexterity()>>
+<<declare $currentToughness = 0>>
+<<declare $newToughness = 0>>
+<<set $currentToughness = get_toughness()>>
+<<declare $currentBiotic = 0>>
+<<declare $newBiotic = 0>>
+<<set $currentBiotic = get_biotic_level()>>
+-> Strength from {$currentStrength} to {$currentStrength + 1}
+    Meta Terminal: Are you sure?
+    -> Yes
+        Meta Terminal: Incrementing your strength points now.
+        <<trigger_player_increment_attribute 0>>
+        <<wait 2>>
+        <<set $newStrength = get_strength()>>
+        <<if $newStrength == $currentStrength + 1>>
+            Meta Terminal: Success
+        <<else>>
+            Meta Terminal: Failure
+        <<endif>>
+    -> No
+-> Agility from {$currentAgility} to {$currentAgility + 1}
+    Meta Terminal: Are you sure?
+    -> Yes
+        Meta Terminal: Incrementing your agility points now.
+        <<trigger_player_increment_attribute 1>>
+        <<wait 2>>
+        <<set $newAgility = get_agility()>>
+        <<if $newAgility == $currentAgility + 1>>
+            Meta Terminal: Success
+        <<else>>
+            Meta Terminal: Failure
+        <<endif>>
+    -> No
+-> Dexterity from {$currentDexterity} to {$currentDexterity + 1}
+    Meta Terminal: Are you sure?
+    -> Yes
+        Meta Terminal: Incrementing your dexterity points now.
+        <<trigger_player_increment_attribute 2>>
+        <<wait 2>>
+        <<set $newDexterity = get_dexterity()>>
+        <<if $newDexterity == $currentDexterity + 1>>
+            Meta Terminal: Success
+        <<else>>
+            Meta Terminal: Failure
+        <<endif>>
+    -> No
+-> Toughness from {$currentToughness} to {$currentToughness + 1}
+    Meta Terminal: Are you sure?
+    -> Yes
+        Meta Terminal: Incrementing your toughness points now.
+        <<trigger_player_increment_attribute 4>>
+        <<wait 2>>
+        <<set $newToughness = get_toughness()>>
+        <<if $newToughness == $currentToughness + 1>>
+            Meta Terminal: Success
+        <<else>>
+            Meta Terminal: Failure
+        <<endif>>
+    -> No
+-> Exobiotic Power from {$currentBiotic} to {$currentBiotic + 1}
+    Meta Terminal: Are you sure?
+    -> Yes
+        Meta Terminal: Incrementing your biotic power points now.
+        <<trigger_player_increment_attribute 3>>
+        <<wait 2>>
+        <<set $newBiotic = get_biotic_level()>>
+        <<if $newBiotic == $currentBiotic + 1>>
+            Meta Terminal: Success
+        <<else>>
+            Meta Terminal: Failure
+        <<endif>>
+    -> No
+-> I'll decide later.
+===
+
+
+title: ChooseAttributeClass
+---
+<<declare $currentClassId = 1>>
+<<declare $newClassId = 0>>
+Meta Terminal: Choose on of the following presets:
+-> Strongman (4 Strength, 1 Agility, 1 Dexterity, 3 Toughness, 1 Biotic Power)
+    <<set $currentClassId = get_current_class_id()>>
+    Meta Terminal: Are you sure?
+        -> Yes
+            Meta Terminal: Commencing class setting now.
+            <<trigger_player_sets_class 1>>
+            <<wait 2>>
+            <<set $newClassId = get_current_class_id()>>
+            <<if $newClassId != $currentClassId>>
+                Meta Terminal: Success
+                <<jump ClassSelectionComplete>>
+            <<else>> 
+                Meta Terminal: Failure
+                <<jump TerminalGeneralDirectory>>
+            <<endif>>
+        -> No
+-> Master of None (2 Strength, 2 Agility, 2 Dexterity, 2 Toughness, 2 Biotic Power)
+    <<set $currentClassId = get_current_class_id()>>
+    Meta Terminal: Are you sure?
+        -> Yes
+            Meta Terminal: Commencing class setting now.
+            <<trigger_player_sets_class 2>>
+            <<wait 2>>
+            <<set $newClassId = get_current_class_id()>>
+            <<if $newClassId != $currentClassId>>
+                Meta Terminal: Success
+                <<jump ClassSelectionComplete>>
+            <<else>> 
+                Meta Terminal: Failure
+                <<jump TerminalGeneralDirectory>>
+            <<endif>>
+        -> No
+-> Athlete (2 Strength, 4 Agility, 2 Dexterity, 1 Toughness, 1 Biotic Power)
+    <<set $currentClassId = get_current_class_id()>>
+    Meta Terminal: Are you sure?
+        -> Yes
+            Meta Terminal: Commencing class setting now.
+            <<trigger_player_sets_class 3>>
+            <<wait 2>>
+            <<set $newClassId = get_current_class_id()>>
+            <<if $newClassId != $currentClassId>>
+                Meta Terminal: Success
+                <<jump ClassSelectionComplete>>
+            <<else>> 
+                Meta Terminal: Failure
+                <<jump TerminalGeneralDirectory>>
+            <<endif>>
+        -> No
+-> Gunner (1 Strength, 2 Agility, 4 Dexterity, 2 Toughness, 1 Biotic Power)
+    <<set $currentClassId = get_current_class_id()>>
+    Meta Terminal: Are you sure?
+        -> Yes
+            Meta Terminal: Commencing class setting now.
+            <<trigger_player_sets_class 4>>
+            <<wait 2>>
+            <<set $newClassId = get_current_class_id()>>
+            <<if $newClassId != $currentClassId>>
+                Meta Terminal: Success
+                <<jump ClassSelectionComplete>>
+            <<else>> 
+                Meta Terminal: Failure
+                <<jump TerminalGeneralDirectory>>
+            <<endif>>
+        -> No
+-> Bio-Weapon (1 Strength, 1 Agility, 1 Dexterity, 2 Toughness, 5 Biotic Power)
+    <<set $currentClassId = get_current_class_id()>>
+    Meta Terminal: Are you sure?
+        -> Yes
+            Meta Terminal: Commencing class setting now.
+            <<trigger_player_sets_class 5>>
+            <<wait 2>>
+            <<set $newClassId = get_current_class_id()>>
+            <<if $newClassId != $currentClassId>>
+                Meta Terminal: Success
+                <<jump ClassSelectionComplete>>
+            <<else>> 
+                Meta Terminal: Failure
+                <<jump TerminalGeneralDirectory>>
+            <<endif>>
+        -> No
+-> Soldier (3 Strength, 1 Agility, 2 Dexterity, 3 Toughness 0 Biotic Power)
+    <<set $currentClassId = get_current_class_id()>>
+    Meta Terminal: Are you sure?
+        -> Yes
+            Meta Terminal: Commencing class setting now.
+            <<trigger_player_sets_class 6>>
+            <<wait 2>>
+            <<set $newClassId = get_current_class_id()>>
+            <<if $newClassId != $currentClassId>>
+                Meta Terminal: Success
+                <<jump ClassSelectionComplete>>
+            <<else>> 
+                Meta Terminal: Failure
+                <<jump TerminalGeneralDirectory>>
+            <<endif>>
+        -> No
+-> I'll take another look at what the attributes do.
+    <<jump ExplainAttributes>>
+-> I'll decide later.
+===
+
+title: ClassSelectionComplete
+---
+Meta Terminal: Successful Profile Imprint. Unlocking womb facility entrance door.
+<<unlock_door "WombFacilityEntranceDoor">>
+<<set_last_spawn_point>>
+<<save_game>>
+<<jump TerminalGeneralDirectory>>
+===
+
+title: TerminalGeneralDirectory
+position: -235,-184
+---
+<<if get_current_class_id() == 0>>
+    <<jump IntroduceAttributeClass>>
+<<endif>>
+<<if get_attribute_points_unused() > 0>> 
+    Meta Terminal: Choose which attribute to increment.
+    -> Yes
+        Meta Terminal: Excellent.
+        <<jump ExplainAttributes>>
+    -> Not yet
+<<endif>>
+// <<if get_stat_upgrade_points_unused() > 0>>
+//     Meta Terminal: Would you like to upgrade your vitals?
+//     -> Yes
+//         Meta Terminal: Excellent.
+//         <<jump UpgradeStatsWhenPossible>>
+//     -> Not yet
+// <<endif>>
+Meta Terminal: What would you like to do?
+-> Save My Game and Heal
+    <<jump SaveMyGameAtTerminal>>
+// -> Transport to another Terminal
+//     <<jump FastTravelBetweenTerminals>>
+-> I have questions.
+    <<jump TerminalGeneralDirectory_QA>>
+-> Quit
+===
+
+title: TerminalGeneralDirectory_QA
+---
+// -> Can I see a map?
+//     <<jump NavHelp_SF01_Map>>
+-> Can I get directions?
+    <<jump NavHelp_SF01_Directions>>
+-> What can you tell me about this facility?
+    <<jump NavHelp_SF01_Facility>>
+-> Disclaimer
+    <<jump NavHelp_SF01_Liability>>
+-> [Leave]
+===
+
+title: NavHelp_SF01_Directions
+---
+Meta Terminal: You are currently at the border of the buffer zone and human controlled territory.
+-> What's to the South?
+    Meta Terminal: To the south is human controlled territory. I'm told this is off limits to you.
+    <<jump TerminalGeneralDirectory_QA>>
+-> What's to the North?
+    Meta Terminal: North of current position, including it: Greater Midsheol, buffer zone, as of ceasefire: 2.2 earth year ago.
+    <<jump TerminalGeneralDirectory_QA>>
+-> [Leave]
+===
+
+title: NavHelp_SF01_Liability
+---
+Navigation Server: Science Directorate military not liable for actions taken based on any intel this unit dispenses.
+<<jump TerminalGeneralDirectory_QA>>
+===
+
+title: NavHelp_SF01_Facility
+---
+Navigation Server: Former Science Directorate military cryonics installation. Current occupants: Unknown.
+Navigation Server: Recommendation: seek the main facility MetaTerminal. This unit is limited to navigation purposes.
+<<jump TerminalGeneralDirectory_QA>>
+===
+
+title: SaveMyGameAtTerminal
+position: 88,-251
+---
+Meta Terminal: Saving Game...
+<<wait  2>>
+<<set_last_spawn_point>>
+<<heal_player 40>>
+<<save_game>>
+Meta Terminal: Game Saved!
+===
+
+title: FastTravelBetweenTerminals
+position: -175,261
+---
+Meta Terminal: Your credential lace show no other authorized terminals.
+Meta Terminal: Look for terminals like this one, and register for transit priveleges.
+===
+
+title: C2FacilityTerminal
+position: 117,170
+---
+Meta Terminal: Welcome to Water Monitoring Utility C2 facility.
+<<jump TerminalGeneralDirectory>>
+===

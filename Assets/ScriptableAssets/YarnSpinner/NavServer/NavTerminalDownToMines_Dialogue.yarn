@@ -1,0 +1,38 @@
+title: NavTerminalDownToMines_Dialogue
+---
+Navigation Server: How can I be of service?
+-> Save Here
+    <<jump SaveMyGameAtNavHolo>>
+-> Call for elevator.
+    <<if !is_playtest()>>
+        <<trigger_elevator_move "ElevatorSystem01" "AshpoolSpringsL2">>
+        <<jump InformingSuccessElevator>>
+    <<else>>
+        Navigation Server: PLAYTEST does include this area.
+    <<endif>>
+-> What is this place?
+    Navigation Server: You are standing in the southmost cavern room before reaching the lower levels of the Science Directorate military forward operating base.
+-> What is to the North?
+    Navigation Server: Unincorporated buffer quadrant CZ_L2. Alien ruins scattered throughout.
+    Navigation Server: Data updated 2.2 Earth years prior to this date.
+===
+
+title: InformingSuccessElevator
+---
+Navigation Server: Elevator is underway. Please stand by.
+===
+
+title: NavTerminalUpToAshpoolFromMines_Dialogue
+---
+Navigation Server: How can I be of service?
+-> Save Here
+    <<jump SaveMyGameAtNavHolo>>
+-> Call for elevator.
+    <<trigger_elevator_move "ElevatorSystem01" "FormerKinshipMineL1">>
+    <<jump InformingSuccessElevator>>
+-> What is this place?
+    Navigation Server: You are standing in the southmost cavern room before reaching the lower levels of the Science Directorate military forward operating base.
+-> What is to the North?
+    Navigation Server: Unincorporated buffer quadrant CZ_L2. Alien ruins scattered throughout.
+    Navigation Server: Data updated 2.2 Earth years prior to this date.
+===

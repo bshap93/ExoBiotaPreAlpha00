@@ -1,0 +1,395 @@
+[33mcommit 59b31fc676cd154681494d5936eeecc6266a0a38[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 24 12:39:02 2025 -0600
+
+    Making progress with inventories
+
+[33mcommit 52121931b575ae7e88160faede3b40e54b85ae24[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 24 11:48:18 2025 -0600
+
+    Generalized list of items
+
+[33mcommit cf1337a49895eb5efc5686f230470f887e83cd90[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 23 15:22:56 2025 -0600
+
+    No longer does inventory disable
+
+[33mcommit c62bbc7c8bafa910f9fff53aae0d5e6697c1b9be[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 22 13:54:05 2025 -0600
+
+    About to really start integrating Inventory Engine to evaluate it for appropriateness
+
+[33mcommit 38a2744de6379a3cc9c937216ce27a1b10fae360[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 21 14:15:43 2025 -0600
+
+    Terrain detector is working
+
+[33mcommit 761dbe9e64519e1160b9dd0299943e8e936a77c1[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 21 13:49:57 2025 -0600
+
+    Was able to initialize pickaxe with dependencies
+
+[33mcommit a822906dd1d3cac6a25d4ac476f60287c437c793[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 21 12:13:38 2025 -0600
+
+    EquipmentContext
+
+[33mcommit 32f13026a97e83d6c3a3c3c207703397d0f787f6[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 21 11:22:48 2025 -0600
+
+    some
+
+[33mcommit 7e740ecc3c0a63db93963a7f77a5d5dbc4fc1d77[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 21 10:56:13 2025 -0600
+
+    Pickaxe fill class
+
+[33mcommit 0b84966bb99a8bde13e26ebe7224e1b46b8a274f[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 21 08:03:48 2025 -0600
+
+    Start not automatic for dialogue
+
+[33mcommit f8996ca8334b268e91b724b41bfab8e80c550096[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 20 19:21:22 2025 -0600
+
+    Dialogue city over here
+
+[33mcommit ed75449b3d0164589059e42828b0d331a8adfd82[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 20 14:57:00 2025 -0600
+
+    Save& Quit now saves inventory (or it saves itself), scene managers for the current scene, and global managers
+
+[33mcommit 97e5b6dbb47e51c66507eef3e3ab76fc21efccfd[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 20 14:12:31 2025 -0600
+
+    Save on Destroy is unset when Clearing all reset data
+
+[33mcommit 691a45e4ad90b2aa76eb938e07658ca2af054caf[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 20 13:19:01 2025 -0600
+
+    Fix the stack overflow circular logic
+
+[33mcommit 65dc3ca79a80ffc1a51140ee60ff7d15d048f513[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 20 12:08:41 2025 -0600
+
+    Dialogue framing
+
+[33mcommit ee77fa6853a8fecd38b854a88aa64f4505147f2f[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sat Jul 19 17:07:41 2025 -0600
+
+    Currency implements IGameService
+
+[33mcommit 19d61dbd3436836bda38aeb5852faf59fce42104[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 18 14:36:01 2025 -0600
+
+    Works with hotbar in core
+
+[33mcommit 58bb0f3db2dcbd0adb3903c93e9ccbf7ed6e3cd9[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 18 13:30:46 2025 -0600
+
+    Before trying what chatgpt is saying to do to construct prefab
+
+[33mcommit b8eb3a82e52a5d6d7ead615c9e3b435241a85198[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 18 13:10:46 2025 -0600
+
+    Hotbar is part of FP prefab
+
+[33mcommit b6ffc28f09dfe6853b670fce8070e9ab69d07d21[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 18 12:26:02 2025 -0600
+
+    Maybe working equipment
+
+[33mcommit 544ffb2f8a65f19da4e8824b749e121f599f8ec9[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 17 19:45:12 2025 -0600
+
+    Added yarnspinner
+
+[33mcommit b9969e9b15663c64f67ae901b641fa50ce5236c8[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 17 16:03:01 2025 -0600
+
+    Implementing trader logic
+
+[33mcommit 3d591f2f25bcb8ba79d200e44aa0a60ca58e33a0[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 17 14:18:28 2025 -0600
+
+    Imported tile00 objects
+
+[33mcommit 065c80d34c29c1d0b838629605c4921f9c4646b1[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 17 14:11:17 2025 -0600
+
+    Import the Tile00 stuff
+
+[33mcommit 2b76da119dd3bf7a652befbf2c11b4f213ffcc1a[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 17 09:56:23 2025 -0600
+
+    Add panel and some assets
+
+[33mcommit 70105e6a6d16c66a1e567f3b2b5f9842c12eecdc[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 16 18:18:26 2025 -0600
+
+    Import old terrains
+
+[33mcommit f853b2a27f73c53162139c265cd256cf6707af50[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 16 15:13:08 2025 -0600
+
+    States for settlement
+
+[33mcommit 4ea7350abeb00957eb492c936f561ee52656f62c[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 16 11:08:07 2025 -0600
+
+    Disabled First Person Commandable Player
+
+[33mcommit 44e840cd2199aab508f3b84b6b0da29eded0765c[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 16 10:50:38 2025 -0600
+
+    Exiting inventory works now
+
+[33mcommit f4de419e0500903bd432c58067ca45f5687db789[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 16 10:28:49 2025 -0600
+
+    Working on UI
+
+[33mcommit 7dbcf5cc4407b7a3ac3c55793d24fe2ddd7714f2[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 16 09:30:59 2025 -0600
+
+    Inventory can be opened
+
+[33mcommit fb61920a8fa1bfd1dc14093a7af7df8cd55a171c[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 15 14:50:23 2025 -0600
+
+    Made overview manager local
+
+[33mcommit b1e4baf7cbcdfeee90dfc344dc9730e3e46a31c9[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 15 13:34:15 2025 -0600
+
+    Docking Event
+
+[33mcommit 330952053378342c500dfacf6fcd0efabc60693b[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 15 10:37:56 2025 -0600
+
+    GameStateEvents
+
+[33mcommit 315f83d015ad964f52ea919d72aa72f40fcc235e[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 15 09:35:42 2025 -0600
+
+    Hello?
+
+[33mcommit a823a23f263bf05ecd94909a418310f4fad33d3a[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 14 19:21:27 2025 -0600
+
+    Add
+
+[33mcommit b284942ed57993adfc027363369e337d7ff42ecd[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 14 15:44:16 2025 -0600
+
+    Scene change is possible now with point and click
+
+[33mcommit 3f4eb134f445e41c7e4ae59423a87fe3a499d1c8[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 14 14:41:13 2025 -0600
+
+    Trying to get clickable
+
+[33mcommit 75bc993ff3d210f728beb480a615f25b08b2b546[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 14 13:19:00 2025 -0600
+
+    Continuing to work on settlement UI
+
+[33mcommit eed9e1a879faf948c81b836342438fecccf6a7f0[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 14 10:17:05 2025 -0600
+
+    Placement of camera
+
+[33mcommit 9b13cc00e6843cd29a5269b66d0a0e4b2bb1a85f[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 13 20:58:08 2025 -0600
+
+    Still working out the whole overview situation
+
+[33mcommit 825d828d944b5a920ba8aea2f696899d557649b5[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sun Jul 13 20:54:32 2025 -0600
+
+    Still working out the whole overview situation
+
+[33mcommit ebbb344b0d06afb18586a74017cb448f37c7ddf4[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sat Jul 12 18:02:21 2025 -0600
+
+    Dirigible can dock
+
+[33mcommit e498e156e767daecd47a8f3dc882e58406b93336[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sat Jul 12 16:45:43 2025 -0600
+
+    Sturcutred the OverviewPawn
+
+[33mcommit 49fa146378ec4b24f61a42e2373f86d6ec44bedd[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Sat Jul 12 14:16:14 2025 -0600
+
+    Docking in progress of developemtn
+
+[33mcommit 125ab1df812a8ff8209befd453a319c91ade2de8[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 19:07:38 2025 -0600
+
+    Dirigible changing state
+
+[33mcommit 613fc0db91ef0160f5f44f742f01a46f30790be4[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 16:12:39 2025 -0600
+
+    Dirigible
+
+[33mcommit 637e955ddd3c18ffb03169a3e25c577240d89ad7[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 15:19:37 2025 -0600
+
+    Fixed wrong scene pickable manager
+
+[33mcommit d1cc3b29819d3d797b3122ab2cafda5993898a29[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 12:53:40 2025 -0600
+
+    Precariously reset and save
+
+[33mcommit aa5478638c47e50a30fef98463e2530dbadc3ab4[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 12:37:29 2025 -0600
+
+    Saving competence
+
+[33mcommit 976e54cdca629c243d56649066de6dae92806c00[m[33m ([m[1;31morigin/SpawnCompetence[m[33m, [m[1;32mSpawnCompetence[m[33m)[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 11:04:53 2025 -0600
+
+    Finding scene loads is working
+
+[33mcommit 0213da3866230c137c98069d76fa69f77bfd34ca[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Fri Jul 11 10:07:26 2025 -0600
+
+    Additional additions
+
+[33mcommit ce112c0389a078beb954327cb4cfe29f2d9d8f13[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 10 13:58:09 2025 -0600
+
+    Pickables
+
+[33mcommit 43c33275371cb7995bacab5823923d18a59e6c2d[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 10 12:31:38 2025 -0600
+
+    Some work on inventory
+
+[33mcommit a61921b2155a36d860a9f09afdddf551d2801201[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Thu Jul 10 09:55:38 2025 -0600
+
+    Inventory
+
+[33mcommit acd78f9503cbae25a93373b2a9e2fc1104dfa877[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 9 18:56:17 2025 -0600
+
+    Lighting
+
+[33mcommit 9dce656f14e18e8f80d5ce892c2f3f0d4f79bcf1[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 9 17:41:04 2025 -0600
+
+    Camera found
+
+[33mcommit 12f017036109a149026c4e3b62c47877a17a0d68[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 9 17:33:08 2025 -0600
+
+    Elevator fixed?
+
+[33mcommit 50af8dd52a39bed7976c99d5bfb1b50277fc9433[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 9 15:17:35 2025 -0600
+
+    Got first person going
+
+[33mcommit f9df971e57519e11af4c5550b6160bfc75c71688[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 9 12:41:41 2025 -0600
+
+    First Person ctrl
+
+[33mcommit 1883fddd9981c029d169f76fe0ba4993f6d8b4f4[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Wed Jul 9 10:23:17 2025 -0600
+
+    First person needs rework
+
+[33mcommit 41ef9a7464f95f58df99ab8ab6bbf8ec278181e2[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 8 19:00:06 2025 -0600
+
+    More first person stuff
+
+[33mcommit 84d8c17e20a1933c09d63b533a1acfd8a2bb42f5[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 8 17:25:52 2025 -0600
+
+    Reticle states
+
+[33mcommit 74e9c263468e74cc14ae0fa1dea9664c72c5a7aa[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 8 15:30:02 2025 -0600
+
+    Progressively adding first person capability
+
+[33mcommit 2ff5ab271a1e570bcd8db65685c7d3509088d341[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Tue Jul 8 10:04:01 2025 -0600
+
+    Dirigible placement
+
+[33mcommit 5cf87af50df7fc950a70f66b220c6857462dca1d[m
+Author: Ben Shapiro <bshap93@gmail.com>
+Date:   Mon Jul 7 16:45:44 2025 -0600
+
+    Commit first

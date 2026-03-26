@@ -1,0 +1,125 @@
+title: ZinniaInitialIntroduction
+position: -288,-401
+color: yellow
+---
+<<if !has_npc_been_contacted("HospitableFlora")>>
+    Zinnia: Hello? I am Zinnia. Have you come to bask in the healing waters of these springs? I shan't bite or sting. Take a seat with me and rest.
+    <<make_contact_with_npc "HospitableFlora">>
+    <<jump QuestionsForZinniaSwitch>>
+<<else>>
+    Zinnia: Glad to see you still alive, dear.
+    <<if has_started_quest("ZinniasCure")>>
+        <<jump QuestionsForZinniaSwitchAfterAgreeingToQuest>>
+    <<else>>
+        <<jump QuestionsForZinniaSwitch>>
+    <<endif>>
+<<endif>>
+===
+
+title: ZinniaPlacatedStartNode
+---
+Zinnia: Thank you for this. How can I repay you? I shall leave these hot springs now, and tend my folk who still live.
+Zinnia: Come see me at the Outcast Chapel. I shall soon re-open my apothecary practice, and be able to properly reward you, as I've little to give at the moment.
+Zinnia: I wish to provide anything needed to keep you alive, now that I see the good in you, friend.
+===
+
+title: QuestionsForZinniaSwitch
+color: green
+position: -247,-185
+---
+-> I'm surprised to be communicating telepathically with you. I did not know I could with those not of the Kin.
+    <<jump ZinniaExplainsOurFirstQuestion>>
+-> I had another question.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> I should go. 
+===
+
+title: QuestionsForZinniaSwitchAfterAgreeingToQuest
+color: green
+position: -247,-185
+---
+-> Remind me what I should do to concoct the cure.
+    <<jump ZinniaRemindsUsWhatToDoForCure>>
+-> I had another question.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> I should go. 
+===
+
+title: ZinniaRemindsUsWhatToDoForCure
+---
+Zinnia: Get the primer serum. Head for the lower levels, get the Nimensis tree sap sacs. Rendezvous with the Outcast Kin motile at its lab in the old temple.
+===
+
+title: ZinniaExplainsOurFirstQuestion
+position: -552,30
+---
+Zinnia: I do hope you were not harmed. My sisters are not to blame for their hostility. Please, if you've been hurt, enter the spring water. You'll be quite refreshed.
+<<jump ZinniaExplainsOurFirstQuestion_QA>>
+===
+
+title: ZinniaExplainsOurFirstQuestion_QA
+position: 101,-310
+---
+-> Why are you friendly while others of your kind are hostile?
+    Zinnia: I am a healthy Phytoid. However, many of my Sisters are sick. An infection protein engineered by the Kin causes their violent agitation.
+    Zinnia: These springs provide me with protection, so long as I remain. 
+    <<jump ZinniaExplainsWeedOutlook>>
+-> I had other questions.
+    <<jump QuestionsForZinniaSwitch>>
+-> So, all of you are sentient?
+    <<jump ZinniaIsSentient>>
+-> I should go.
+===
+
+title: ZinniaExplainsWeedOutlook
+position: 0,0
+---
+-> Have you tried using the water to heal them?
+    <<jump ZinniaTalksAboutHealingSisters>>
+-> Why would they create a weapon like that? Try to commit genocide? 
+    Zinnia: They see us as weeds in the cracks of their civilization. They deny our sentience and right to dignity.
+    Zinnia: The blighted sisters' blind fury stems started as justified outrage toward the Kin. But their fate is too terrible.
+    Zinnia: The blight keeps them in that fury even after they forget that initial reasoned outrage. 
+    Zinnia: Unable to attack the very beings of their ire, as it was designed by the Kin's iniquitous gene engineers. 
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> I had other questions.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> I should go.
+===
+
+title: ZinniaTalksAboutHealingSisters
+position: 257,-9
+---
+Zinnia: Yes. Alas the water is innoculation, but not cure. But I have not been idle. I have been working on a treatment.
+Zinnia: However, I cannot leave these hotsprings. I'd get sick myself before I could help them. 
+-> Maybe I could help.
+    <<jump ZinniaPlayerAsksIfCanHelp>>
+-> That's too bad. 
+=== 
+
+title: ZinniaPlayerAsksIfCanHelp
+position: -377,272
+---
+Zinnia: Try if you wish. I would be grateful. I've been working on a primer serum that could be the base for a finished cure.
+Zinnia: The cure also requires the ichor of the Nimensis tree's sap sacs. And it would need to be administered by one of the Kin.
+-> I'll keep this in mind. I'd like to help if I can.
+<<jump ZinniaPlayerAgreesToGiveATry>>
+===
+
+title: ZinniaPlayerAgreesToGiveATry
+position: -321,486
+color: blue
+---
+Zinnia: My primer serum is in my work shed. You may take it if you like. Maybe someday the cure will be a reality and I'll leave this chamber.
+<<started_quest "ZinniasCure">>
+-> [Leave]
+===
+
+title: ZinniaIsSentient
+position: 437,-328
+---
+Zinnia: Aye. We were in these caves before the Kin ever delved and descended, having destroyed the surface.
+Zinnia: They came down and continue in their destructive behavior. They invented the blight. See us as pests, they do.
+Zinnia: We used to be peaceful. Those of us unaffected still are.
+<<jump QuestionsForZinniaSwitch>>
+===

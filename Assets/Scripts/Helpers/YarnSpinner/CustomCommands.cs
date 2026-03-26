@@ -1,0 +1,439 @@
+using System.Collections;
+using Helpers.Events;
+using Helpers.Events.Dialog;
+using Helpers.Events.Machine;
+using Helpers.Events.ManagerEvents;
+using Helpers.Events.NPCs;
+using Helpers.Events.Progression;
+using Helpers.Events.Status;
+using Helpers.Events.Terminals;
+using Helpers.Events.Triggering;
+using Inventory;
+using Manager;
+using Manager.ProgressionMangers;
+using MoreMountains.InventoryEngine;
+using Objectives;
+using Overview.NPC;
+using SharedUI.Progression;
+using Structs;
+using UnityEngine;
+using Yarn.Unity;
+
+namespace Helpers.YarnSpinner
+{
+    public class CustomCommands : MonoBehaviour
+    {
+        // Drag and drop your Dialogue Runner into this variable.
+        public DialogueRunner dialogueRunner;
+        public GameObject characterNPCRoot;
+
+        public void Awake()
+        {
+            // Create a new command called 'camera_look', which looks at a target. 
+            // Note how we're listing 'GameObject' as the parameter type.
+            dialogueRunner.AddCommandHandler(
+                "camera_look", // the name of the command
+                CameraLookAtTarget // the method to run
+            );
+
+            // Inventory Commands
+
+            dialogueRunner.AddCommandHandler<string, int>(
+                "give_player_item",
+                GivePlayerItem
+            );
+
+            // Dialogue Gestures
+
+            dialogueRunner.AddCommandHandler<string, string>(
+                "trigger_gesture",
+                TriggerGesture
+            );
+
+            dialogueRunner.AddCommandHandler<string, string>(
+                "switch_idle_animation",
+                SwitchIdleLoopingAnimation
+            );
+
+            // ----------- Objectives commands ----------
+
+            dialogueRunner.AddCommandHandler<string>(
+                "add_objective",
+                AddObjective
+            );
+
+            dialogueRunner.AddCommandHandler<string>(
+                "activate_objective",
+                ActivateObjective
+            );
+
+            dialogueRunner.AddCommandHandler<string>(
+                "make_objective_inactive",
+                MakeObjectiveInactive
+            );
+
+            dialogueRunner.AddCommandHandler<string>(
+                "complete_objective",
+                CompleteObjective
+            );
+
+            dialogueRunner.AddCommandHandler<string>(
+                "mark_poi_as_having_new_content",
+                MarkPOIAsHavingNewContent
+            );
+
+            // dialogueRunner.AddCommandHandler<int>(
+            //     "trigger_stat_upgrade",
+            //     TriggerStatUpgrade
+            // );
+
+            dialogueRunner.AddCommandHandler<int>(
+                "trigger_player_sets_class",
+                TriggerPlayerSetsClass
+            );
+
+            dialogueRunner.AddCommandHandler<int>(
+                "trigger_player_increment_attribute",
+                TriggerPlayerIncrementAttribute);
+
+            dialogueRunner.AddCommandHandler<string>(
+                "unlock_door",
+                UnlockDoor);
+
+            dialogueRunner.AddCommandHandler<int>(
+                "heal_player",
+                HealPlayer);
+
+            dialogueRunner.AddCommandHandler(
+                "save_game",
+                SaveGame);
+
+            dialogueRunner.AddCommandHandler<string, string>("set_spawn_point", SetSpawnPoint);
+
+            dialogueRunner.AddCommandHandler("set_last_spawn_point", () => StartCoroutine(SetLastSpawnPoint()));
+
+            dialogueRunner.AddCommandHandler<int>(
+                "fast_travel_to_terminal",
+                FastTravelToTerminal);
+
+            dialogueRunner.AddCommandHandler<string>(
+                "make_contact_with_npc",
+                MakeContactWithNPC);
+
+            dialogueRunner.AddCommandHandler<string>(
+                "started_quest",
+                StartedQuest);
+
+            dialogueRunner.AddCommandHandler<string>(
+                "completed_quest",
+                CompletedQuest);
+
+            dialogueRunner.AddCommandHandler(
+                "trigger_fade_out",
+                TriggerFadeOut);
+
+            dialogueRunner.AddCommandHandler(
+                "trigger_fade_in",
+                TriggerFadeIn);
+
+            dialogueRunner.AddCommandHandler<string, string>(
+                "trigger_elevator_move", TriggerElevatorMoveToDestination);
+
+            dialogueRunner.AddCommandHandler<string>(
+                "trigger_scene_load", TriggerSceneLoad);
+
+            dialogueRunner.AddCommandHandler<string>(
+                "trigger_scene_unload", TriggerSceneUnload);
+        }
+
+        // The method that gets called when '<<camera_look>>' is run.
+        void CameraLookAtTarget()
+        {
+            Debug.LogWarning("Looking at target: ");
+        }
+
+        void TriggerElevatorMoveToDestination(string elevatorSystemUniqueId, string destinationId)
+        {
+            ElevatorRootSystemEvent.Trigger(elevatorSystemUniqueId, destinationId);
+        }
+
+        // Game State Save
+
+        void MakeContactWithNPC(string npcId)
+        {
+            MakeContactWithNPCEvent.Trigger(npcId);
+        }
+
+        void TriggerFadeOut()
+        {
+            DialogueCameraEvent.Trigger(DialogueCameraEventType.FadeOut);
+        }
+
+        void TriggerFadeIn()
+        {
+            DialogueCameraEvent.Trigger(DialogueCameraEventType.FadeIn);
+        }
+
+        void TriggerSceneLoad(string sceneName)
+        {
+            MySceneTransitionAdditiveEvent.Trigger(
+                MySceneTransitionAdditiveEvent.MySceneTransEventType.Load, sceneName);
+        }
+
+        void TriggerSceneUnload(string sceneName)
+        {
+            MySceneTransitionAdditiveEvent.Trigger(
+                MySceneTransitionAdditiveEvent.MySceneTransEventType.Unload, sceneName);
+        }
+
+        void SetSpawnPoint(string sceneName, string spawnPointId)
+        {
+            var info = new SpawnInfo
+            {
+                SceneName = sceneName,
+                SpawnPointId = spawnPointId,
+                Mode = GameMode.FirstPerson
+            };
+
+            PlayerSpawnManager.Instance.Save(info); // writes checkpoint
+        }
+
+        IEnumerator SetLastSpawnPoint()
+        {
+            var info = PlayerSpawnManager.Instance.LastAssignedSpawn;
+
+            PlayerSpawnManager.Instance.Save(info); // writes checkpoint
+
+            yield return null;
+        }
+
+        void SaveGame()
+        {
+            SaveDataEvent.Trigger();
+            AlertEvent.Trigger(
+                AlertReason.SavingGame, "All data saved successfully!", "Saved Game",
+                alertIcon: PlayerUIManager.Instance.defaultIconRepository.saveConsoleIcon);
+        }
+
+        void StartedQuest(string questId)
+        {
+            QuestEvent.Trigger(questId, QuestEvent.QuestEventType.Started);
+        }
+
+        void CompletedQuest(string questId)
+        {
+            QuestEvent.Trigger(questId, QuestEvent.QuestEventType.Completed);
+        }
+
+        void HealPlayer(int amount)
+        {
+            var isPlayerHealthMaxed = false;
+            var statsMgr = PlayerMutableStatsManager.Instance;
+            if (statsMgr != null)
+                if (statsMgr.CurrentHealth >= statsMgr.CurrentMaxHealth - 0.5f)
+                    isPlayerHealthMaxed = true;
+
+            if (!isPlayerHealthMaxed)
+                PlayerStatsEvent.Trigger(
+                    PlayerStatsEvent.PlayerStat.CurrentHealth,
+                    PlayerStatsEvent.PlayerStatChangeType.Increase,
+                    amount);
+        }
+
+        void FastTravelToTerminal(int terminalId)
+        {
+            Debug.Log("Fast traveling to terminal with ID: " + terminalId);
+        }
+
+        // Inventory Commands
+
+        public void GivePlayerItem(string itemId, int amount = 1)
+        {
+            Debug.Log($"[Yarn] give_player_item on {name} (instanceID={GetInstanceID()}) x{amount}");
+
+            var inv = GlobalInventoryManager.Instance;
+            if (inv == null)
+            {
+                Debug.LogWarning("GlobalInventoryManager not found, cannot give item.");
+                return;
+            }
+
+            var item = inv.CreateItem(itemId); // SINGLE unit item
+            if (item == null)
+            {
+                Debug.LogWarning($"Item with ID '{itemId}' not found.");
+                return;
+            }
+
+            MMInventoryEvent.Trigger(
+                MMInventoryEventType.Pick, null,
+                item.TargetInventoryName, item, amount, 0, inv.playerId);
+        }
+
+
+        // Progression Commands
+        // void TriggerStatUpgrade(int typeId)
+        // {
+        //     if (typeId < 0 || typeId >= Enum.GetValues(typeof(StatType)).Length)
+        //     {
+        //         Debug.LogWarning($"Invalid StatType id: {typeId}");
+        //         return;
+        //     }
+        //
+        //     var statType = (StatType)typeId;
+        //
+        //     SpendStatUpgradeEvent.Trigger(statType);
+        // }
+
+        void TriggerPlayerSetsClass(int classId)
+        {
+            if (classId < 1 || classId >= LevelingManager.Instance.availablePresetClasses.Length)
+            {
+                Debug.LogWarning($"Invalid class id: {classId}");
+                return;
+            }
+
+            PlayerSetsClassEvent.Trigger(classId);
+        }
+
+        void TriggerPlayerIncrementAttribute(int attributeId)
+        {
+            if (attributeId < 0 || attributeId > 4)
+            {
+                Debug.LogWarning($"Invalid AttributeType id: {attributeId}");
+                return;
+            }
+
+            var attributeType = (AttributeType)attributeId;
+
+            IncrementAttributeEvent.Trigger(attributeType);
+        }
+
+        // Change Environment Commands
+
+        void UnlockDoor(string uniqueId)
+        {
+            DoorEvent.Trigger(uniqueId, DoorEventType.Unlock);
+        }
+
+        // Dialogue Gestures
+
+
+        public void TriggerGesture(string npcId, string key)
+        {
+            // Find NPC by id in the scene
+            if (characterNPCRoot == null)
+            {
+                Debug.LogError($"NPC '{npcId}' not found in scene.");
+                return;
+            }
+
+            var helper = characterNPCRoot.GetComponentInChildren<NPCCharacterAnimancerHelper>();
+
+            if (helper == null) return;
+
+            helper.PlayGesture(key);
+        }
+
+        public void SwitchIdleLoopingAnimation(string npcId, string key)
+        {
+            // Find NPC by id in the scene
+            if (characterNPCRoot == null)
+            {
+                Debug.LogError($"NPC '{npcId}' not found in scene.");
+                return;
+            }
+
+            var helper = characterNPCRoot.GetComponentInChildren<NPCCharacterAnimancerHelper>();
+
+            if (helper == null) return;
+
+            helper.SwitchIdleLoopingAnimation(key);
+        }
+
+        // ----------- Objectives commands ----------
+
+        public void AddObjective(string objectiveId)
+        {
+            var objMgr = ObjectivesManager.Instance;
+            if (objMgr == null)
+            {
+                Debug.LogWarning("ObjectivesManager not found, cannot add objective.");
+                return;
+            }
+
+            var obj = objMgr.GetObjectiveById(objectiveId);
+            if (obj == null)
+            {
+                Debug.LogWarning($"Objective with ID '{objectiveId}' not found.");
+                return;
+            }
+
+            ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.ObjectiveAdded);
+            AlertEvent.Trigger(AlertReason.NewObjective, obj.objectiveText, obj.objectiveId);
+        }
+
+        public void ActivateObjective(string objectiveId)
+        {
+            var objMgr = ObjectivesManager.Instance;
+            if (objMgr == null)
+            {
+                Debug.LogWarning("ObjectivesManager not found, cannot add objective.");
+                return;
+            }
+
+            var obj = objMgr.GetObjectiveById(objectiveId);
+            if (obj == null)
+            {
+                Debug.LogWarning($"Objective with ID '{objectiveId}' not found.");
+                return;
+            }
+
+            ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.ObjectiveActivated);
+            AlertEvent.Trigger(AlertReason.NewObjective, obj.objectiveText, obj.objectiveId);
+        }
+
+        public void MakeObjectiveInactive(string objectiveId)
+        {
+            var objMgr = ObjectivesManager.Instance;
+            if (objMgr == null)
+            {
+                Debug.LogWarning("ObjectivesManager not found, cannot add objective.");
+                return;
+            }
+
+            var obj = objMgr.GetObjectiveById(objectiveId);
+            if (obj == null)
+            {
+                Debug.LogWarning($"Objective with ID '{objectiveId}' not found.");
+                return;
+            }
+
+            ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.ObjectiveDeactivated);
+        }
+
+        public void MarkPOIAsHavingNewContent(string uniqueID)
+        {
+            GamePOIEvent.Trigger(uniqueID, GamePOIEventType.POIMarkedAsHavingNewContent, null);
+        }
+
+        public void CompleteObjective(string objectiveId)
+        {
+            var objMgr = ObjectivesManager.Instance;
+            if (objMgr == null)
+            {
+                Debug.LogWarning("ObjectivesManager not found, cannot complete objective.");
+                return;
+            }
+
+            var obj = objMgr.GetObjectiveById(objectiveId);
+            if (obj == null)
+            {
+                Debug.LogWarning($"Objective with ID '{objectiveId}' not found.");
+                return;
+            }
+
+            ObjectiveEvent.Trigger(objectiveId, ObjectiveEventType.ObjectiveCompleted);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+title: NimesisPermission
+---
+Flora Nimesis: Yes?
+<<if has_started_quest("ZinniasCure")>>
+    -> I met Zinnia at the hot springs. She has a cure for the blight. I ask your permission to take two of your sap sacs.
+        Flora Nimesis: Yes..... I received her..... coupling chatter. Granted, human.
+        -> Thank you, tree, sir.
+        Flora Nimesis: .....
+<<endif>>
+-> I greet you, tree.
+    Flora Nimesis: .....
+===
+
+
+title: NimesisWithoutPermission
+---
+Flora Nimensis: Begone, thief. [Releases a noxious poison]
+===

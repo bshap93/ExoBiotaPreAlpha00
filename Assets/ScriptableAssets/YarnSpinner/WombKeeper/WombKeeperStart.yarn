@@ -1,0 +1,158 @@
+title: WombKeeperStart
+position: -111,-622
+---
+<<if !has_npc_been_contacted("WombKeeper")>>
+    <<make_contact_with_npc "WombKeeper">>
+    <<jump WombKeeperDialogue01>>
+<<else>>
+   <<jump WombKeeperStartAgain>> 
+<<endif>>
+===
+
+title: WombKeeperStartAgain
+color: blue
+position: 151,-489
+---
+Womb Keeper: Yes, what is it?
+-> I had a question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> [Leave]
+
+
+===
+
+title: WombKeeperDialogue01
+position: -387,-450
+---
+Womb Keeper: Good, you're awake.
+-> Awake?
+Womb Keeper: You're not dreaming.
+-> This is a nightmare. [Desperate to wake up, you thrust fingers into your eyes.]
+-> [Try to Leave]
+    <<jump WombKeeperSaysBye>>
+<<wait 1.5>>
+Womb Keeper: What are you doing?
+-> I don't remember how I got here.
+    Womb Keeper: Understandable. 
+    <<jump WombKeeperDialogue01A_QA>>
+-> I had another question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> [Leave]
+===
+
+
+title: WombKeeperDialogue01A_QA
+position: -108,-349
+---
+-> Just what the hell did you do to me?
+    <<jump WombKeeperDialogue03A>>
+-> What is this place?
+    <<jump WombKeeperDialogue02B>>
+-> Where should I go?
+    <<jump AndWhereShouldIGo>>
+-> [Leave]
+===
+
+title: WombKeeperDialogue02B
+position: -387,119
+---
+Womb Keeper: This is a womb. Motile formerly of my Pod, left me with a heap of damaged flesh. Our arrangement.
+Womb Keeper: I rebuild with what I'm left. You are brand new. I give you another chance to Be.
+<<jump WombKeeperDialogue02B_QA>>
+===
+
+title: WombKeeperDialogue02B_QA
+---
+-> Who left me here? 
+    Womb Keeper: An motile of the Kin. One of the Motiles from the mines.
+    -> I better get going.
+    -> I had another question.
+        <<jump WombKeeperDialogue01A_QA>>
+    -> The Kin. I remember hearing the word. What can you tell me about them?
+        <<jump AskedAboutTheKin>>
+-> Why was I left here?
+    Womb Keeper: You were... broken. Components disordered.
+    -> Ok, well, I appreciate the aid. If you really saved my life, I guess I should be grateful.
+        Womb Keeper: No need.
+        <<jump WombKeeperDialogue02B_QA>>
+    -> How did you know how to repair me?
+        <<jump WombKeeperDialogue02C>>
+-> I had another question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> I should go.
+===
+
+title: AskedAboutTheKin
+position: 283,6
+---
+Womb Keeper: My role is not to dispense information. I am but a Keeper of Wombs for the broken of body.
+<<jump WombKeeperDialogue02B_QA>>
+===
+
+title: WombKeeperDialogue02C
+position: -297,529
+---
+Womb Keeper: I did my best. You'll have to forgive me if things are arranged differently than you remember.
+<<jump WombKeeperDialogue02B_QA>>
+===
+
+title: WombKeeperDialogue03A
+position: 769,36
+---
+Womb Keeper: Please do not strain yourself. All of our changes are to better prepare you. We have made major changes to your brain. Your long term memory needs time to adjust to its new layout.
+<<jump WombKeeperDialogue03A_QA>>
+===
+
+title: WombKeeperDialogue03A_QA
+---
+-> Prepare me for what?
+    Womb Keeper: For your situation. While our changes have saved your life, your own people cannot allow you to return. They would not risk it.
+    Womb Keeper: Nor will the Kin, despite the changes being implemented with Kin bioengineering. The precedent for your situation is known to us. Most join a community of hybrids within the confines of the Midsheol sector.
+    Womb Keeper: You are free to go. The decision of where to live out your life is yours to make.
+    Womb Keeper: I have prepared you to live in Midsheol, the buffer between our peoples. I am likewise outcast, and I am not insensitive to your plight. I am not a slaver, and at least I shall turn you loose.
+    Womb Keeper: I have installed basic systems you will need. Communication hardware to replace your spoken word. And you're prepared to receive injections that will grant you Biotic abilities. 
+    Womb Keeper: They will help you survive Midsheol.
+    -> You removed my vocal cords? And what else?
+    Womb Keeper: Input shunt, broadcasting apparatus. Biotic sequencing Codex installed. Alias lookup: enabled. Vocal cords: removed. Emotional content streamlined. You will want to visit the terminal of this clinic.
+    Womb Keeper: I have sent over all these details, and it will finalize your release documentation. I did my best, but we'll want to double check that your competencies (Character Attributes) are set to your liking.
+    <<jump WombKeeperDialogue02B_QA>>
+-> [Leave]
+===
+
+title: WombKeeperDialogue03B_QA
+position: 731,367
+---
+-> Where are these thralls now?
+    Womb Keeper: Not needed. Served their purpose. Back to mines, most of them.
+    <<jump WombKeeperDialogue03B_QA>>
+-> Your squire?
+    Womb Keeper: Yes, my squire. It's on the other side of the room. Speak with it if you wish.
+    <<jump WombKeeperDialogue03B_QA>>
+-> What are you going to do with me?
+    Womb Keeper: You must leave my Keeping now. You may not become a thrall. The Kindred Choir was clear on this.
+    -> What is the Kindred Choir?
+        <<jump AskedAboutTheKin>>
+    -> And go where? I don't know these caverns.
+        <<jump AndWhereShouldIGo>>
+-> I had another question.
+    <<jump WombKeeperDialogue02B_QA>>
+-> Ok, goodbye.
+===
+
+title: AndWhereShouldIGo
+---
+Womb Keeper: You'll see navigation terminals as you travel around Ashpool Springs.
+Womb Keeper: I'd suggest you visit the Hot Springs to the north. They have powerful healing properties. Or head down to the old chapel on the next level down. 
+Womb Keeper: These are safe places where you can rest at least, and you may find others who can help you further.
+-> I had another question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> [Leave]
+===
+
+title: WombKeeperSaysBye
+---
+Womb Keeper: Go then, child. You are welcome to the supplies in this room.
+-> And go where? I don't know these caverns.
+    <<jump AndWhereShouldIGo>>
+-> [Leave]
+===

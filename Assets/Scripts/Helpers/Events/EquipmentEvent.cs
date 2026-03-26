@@ -1,0 +1,31 @@
+﻿using System;
+using FirstPersonPlayer.Tools;
+using MoreMountains.Tools;
+
+namespace Domains.Gameplay.Equipment.Events
+{
+    [Serializable]
+    public enum EquipmentEventType
+    {
+        ChangeToEquipment,
+        PickupEquipment,
+        UseEquipment
+    }
+
+    public struct EquipmentEvent
+    {
+        private static EquipmentEvent _e;
+
+        public ToolType ToolType;
+        public EquipmentEventType EventType;
+
+
+        public static void Trigger(EquipmentEventType eventType, ToolType toolType
+        )
+        {
+            _e.EventType = eventType;
+            _e.ToolType = toolType;
+            MMEventManager.TriggerEvent(_e);
+        }
+    }
+}

@@ -1,0 +1,297 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &268298222267536672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4656848079579804873}
+  m_Layer: 0
+  m_Name: RefTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4656848079579804873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268298222267536672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5153846694469286728}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4418317291651486886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1006273305560874863}
+  m_Layer: 0
+  m_Name: Destinations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1006273305560874863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418317291651486886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6855558295228402686}
+  - {fileID: 7946569671705368718}
+  m_Father: {fileID: 6511518562546706891}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4843034561473032005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7946569671705368718}
+  m_Layer: 0
+  m_Name: FormerKinshipMineL1
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7946569671705368718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4843034561473032005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -457.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006273305560874863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6461775463946700411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6855558295228402686}
+  m_Layer: 0
+  m_Name: AshpoolSpringsL2
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6855558295228402686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6461775463946700411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1006273305560874863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8617101892807719653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6511518562546706891}
+  - component: {fileID: 6043832801277552674}
+  - component: {fileID: 5943447989977639568}
+  m_Layer: 0
+  m_Name: ElevatorSystem01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6511518562546706891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617101892807719653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.16693944, y: 0.16693944, z: 0.16693944}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5153846694469286728}
+  - {fileID: 1006273305560874863}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6043832801277552674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617101892807719653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af2703ba523327488d4e84caf3389fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: ElevatorSystem01
+  elevatorCabin: {fileID: 5153846694469286728}
+  elevatorDestinations:
+  - destinationID: AshpoolSpringsL2
+    destinationName: Ashpool Springs L2
+    destinationTransform: {fileID: 6855558295228402686}
+  - destinationID: FormerKinshipMineL1
+    destinationName: Former Kinship Mine
+    destinationTransform: {fileID: 7946569671705368718}
+  moveSpeed: 4
+  easeIn: 2
+  easeOut: 3
+  departureFeedbacks: {fileID: 0}
+  arrivalFeedbacks: {fileID: 0}
+--- !u!114 &5943447989977639568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617101892807719653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598c3fa77be74154b2f414832d0a2d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.TeleportPlayer
+  referenceTransform: {fileID: 4656848079579804873}
+  rotate: 0
+  rotationMode: 0
+  teleport: 0
+  teleportTarget: {fileID: 0}
+  upDirectionReferenceMode: 1
+  verticalAlignmentReference: {fileID: 0}
+--- !u!1001 &7813662950562025409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6511518562546706891}
+    m_Modifications:
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640103759797203559, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: targetID
+      value: 82ca039e-5663-4de5-97c9-8efbc638b015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819505769558164631, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: m_Name
+      value: DeepTerrariumElevator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317059475877835899, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: uniqueID
+      value: dde65b9c-94f0-41fa-957f-e84c915e0c07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317059475877835899, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      propertyPath: defaultStartNode
+      value: ElevatorSystemServer01Switch
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4656848079579804873}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+--- !u!4 &5153846694469286728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3164219974047298697, guid: 78abe412c7265954e94f19beb558a4e7, type: 3}
+  m_PrefabInstance: {fileID: 7813662950562025409}
+  m_PrefabAsset: {fileID: 0}

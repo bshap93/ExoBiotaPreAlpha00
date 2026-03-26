@@ -1,0 +1,17 @@
+title: HumanGateNavHelpStartArea
+---
+Navigation Terminal: How can I assist you, traveller?
+<<jump HumanGateNavHelpStartArea_QA>>
+===
+
+title: HumanGateNavHelpStartArea_QA
+---
+-> What is this?
+    Navigation Terminal: You are standing at the northern gate of Human Territory in the Midsheol region.
+    Navigation Terminal: To the North is the Midsheol demilitarized zone and beyond, the federation of Kinship fiefdoms.
+    <<jump HumanGateNavHelpStartArea_QA>>
+-> Can I get through to the south? I remember now... everyone that matters to me are through that gate.
+    Navigation Terminal: This gate is impassable. Estimated time: Indefinite, no specific time given.
+    <<jump HumanGateNavHelpStartArea_QA>>
+-> [Leave]
+===

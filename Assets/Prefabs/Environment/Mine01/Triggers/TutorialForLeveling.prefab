@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &50339093978788081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4209025182252196799}
+  - component: {fileID: 4669438458230108505}
+  - component: {fileID: 5400407001315333748}
+  m_Layer: 20
+  m_Name: TutorialForLeveling
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4209025182252196799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50339093978788081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.36, y: 0, z: -17.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4669438458230108505
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50339093978788081}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.65, y: 3.76, z: 6.98}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5400407001315333748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50339093978788081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03d7fe7f5d74f09bf74b770778e2e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionId: 43
+  OfferOptionalTutorialBit: 1
+  objectiveToStartOnBoop: {fileID: 0}
+  newControlPromptFeedbacks: {fileID: 0}
+  tutorialBit: {fileID: 11400000, guid: 870438475fd0a5b4b974e490e7da9ed3, type: 2}
+  triggerType: 2
+  tutorialType: 1
+  uniqueID: 523234be-cd9b-416d-8aaf-751f0b18f9f7
+  prePromptTextOverride: Interact
+  postPromptTextOverride: Level Your Attributes
+  canBeBooped: 1
+  ifNotBoopedStartObjectiveOnLeave: 0
+  objectiveToBecomeActive: 1
+  setNotTriggerableOnExit: 1
+  startDisabled: 0
