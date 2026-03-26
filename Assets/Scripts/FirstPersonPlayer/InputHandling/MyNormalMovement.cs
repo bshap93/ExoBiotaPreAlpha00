@@ -40,6 +40,9 @@ namespace FirstPersonPlayer.InputHandling
         PlayerMutableStatsManager playerMutableStatsManager;
         [SerializeField] AttributesManager attributesManager;
 
+        int _toughness;
+        
+
 
         [FormerlySerializedAs("animancerRightArmController")]
         public AnimancerArmController animancerArmController;
@@ -91,6 +94,7 @@ namespace FirstPersonPlayer.InputHandling
         // Add these new fields for fall damage
         [Header("Fall Damage")] [SerializeField]
         protected bool enableFallDamage = true;
+        [SerializeField] protected float increasedMinFallDmgSpdPerToughness = 1.25f; 
 
         [SerializeField] protected float minimumFallDamageSpeed = 10f;
         [SerializeField] protected float fallDamageMultiplier = 1f;
@@ -191,6 +195,8 @@ namespace FirstPersonPlayer.InputHandling
 
             playerMutableStatsManager = PlayerMutableStatsManager.Instance;
             attributesManager = AttributesManager.Instance;
+
+            _toughness = attributesManager != null ? attributesManager.Toughness : 1;
         }
 
         protected virtual void OnEnable()
@@ -637,8 +643,11 @@ namespace FirstPersonPlayer.InputHandling
         // New method to handle fall damage
         protected virtual void HandleFallDamage()
         {
+            var toughness = attributesManager.Toughness;
+            var workingMinimumFallDamageSpeed =
+                minimumFallDamageSpeed + (toughness * increasedMinFallDmgSpdPerToughness);
             var percentHardnessOfLanding = Mathf.InverseLerp(
-                minimumFallDamageSpeed, minimumFallDamageSpeed + 20f, maxFallSpeed);
+                workingMinimumFallDamageSpeed, minimumFallDamageSpeed + 20f, maxFallSpeed);
 
             if (percentHardnessOfLanding < 0.25f)
                 softLandingFeedbacks?.PlayFeedbacks();

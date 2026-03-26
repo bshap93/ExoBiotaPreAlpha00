@@ -466,6 +466,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -487,9 +489,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -1701,6 +1705,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1722,9 +1728,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -1866,10 +1874,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5639421338744234871}
+  - component: {fileID: 2402009870291825274}
   - component: {fileID: 5316928896453471449}
   - component: {fileID: 3723521058952038727}
   - component: {fileID: 9068458151603393025}
-  - component: {fileID: 2402009870291825274}
+  - component: {fileID: 1047928539981876285}
   m_Layer: 0
   m_Name: TranslucentFlier
   m_TagString: Untagged
@@ -1885,9 +1894,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974489090195716557}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071058, y: -0, z: -0, w: 0.7071078}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.0874605, z: -1.2223321}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 14.615444, y: 14.615443, z: 14.615443}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7445745084296280073}
@@ -1895,6 +1904,60 @@ Transform:
   - {fileID: 6592263350194907050}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2402009870291825274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974489090195716557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1477a350ad141da971bc5d0533eb30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: eb310d68-e62e-4042-a810-713b88683111
+  extractableInteractable: {fileID: 0}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 0}
+  highlightEffectController: {fileID: 0}
+  blackboard: {fileID: 9068458151603393025}
+  fsmOwner: {fileID: 1047928539981876285}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
+  creatureType: {fileID: 11400000, guid: 74975812759ea4b499f1ba9817002870, type: 2}
+  animancerComponent: {fileID: 3723521058952038727}
+  initialCreatureInitializationState: 0
+  feedbacksContainer: {fileID: 0}
+  deathFeedbacks: {fileID: 0}
+  curedOrPlacatedFeedbacks: {fileID: 0}
+  critDamageFeedbacks: {fileID: 0}
+  meleeHitFeedbacksBasic: {fileID: 0}
+  rangedHitFeedbacksBasic: {fileID: 0}
+  meleeHitFeedbacksHeavy: {fileID: 0}
+  rangedHitFeedbacksHeavy: {fileID: 0}
+  placatedFeedbacks: {fileID: 0}
+  cannotBeAttacked: 0
+  startAsActivated: 0
+  destroyAfterDeath: 1
+  doesNotImmediatelyNeedToMove: 0
+  appearsOnlyOnce: 0
+  secondsBeforeSettingShouldBeDestroyed: 5
+  deathDelay: 1
+  attackCount: 1
+  attackInstances: []
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
+  isStunned: 0
+  isPlacated: 0
+  currentStunDamage: 0
+  currentHealth: 0
+  navMeshAgent: {fileID: 0}
+  creatureCallFeedbacks: {fileID: 0}
+  minCallDelay: 10
+  maxCallDelay: 15
 --- !u!95 &5316928896453471449
 Animator:
   serializedVersion: 7
@@ -1948,7 +2011,7 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
   _serializedVariables: []
---- !u!114 &2402009870291825274
+--- !u!114 &1047928539981876285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1957,38 +2020,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4974489090195716557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1477a350ad141da971bc5d0533eb30b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  isDead: 0
-  uniqueID: 
-  blackboard: {fileID: 9068458151603393025}
-  animancerComponent: {fileID: 0}
-  fsmOwner: {fileID: 0}
-  feedbacksContainer: {fileID: 0}
-  creatureType: {fileID: 0}
-  initialCreatureState: 0
-  deathFeedbacks: {fileID: 0}
-  critDamageFeedbacks: {fileID: 0}
-  meleeHitFeedbacksBasic: {fileID: 0}
-  rangedHitFeedbacksBasic: {fileID: 0}
-  meleeHitFeedbacksHeavy: {fileID: 0}
-  rangedHitFeedbacksHeavy: {fileID: 0}
-  secondsBeforeSettingShouldBeDestroyed: 5
-  currentHealth: 0
-  attackCount: 1
-  attackInstances: []
-  currentStunDamage: 0
-  highlightEffect: {fileID: 0}
-  startAsActivated: 0
-  isStunned: 0
-  destroyAfterDeath: 1
-  doesNotImmediatelyNeedToMove: 0
-  appearsOnlyOnce: 0
-  navMeshAgent: {fileID: 0}
-  creatureCallFeedbacks: {fileID: 0}
-  minCallDelay: 10
-  maxCallDelay: 15
+  m_EditorClassIdentifier: NodeCanvas::NodeCanvas.StateMachines.FSMOwner
+  _serializedExposedParameters: []
+  _boundGraphSerialization: 
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 0
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 9068458151603393025}
 --- !u!1 &5075327044515194016
 GameObject:
   m_ObjectHideFlags: 0
