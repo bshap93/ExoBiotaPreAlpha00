@@ -35951,17 +35951,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f5af975cf4e10b7ec39e864108c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
-  isBeingAttacked: 0
   uniqueID: 
   extractableInteractable: {fileID: 11400000, guid: 5895cacb716c43b4c9d2670d07ebec27, type: 2}
   callDeathFeedbacksFromBTree: 1
+  highlightEffect: {fileID: 8850704384962898016}
+  highlightEffectController: {fileID: 2874101695742056311}
   blackboard: {fileID: 8186520416854581904}
-  animancerComponent: {fileID: 1249105507125993604}
   fsmOwner: {fileID: 5604256302807840470}
-  feedbacksContainer: {fileID: 7177137562362257556}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 09d97daa6c64fae43b01aaa60de8e772, type: 2}
+  animancerComponent: {fileID: 1249105507125993604}
   initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 7177137562362257556}
   deathFeedbacks: {fileID: 353043788779662375}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 7086873220959884227}
@@ -35971,10 +35973,12 @@ MonoBehaviour:
   rangedHitFeedbacksHeavy: {fileID: 9022412224681212674}
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
+  startAsActivated: 0
+  destroyAfterDeath: 0
+  doesNotImmediatelyNeedToMove: 0
+  appearsOnlyOnce: 0
   secondsBeforeSettingShouldBeDestroyed: 5
-  wasHit: 0
-  wasHitHeavy: 0
-  currentHealth: 5
+  deathDelay: 2
   attackCount: 2
   attackInstances:
   - attackName: Single Jab
@@ -35998,23 +36002,21 @@ MonoBehaviour:
     attackDuration: 0.7
     attackHitbox: {fileID: 8547879107913019131}
     leadupTime: 0.1
-  currentStunDamage: 0
-  highlightEffect: {fileID: 8850704384962898016}
-  highlightEffectController: {fileID: 2874101695742056311}
-  startAsActivated: 0
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
   isStunned: 0
   isPlacated: 0
-  destroyAfterDeath: 0
-  deathDelay: 2
-  doesNotImmediatelyNeedToMove: 0
-  appearsOnlyOnce: 0
+  currentStunDamage: 0
+  currentHealth: 70
   navMeshAgent: {fileID: 4910336818156672049}
   movementSpeedThreshold: 0.05
+  walkRunThreshold: 2
   hasRangedAttack: 0
   rangedAttackOrigin: {fileID: 0}
   onDeathLayer: 8
   doNotUseIdleState: 0
-  walkRunThreshold: 2
   movementLoopFeedbacks: {fileID: 8523868604088296807}
   deathParticlesDustPrefab: {fileID: 0}
 --- !u!114 &5604256302807840470
@@ -39639,6 +39641,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3390486137982965793}
     m_Modifications:
+    - target: {fileID: 233375316041558884, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
+      propertyPath: managedReferences[5443895865979175189].Active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 233375316041558884, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
       propertyPath: managedReferences[1878854373076107348].AudioGroup
       value: 
