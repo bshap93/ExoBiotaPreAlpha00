@@ -70,6 +70,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         public int actionId;
 
         SceneObjectData _sceneObjectData;
+
+
         protected AlienNPCState CurrentState;
         protected override void Start()
         {
@@ -173,6 +175,23 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         }
         public void OnUnfocus()
         {
+        }
+
+        protected override void SetupAnimationStates()
+        {
+            // AlienNPCAnimancerController owns idle animation events.
+            // Only set up move state here to avoid ownership conflicts.
+            if (doesNotImmediatelyNeedToMove) return;
+            if (creatureType.animationSet?.moveAnimation == null) return;
+
+            MoveState = animancerComponent.States.GetOrCreate(creatureType.animationSet.moveAnimation);
+            MoveState.Speed = creatureType.animationSet.moveAnimationSpeedMultiplier;
+            MoveState.Time = 0f;
+            MoveState.Events(this).OnEnd = () =>
+            {
+                MoveState.Time = 0f;
+                MoveState.Speed = 1f;
+            };
         }
         void DetermineLanguage()
         {

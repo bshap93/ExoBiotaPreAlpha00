@@ -427,7 +427,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             // highlightEffect.profile = extractableInteractable;
             highlightEffect.ProfileLoad(extractableInteractable);
         }
-        protected void SetupAnimationStates()
+        protected virtual void SetupAnimationStates()
         {
             // Pre-load looping animation states
             if (creatureType.animationSet != null)

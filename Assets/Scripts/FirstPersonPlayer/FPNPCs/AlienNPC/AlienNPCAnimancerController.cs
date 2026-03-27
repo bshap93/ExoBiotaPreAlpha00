@@ -65,6 +65,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             for (var i = 0; i < alienIdleAnimations.Length; i++)
             {
                 var state = animancerComponent.States.GetOrCreate(alienIdleAnimations[i].animationClip);
+                // state.Events(this).Clear();
                 var capturedNext = alienIdleAnimations[(i + 1) % alienIdleAnimations.Length];
                 state.Events(this).OnEnd = () => animancerComponent.Play(capturedNext.animationClip);
             }
@@ -87,6 +88,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             {
                 var clip = alienWorkingAnimations[i];
                 var state = animancerComponent.States.GetOrCreate(clip.animationClip);
+                // state.Events(this).Clear();
                 var capturedNext = alienWorkingAnimations[(i + 1) % alienWorkingAnimations.Length];
                 state.Events(this).OnEnd = () => animancerComponent.Play(capturedNext.animationClip);
             }

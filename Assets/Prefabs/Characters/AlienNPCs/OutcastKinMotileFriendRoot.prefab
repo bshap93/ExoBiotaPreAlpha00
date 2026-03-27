@@ -1889,17 +1889,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d587ea0930b47baa39930eebdd6823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: 
+  uniqueID: 32085cdc-9fba-47b6-bfb6-0024a7b4d978
   extractableInteractable: {fileID: 0}
   callDeathFeedbacksFromBTree: 0
   highlightEffect: {fileID: 1074621798047154189}
   highlightEffectController: {fileID: 483900236827536896}
   blackboard: {fileID: 48232060455368387}
   fsmOwner: {fileID: 0}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: a469d0c89b171eb40abdd3321011b57d, type: 2}
   animancerComponent: {fileID: 2414997357839257442}
   initialCreatureInitializationState: 1
-  feedbacksContainer: {fileID: 0}
+  feedbacksContainer: {fileID: 6979786009237073335}
   deathFeedbacks: {fileID: 0}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
@@ -1969,13 +1971,6 @@ MonoBehaviour:
   - doubleAction: 0
     actionId: 03
     animationClip: {fileID: -3548273549459496330, guid: 512e2ee199d510c4588b28b6f95446da, type: 3}
-    audioClipList: []
-    audioDelay: 0
-    feedbacks: {fileID: 0}
-    audioDelaySecondClip: 0
-  - doubleAction: 0
-    actionId: 04
-    animationClip: {fileID: -7095233583796928237, guid: 285edbde9b4b2ee4399d714d24439210, type: 3}
     audioClipList: []
     audioDelay: 0
     feedbacks: {fileID: 0}
@@ -2808,6 +2803,37 @@ Transform:
   - {fileID: 2502075720536615687}
   m_Father: {fileID: 5390334852961475244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6979786009237073335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6078017643952035744}
+  m_Layer: 20
+  m_Name: Feedbacks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6078017643952035744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979786009237073335}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4680881352672684072}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6989366378202453663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,6 +3283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8018950610216024406}
+  - {fileID: 6078017643952035744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -1.734, z: 0}
 --- !u!114 &1074621798047154189
@@ -3502,7 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0986de822ecb4835bfb249feaeb7996f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 
+  targetID: 80cb725c-c4d1-4d76-8586-5a455087568a
   seeThroughDuration: 5
   onScanned:
     m_PersistentCalls:
