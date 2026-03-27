@@ -55,10 +55,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         [FormerlySerializedAs("owner")] [SerializeField]
         protected
             FSMOwner fsmOwner;
-        
-        [SerializeField] protected bool isInitiallyHostile;
 
-        public bool IsHostile { get; protected set; }
+        [SerializeField] protected bool isInitiallyHostile;
 
         public string[] uniqueIdOfFriends;
 
@@ -134,6 +132,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
 
         protected bool IsActivated;
         protected AnimancerState MoveState;
+
+        public bool IsHostile { get; protected set; }
 
         public bool ShouldDeactivateUponPlayerLeavingArea => creatureType.shouldDeactivateWhenPlayerLeavesImmediateArea;
 
@@ -474,7 +474,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             if (fsmOwner != null)
                 fsmOwner.enabled = true;
 
-            feedbacksContainer.SetActive(true);
+            feedbacksContainer?.SetActive(true);
             SetupAnimationStates();
 
 
@@ -492,7 +492,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             if (fsmOwner != null)
                 fsmOwner.enabled = false;
 
-            feedbacksContainer.SetActive(false);
+            feedbacksContainer?.SetActive(false);
             DisableAnimationStates();
         }
 

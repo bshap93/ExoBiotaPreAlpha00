@@ -19,7 +19,7 @@ color: yellow
 title: ZinniaPlacatedStartNode
 ---
 Zinnia: Thank you for this. How can I repay you? I shall leave these hot springs now, and tend my folk who still live.
-Zinnia: Come see me at the Outcast Chapel. I shall soon re-open my apothecary practice, and be able to properly reward you, as I've little to give at the moment.
+Zinnia: Come see me at the Hylic's Chapel. I shall soon re-open my apothecary practice, and be able to properly reward you, as I've little to give at the moment.
 Zinnia: I wish to provide anything needed to keep you alive, now that I see the good in you, friend.
 ===
 
@@ -27,11 +27,11 @@ title: QuestionsForZinniaSwitch
 color: green
 position: -247,-185
 ---
--> I'm surprised to be communicating telepathically with you. I did not know I could with those not of the Kin.
+-> I'm surprised you didn't attack me like others of your kind.
     <<jump ZinniaExplainsOurFirstQuestion>>
 -> I had another question.
     <<jump ZinniaExplainsOurFirstQuestion_QA>>
--> I should go. 
+-> [Leave]
 ===
 
 title: QuestionsForZinniaSwitchAfterAgreeingToQuest
@@ -42,7 +42,7 @@ position: -247,-185
     <<jump ZinniaRemindsUsWhatToDoForCure>>
 -> I had another question.
     <<jump ZinniaExplainsOurFirstQuestion_QA>>
--> I should go. 
+-> [Leave]
 ===
 
 title: ZinniaRemindsUsWhatToDoForCure
@@ -61,7 +61,7 @@ title: ZinniaExplainsOurFirstQuestion_QA
 position: 101,-310
 ---
 -> Why are you friendly while others of your kind are hostile?
-    Zinnia: I am a healthy Phytoid. However, many of my Sisters are sick. An infection protein engineered by the Kin causes their violent agitation.
+    Zinnia: Many of my Sisters are sick. An pathogen engineered by the Keepers causes their violent agitation.
     Zinnia: These springs provide me with protection, so long as I remain. 
     <<jump ZinniaExplainsWeedOutlook>>
 -> I had other questions.
@@ -77,10 +77,9 @@ position: 0,0
 -> Have you tried using the water to heal them?
     <<jump ZinniaTalksAboutHealingSisters>>
 -> Why would they create a weapon like that? Try to commit genocide? 
-    Zinnia: They see us as weeds in the cracks of their civilization. They deny our sentience and right to dignity.
-    Zinnia: The blighted sisters' blind fury stems started as justified outrage toward the Kin. But their fate is too terrible.
-    Zinnia: The blight keeps them in that fury even after they forget that initial reasoned outrage. 
-    Zinnia: Unable to attack the very beings of their ire, as it was designed by the Kin's iniquitous gene engineers. 
+    Zinnia: They cull or even totally annihilate peoples they deem 'Undesirable', releasing genetic pathogens they fabricate in their bio-labs.
+    Zinnia: The affected Phytoids lash out in their delirium and anger. However, the Keepers' pathogens are directed and precise. 
+    Zinnia: We're a simple people. There isn't much we can do to defend against such terrible weapons.
     <<jump ZinniaExplainsOurFirstQuestion_QA>>
 -> I had other questions.
     <<jump ZinniaExplainsOurFirstQuestion_QA>>
@@ -90,8 +89,9 @@ position: 0,0
 title: ZinniaTalksAboutHealingSisters
 position: 257,-9
 ---
-Zinnia: Yes. Alas the water is innoculation, but not cure. But I have not been idle. I have been working on a treatment.
-Zinnia: However, I cannot leave these hotsprings. I'd get sick myself before I could help them. 
+Zinnia: Yes. Alas these waters are like an innoculation, but only as long as one stays in them. I have been stranded here, but not idle. 
+Zinnia: We Phytoids have had to adapt. I have been working on a treatment.
+Zinnia: However, I cannot leave these hot springs for long. I'd get sick myself before I could help any of my sisters.
 -> Maybe I could help.
     <<jump ZinniaPlayerAsksIfCanHelp>>
 -> That's too bad. 
@@ -118,8 +118,7 @@ Zinnia: My primer serum is in my work shed. You may take it if you like. Maybe s
 title: ZinniaIsSentient
 position: 437,-328
 ---
-Zinnia: Aye. We were in these caves before the Kin ever delved and descended, having destroyed the surface.
-Zinnia: They came down and continue in their destructive behavior. They invented the blight. See us as pests, they do.
-Zinnia: We used to be peaceful. Those of us unaffected still are.
+Zinnia: Aye. We were in these caves in the time before the Scalding forced the Kin underground. They brought their destructive behavior with them.
+Zinnia: They wield their inborn genetic engineering prowess to terrible effect, for any beings they deem to be pests, or resistant to their dominion.
 <<jump QuestionsForZinniaSwitch>>
 ===

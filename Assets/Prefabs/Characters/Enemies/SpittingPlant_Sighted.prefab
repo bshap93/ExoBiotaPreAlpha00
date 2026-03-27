@@ -1553,14 +1553,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c176060899845a299fadcaa7fbf28f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
   uniqueID: 
+  extractableInteractable: {fileID: 0}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 3803317909367998791}
+  highlightEffectController: {fileID: 5397269726235144244}
   blackboard: {fileID: 550776866176231813}
-  animancerComponent: {fileID: 3942531856528428783}
   fsmOwner: {fileID: 8725993989854234321}
-  feedbacksContainer: {fileID: 7089188422842046467}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 022d43d68b520a048a037a9e43eec4c8, type: 2}
+  animancerComponent: {fileID: 3942531856528428783}
   initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 7089188422842046467}
   deathFeedbacks: {fileID: 8492674675664019821}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 8368937230738350371}
@@ -1570,20 +1575,22 @@ MonoBehaviour:
   rangedHitFeedbacksHeavy: {fileID: 8368937230738350371}
   placatedFeedbacks: {fileID: 5394226578277119422}
   cannotBeAttacked: 0
-  secondsBeforeSettingShouldBeDestroyed: 5
-  currentHealth: 50
-  attackCount: 1
-  attackInstances: []
-  currentStunDamage: 0
-  highlightEffect: {fileID: 3803317909367998791}
-  highlightEffectController: {fileID: 5397269726235144244}
   startAsActivated: 0
-  isStunned: 0
-  isPlacated: 0
   destroyAfterDeath: 1
-  deathDelay: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
+  secondsBeforeSettingShouldBeDestroyed: 5
+  deathDelay: 1
+  attackCount: 1
+  attackInstances: []
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
+  isStunned: 0
+  isPlacated: 0
+  currentStunDamage: 0
+  currentHealth: 50
   trunkPoints:
   - {fileID: 6174884030579763706}
   - {fileID: 7588667836813013695}
@@ -2132,6 +2139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackboard: {fileID: 550776866176231813}
   delay: 0.5
+  tgtTransformName: playerTransform
+  tgtGameObjectName: capsule
+  flagName: 
 --- !u!114 &4663339147091108713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2144,14 +2154,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d587ea0930b47baa39930eebdd6823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
   uniqueID: 
+  extractableInteractable: {fileID: 0}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 3803317909367998791}
+  highlightEffectController: {fileID: 5397269726235144244}
   blackboard: {fileID: 0}
-  animancerComponent: {fileID: 0}
   fsmOwner: {fileID: 0}
-  feedbacksContainer: {fileID: 0}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 24d778001cb4f2646b1938f77030fce4, type: 2}
+  animancerComponent: {fileID: 3942531856528428783}
   initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 0}
   deathFeedbacks: {fileID: 8492674675664019821}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
@@ -2161,20 +2176,22 @@ MonoBehaviour:
   rangedHitFeedbacksHeavy: {fileID: 8368937230738350371}
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 1
-  secondsBeforeSettingShouldBeDestroyed: 5
-  currentHealth: 0
-  attackCount: 1
-  attackInstances: []
-  currentStunDamage: 0
-  highlightEffect: {fileID: 3803317909367998791}
-  highlightEffectController: {fileID: 5397269726235144244}
   startAsActivated: 0
-  isStunned: 0
-  isPlacated: 0
   destroyAfterDeath: 1
-  deathDelay: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
+  secondsBeforeSettingShouldBeDestroyed: 5
+  deathDelay: 1
+  attackCount: 1
+  attackInstances: []
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
+  isStunned: 0
+  isPlacated: 0
+  currentStunDamage: 0
+  currentHealth: 0
   npcId: HospitableFlora
   interactDistanceOverride: 5
   exobioticLanguageThreshold: 2
@@ -2202,28 +2219,37 @@ MonoBehaviour:
   initialState: 2
   alienWorkingAnimations: []
   alienIdleAnimations:
-  - actionId: 
+  - doubleAction: 0
+    actionId: 
     animationClip: {fileID: -3548273549459496330, guid: d1e31fb1ee6f7c344aa3555acd7d1585, type: 3}
     audioClipList: []
     audioDelay: 0
     feedbacks: {fileID: 0}
-  - actionId: 
+    audioDelaySecondClip: 0
+  - doubleAction: 0
+    actionId: 
     animationClip: {fileID: -7095233583796928237, guid: 3c66b55c36766fe4dacf0640c62a1f66, type: 3}
     audioClipList: []
     audioDelay: 0
     feedbacks: {fileID: 0}
-  - actionId: 
+    audioDelaySecondClip: 0
+  - doubleAction: 0
+    actionId: 
     animationClip: {fileID: 1245882690682072010, guid: 6a0ab801ffc143848927410d25d98cc3, type: 3}
     audioClipList: []
     audioDelay: 0
     feedbacks: {fileID: 0}
-  - actionId: 
+    audioDelaySecondClip: 0
+  - doubleAction: 0
+    actionId: 
     animationClip: {fileID: -5533903024747340832, guid: 7c80d97e8b1c0fd4eae58304182a0cf1, type: 3}
     audioClipList: []
     audioDelay: 0
     feedbacks: {fileID: 0}
+    audioDelaySecondClip: 0
   animancerComponent: {fileID: 3942531856528428783}
   audioSource: {fileID: 0}
+  creatureController: {fileID: 0}
   upperBodyMask: {fileID: 0}
 --- !u!1 &1279696355097994673
 GameObject:
@@ -29694,7 +29720,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.0020445e-38, y: 2.0387788e-38, z: 2.0479625e-38, w: 2.0571466e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0

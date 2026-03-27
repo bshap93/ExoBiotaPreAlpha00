@@ -42,6 +42,9 @@ namespace Manager.FeedbackControllers
             else if (eventType.Type == StatusDebuffEvent.StatusDebuffEventType.Resisted)
                 switch (eventType.Debuff)
                 {
+                    case StatusDebuffEvent.DebuffType.Poison:
+                        poisonRemoveFeedbacks.PlayFeedbacks();
+                        break;
                 }
             else Debug.LogWarning("Unhandled StatusDebuffEventType: " + eventType.Type);
         }
