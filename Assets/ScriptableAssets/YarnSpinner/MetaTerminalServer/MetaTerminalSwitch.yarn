@@ -33,13 +33,6 @@ Meta Terminal: Specifically, think on five competencies: Strength, Dexterity, an
 
 title: ExplainAttributes
 ---
-<<if get_current_class_id() == 0>>
-    -> I'll try to recall my competencies now.
-        <<jump ChooseAttributeClass>>
-<<else>>
-    -> I'll choose an competency to enhance now.
-        <<jump ChooseAttributeToIncrement>>
-<<endif>>
 -> Explain Strength
     Meta Terminal: You hit harder with heavy tools and melee weapons. You carry more weight in your inventory. 
     Meta Terminal: Some areas are blocked by breakable doors or walls, requiring certain strength level to break. 
@@ -63,6 +56,13 @@ title: ExplainAttributes
     Meta Terminal: You must have this at certain level to use certain Biotic abilities. 
     Meta Terminal: You must have this at a certain level to communicate with some species of Xenobiological organisms.
     <<jump ExplainAttributes>>
+<<if get_current_class_id() == 0>>
+    -> I'll try to recall my competencies now.
+        <<jump ChooseAttributeClass>>
+<<else>>
+    -> I'll choose an competency to enhance now.
+        <<jump ChooseAttributeToIncrement>>
+<<endif>>
 ===
 
 title: ChooseAttributeToIncrement
