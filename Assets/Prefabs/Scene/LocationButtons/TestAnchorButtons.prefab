@@ -131,8 +131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 137.125, y: -27.5}
-  m_SizeDelta: {x: 154.25, y: 45}
+  m_AnchoredPosition: {x: 125.01, y: -27.5}
+  m_SizeDelta: {x: 130.02, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8984176699088422308
 CanvasRenderer:
@@ -164,8 +164,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test Location
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0c89811b000cbd498386b0dec97d0e5, type: 2}
+  m_sharedMaterial: {fileID: 6707286708816224639, guid: c0c89811b000cbd498386b0dec97d0e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -381,8 +382,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 137.125, y: -27.5}
-  m_SizeDelta: {x: 154.25, y: 45}
+  m_AnchoredPosition: {x: 125.01, y: -27.5}
+  m_SizeDelta: {x: 130.02, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1048073161216680018
 CanvasRenderer:
@@ -414,8 +415,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test Location
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0c89811b000cbd498386b0dec97d0e5, type: 2}
+  m_sharedMaterial: {fileID: 6707286708816224639, guid: c0c89811b000cbd498386b0dec97d0e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -450,6 +451,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -600,6 +602,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -950,8 +953,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 117.125, y: -27.5}
-  m_SizeDelta: {x: 234.25, y: 55}
+  m_AnchoredPosition: {x: 105.01, y: -27.5}
+  m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &7985829356842468035
 CanvasGroup:
@@ -1214,7 +1217,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5860986855429863381}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FirstPersonPlayer.UI.LocationButtonBase.TestOverviewModeButtons,
           Assembly-CSharp
         m_MethodName: Interact
@@ -1322,7 +1325,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7734349881773526516}
-  - component: {fileID: -5860986855429863381}
   m_Layer: 0
   m_Name: TestAnchorButtons
   m_TagString: Untagged
@@ -1353,25 +1355,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-5860986855429863381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6182013090233717928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ca88fe0a9341c1b882b1aed16b425d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  access: {fileID: 0}
-  actionId: 0
-  locationText: {fileID: 1442753084176427686}
-  buttonManagers: []
-  emphasizedIcon: {fileID: 5712217016303975626}
-  dialogueConditions: []
-  defaultStartNode: 
 --- !u!1 &7222984739219751821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,8 +1842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 137.125, y: -27.5}
-  m_SizeDelta: {x: 154.25, y: 45}
+  m_AnchoredPosition: {x: 125.01, y: -27.5}
+  m_SizeDelta: {x: 130.02, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2395823684806376889
 CanvasRenderer:
@@ -1892,8 +1875,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Test Location
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0c89811b000cbd498386b0dec97d0e5, type: 2}
+  m_sharedMaterial: {fileID: 6707286708816224639, guid: c0c89811b000cbd498386b0dec97d0e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1928,6 +1911,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

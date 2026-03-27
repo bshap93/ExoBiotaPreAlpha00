@@ -103,6 +103,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -480,6 +481,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -523,7 +525,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2320971623209217941}
   - component: {fileID: 8759947643366459730}
-  - component: {fileID: 5126076335467377522}
   - component: {fileID: 6104253146931167687}
   m_Layer: 5
   m_Name: InfectionRepElementHUD
@@ -562,21 +563,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6198809792306609362}
   m_CullTransparentMesh: 0
---- !u!114 &5126076335467377522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6198809792306609362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fb285dc7b4515443ac25cd8d47b00ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infectionRepImage: {fileID: 6166024532724464613}
-  infectionNameText: {fileID: 6451333715119661541}
-  infectionRepProgressBar: {fileID: 2836686504347925741}
 --- !u!114 &6104253146931167687
 MonoBehaviour:
   m_ObjectHideFlags: 0

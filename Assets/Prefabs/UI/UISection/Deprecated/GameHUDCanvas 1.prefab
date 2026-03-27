@@ -516,6 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingOverlayCanvasGroup: {fileID: 1915814607386492907}
+  startVisible: 1
 --- !u!1 &933971809340788223
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +621,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2868,6 +2870,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3825,6 +3828,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3961,6 +3965,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4380,6 +4385,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4502,6 +4508,9 @@ MonoBehaviour:
   maxContaminationBarColor: {r: 1, g: 0.45999998, b: 0, a: 1}
   normalContaminationBarColor: {r: 0.69182384, g: 0.3738116, b: 0.102250636, a: 1}
   startDialogueFeedback: {fileID: 0}
+  healthText: {fileID: 0}
+  staminaText: {fileID: 0}
+  contaminationText: {fileID: 0}
   epsilon: 0.001
 --- !u!1 &4429926414930831774
 GameObject:
@@ -4812,7 +4821,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6775889290534006111}
   - component: {fileID: 3190374125969691227}
-  - component: {fileID: 2868385423018524971}
   m_Layer: 0
   m_Name: BodyInfectionHUD
   m_TagString: Untagged
@@ -4853,24 +4861,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &2868385423018524971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4636290509224006645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfde66fb4eee2f46a44ecd68bacd976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyInfectionHUDCanvasGroup: {fileID: 3190374125969691227}
-  nextInfectionProgressBar: {fileID: 932702094469909317}
-  nextInfectionStatusText: {fileID: 2791544468941942244}
-  infectionHUDListview: {fileID: 3813512594574401300}
-  topBoxCanvasGroup: {fileID: 6201922324432521463}
-  bottomBoxCanvasGroup: {fileID: 3602523147246936712}
 --- !u!1 &4647856381987152986
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,6 +6105,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6252,6 +6243,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6403,6 +6395,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7122,6 +7115,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7164,7 +7158,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8426913297510510876}
-  - component: {fileID: 3813512594574401300}
   m_Layer: 5
   m_Name: InfectionListView
   m_TagString: Untagged
@@ -7193,24 +7186,6 @@ RectTransform:
   m_AnchoredPosition: {x: 23.9, y: 0}
   m_SizeDelta: {x: 635.1, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3813512594574401300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5795834270153832265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab8848e8a359b9409030a31c82e0e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listRoot: {fileID: 1675417065135592357}
-  listItemPrefab: {fileID: 6198809792306609362, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
-  listItems:
-  - {fileID: 5994907439182965599}
-  infectionManager: {fileID: 0}
-  infectionHUD: {fileID: 2868385423018524971}
 --- !u!1 &6004996551040163458
 GameObject:
   m_ObjectHideFlags: 0
@@ -7537,6 +7512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2204cb781f9b43e6a1ae71789c4f9962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openFeedbacks: {fileID: 0}
   infoLogTabletCanvasGroup: {fileID: 8832628092630530934}
   titleText: {fileID: 230221232512099889}
   bodyText: {fileID: 2072976183068837775}
@@ -7720,6 +7696,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7931,6 +7908,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -8146,7 +8124,6 @@ GameObject:
   - component: {fileID: 2537006325284006833}
   - component: {fileID: 8693256530488191686}
   - component: {fileID: 8693607623190953940}
-  - component: {fileID: 5306244380635169550}
   m_Layer: 0
   m_Name: BodyDiagram
   m_TagString: Untagged
@@ -8211,18 +8188,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5306244380635169550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859430592794179962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c05abd838511ad543b51933afe9b9247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6982836670889000570
 GameObject:
   m_ObjectHideFlags: 0
@@ -9424,6 +9389,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9941,6 +9907,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -10407,6 +10374,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -10863,17 +10831,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
---- !u!114 &932702094469909317 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 896455918314435539, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
-  m_PrefabInstance: {fileID: 36387738337540246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bd446ecd958c24fb709da85e7ef603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4192088559265925433 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4227767486265668015, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
@@ -10979,11 +10936,6 @@ PrefabInstance:
 --- !u!224 &2666438020413569048 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2320971623209217941, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
-  m_PrefabInstance: {fileID: 375109543186470797}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5994907439182965599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6198809792306609362, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
   m_PrefabInstance: {fileID: 375109543186470797}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &930046669927775139

@@ -315,6 +315,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -839,6 +840,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1164,6 +1166,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1350,6 +1353,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1804,6 +1808,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2125,7 +2130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2621428120056441853}
   - component: {fileID: 1095530602319923978}
-  - component: {fileID: 7000730856758826135}
   m_Layer: 0
   m_Name: MineLocationButtons
   m_TagString: Untagged
@@ -2170,7 +2174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808d7a64285da4d4c8f2b59dbac687e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  access: {fileID: 0}
   actionId: 0
   locationText: {fileID: 2884708002491640373}
   buttonManagers: []
@@ -2179,20 +2182,6 @@ MonoBehaviour:
   defaultStartNode: 
   spawnPointId: 
   sceneName: 
---- !u!114 &7000730856758826135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9032099193088664440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786694f3858e4959b548f43c8b2e72a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locationBtn: {fileID: 1095530602319923978}
-  access: {fileID: 0}
 --- !u!1 &9048966973402610703
 GameObject:
   m_ObjectHideFlags: 0

@@ -433,7 +433,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5374369637013801820}
-  - component: {fileID: 3926983082239242053}
   m_Layer: 0
   m_Name: OverviewCameraTarget
   m_TagString: Untagged
@@ -456,18 +455,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3078370562091752923}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &3926983082239242053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141004962756625230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601bcef6faad2914c88628dd2a840346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1676840247033572461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2194,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3078370562091752923}
-  - component: {fileID: 7858777468012597136}
   m_Layer: 0
   m_Name: OverviewPawn
   m_TagString: Player
@@ -2236,24 +2222,6 @@ Transform:
   - {fileID: 1603052394621429995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7858777468012597136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7652562015263675145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff43f5506df4ca89d65ecaf46deb9a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mode: 2
-  overviewCamera: {fileID: 5600575236842754791}
-  dirigiblePhysicalObject: {fileID: 0}
-  overviewCameraTarget: {fileID: 5374369637013801820}
-  dirigibleDockInteractable: {fileID: 0}
-  _rootOverviewController: {fileID: 343611488774612216}
 --- !u!1 &7734918463015117947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,7 +2493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2b2ca577254074391005ddaa4985a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirigibleDockInteractable: {fileID: 0}
 --- !u!1 &9091286768320458868
 GameObject:
   m_ObjectHideFlags: 0

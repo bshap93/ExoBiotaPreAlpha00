@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1074464105512686021}
   - component: {fileID: 6111753110441351051}
-  - component: {fileID: 8396205204479473950}
   m_Layer: 0
   m_Name: BodyInfectionHUD
   m_TagString: Untagged
@@ -163,24 +162,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &8396205204479473950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445943276781805389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfde66fb4eee2f46a44ecd68bacd976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyInfectionHUDCanvasGroup: {fileID: 6111753110441351051}
-  nextInfectionProgressBar: {fileID: 4873027988958973855}
-  nextInfectionStatusText: {fileID: 2063953857632095101}
-  infectionHUDListview: {fileID: 6273100588341720744}
-  topBoxCanvasGroup: {fileID: 6223562582661100803}
-  bottomBoxCanvasGroup: {fileID: 742825919333937881}
 --- !u!1 &929253487816683534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1050,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1411,7 +1393,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8470126849643363268}
-  - component: {fileID: 6273100588341720744}
   m_Layer: 5
   m_Name: InfectionListView
   m_TagString: Untagged
@@ -1440,24 +1421,6 @@ RectTransform:
   m_AnchoredPosition: {x: 23.9, y: 0}
   m_SizeDelta: {x: 635.1, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6273100588341720744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6406554920763878391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab8848e8a359b9409030a31c82e0e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listRoot: {fileID: 6851740389184164785}
-  listItemPrefab: {fileID: 6198809792306609362, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
-  listItems:
-  - {fileID: 3985722671729753802}
-  infectionManager: {fileID: 0}
-  infectionHUD: {fileID: 0}
 --- !u!1 &6802914105518673181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1505,6 @@ GameObject:
   - component: {fileID: 3748105347279560856}
   - component: {fileID: 5145034767130036794}
   - component: {fileID: 5518361511251972317}
-  - component: {fileID: 5474964952950871179}
   m_Layer: 0
   m_Name: BodyDiagram
   m_TagString: Untagged
@@ -1607,18 +1569,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5474964952950871179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7609109684363667252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c05abd838511ad543b51933afe9b9247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5394505430533296134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1834,17 +1784,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
---- !u!114 &4873027988958973855 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 896455918314435539, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
-  m_PrefabInstance: {fileID: 5751273518989982796}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bd446ecd958c24fb709da85e7ef603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8465831521818611171 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4227767486265668015, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
@@ -1942,16 +1881,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfectionRepElementHUD
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5126076335467377522, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
---- !u!1 &3985722671729753802 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6198809792306609362, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
-  m_PrefabInstance: {fileID: 7013996942695449112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4711616688270634381 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2320971623209217941, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}

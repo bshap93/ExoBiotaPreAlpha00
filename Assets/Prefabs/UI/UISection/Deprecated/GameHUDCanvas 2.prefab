@@ -1311,6 +1311,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1668,7 +1669,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1756084991241029444}
-  - component: {fileID: 2417961639764353090}
   m_Layer: 5
   m_Name: InfectionListView
   m_TagString: Untagged
@@ -1697,24 +1697,6 @@ RectTransform:
   m_AnchoredPosition: {x: 23.9, y: 0}
   m_SizeDelta: {x: 635.1, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2417961639764353090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746660120493446753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aab8848e8a359b9409030a31c82e0e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listRoot: {fileID: 9061748163556764063}
-  listItemPrefab: {fileID: 6198809792306609362, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
-  listItems:
-  - {fileID: 147957472411420658}
-  infectionManager: {fileID: 0}
-  infectionHUD: {fileID: 823617312324665427}
 --- !u!1 &1852704740358979446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingOverlayCanvasGroup: {fileID: 660434816858044267}
+  startVisible: 1
 --- !u!1 &1910636489968522762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,6 +2847,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3037,6 +3021,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3285,6 +3270,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3532,6 +3518,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4385,8 +4372,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3234982408758051059}
   m_HandleRect: {fileID: 7191744531259007888}
   m_Direction: 2
-  m_Value: 1.0000024
-  m_Size: 0.39909163
+  m_Value: 1.0000021
+  m_Size: 0.39933375
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4809,6 +4796,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5732,7 +5720,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 16383
+    m_Bits: 16191
 --- !u!1 &6059861286377418474
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,6 +5810,9 @@ MonoBehaviour:
   maxContaminationBarColor: {r: 1, g: 0.45999998, b: 0, a: 1}
   normalContaminationBarColor: {r: 0.69182384, g: 0.3738116, b: 0.102250636, a: 1}
   startDialogueFeedback: {fileID: 0}
+  healthText: {fileID: 0}
+  staminaText: {fileID: 0}
+  contaminationText: {fileID: 0}
   epsilon: 0.001
 --- !u!1 &6172804633291776852
 GameObject:
@@ -5834,7 +5825,6 @@ GameObject:
   - component: {fileID: 1726633358959182027}
   - component: {fileID: 6205086717318237098}
   - component: {fileID: 8408417396174285079}
-  - component: {fileID: 5163594372908082237}
   m_Layer: 0
   m_Name: BodyDiagram
   m_TagString: Untagged
@@ -5899,18 +5889,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5163594372908082237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6172804633291776852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c05abd838511ad543b51933afe9b9247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6335784149676863452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6720,7 +6698,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9138908611316520199}
   - component: {fileID: 3073124981257533049}
-  - component: {fileID: 823617312324665427}
   m_Layer: 0
   m_Name: BodyInfectionHUD
   m_TagString: Untagged
@@ -6761,24 +6738,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &823617312324665427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7903931229064833805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbfde66fb4eee2f46a44ecd68bacd976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyInfectionHUDCanvasGroup: {fileID: 3073124981257533049}
-  nextInfectionProgressBar: {fileID: 131023681570075532}
-  nextInfectionStatusText: {fileID: 6360647453902888183}
-  infectionHUDListview: {fileID: 2417961639764353090}
-  topBoxCanvasGroup: {fileID: 334096258253291235}
-  bottomBoxCanvasGroup: {fileID: 3052123032670005925}
 --- !u!1 &8113097653522369807
 GameObject:
   m_ObjectHideFlags: 0
@@ -6974,7 +6933,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7030301781289546972}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.4667108
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7501,6 +7460,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7856,17 +7816,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
---- !u!114 &131023681570075532 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 896455918314435539, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
-  m_PrefabInstance: {fileID: 982247271356186719}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8bd446ecd958c24fb709da85e7ef603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &3967012189134909936 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4227767486265668015, guid: 6a4374bbc83f78c409adf53e2005ecf7, type: 3}
@@ -8104,7 +8053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632835601561428396, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 504.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 632835601561428396, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8164,7 +8113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1540459388918188969, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 332.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1540459388918188969, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8188,7 +8137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2507132008252124091, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 584.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2507132008252124091, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8212,7 +8161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2532487439930316870, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 504.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532487439930316870, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8248,7 +8197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3225661011822276789, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 504.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3225661011822276789, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8272,7 +8221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617838750675976841, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 252.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3617838750675976841, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8296,7 +8245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4030051135263102995, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 252.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4030051135263102995, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8324,7 +8273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605883034812543797, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 252.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605883034812543797, guid: ae00fbba69acb794f848909f5124c09e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -9012,16 +8961,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfectionRepElementHUD
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5126076335467377522, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
---- !u!1 &147957472411420658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6198809792306609362, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
-  m_PrefabInstance: {fileID: 6056002432638876448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8376274489024107701 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2320971623209217941, guid: 7b79b9e2485c28543b98b328b4391f5b, type: 3}
@@ -9168,7 +9113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 164215472912901105, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 164.01001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 164215472912901105, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.y
@@ -9196,7 +9141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400265437643956762, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 84.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1400265437643956762, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.y
@@ -9320,7 +9265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3556693500491258689, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 84.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3556693500491258689, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.y
@@ -9384,7 +9329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4814674853644951805, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 84.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4814674853644951805, guid: 011fb21da29f66a42a94f557d2caf919, type: 3}
       propertyPath: m_SizeDelta.y
