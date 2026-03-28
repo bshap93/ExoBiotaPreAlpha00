@@ -15931,8 +15931,8 @@ MonoBehaviour:
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1
         Spread: 123
-        RolloffMode: 1
-        MinDistance: 1
+        RolloffMode: 0
+        MinDistance: 0.1
         MaxDistance: 30
         UseCustomRolloffCurve: 0
         CustomRolloffCurve:
@@ -16657,9 +16657,9 @@ MonoBehaviour:
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1.42
         Spread: 140
-        RolloffMode: 1
-        MinDistance: 0
-        MaxDistance: 25
+        RolloffMode: 0
+        MinDistance: 0.1
+        MaxDistance: 30
         UseCustomRolloffCurve: 1
         CustomRolloffCurve:
           serializedVersion: 2
@@ -17160,9 +17160,9 @@ MonoBehaviour:
         PlaybackTime: {x: 0, y: 0}
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1
-        Spread: 0
+        Spread: 121
         RolloffMode: 0
-        MinDistance: 1
+        MinDistance: 0.1
         MaxDistance: 30
         UseCustomRolloffCurve: 0
         CustomRolloffCurve:
@@ -17626,9 +17626,9 @@ MonoBehaviour:
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1
         Spread: 122
-        RolloffMode: 1
+        RolloffMode: 0
         MinDistance: 0.1
-        MaxDistance: 15
+        MaxDistance: 30
         UseCustomRolloffCurve: 0
         CustomRolloffCurve:
           serializedVersion: 2
@@ -17862,9 +17862,9 @@ MonoBehaviour:
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1
         Spread: 103
-        RolloffMode: 1
+        RolloffMode: 0
         MinDistance: 0.1
-        MaxDistance: 15
+        MaxDistance: 30
         UseCustomRolloffCurve: 0
         CustomRolloffCurve:
           serializedVersion: 2
@@ -28130,8 +28130,8 @@ MonoBehaviour:
         SoloAllTracks: 0
         AutoUnSoloOnEnd: 0
         PanStereo: 0
-        SpatialBlend: 0
-        AttachToTransform: {fileID: 0}
+        SpatialBlend: 1
+        AttachToTransform: {fileID: 3584766780171252829}
         BypassEffects: 0
         BypassListenerEffects: 0
         BypassReverbZones: 0
@@ -28140,10 +28140,10 @@ MonoBehaviour:
         PlaybackTime: {x: 0, y: 0}
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1
-        Spread: 0
-        RolloffMode: 1
-        MinDistance: 1
-        MaxDistance: 15
+        Spread: 110
+        RolloffMode: 0
+        MinDistance: 0.1
+        MaxDistance: 30
         UseCustomRolloffCurve: 0
         CustomRolloffCurve:
           serializedVersion: 2
@@ -28344,16 +28344,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f5af975cf4e10b7ec39e864108c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
-  isBeingAttacked: 0
   uniqueID: 654990d2-8617-4b3f-aa86-8c9f3ef26659
   extractableInteractable: {fileID: 11400000, guid: 5895cacb716c43b4c9d2670d07ebec27, type: 2}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 8655321797429626522}
+  highlightEffectController: {fileID: 3112292963320893407}
   blackboard: {fileID: 6935839604250593367}
-  animancerComponent: {fileID: 3923672407371036268}
   fsmOwner: {fileID: 9030777537301804226}
-  feedbacksContainer: {fileID: 925107692554610185}
+  isInitiallyHostile: 0
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: b70dcc55abc25f84db676e6cf78a12b6, type: 2}
+  animancerComponent: {fileID: 3923672407371036268}
   initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 925107692554610185}
   deathFeedbacks: {fileID: 3291354668953918157}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
@@ -28363,10 +28366,12 @@ MonoBehaviour:
   rangedHitFeedbacksHeavy: {fileID: 363966855796393735}
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
+  startAsActivated: 0
+  destroyAfterDeath: 0
+  doesNotImmediatelyNeedToMove: 0
+  appearsOnlyOnce: 0
   secondsBeforeSettingShouldBeDestroyed: 5
-  wasHit: 0
-  wasHitHeavy: 0
-  currentHealth: 70
+  deathDelay: 2
   attackCount: 1
   attackInstances:
   - attackName: 
@@ -28376,23 +28381,21 @@ MonoBehaviour:
     attackDuration: 0
     attackHitbox: {fileID: 7593388456315202082}
     leadupTime: 0
-  currentStunDamage: 0
-  highlightEffect: {fileID: 8655321797429626522}
-  highlightEffectController: {fileID: 3112292963320893407}
-  startAsActivated: 0
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
   isStunned: 0
   isPlacated: 0
-  destroyAfterDeath: 0
-  deathDelay: 2
-  doesNotImmediatelyNeedToMove: 0
-  appearsOnlyOnce: 0
+  currentStunDamage: 0
+  currentHealth: 3
   navMeshAgent: {fileID: 4213191547505358671}
   movementSpeedThreshold: 0.1
+  walkRunThreshold: 2
   hasRangedAttack: 0
   rangedAttackOrigin: {fileID: 0}
   onDeathLayer: 8
   doNotUseIdleState: 0
-  walkRunThreshold: 2
   movementLoopFeedbacks: {fileID: 4182894261112851031}
   deathParticlesDustPrefab: {fileID: 0}
 --- !u!114 &2748921063369638569
@@ -35165,8 +35168,36 @@ PrefabInstance:
       value: DeathFB
       objectReference: {fileID: 0}
     - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].Sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: c0ace19d68c07b943bda1fb5c6ebacc0, type: 3}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
       propertyPath: managedReferences[2956590283608293730].Active
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].Spread
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590607954870458].Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].MaxPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].MinPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].MinDistance
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
       propertyPath: managedReferences[2956590283608293730].RemapCurveOne
@@ -35192,6 +35223,10 @@ PrefabInstance:
       propertyPath: managedReferences[1616504596478820352].AttachToTransform
       value: 
       objectReference: {fileID: 620957967425884309, guid: b4bec902c233a8c459f77232f08161b2, type: 3}
+    - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
+      propertyPath: managedReferences[2956590578917179583].AttachToTransform
+      value: 
+      objectReference: {fileID: 3584766780171252829}
     - target: {fileID: 7569503658196812541, guid: bd38594515c62c542a4d0adabc62c30a, type: 3}
       propertyPath: managedReferences[2956590283608293730].AnimateScaleTarget
       value: 
