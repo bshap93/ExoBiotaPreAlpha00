@@ -7,13 +7,13 @@ namespace FirstPersonPlayer.Feedback
 {
     internal class FootFallManager : MonoBehaviour
     {
-        [Header("Footsteps")] [SerializeField] MMFeedbacks terrainFootstepFeedbacks;
-        [SerializeField] MMFeedbacks rockFootstepFeedbacks;
+        [Header("Footsteps")] [SerializeField] MMFeedbacks rockFootstepFeedbacks;
 
         [SerializeField] MMFeedbacks defaultFootstepFeedbacks;
-        [SerializeField] MMFeedbacks sandFootstepFeedbacks;
         [SerializeField] MMFeedbacks waterFootstepFeedbacks;
         [SerializeField] MMFeedbacks woodFootstepFeedbacks;
+        [SerializeField] MMFeedbacks footstepsBigHall;
+        [SerializeField] MMFeedbacks footstepsMetalPlatform;
         [SerializeField] float baseStepInterval = 1.5f;
 
         [SerializeField] PlayerInteraction playerInteraction;
@@ -90,15 +90,22 @@ namespace FirstPersonPlayer.Feedback
             }
 
 
-            if (groundInfo.tag == "Water")
+            if (groundInfo.tag == "Untagged")
+                defaultFootstepFeedbacks?.PlayFeedbacks();
+            else if (groundInfo.tag == "Water")
                 waterFootstepFeedbacks?.PlayFeedbacks();
+            else if (groundInfo.tag == "FloorBigHall")
+                footstepsBigHall?.PlayFeedbacks();
             else if (groundInfo.tag == "WoodSurface")
                 woodFootstepFeedbacks?.PlayFeedbacks();
+            else if (groundInfo.tag == "MetalPlatform")
+                footstepsMetalPlatform?.PlayFeedbacks();
+
             else
                 defaultFootstepFeedbacks?.PlayFeedbacks();
 
 
-            defaultFootstepFeedbacks?.PlayFeedbacks();
+            // defaultFootstepFeedbacks?.PlayFeedbacks();
         }
     }
 }
