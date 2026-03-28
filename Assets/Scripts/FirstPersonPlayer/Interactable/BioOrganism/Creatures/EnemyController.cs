@@ -87,7 +87,11 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             {
                 isDead = true;
                 DeathState = animancerComponent.Play(creatureType.animationSet.deathAnimation, 0.1f);
-                DeathState.Events(this).OnEnd = () => { Destroy(gameObject); };
+                DeathState.Events(this).OnEnd = () =>
+                {
+                    if (destroyAfterDeath)
+                        Destroy(gameObject);
+                };
 
                 OnDeath();
             }
