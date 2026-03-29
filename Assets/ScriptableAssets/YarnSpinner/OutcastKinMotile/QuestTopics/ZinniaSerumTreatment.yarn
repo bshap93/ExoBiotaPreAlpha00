@@ -1,0 +1,20 @@
+title: OutcastHelpsPlayerConcoctSerum
+---
+Outcast Hylic: Well done! Let's get that serum concocted. Be right back.
+<<trigger_fade_out>>
+<<wait  2>>
+<<trigger_fade_in>>
+<<wait  1>>
+Outcast Hylic: Here is the finished serum. Good luck and be careful.
+<<give_player_item "ZinniasCureSyringeObject" 1>>
+===
+
+title: QuestionsForTheOutcastMotileZinnia
+---
+Outcast Hylic: Tis true? She finally finished the primer serum? Yes, friend, I can help you once you have the materials. My modest equipment is yours to use in this pursuit.
+Outcast Hylic: The primer serum was the true trick. We worked out the other parts years ago. You agreed to be the host? You are a good friend. I would do it myself if I had not been stripped of my biotic abilities.
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
+-> I should go.
+===
+
