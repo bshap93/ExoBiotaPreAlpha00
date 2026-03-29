@@ -31,6 +31,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         AnimancerLayer _upperBodyLayer;
 
+        public bool IsWorking => CurrentState == AlienNPCState.Working;
+
         public AlienNPCState CurrentState { get; private set; }
 
         void Start()
@@ -123,7 +125,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         IEnumerator WorkingAudioLoop()
         {
             var index = 0;
-            while (true)
+            while (IsWorking)
             {
                 var clip = alienWorkingAnimations[index];
 

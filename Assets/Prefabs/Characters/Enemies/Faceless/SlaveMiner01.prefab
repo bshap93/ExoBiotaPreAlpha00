@@ -3481,6 +3481,7 @@ MonoBehaviour:
     MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"wasHitHeavy":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.wasHitHeavy","_name":"wasHitHeavy","_id":"96c88b4d-0cce-4c46-b815-0ea1406fd907","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"getHitHeavyAnimationClip":{"_value":8,"_name":"getHitHeavyAnimationClip","_id":"685817fd-3625-4c22-abcc-6f03b8daa30e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IsHostile":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isAttacking":{"_name":"isAttacking","_id":"6e1ce85b-88ad-4c10-a46c-3885f6993471","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -3600,6 +3601,9 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 3094330708855449807, guid: 97122988e12a9754e841333bdbbe644b, type: 3}
   - _json: '{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"isAttacking","_id":"6e1ce85b-88ad-4c10-a46c-3885f6993471","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &3311436234791006107
@@ -7955,6 +7959,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 346359352083693049, guid: 19d73562ba5bb18489b22046c9dad517, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892041578926017469, guid: 19d73562ba5bb18489b22046c9dad517, type: 3}
+      propertyPath: managedReferences[2956590283608293730].Active
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1892041578926017469, guid: 19d73562ba5bb18489b22046c9dad517, type: 3}
