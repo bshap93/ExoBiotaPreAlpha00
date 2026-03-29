@@ -1,0 +1,36 @@
+title: WombKeeperDialogue02B_QA
+---
+-> Who left me here? 
+    Womb Keeper: An motile of the Kin. One of the Motiles from the mines.
+    -> I better get going.
+    -> I had another question.
+        <<jump WombKeeperDialogue01A_QA>>
+    -> The Kin. I remember hearing the word. What can you tell me about them?
+        <<jump AskedAboutTheKin>>
+-> Why was I left here?
+    Womb Keeper: You were... broken. Components disordered.
+    -> Ok, well, I appreciate the aid. If you really saved my life, I guess I should be grateful.
+        Womb Keeper: No need to thank me. It's what I do.
+        <<jump WombKeeperDialogue02B_QA>>
+    -> How did you know how to repair me?
+        <<jump WombKeeperDialogue02C>>
+-> I had another question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> I should go.
+===
+
+title: WombKeeperDialogue02C
+position: -297,529
+---
+Womb Keeper: I did my best. You'll have to forgive me if things are arranged differently than you remember.
+<<jump WombKeeperDialogue02B_QA>>
+===
+
+
+title: AskedAboutTheKin
+position: 283,6
+---
+Womb Keeper: My role is not to dispense information. I am but a Keeper of Wombs for the broken of body.
+<<jump WombKeeperDialogue02B_QA>>
+===
+

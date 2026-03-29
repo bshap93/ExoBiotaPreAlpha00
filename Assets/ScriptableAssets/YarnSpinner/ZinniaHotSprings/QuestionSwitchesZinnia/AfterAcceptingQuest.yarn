@@ -1,0 +1,15 @@
+title: QuestionsForZinniaSwitchAfterAgreeingToQuest
+color: green
+position: -247,-185
+---
+-> Remind me what I should do to concoct the cure.
+    <<jump ZinniaRemindsUsWhatToDoForCure>>
+-> I had another question.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> [Leave]
+===
+
+title: ZinniaRemindsUsWhatToDoForCure
+---
+Zinnia: Get the primer serum. Head for the lower levels, get the Nimensis tree sap sacs. Rendezvous with the Outcast Kin motile at its lab in the old temple.
+===

@@ -1,0 +1,47 @@
+title: QuestionsForZinniaSwitch
+color: green
+position: -247,-185
+---
+-> I'm surprised you didn't attack me like others of your kind.
+    <<jump ZinniaExplainsOurFirstQuestion>>
+-> I had another question.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> [Leave]
+===
+
+title: ZinniaExplainsOurFirstQuestion_QA
+position: 101,-310
+---
+-> Why are you friendly while others of your kind are hostile?
+    Zinnia: Many of my Sisters are sick. An pathogen engineered by the Keepers causes their violent agitation.
+    Zinnia: These springs provide me with protection, so long as I remain. 
+    <<jump ZinniaExplainsWeedOutlook>>
+-> I had other questions.
+    <<jump QuestionsForZinniaSwitch>>
+-> So, all of you are sentient?
+    <<jump ZinniaIsSentient>>
+-> I should go.
+===
+
+title: ZinniaExplainsWeedOutlook
+position: 0,0
+---
+-> Have you tried using the water to heal them?
+    <<jump ZinniaTalksAboutHealingSisters>>
+-> Why would they create a weapon like that? Try to commit genocide? 
+    Zinnia: They cull or even totally annihilate peoples they deem 'Undesirable', releasing genetic pathogens they fabricate in their bio-labs.
+    Zinnia: The affected Phytoids lash out in their delirium and anger. However, the Keepers' pathogens are directed and precise. 
+    Zinnia: We're a simple people. There isn't much we can do to defend against such terrible weapons.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> I had other questions.
+    <<jump ZinniaExplainsOurFirstQuestion_QA>>
+-> I should go.
+===
+
+title: ZinniaIsSentient
+position: 437,-328
+---
+Zinnia: Aye. We were in these caves in the time before the Scalding forced the Kin underground. They brought their destructive behavior with them.
+Zinnia: They wield their inborn genetic engineering prowess to terrible effect, for any beings they deem to be pests, or resistant to their dominion.
+<<jump QuestionsForZinniaSwitch>>
+===

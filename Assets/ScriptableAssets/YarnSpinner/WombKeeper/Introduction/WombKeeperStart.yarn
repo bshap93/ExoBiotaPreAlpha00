@@ -1,0 +1,55 @@
+title: WombKeeperStart
+position: -111,-622
+---
+<<if !has_npc_been_contacted("WombKeeper")>>
+    <<make_contact_with_npc "WombKeeper">>
+    <<jump WombKeeperDialogue01>>
+<<else>>
+   <<jump WombKeeperStartAgain>> 
+<<endif>>
+===
+
+title: WombKeeperStartAgain
+color: blue
+position: 151,-489
+---
+Womb Keeper: Yes, what is it?
+-> I had a question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> [Leave]
+===
+
+title: WombKeeperDialogue01
+position: -387,-450
+---
+Womb Keeper: Good, you're awake.
+-> Awake?
+Womb Keeper: You're not dreaming.
+-> This is a nightmare. [Desperate to wake up, you thrust fingers into your eyes.]
+-> [Try to Leave]
+    <<jump WombKeeperSaysBye>>
+<<wait 1.5>>
+Womb Keeper: What are you doing?
+-> I don't remember how I got here.
+    Womb Keeper: Understandable. 
+    <<jump WombKeeperDialogue01A_QA>>
+-> I had another question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> [Leave]
+===
+
+title: WombKeeperDialogue02B
+position: -387,119
+---
+Womb Keeper: This is my womb. The Hylic who left you is part of my extended Pod. Leaves me with a heap of damaged flesh. Our arrangement.
+Womb Keeper: I rebuild with what I'm left. Make you brand new. Give you another chance to Be.
+<<jump WombKeeperDialogue02B_QA>>
+===
+
+title: WombKeeperSaysBye
+---
+Womb Keeper: Go then, child. You are welcome to the supplies in this room.
+-> And go where? I don't know these caverns.
+    <<jump AndWhereShouldIGo>>
+-> [Leave]
+===

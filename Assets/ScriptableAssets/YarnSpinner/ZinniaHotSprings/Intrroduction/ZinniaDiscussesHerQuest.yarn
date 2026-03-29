@@ -1,0 +1,28 @@
+title: ZinniaTalksAboutHealingSisters
+position: 257,-9
+---
+Zinnia: Yes. Alas these waters are like an innoculation, but only as long as one stays in them. I have been stranded here, but not idle. 
+Zinnia: We Phytoids have had to adapt. I have been working on a treatment.
+Zinnia: However, I cannot leave these hot springs for long. I'd get sick myself before I could help any of my sisters.
+-> Maybe I could help.
+    <<jump ZinniaPlayerAsksIfCanHelp>>
+-> That's too bad. 
+=== 
+
+title: ZinniaPlayerAsksIfCanHelp
+position: -377,272
+---
+Zinnia: Try if you wish. I would be grateful. I've been working on a primer serum that could be the base for a finished cure.
+Zinnia: The cure also requires the ichor of the Nimensis tree's sap sacs. And it would need to be administered by one of the Kin.
+-> I'll keep this in mind. I'd like to help if I can.
+<<jump ZinniaPlayerAgreesToGiveATry>>
+===
+
+title: ZinniaPlayerAgreesToGiveATry
+position: -321,486
+color: blue
+---
+Zinnia: My primer serum is in my work shed. You may take it if you like. Maybe someday the cure will be a reality and I'll leave this chamber.
+<<started_quest "ZinniasCure">>
+-> [Leave]
+===

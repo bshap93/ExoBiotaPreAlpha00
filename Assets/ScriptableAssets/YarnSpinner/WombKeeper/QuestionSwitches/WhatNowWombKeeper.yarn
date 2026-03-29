@@ -1,0 +1,29 @@
+title: WombKeeperDialogue03B_QA
+position: 731,367
+---
+-> Where are these thralls now?
+    Womb Keeper: Not needed. Served their purpose. Back to mines, most of them.
+    <<jump WombKeeperDialogue03B_QA>>
+-> Your squire?
+    Womb Keeper: Yes, my squire. It's on the other side of the room. Speak with it if you wish.
+    <<jump WombKeeperDialogue03B_QA>>
+-> What are you going to do with me?
+    Womb Keeper: You must leave my Keeping now. You may not become a thrall. The Kindred Choir was clear on this.
+    -> What is the Kindred Choir?
+        <<jump AskedAboutTheKin>>
+    -> And go where? I don't know these caverns.
+        <<jump AndWhereShouldIGo>>
+-> I had another question.
+    <<jump WombKeeperDialogue02B_QA>>
+-> Ok, goodbye.
+===
+
+title: AndWhereShouldIGo
+---
+Womb Keeper: You'll see navigation terminals as you travel around Ashpool Springs.
+Womb Keeper: I'd suggest you visit the Hot Springs to the north. They have powerful healing properties. Or head down to the old chapel on the next level down. 
+Womb Keeper: These are safe places where you can rest at least, and you may find others who can help you further.
+-> I had another question.
+    <<jump WombKeeperDialogue01A_QA>>
+-> [Leave]
+===
