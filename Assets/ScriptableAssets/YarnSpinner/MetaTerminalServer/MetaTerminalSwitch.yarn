@@ -28,7 +28,7 @@ Meta Terminal: This system has been notified of your situation, and quite unders
 Meta Terminal: I will start by asking you to try to reach out and focus your attention on your deepest seated memories, or fragments. This system will probe newly rearranged brain areas for activity.
 Meta Terminal: Think far back as you can remember, then go further. And again, until I tell you... 
 Meta Terminal: Specifically, think on five competencies: Strength, Dexterity, and Agility, Toughness, and Intelligence.
-<<jump ExplainAttributes>>
+<<jump ChooseAttributeClass>>
 ===
 
 title: ExplainAttributes
@@ -56,6 +56,7 @@ title: ExplainAttributes
     Meta Terminal: You must have this at certain level to use certain Biotic abilities. 
     Meta Terminal: You must have this at a certain level to communicate with some species of Xenobiological organisms.
     <<jump ExplainAttributes>>
+-> [Leave]
 <<if get_current_class_id() == 0>>
     -> I'll try to recall my competencies now.
         <<jump ChooseAttributeClass>>
@@ -277,6 +278,8 @@ position: -235,-184
     Meta Terminal: Choose which attribute to increment.
     -> Yes
         Meta Terminal: Excellent.
+        <<jump ChooseAttributeToIncrement>>
+    -> Explain the attributes again?
         <<jump ExplainAttributes>>
     -> Not yet
 <<endif>>

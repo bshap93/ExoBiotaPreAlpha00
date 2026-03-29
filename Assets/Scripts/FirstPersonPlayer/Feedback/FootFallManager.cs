@@ -14,6 +14,7 @@ namespace FirstPersonPlayer.Feedback
         [SerializeField] MMFeedbacks woodFootstepFeedbacks;
         [SerializeField] MMFeedbacks footstepsBigHall;
         [SerializeField] MMFeedbacks footstepsMetalPlatform;
+        [SerializeField] MMFeedbacks footstepsTileFloor;
         [SerializeField] float baseStepInterval = 1.5f;
 
         [SerializeField] PlayerInteraction playerInteraction;
@@ -98,6 +99,8 @@ namespace FirstPersonPlayer.Feedback
                 footstepsBigHall?.PlayFeedbacks();
             else if (groundInfo.tag == "WoodSurface")
                 woodFootstepFeedbacks?.PlayFeedbacks();
+            else if (groundInfo.tag == "TileFloor") 
+                footstepsTileFloor?.PlayFeedbacks();
             else if (groundInfo.tag == "MetalPlatform")
                 footstepsMetalPlatform?.PlayFeedbacks();
 

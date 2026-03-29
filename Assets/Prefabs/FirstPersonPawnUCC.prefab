@@ -12280,6 +12280,7 @@ MonoBehaviour:
   woodFootstepFeedbacks: {fileID: 627516471826014910}
   footstepsBigHall: {fileID: 6593665615403566448}
   footstepsMetalPlatform: {fileID: 5896402678738682783}
+  footstepsTileFloor: {fileID: 6738264785740041849}
   baseStepInterval: 2.25
   playerInteraction: {fileID: 8398371441896539530}
   characterActor: {fileID: 4146534566586365169}
@@ -15004,7 +15005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8672673151611072129}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.033685096, y: 0.9641918, z: 0.21570167, w: 0.15057321}
+  m_LocalRotation: {x: -0.03380905, y: 0.96401393, z: 0.21649541, w: 0.15054543}
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15313,7 +15314,7 @@ GameObject:
   - component: {fileID: 2625259285918955533}
   - component: {fileID: 6738264785740041849}
   m_Layer: 3
-  m_Name: TerrainFootstepFB
+  m_Name: TileFootsteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15524,16 +15525,13 @@ MonoBehaviour:
         Sfx: {fileID: 0}
         AudioResourceToPlay: {fileID: 0}
         RandomSfx:
-        - {fileID: 8300000, guid: 9e68ea1ebd76aa44c8cfa5beb9850830, type: 3}
-        - {fileID: 8300000, guid: 1deb201b8bf8f89479323a74e421150b, type: 3}
-        - {fileID: 8300000, guid: 7c518e8469a403b4c981664ecb28a79a, type: 3}
-        - {fileID: 8300000, guid: 1f2844efbf7abf647ba3d75d510f823a, type: 3}
-        - {fileID: 8300000, guid: fa95ebee958fb0e41a42a832aab767eb, type: 3}
-        - {fileID: 8300000, guid: 0cfeb72dea261a54cb7672590d2d1656, type: 3}
-        - {fileID: 8300000, guid: 924e3e09c67130946a6d7b666e8b8b68, type: 3}
-        - {fileID: 8300000, guid: 6da235e2573048249bcbe608f984ff48, type: 3}
-        - {fileID: 8300000, guid: fdc05ea2699023143ba7e93533cc5a0b, type: 3}
-        - {fileID: 8300000, guid: f26cf9ded47cf0140957490a16f85acc, type: 3}
+        - {fileID: 8300000, guid: ef57c62766464724d9f6cd64850b602f, type: 3}
+        - {fileID: 8300000, guid: 51f3852b66fa54144883c132b033b6fb, type: 3}
+        - {fileID: 8300000, guid: 436784e6637b76e469c499327f800efc, type: 3}
+        - {fileID: 8300000, guid: 399288b4f5ff9f449b4999de8666be37, type: 3}
+        - {fileID: 8300000, guid: 3449d2877bc3830408230d8c67ed2e15, type: 3}
+        - {fileID: 8300000, guid: 3bd61ce4a9883f44798fd88fef95bec7, type: 3}
+        - {fileID: 8300000, guid: a9dd46e4f1aaf6d4cb828b719f12bba1, type: 3}
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2
