@@ -20,14 +20,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             DesiresDialogue
         }
 
-        [Serializable]
-        public enum SlaverMotileState
-        {
-            Supervising,
-            Patrolling,
-            Pursuing,
-            InDialogue
-        }
+
 
         [SerializeField] Transform[] tentacleAnchors;
         [SerializeField] Transform[] klaxonAnchors;
@@ -36,11 +29,10 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         public HumanoidNPCCreature[] thrallCreatureCharacters;
 
-        public SlaverMotileState initialSlaverMotileState;
+        public AlienNPCState initialSlaverMotileState;
 
         public bool initialDesiresDialogue;
 
-        public SlaverMotileState CurrentSlaverMotileState { get; private set; }
 
         public AlienNPCState CurrentAnimancerState { get; private set; }
 
@@ -57,7 +49,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
             DesiresDialogue = initialDesiresDialogue;
 
-            SetState(animancerController.CurrentState, initialSlaverMotileState);
+            SetState(animancerController.CurrentState );
         }
 
         public void SetSlaverFlag(SlaverFlagType flag, bool value)
@@ -82,10 +74,9 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             }
         }
 
-        public void SetState(AlienNPCState newState, SlaverMotileState newSlaverMotileState)
+        public void SetState(AlienNPCState newState)
         {
             CurrentAnimancerState = newState;
-            CurrentSlaverMotileState = newSlaverMotileState;
 
             // Working/stationary states are "custom" from EnemyController's perspective —
             // this prevents Update() from stomping them with IdleState.

@@ -53,7 +53,7 @@ namespace Overview.NPC
             {
                 "ScientistHypolita", "CheckpointSoldier", "NavigationServer", "MetaTerminalServer",
                 "WombKeeper", "WombSquire", "OutcastKinMotile", "HospitableFlora", "FloraNimensis",
-                "ElevatorSystemServer01", "MedistatPodServer", "NarratorInnerVoice"
+                "ElevatorSystemServer01", "MedistatPodServer", "NarratorInnerVoice", "SlaverHylic01"
             };
         }
 

@@ -6,7 +6,6 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Motile
     public class SetSlaverMotileAlienNPCState : ActionTask
     {
         public BBParameter<AlienNPCState> NewAnimancerState;
-        public BBParameter<FPNPCs.AlienNPC.SlaverMotile.SlaverMotileState> NewSlaverMotileState;
         public BBParameter<FPNPCs.AlienNPC.SlaverMotile> SlaverMotileNPCCreatureInst;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -20,7 +19,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Motile
         //EndAction can be called from anywhere.
         protected override void OnExecute()
         {
-            SlaverMotileNPCCreatureInst.value.SetState(NewAnimancerState.value, NewSlaverMotileState.value);
+            SlaverMotileNPCCreatureInst.value.SetState(NewAnimancerState.value);
 
             EndAction(true);
         }

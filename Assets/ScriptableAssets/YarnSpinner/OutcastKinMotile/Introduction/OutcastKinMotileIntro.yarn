@@ -2,8 +2,8 @@ title: OutcastKinMotileIntro
 position: -30,-215
 ---
 <<if !has_npc_been_contacted("OutcastKinMotile")>>
-    Outcast Hylic: Greetings. I had hoped you'd find your way here. Please make yourself comfortable.
-    Outcast Hylic: So long as you are keep the peace, you may rest here as long as you like.
+    Outcast Hylic Diplomat: Greetings. I had hoped you'd find your way here. Please make yourself comfortable.
+    Outcast Hylic Diplomat: So long as you are keep the peace, you may rest here as long as you like.
     <<make_contact_with_npc "OutcastKinMotile">>
 <<endif>>
 <<if has_started_quest("ZinniasCure") && get_quantity_of_item_player_has("NimTreeHangerSample") > 0 && get_quantity_of_item_player_has("ZinniasPrimerSerumB") > 0>>
@@ -30,27 +30,27 @@ title: QuestionsForTheOutcastMotile
 position: -54,-46
 ---
 -> What can I call you?
-    Outcast Hylic: I am namless. Exiled as I am, I was stripped of my name by my people when they cast me out.
+    Outcast Hylic Diplomat: I am namless. Exiled as I am, I was stripped of my name by my people when they cast me out.
     -> How can they strip you of your name? Even in exile, doesn't that get confusing?
-        Outcast Hylic: It is our way, and I respect it. 
+        Outcast Hylic Diplomat: It is our way, and I respect it. 
         -> I think I understand.
             <<jump QuestionsForTheOutcastMotile>>
         -> Even after they exiled you?
-            Outcast Hylic: I still hope that some day I will be able to return to my people. Still, my work is here for now.
+            Outcast Hylic Diplomat: I still hope that some day I will be able to return to my people. Still, my work is here for now.
             <<jump QuestionsForTheOutcastMotile>>
 -> Ask about the surrounding area
-    Outcast Hylic: To the north is the true no man's land. Not much reason to go there, except that beyond it is the only way back to the crystal palace, the seat of Kin rule in Midsheol.
-    Outcast Hylic: To the south is human controlled territory, as you may know. For one such as me, and I suspect for you, tis barred to us.
+    Outcast Hylic Diplomat: To the north is the true no man's land. Not much reason to go there, except that beyond it is the only way back to the crystal palace, the seat of Kin rule in Midsheol.
+    Outcast Hylic Diplomat: To the south is human controlled territory, as you may know. For one such as me, and I suspect for you, tis barred to us.
     <<jump QuestionsForTheOutcastMotile>>
 -> What kind of store is this?
-    Outcast Hylic: It is not currently much of a store. These are hard times, and we get so few travelers these days. It used to be quite the bustling little local hub.
-    Outcast Hylic: On top of that, my former business partner, was captured by local slavers. 
+    Outcast Hylic Diplomat: It is not currently much of a store. These are hard times, and we get so few travelers these days. It used to be quite the bustling little local hub.
+    Outcast Hylic Diplomat: On top of that, my former business partner, was captured by local slavers. 
     <<jump QuestionsOutcastStore>>
 -> What are the Kin really? My memories are still coming back in bits and pieces. But everywhere I go I find their influence.
-    Outcast Hylic: Three species: Keepers, the Cores, and the Motiles, evolved as a unity millions of years ago. Their covenant is ancient.
-    Outcast Hylic: The Kinship dominated this world for untold millenia. Once, their city states dotted the surface.
-    Outcast Hylic: Gradually, the surface's life bearing capacity gave out, unable to bounce back after centuries of abuse. They brought their feuds underground, unable to collectively learn their lesson.
-    Outcast Hylic: I am one who objects to constant war, and that makes me an outcast, cut off from the Kinship. Astray as I am, I must get by without the Womb Keepers' gentle caress.
+    Outcast Hylic Diplomat: Three species: Keepers, the Cores, and the Motiles, evolved as a unity millions of years ago. Their covenant is ancient.
+    Outcast Hylic Diplomat: The Kinship dominated this world for untold millenia. Once, their city states dotted the surface.
+    Outcast Hylic Diplomat: Gradually, the surface's life bearing capacity gave out, unable to bounce back after centuries of abuse. They brought their feuds underground, unable to collectively learn their lesson.
+    Outcast Hylic Diplomat: I am one who objects to constant war, and that makes me an outcast, cut off from the Kinship. Astray as I am, I must get by without the Womb Keepers' gentle caress.
     <<jump AskAboutSpecificKinSpecies>>
 -> [Leave]
 ===

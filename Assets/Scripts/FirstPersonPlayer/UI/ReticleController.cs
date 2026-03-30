@@ -1,6 +1,8 @@
 using FirstPersonPlayer.Interface;
 using FirstPersonPlayer.Tools;
 using FirstPersonPlayer.Tools.Interface;
+using Helpers.Events.NPCs;
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +10,7 @@ using UnityEngine.UI;
 
 namespace FirstPersonPlayer.UI
 {
-    public class ReticleController : MonoBehaviour
+    public class ReticleController : MonoBehaviour, MMEventListener<DialogueCameraEvent>
     {
         [Header("Reticle States")] public ReticleState defaultState;
 
@@ -24,8 +26,25 @@ namespace FirstPersonPlayer.UI
 
         [Header("Reticle UI")] public Image reticle;
 
+        [SerializeField] CanvasGroup reticleCanvasGroup;
+
         ReticleState currentState;
         IRuntimeTool currentTool;
+        void OnEnable()
+        {
+            this.MMEventStartListening();
+        }
+
+        void OnDisable()
+        {
+            this.MMEventStopListening();
+        }
+        public void OnMMEvent(DialogueCameraEvent eventType)
+        {
+            if (eventType.Type == DialogueCameraEventType.FocusOnTarget)
+                HideReticle();
+            else if (eventType.Type == DialogueCameraEventType.ReleaseFocus) ShowReticle();
+        }
 
 
         public void UpdateReticle(RaycastHit? hit, bool terrainBlocking)
@@ -96,6 +115,16 @@ namespace FirstPersonPlayer.UI
                     reticle.color = defaultState.reticleColor;
                 }
             }
+        }
+
+        void HideReticle()
+        {
+            reticleCanvasGroup.alpha = 0f;
+        }
+
+        void ShowReticle()
+        {
+            reticleCanvasGroup.alpha = 1f;
         }
     }
 }
