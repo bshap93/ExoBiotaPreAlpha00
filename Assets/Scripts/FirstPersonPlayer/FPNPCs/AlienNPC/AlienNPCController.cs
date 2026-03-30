@@ -41,7 +41,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         Unavailable,
         Pursuing,
         CombatInRange,
-        Watching
+        Watching,
+        Patrolling
     }
 
 

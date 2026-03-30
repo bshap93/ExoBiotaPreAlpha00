@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Dirigible.Input;
-using Events;
 using FirstPersonPlayer.UI.LocationButtonBase.Test;
 using Helpers.Events;
 using Helpers.Events.Dialog;
@@ -176,6 +175,7 @@ namespace Manager.DialogueScene
             }
 
             HotbarEvent.Trigger(HotbarEvent.HotbarEventType.ShowHotbars);
+            DialogueEvent.Trigger(DialogueEventType.DialogueFinished, null, null);
 
             ControlsHelpEvent.Trigger(ControlHelpEventType.Hide, 0);
         }

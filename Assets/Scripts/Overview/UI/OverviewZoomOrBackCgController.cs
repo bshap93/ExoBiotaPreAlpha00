@@ -1,4 +1,5 @@
 using Events;
+using Helpers.Events;
 using MoreMountains.Tools;
 using Overview.OverviewMode;
 using UnityEngine;
@@ -14,11 +15,11 @@ namespace Overview.UI
             ZoomedToLocationUI
         }
 
-        [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private OverviewState[] targetState;
-        [SerializeField] private ControlTarget controlTarget;
+        [SerializeField] CanvasGroup canvasGroup;
+        [SerializeField] OverviewState[] targetState;
+        [SerializeField] ControlTarget controlTarget;
 
-        private void OnEnable()
+        void OnEnable()
         {
             this.MMEventStartListening<OverviewLocationEvent>();
             this.MMEventStartListening<DialogueEvent>();
@@ -27,7 +28,7 @@ namespace Overview.UI
             canvasGroup.blocksRaycasts = false; // Prevent raycasts
         }
 
-        private void OnDisable()
+        void OnDisable()
         {
             this.MMEventStopListening<OverviewLocationEvent>();
             this.MMEventStopListening<DialogueEvent>();

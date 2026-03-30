@@ -1,6 +1,6 @@
 ﻿using MoreMountains.Tools;
 
-namespace Events
+namespace Helpers.Events
 {
     public enum DialogueEventType
     {

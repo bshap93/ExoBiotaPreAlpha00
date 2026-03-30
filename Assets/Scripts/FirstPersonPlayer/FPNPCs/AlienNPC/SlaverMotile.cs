@@ -1,10 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using Dirigible.Input;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
+using FirstPersonPlayer.Interface;
+using Helpers.Events;
+using Helpers.Events.Dialog;
+using Helpers.Events.NPCs;
+using Helpers.Events.Progression;
+using Lightbug.Utilities;
+using Manager;
+using Manager.DialogueScene;
+using Manager.ProgressionMangers;
+using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
+using Overview.NPC;
+using SharedUI.Interface;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace FirstPersonPlayer.FPNPCs.AlienNPC
 {
-    public class SlaverMotile : EnemyController
+    public class SlaverMotile : EnemyController, IInteractable, IHoverable, IBillboardable,
+        MMEventListener<DialogueEvent>
     {
         public enum BroadcastType
         {
@@ -21,7 +38,6 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         }
 
 
-
         [SerializeField] Transform[] tentacleAnchors;
         [SerializeField] Transform[] klaxonAnchors;
         [SerializeField] Transform bodyHeadCenterAnchor;
@@ -31,10 +47,29 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         public AlienNPCState initialSlaverMotileState;
 
+        [ValueDropdown("GetNpcIdOptions")] public
+            string npcId;
+
+        [Header("Flags")] [SerializeField] bool isInteractable = true;
+
+
         public bool initialDesiresDialogue;
 
+        [SerializeField] NpcDefinition npcDefinition;
+        [SerializeField] string defaultStartNode;
 
-        public AlienNPCState CurrentAnimancerState { get; private set; }
+        [SerializeField] int exobioticLanguageThreshold = 2;
+
+#if UNITY_EDITOR
+        [ValueDropdown(nameof(GetAllRewiredActions))]
+#endif
+        public int actionId;
+
+        SceneObjectData _sceneObjectData;
+        Transform dialogueFocusPoint;
+        MMFeedbacks startDialogueFeedback;
+
+        public AlienNPCState CurrentState { get; private set; }
 
         public bool Alerted { get; private set; }
 
@@ -49,7 +84,147 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
             DesiresDialogue = initialDesiresDialogue;
 
-            SetState(animancerController.CurrentState );
+            SetState(animancerController.CurrentState);
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            this.MMEventStartListening<DialogueEvent>();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            this.MMEventStopListening<DialogueEvent>();
+        }
+        public string GetName()
+        {
+            return npcDefinition != null ? npcDefinition.characterName : "NPC";
+        }
+        public Sprite GetIcon()
+        {
+            return npcDefinition != null ? npcDefinition.characterIcon : null;
+        }
+        public string ShortBlurb()
+        {
+            return npcDefinition != null ? npcDefinition.npcDescription : string.Empty;
+        }
+        public Sprite GetActionIcon()
+        {
+            return PlayerUIManager.Instance.defaultIconRepository.talkIcon;
+        }
+        public string GetActionText()
+        {
+            return "Talk";
+        }
+        public bool OnHoverStart(GameObject go)
+        {
+            _sceneObjectData = SceneObjectData.Empty();
+
+            _sceneObjectData.ActionIcon = GetActionIcon();
+            _sceneObjectData.ActionText = GetActionText();
+            _sceneObjectData.Name = GetName();
+            _sceneObjectData.ShortBlurb = ShortBlurb();
+            _sceneObjectData.Icon = GetIcon();
+
+            BillboardEvent.Trigger(_sceneObjectData, BillboardEventType.Show);
+
+            if (actionId != 0) ControlsHelpEvent.Trigger(ControlHelpEventType.Show, actionId);
+
+            return true;
+        }
+        public bool OnHoverStay(GameObject go)
+        {
+            return true;
+        }
+        public bool OnHoverEnd(GameObject go)
+        {
+            if (_sceneObjectData == null) _sceneObjectData = SceneObjectData.Empty();
+
+            BillboardEvent.Trigger(_sceneObjectData, BillboardEventType.Hide);
+            if (actionId != 0) ControlsHelpEvent.Trigger(ControlHelpEventType.Hide, actionId);
+
+            return true;
+        }
+
+        public void Interact()
+        {
+            if (!CanInteract()) return;
+
+            DetermineLanguage();
+
+            var nodeToUse = GetAppropriateDialogueNode();
+
+            StartDialogue(nodeToUse);
+        }
+        public void Interact(string param)
+        {
+            if (!CanInteract()) return;
+
+            DetermineLanguage();
+
+            StartDialogue(param);
+        }
+        public void OnInteractionStart()
+        {
+        }
+
+        public void OnInteractionEnd(string param)
+        {
+            // Release camera focus when dialogue ends
+            DialogueCameraEvent.Trigger(DialogueCameraEventType.ReleaseFocus);
+        }
+        public bool CanInteract()
+        {
+            if (CurrentState == AlienNPCState.Unavailable) return false;
+            // if (CurrentState == AlienNPCState.InDialogue) return false;
+            if (!isInteractable) return false;
+            return true;
+        }
+        public bool IsInteractable()
+        {
+            return isInteractable;
+        }
+        public void OnFocus()
+        {
+        }
+        public void OnUnfocus()
+        {
+        }
+        public float GetInteractionDistance()
+        {
+            return 5.5f;
+        }
+        public void OnMMEvent(DialogueEvent eventType)
+        {
+            if (eventType.EventType == DialogueEventType.DialogueFinished)
+            {
+                DesiresDialogue = false;
+                SetState(AlienNPCState.Working);
+            }
+        }
+
+
+        void StartDialogue(string nodeToUse)
+        {
+            if (nodeToUse.IsNullOrWhiteSpace())
+                FirstPersonDialogueEvent.Trigger(FirstPersonDialogueEventType.StartDialogue, npcId, defaultStartNode);
+            else
+                FirstPersonDialogueEvent.Trigger(FirstPersonDialogueEventType.StartDialogue, npcId, nodeToUse);
+
+            var friendlyNPCManager = FriendlyNPCManager.Instance;
+            if (friendlyNPCManager != null && !friendlyNPCManager.HasNPCBeenContactedAtLeastOnce(npcDefinition.npcId))
+                EnemyXPRewardEvent.Trigger(npcDefinition.xpForFirstMeeting);
+
+            // Focus the dialogue camera on this NPC
+            var focusTarget = dialogueFocusPoint != null ? dialogueFocusPoint : transform;
+            DialogueCameraEvent.Trigger(DialogueCameraEventType.FocusOnTarget, focusTarget);
+
+            startDialogueFeedback?.PlayFeedbacks();
+            MyUIEvent.Trigger(UIType.Any, UIActionType.Open);
         }
 
         public void SetSlaverFlag(SlaverFlagType flag, bool value)
@@ -76,7 +251,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         public void SetState(AlienNPCState newState)
         {
-            CurrentAnimancerState = newState;
+            CurrentState = newState;
 
             // Working/stationary states are "custom" from EnemyController's perspective —
             // this prevents Update() from stomping them with IdleState.
@@ -92,8 +267,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             switch (broadcastType)
             {
                 case BroadcastType.HostileAgent:
-                    foreach (var thrall in thrallCreatureCharacters) 
-                        thrall.SetState(AlienNPCState.Searching, isHostile: true);
+                    foreach (var thrall in thrallCreatureCharacters)
+                        thrall.SetState(AlienNPCState.Searching, true);
 
                     break;
                 default:
@@ -101,5 +276,55 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
                     break;
             }
         }
+
+        protected string GetAppropriateDialogueNode()
+        {
+            // For now, just return the default start node.
+            return defaultStartNode;
+        }
+        static string[] GetNpcIdOptions()
+        {
+            return DialogueManager.GetAllNpcIdOptions();
+        }
+
+        void DetermineLanguage()
+        {
+            var attributeMgr = AttributesManager.Instance;
+            if (attributeMgr == null)
+            {
+                Debug.LogError("AttributesManager instance not found.");
+                return;
+            }
+
+            var exobioticAttrLevel = attributeMgr.Exobiotic;
+
+
+            if (npcDefinition.nativeLanguage == LanguageType.ModernGalactic)
+                DialoguePresentationEvent.Trigger(
+                    DialoguePresentationEventType.ChangeFontsOfNPCSide, LanguageType.ModernGalactic);
+            else if (npcDefinition.nativeLanguage == LanguageType.Sheolite)
+                if (exobioticAttrLevel >= exobioticLanguageThreshold)
+                    DialoguePresentationEvent.Trigger(
+                        DialoguePresentationEventType.ChangeFontsOfNPCSide, LanguageType.ModernGalactic);
+                else
+                    DialoguePresentationEvent.Trigger(
+                        DialoguePresentationEventType.ChangeFontsOfNPCSide, LanguageType.Sheolite);
+        }
+
+#if UNITY_EDITOR
+        public IEnumerable<ValueDropdownItem<int>> GetAllRewiredActions()
+        {
+            return AllRewiredActions.GetAllRewiredActions();
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            var target = dialogueFocusPoint != null ? dialogueFocusPoint.position : transform.position;
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(target, 0.08f);
+            Gizmos.DrawLine(transform.position, target);
+        }
+
+#endif
     }
 }
