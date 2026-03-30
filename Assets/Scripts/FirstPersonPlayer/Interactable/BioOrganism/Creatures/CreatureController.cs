@@ -56,7 +56,6 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         protected
             FSMOwner fsmOwner;
 
-        [SerializeField] protected bool isInitiallyHostile;
 
         public string[] uniqueIdOfFriends;
 
@@ -85,6 +84,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         [Header("Designer flags")] [SerializeField]
         protected bool cannotBeAttacked;
         public bool startAsActivated;
+        [SerializeField] protected bool isInitiallyHostile;
+
 
         public bool destroyAfterDeath = true;
 

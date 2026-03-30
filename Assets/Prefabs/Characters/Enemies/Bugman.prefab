@@ -98,6 +98,37 @@ Transform:
   - {fileID: 2300896391030310641}
   m_Father: {fileID: 933627018768095615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1195482812074972435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6433963991604284111}
+  m_Layer: 27
+  m_Name: DummyTgt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6433963991604284111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195482812074972435}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.36, y: 0, z: 5.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8745564723029673016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236205277005844255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1147,149 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &4719289439780233894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186701694649230657}
+  - component: {fileID: 1121231159394133449}
+  m_Layer: 27
+  m_Name: MovementFeedbacksRun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186701694649230657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4719289439780233894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 649090911700656275}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121231159394133449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4719289439780233894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Feedbacks.MMF_Player
+  Feedbacks: []
+  InitializationMode: 2
+  AutoInitialization: 1
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  ForceTimescaleMode: 0
+  ForcedTimescaleMode: 1
+  DurationMultiplier: 1
+  TimescaleMultiplier: 1
+  RandomizeDuration: 0
+  RandomDurationMultiplier: {x: 0.5, y: 1.5}
+  DisplayFullDurationDetails: 0
+  PlayerTimescaleMode: 0
+  OnlyPlayIfWithinRange: 0
+  RangeCenter: {fileID: 0}
+  RangeDistance: 5
+  UseRangeFalloff: 0
+  RangeFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapRangeFalloff: {x: 0, y: 1}
+  IgnoreRangeEvents: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlay: 1
+  CanPlayWhileAlreadyPlaying: 1
+  ChanceToPlay: 100
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeDirection:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRestoreInitialValues:
+      m_PersistentCalls:
+        m_Calls: []
+    OnSkipToTheEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInitializationComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDisable:
+      m_PersistentCalls:
+        m_Calls: []
+  DebugActive: 0
+  InScriptDrivenPause: 0
+  FeedbacksList: []
+  KeepPlayModeChanges: 0
+  PerformanceMode: 0
+  RestoreInitialValuesOnDisable: 0
+  StopFeedbacksOnDisable: 0
+  PlayCount: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &4740131386401010644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1364,7 @@ GameObject:
   - component: {fileID: 7869289525867479884}
   - component: {fileID: 1883720637516572221}
   m_Layer: 27
-  m_Name: MovementFeedbacks
+  m_Name: MovementFeedbacksWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2741,6 +2915,7 @@ Transform:
   m_Children:
   - {fileID: 7344955287859782443}
   - {fileID: 7869289525867479884}
+  - {fileID: 186701694649230657}
   - {fileID: 8852732877305081195}
   - {fileID: 542943567903375279}
   m_Father: {fileID: 8745564723029673016}
@@ -3257,14 +3432,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8745564723029673016}
-  - component: {fileID: 3404590612998255744}
+  - component: {fileID: 8932435574992022780}
   - component: {fileID: 5174936893024089001}
   - component: {fileID: 8712108747091250391}
   - component: {fileID: 7341355918619645345}
   - component: {fileID: 1598414099690297089}
   - component: {fileID: 4643146938870424635}
   - component: {fileID: 4086002893604307443}
-  - component: {fileID: 1043992874067479988}
   - component: {fileID: 5608372594310721080}
   - component: {fileID: 2123907199963002158}
   - component: {fileID: 506536215471322679}
@@ -3284,7 +3458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9185237022687569454}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9914446, z: -0, w: 0.13052888}
+  m_LocalRotation: {x: 0, y: 0.9914449, z: 0, w: 0.13052626}
   m_LocalPosition: {x: -1.2155914, y: -0.8464255, z: -16.653008}
   m_LocalScale: {x: 0.7154201, y: 0.71542, z: 0.7154201}
   m_ConstrainProportionsScale: 1
@@ -3292,9 +3466,10 @@ Transform:
   - {fileID: 7844039450722028830}
   - {fileID: 1242893537151858669}
   - {fileID: 649090911700656275}
+  - {fileID: 6433963991604284111}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
---- !u!114 &3404590612998255744
+--- !u!114 &8932435574992022780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3303,17 +3478,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9185237022687569454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8f5af975cf4e10b7ec39e864108c0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 987174e3c8fc427cbcb90f3d30cb6b28, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController
-  uniqueID: f1515ea8-cc0c-41ad-a82c-db11c225677d
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Interactable.BioOrganism.Creatures.AdvancedCreatureEnemyController
+  uniqueID: a547c1a7-8153-461f-8984-d85219e745d4
   extractableInteractable: {fileID: 11400000, guid: 5895cacb716c43b4c9d2670d07ebec27, type: 2}
   callDeathFeedbacksFromBTree: 0
   highlightEffect: {fileID: 1285283592462660929}
   highlightEffectController: {fileID: 6950605219084598}
   blackboard: {fileID: 7341355918619645345}
   fsmOwner: {fileID: 4086002893604307443}
-  isInitiallyHostile: 1
   uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: a75bf018826feab428c7f648bb8905bc, type: 2}
   animancerComponent: {fileID: 4643146938870424635}
@@ -3329,12 +3503,13 @@ MonoBehaviour:
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
   startAsActivated: 0
+  isInitiallyHostile: 1
   destroyAfterDeath: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
   secondsBeforeSettingShouldBeDestroyed: 5
   deathDelay: 1
-  attackCount: 1
+  attackCount: 2
   attackInstances:
   - attackName: 
     playerAttackData: {fileID: 11400000, guid: d39730f790c802442ac0e7b36c168a76, type: 2}
@@ -3358,15 +3533,18 @@ MonoBehaviour:
   isPlacated: 0
   currentStunDamage: 0
   currentHealth: 50
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 1598414099690297089}
   movementSpeedThreshold: 0.1
   walkRunThreshold: 2
   hasRangedAttack: 0
   rangedAttackOrigin: {fileID: 0}
-  onDeathLayer: 0
+  onDeathLayer: 8
   doNotUseIdleState: 0
-  movementLoopFeedbacks: {fileID: 1883720637516572221}
+  movementLoopFeedbacks: {fileID: 1121231159394133449}
   deathParticlesDustPrefab: {fileID: 0}
+  walkingLoopFeedbacks: {fileID: 1883720637516572221}
+  runningLoopFeedbacks: {fileID: 1121231159394133449}
+  initialState: 11
 --- !u!95 &5174936893024089001
 Animator:
   serializedVersion: 7
@@ -3401,7 +3579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e1d9143c9b4c9494735a91d1782bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.AssignPlayerToBT
-  blackboard: {fileID: 0}
+  blackboard: {fileID: 7341355918619645345}
   delay: 0.5
   tgtTransformName: playerTransform
   tgtGameObjectName: capsule
@@ -3419,9 +3597,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ParadoxNotion::NodeCanvas.Framework.Blackboard
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
-  _objectReferences: []
-  _serializedVariables: []
+  _serializedBlackboard: '{"_variables":{"CurrentState":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.AdvancedCreatureEnemyController.CurrentState","_name":"CurrentState","_id":"f1e5ed3c-3ed2-4b03-b999-6dc58f029604","$type":"NodeCanvas.Framework.Variable`1[[FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCState,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"PatrolPoints":{"_value":[null,null,null,null,null],"_name":"PatrolPoints","_id":"35b071de-b1b2-4772-84d1-0dc8cfd98a88","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"playerTransform":{"_value":1,"_name":"playerTransform","_id":"7dbc93b8-9a59-4335-9d0b-d53b3942422a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"capsule":{"_value":2,"_name":"capsule","_id":"b6bad621-4a65-41df-89f6-20471428599f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 6433963991604284111}
+  - {fileID: 1195482812074972435}
+  _serializedVariables:
+  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.AdvancedCreatureEnemyController.CurrentState","_name":"CurrentState","_id":"f1e5ed3c-3ed2-4b03-b999-6dc58f029604","$type":"NodeCanvas.Framework.Variable`1[[FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCState,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_value":[null,null,null,null,null],"_name":"PatrolPoints","_id":"35b071de-b1b2-4772-84d1-0dc8cfd98a88","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":1,"_name":"playerTransform","_id":"7dbc93b8-9a59-4335-9d0b-d53b3942422a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 6433963991604284111}
+  - _json: '{"_value":1,"_name":"capsule","_id":"b6bad621-4a65-41df-89f6-20471428599f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 1195482812074972435}
 --- !u!195 &1598414099690297089
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3429,7 +3632,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9185237022687569454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: -515339236
   m_Radius: 0.7
   m_Speed: 3.5
@@ -3466,7 +3669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9185237022687569454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
   m_Name: 
@@ -3488,23 +3691,6 @@ MonoBehaviour:
   _updateMode: 0
   _graph: {fileID: 11400000, guid: 3d759f092a145ca4d80ac14bd5b16521, type: 2}
   _blackboard: {fileID: 7341355918619645345}
---- !u!114 &1043992874067479988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9185237022687569454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e1d9143c9b4c9494735a91d1782bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.AssignPlayerToBT
-  blackboard: {fileID: 0}
-  delay: 0.5
-  tgtTransformName: playerTransform
-  tgtGameObjectName: capsule
-  flagName: 
 --- !u!114 &5608372594310721080
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Animancer;
-using FirstPersonPlayer.Combat.AINPC.ScriptableObjects;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using FirstPersonPlayer.ScriptableObjects;
 using Helpers.Events.Combat;
@@ -33,8 +32,6 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
 
         AlienNPCState CurrentState { get; set; }
-
-        public bool Alerted { get; private set; }
 
         public EnemyWeaponDefinition EquippedWeapon { get; private set; }
 
@@ -113,17 +110,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         {
             if (uniqueIdOfFriends.Contains(eventType.UniqueID) && eventType.IsHostile) SetState(CurrentState, true);
         }
-        // public void OnMMEvent(PlayerStartsAttackEvent eventType)
-        // {
-        //     if (eventType.Attack.attackType == PlayerAttackType.Melee)
-        //     {
-        //     }
-        // }
 
-        public void ApplyAttack(EnemyAttack attack)
-        {
-            Debug.Log($"{name} applying attack {attack.name} with damage {attack.rawDamage}  ");
-        }
 
         /// <summary>
         ///     Central state setter — call this from NodeCanvas FSM state entry

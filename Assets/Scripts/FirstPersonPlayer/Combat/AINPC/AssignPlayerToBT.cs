@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace FirstPersonPlayer.Combat.AINPC
 {
+    [DisallowMultipleComponent]
     public class AssignPlayerToBT : MonoBehaviour
     {
         public Blackboard blackboard;
