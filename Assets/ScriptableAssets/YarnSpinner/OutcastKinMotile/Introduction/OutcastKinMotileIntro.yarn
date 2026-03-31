@@ -19,9 +19,7 @@ position: -30,-215
         <<jump QuestionsForTheOutcastMotile>>
     -> I have to go. I'll be seeing you.
 <<else>>
-    -> I do have some questions.
-        <<jump QuestionsForTheOutcastMotile>>
-    -> I have to go. I'll be seeing you.
+    <<jump QuestionsForTheOutcastMotile>>
 <<endif>>
 ===
 
@@ -30,21 +28,23 @@ title: QuestionsForTheOutcastMotile
 position: -54,-46
 ---
 -> What can I call you?
-    Outcast Hylic Diplomat: I don't have a proper name. I was stripped of my name by my Kin when they cast me out.
+    Outcast Hylic: I don't have a proper name. I was stripped of my name by my Kin when they cast me out. I am a Hylic and a Diplomat. You may call me The Diplomat.
     <<jump DiplomacyHylicDiplomat>>
+-> What is this place?
+    <<jump FormerPlaceOfWorshipChapel>>
 -> Ask about the surrounding area
-    Outcast Hylic Diplomat: To the north is the true no man's land. Not much reason to go there, except that beyond it is the only way back to the crystal palace, the seat of Kin rule in Midsheol.
-    Outcast Hylic Diplomat: To the south is human controlled territory, as you may know. For one such as me, and I suspect for you, tis barred to us.
+    Outcast Hylic: To the north is the true no man's land. Not much reason to go there, except that beyond it is the only way back to the crystal palace, the seat of Kin rule in Midsheol.
+    Outcast Hylic: To the south is human controlled territory, as you may know. For one such as me, and I suspect for you, tis barred to us.
     <<jump QuestionsForTheOutcastMotile>>
--> What kind of store is this?
-    Outcast Hylic Diplomat: It is not currently much of a store. These are hard times, and we get so few travelers these days. It used to be quite the bustling little local hub.
-    Outcast Hylic Diplomat: On top of that, my former business partner, was captured by local slavers. 
+-> Are you running a store here?
+    Outcast Hylic: It is not currently much of a store. These are hard times, and we get so few travelers these days. It used to be quite the bustling little local hub.
+    Outcast Hylic: On top of that, my former business partner, was captured by local slavers. 
     <<jump QuestionsOutcastStore>>
 -> What are the Kin really? My memories are still coming back in bits and pieces. But everywhere I go I find their influence.
-    Outcast Hylic Diplomat: Three species: Keepers, the Cores, and the Motiles, evolved as a unity millions of years ago. Their covenant is ancient.
-    Outcast Hylic Diplomat: The Kinship dominated this world for untold millenia. Once, their city states dotted the surface.
-    Outcast Hylic Diplomat: Gradually, the surface's life bearing capacity gave out, unable to bounce back after centuries of abuse. They brought their feuds underground, unable to collectively learn their lesson.
-    Outcast Hylic Diplomat: I am one who objects to constant war, and that makes me an outcast, cut off from the Kinship. Astray as I am, I must get by without the Womb Keepers' gentle caress.
+    Outcast Hylic: Three species: Keepers, the Cores, and the Motiles, evolved as a unity millions of years ago. Their covenant is ancient.
+    Outcast Hylic: The Kinship dominated this world for untold millenia. Once, their city states dotted the surface.
+    Outcast Hylic: Gradually, the surface's life bearing capacity gave out, unable to bounce back after centuries of abuse. They brought their feuds underground, unable to collectively learn their lesson.
+    Outcast Hylic: I am one who objects to indiscriminate slaughter. For that I am outcast and cut off from the Kinship. Astray as I am, I must get by without the Womb Keepers' gentle caress.
     <<jump AskAboutSpecificKinSpecies>>
 -> [Leave]
 ===

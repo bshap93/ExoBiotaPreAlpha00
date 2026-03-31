@@ -1,37 +1,15 @@
 title: QuestionsOutcastStore
 ---
 -> Tell me about these slavers.
-    Outcast Hylic Diplomat: Yes, in Midsheol, we have quite the problem with outcast Hylics and Keepers forming their own tight knit communities and taking to capturing slaves.
-    -> They enslave their own kind, Hylics like you? Keepers like the so-called 'Womb-Keeper'?
-        Outcast Hylic Diplomat: No, actually. Or it's not too common. Actually the biggest cohort right now seems to be the human hybrids.
-        -> Hybrids?
-            Outcast Hylic Diplomat: Indeed. The Keepers are masterful genetic engineers. They create the breed of humanoid you'll no doubt encounter in Midsheol.
-            Outcast Hylic Diplomat: I know not the exact formula they use, but the end result is part human, part Hylic. 
-            Outcast Hylic Diplomat: Humans for their willingness to follow orders and perform manual labor, and Hylics for psychic bonds with Kin Keepers, and familiarity.
-            <<jump QuestionsOutcastStore>>
-        -> I had another question.
-            <<jump QuestionsOutcastStore>>
-    -> Are you at risk here?
-        Outcast Hylic Diplomat: In Midsheol, there is always risk. However, in my case they mostly leave me and this Chapel alone.
-        <<jump QuestionsOutcastStore>>
-    -> Where are these slavers?
-        Outcast Hylic Diplomat: I'm well aware of an Outcast Kin slaver ring down in the Magnium mines beneath Ashpool Springs.
-        Outcast Hylic Diplomat: Others stay on the move, raid Hybrid settlements, buying and selling to other Pods in Midsheol.
-        <<jump QuestionsOutcastStore>>
-    -> Do they not have robots? Automatons? Why must they use biological slaves?
-        Outcast Hylic Diplomat: No, they do not use automatons. Your disastrous Pneumatics War might be seen as a lesson for all. The Keepers, for their part, never needed any such machines.
-        Outcast Hylic Diplomat: They have always posessed innate abilities in genetic engineering, and naturally they used it to generate a subservient workforce.
-        -> That all seems familiar. My brain is still recompiling its long term memories, like the Psion said. What else can you tell me about the Pneumatics War?
-            <<jump ThePneumaticsWarStub>>
-        -> I had another question.
-            <<jump QuestionsOutcastStore>>
+    Outcast Hylic: Yes, in Midsheol, we have quite the problem with outcast Hylics and extrajudicial Psions forming their own tight knit communities and taking to capturing slaves.
+    <<jump TellMeAboutTheSlavers_QA>>
 -> Where did they take him?
-    Outcast Hylic Diplomat: Likely, the Magnium mines beneath Ashpool Springs. There is a service elevator that transports personnel between the Springs and the Mine.
-    Outcast Hylic Diplomat: This 'Pod', as we call these rogue slaver rings comprised of Outcast Kin Hylics and Keepers, have settled in those mines. 
-    Outcast Hylic Diplomat: My partner was kidnapped near the gate abutting Human controlled territory.
+    Outcast Hylic: Likely, the Magnium mines beneath Ashpool Springs. There is a service elevator that transports personnel between the Springs and the Mine.
+    Outcast Hylic: This 'Pod', as we call these rogue slaver rings comprised of Outcast Kin Hylics and extrajudicial Psions, have settled in those mines. 
+    Outcast Hylic: My partner was kidnapped near the gate which leads to Human controlled territory. He was out retrieving sap from the Nimensis tree there.
     -> Your friend is a human Hybrid?
-        Outcast Hylic Diplomat: Yes, and a kind soul. I shudder to think what they might do to him, at a biological level. The Keepers tend to further modify Hybrids they enslave.
-        Outcast Hylic Diplomat: Modifications seen as criminal by even the Mainstream of the Kinship but practiced in these unregulated slaver Pods. Usually to induce horrendous pain, on psionic command.
+        Outcast Hylic: Yes, and a kind soul. I shudder to think what they might do to him, at a biological level. The Psions further modify hybrids they enslave.
+        Outcast Hylic: Modifications seen as criminal by even the mainstream doctrine of the Kinship but practiced in these unregulated slaver Pods. Usually to induce horrendous pain, on psionic command.
         <<jump QuestionsOutcastStore>>
 -> You'd open your store again if your friend was freed and able to return here?
     Outcast Hylic Diplomat: Yes, absolutely. Though most of my efforts these days are toward mediation and diplomacy, the store is a service I like to offer other peoples of Midsheol.
@@ -39,4 +17,52 @@ title: QuestionsOutcastStore
 -> I had another question.
     <<jump QuestionsForTheOutcastMotile>>
 -> [Leave]
+===
+
+title: TellMeAboutTheSlavers_QA
+---
+-> They enslave their own kind, Hylics like you? Keepers like the so-called 'Womb-Keeper'?
+    Outcast Hylic: No, actually. Or it's not too common. Actually the biggest cohort by far is human hybrids. 
+    -> Hybrids?
+        Outcast Hylic: Indeed. The Keepers, as you call them, or Psions, are masterful genetic engineers. They create the breed of humanoid you'll no doubt encounter in Midsheol.
+        Outcast Hylic: I know not the exact formula they use, but the end result is part human, part Hylic. 
+        Outcast Hylic: Humans for their willingness to follow orders and perform manual labor, and Hylics for psychic bonds with Kin Psions, and familiarity.
+        <<jump QuestionsOutcastStore>>
+    -> Why don't they take Hylic slaves?
+        Outcast Hylic: Hybrids are easy for a Psion to control. They were created by Psions to be thus. On the other hand, most Hylics serve Psions out of loyalty and filial piety.
+        Outcast Hylic: They cannot do much if a Hylic becomes no longer loyal, which they know is what will happen if they try to enslave that Hylic.
+        <<jump QuestionsOutcastStore>>
+    -> What about me?
+        Outcast Hylic: You're still human. But, you have the stink of Psion bioengineering and newly had Exobiotic ability. I'm really not sure what their intention was for you. 
+        Outcast Hylic: However, they will have known that your fellow humans would not allow you back. Beyond that, I'm just speculating. 
+        Outcast Hylic: Curious anyway, that that 'Womb Keeper' fellow mentioned me when giving you advice on where to go.
+        -> Why curious?
+            Outcast Hylic: Curious because I'm trying to work out its allegiances. It clearly knew about the ambush on your team. It was right there to receive a few of you into its care.
+            Outcast Hylic: I have to remain a bit suspicious of you, sorry to say, until I puzzle this out. The Psions are more than capable of embedding latent instructions into you to harm me.
+            Outcast Hylic: On the other hand, you seem all right, and I hope for your sake that doesn't happen. Then again, you seem useful and the Psion could be secretly aiding me. Curious indeed.
+            -> Wait, I didn't tell you about where the Womb Keeper fellow told me to go...
+                Outcast Hylic: You're forgetting how this works. We aren't making sounds at each other like you humans do to communicate. To some extent, I can pry. 
+                -> You can read my mind? Shit!
+                    Outcast Hylic: No, no don't worry. I basically can retrieve information that you'd be willing to give me anyway. It goes the other way also.
+                        -> Yes, I was wondering a little about that. It seemed like I was just speculating but now that I think about it, it's not. I know things. You were born in Shadir. Right?
+                            Outcast Hylic: Right! Bravo. You're learning to trust knowledge gotten that way. Can be very useful, I think you'll find.
+                                <<jump TellMeAboutTheSlavers_QA>>
+    -> I had another question.
+        <<jump TellMeAboutTheSlavers_QA>>
+-> Are you at risk here?
+    Outcast Hylic: In Midsheol, there is always risk. However, in my case they mostly leave me and this Chapel alone.
+    <<jump QuestionsOutcastStore>>
+-> Where are these slavers?
+    Outcast Hylic: I'm well aware of an Outcast Kin slaver ring down in the Magnium mines beneath Ashpool Springs.
+    Outcast Hylic: Others stay on the move, raid Hybrid settlements, buying and selling to other Pods in Midsheol.
+    <<jump QuestionsOutcastStore>>
+-> Do they not have robots? Automatons? Why must they use biological slaves?
+    Outcast Hylic: No, they do not use automatons. Your disastrous Pneumatics War might be seen as a lesson for all. The Psions or Keepers, for their part, never needed any such machines.
+    Outcast Hylic: They have always posessed innate abilities in genetic engineering, and naturally they used it to generate a subservient workforce.
+    -> That all seems familiar. My brain is still recompiling its long term memories, like the Psion said. What else can you tell me about the Pneumatics War?
+        <<jump ThePneumaticsWarStub>>
+    -> I had another question.
+        <<jump QuestionsOutcastStore>>
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
 ===

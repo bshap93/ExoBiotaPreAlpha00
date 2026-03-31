@@ -21,12 +21,7 @@ using UnityEngine.Serialization;
 
 namespace FirstPersonPlayer.FPNPCs.AlienNPC
 {
-    // public enum AlienNPCState
-    // {
-    //     Hailable,
-    //     InDialogue,
-    //     Unavailable
-    // }
+
 
     [Serializable]
     public enum AlienNPCState
