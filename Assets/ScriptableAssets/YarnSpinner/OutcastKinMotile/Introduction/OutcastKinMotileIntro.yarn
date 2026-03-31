@@ -30,14 +30,8 @@ title: QuestionsForTheOutcastMotile
 position: -54,-46
 ---
 -> What can I call you?
-    Outcast Hylic Diplomat: I am namless. Exiled as I am, I was stripped of my name by my people when they cast me out.
-    -> How can they strip you of your name? Even in exile, doesn't that get confusing?
-        Outcast Hylic Diplomat: It is our way, and I respect it. 
-        -> I think I understand.
-            <<jump QuestionsForTheOutcastMotile>>
-        -> Even after they exiled you?
-            Outcast Hylic Diplomat: I still hope that some day I will be able to return to my people. Still, my work is here for now.
-            <<jump QuestionsForTheOutcastMotile>>
+    Outcast Hylic Diplomat: I don't have a proper name. I was stripped of my name by my Kin when they cast me out.
+    <<jump DiplomacyHylicDiplomat>>
 -> Ask about the surrounding area
     Outcast Hylic Diplomat: To the north is the true no man's land. Not much reason to go there, except that beyond it is the only way back to the crystal palace, the seat of Kin rule in Midsheol.
     Outcast Hylic Diplomat: To the south is human controlled territory, as you may know. For one such as me, and I suspect for you, tis barred to us.

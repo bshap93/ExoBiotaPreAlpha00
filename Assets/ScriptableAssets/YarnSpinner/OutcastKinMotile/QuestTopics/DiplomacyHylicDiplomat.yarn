@@ -1,0 +1,73 @@
+
+title: DiplomacyHylicDiplomat
+---
+-> How can they strip you of your name? Even in exile, doesn't that get confusing?
+    Outcast Hylic: It is our way, and I respect it. The sapient beings of Sheol communicate directly mind-to-mind. Names are primarily a status symbols.
+    Outcast Hylic: I still hope that some day I will be able to return to my people. Still, my work is here for now.
+    <<jump QuestionsForTheDiplomat>>
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
+===
+
+title: QuestionsForTheDiplomat
+---
+-> Why are you called the Diplomat?
+    Diplomat: I am a spokesman of sorts for the various sapient creatures living inside of Midsheol, acting as a go-between for Humans, hybrids, the Kinship itself and other natives.
+    Diplomat: I was in contact with your team in the last few weeks. I was so sorry to hear about the ambush. What happened to you and your team... I am sorry.
+    -> It's not your fault.
+        Diplomat: But they were on their way here. 
+        <<jump DiplomatHadHopedForPeace>>
+    -> So our team, they were on their way here? I still don't remember, but that seems right.
+        Diplomat: Yes, they were. 
+        <<jump DiplomatHadHopedForPeace>>
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
+===
+
+title: DiplomatHadHopedForPeace
+---
+Diplomat: I thought that, after all these years, there might be a chance for peace, even if just locally here in Midsheol.
+Diplomat: I have hope yet still. I haven't given up on my plan to assemble a delegation comprising the various species and factions. There may still be hope for a treaty.
+<<jump DiplomatTalksAboutDelegation_QA>>
+===
+
+title: DiplomatHadHopedForPeace_QA
+---
+-> That's good, right?
+    Diplomat: Yes, and I feel that things will work out. But things are not good right now. This ambush on your team, I fear was a deed ordered by the Kinship council here in Midsheol.
+    Diplomat: It probably goes even further up the chain, maybe even to the High Council in Shibbol. I fear things might escalate and once again, that Midsheol will become a battlefield.
+    <<jump DiplomatHadHopedForPeace_QA>>
+-> About this delegation. What has changed since this ambush?
+    Diplomat: The setbacks are considerable. I got reports that the delegate chosen to represent Humanity in the delegation was killed.
+    Diplomat: We need your Human Science Directorate. Without them, there is no delegation. I fear they now see me as suspect and will not now trust me enough to send another delegate.
+    <<jump DiplomatTalksAboutDelegation_QA>>
+-> I had another question.
+    <<jump QuestionsForTheOutcastMotile>>
+-> [Leave]
+===
+
+title: DiplomatTalksAboutDelegation_QA
+---
+-> Who else?
+    Diplomat: My partner, Ala'am, is my preferred member of the Hybrids. He is kind and has none of the savagery some associate with his kind. Alas, he was captured by slavers.
+    Diplomat: We would also need a Hybrid from the Lake Tribes. Human-Kin hybrids don't all consider Ala'am a proper member of their kind, with his multi-species outlook and lifestyle outside tribal control.
+    Diplomat: I'd like to have a representative from the Phytoids. The Kin barely see them as sentient but I see them as peers and would not exclude them from this.
+    Diplomat: Most difficult, however, is getting a Psion (you might know them as 'Keepers') to join the delegation. Very few Psions live outside the Kinship society.
+    -> Why is it the most difficult?
+        Diplomat: It's almost impossible for one to become exiled, but some do live in Midsheol, operating slaving Pods, or acting as independent contractors on behalf of the Kin proper.
+        Diplomat: The so-called 'Womb Keeper' is one such external Psion. I would have qualified it as a potential memeber of the delegation, but it was almost certainly complicit in the ambush.
+    -> Tribes? As in primitives organized into small communities of semi-nomadic peoples?
+        Diplomat: Yes, they live much as your Earth primitives did. A lot of them have Exobiotic abilities that could replace certain technologies. Still, they are a strange people.
+        Diplomat: More than a century passed since anyone arrived from Earth and the existing cadre of Hybrids living in Midsheol remained isolated and insular.
+        Diplomat: They have started to develop some more advanced societal organization. One of my aims with this delegation is to bring those tribes into the fold of greater civilization.
+    -> I had another question.
+        <<DiplomatTalksAboutDelegation_QA>>
+-> Who is the Science Directorate?
+    Diplomat: Ok... don't panic but you might have some permanent brain damage. The Science Directorate is the Post-War Human government. You're an agent, or were.
+    Diplomat: They are the hegemons of the new Human expansion. They arrived 20 years ago, which was more than 100 years since last we heard from humans.
+    Diplomat: They seem to be a new, better governing body, humbled by the memories of war and technological overreach. They want to be seen that way, at least.
+    <<jump DiplomatTalksAboutDelegation_QA>>
+-> I had another question.
+    <<jump DiplomatHadHopedForPeace_QA>>
+-> [Leave]
+===
