@@ -253,7 +253,9 @@ namespace Manager
                 // Kinship Magnium Mine,
                 "ElevatorRoomInitSpawn", "treeside_spawn", "ShoalAlcoveSpawn",
                 "SupervisorHouse", "OpeningToTeeGap", "SmallRoomL1Spawn",
-                "SouthernTeeSpawn", "MineCavernEntrySpawn"
+                "SouthernTeeSpawn", "MineCavernEntrySpawn",
+                // Lake Scene
+                "FakeIslandSpawn"
             };
         }
 
@@ -265,7 +267,8 @@ namespace Manager
                 "AshpoolMine",
                 "FirstPersonTestbed",
                 "KinshipMagniumMine",
-                "FirstPersonTestbed02"
+                "FirstPersonTestbed02",
+                "LakesideHollow"
             };
         }
         public static IEnumerable<string> GetOverSceneOptions()
