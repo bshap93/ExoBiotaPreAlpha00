@@ -12,6 +12,7 @@ namespace JournalData.JournalEntries
         ImageEntryWithText
     }
 
+    [Serializable]
     public abstract class JournalEntry : ScriptableObject, IRequiresUniqueID
     {
         public string uniqueID;

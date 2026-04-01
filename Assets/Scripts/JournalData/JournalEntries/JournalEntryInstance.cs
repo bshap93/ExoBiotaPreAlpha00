@@ -1,15 +1,21 @@
-﻿namespace JournalData.JournalEntries
+﻿using System;
+
+namespace JournalData.JournalEntries
 {
+    [Serializable]
     public enum JournalEntryState
     {
         Unread,
         Read
     }
 
+    [Serializable]
     public class JournalEntryInstance
     {
-        public JournalEntry EntryData;
+        public string entryID;
 
-        public JournalEntryState State;
+        public JournalEntryState state;
+
+        public DateTime AquiredAt;
     }
 }

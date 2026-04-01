@@ -88,8 +88,6 @@ namespace Manager.SceneManagers
                     organismId = loaded[i].name,
                     organismType = loaded[i]
                 };
-
-            Debug.Log($"BioOrganismManager: loaded {loaded.Length} organisms from Resources.");
         }
 
         void Start()

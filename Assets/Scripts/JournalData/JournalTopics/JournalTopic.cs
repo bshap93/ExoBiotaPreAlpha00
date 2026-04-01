@@ -17,6 +17,7 @@ namespace JournalData.JournalTopics
     public class JournalTopic : ScriptableObject, IRequiresUniqueID
     {
         public string uniqueID;
+        public string journalTopicName;
         public JournalEntry[] associatedEntries;
         public JournalTopicType topicType;
 
@@ -30,5 +31,9 @@ namespace JournalData.JournalTopics
         {
             return string.IsNullOrEmpty(uniqueID);
         }
+        // public JournalTopic Copy()
+        // {
+        //     
+        // }
     }
 }
