@@ -6,7 +6,9 @@ namespace Helpers.Events.PlayerData
     {
         Added,
         Updated,
-        Initialized
+        Initialized,
+        Selected,
+        Unselected
     }
 
     public struct JournalTopicEvent

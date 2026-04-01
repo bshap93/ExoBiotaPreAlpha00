@@ -1,10 +1,11 @@
+using Helpers.Events.PlayerData;
 using JournalData.JournalTopics;
 using Michsky.MUIP;
 using SharedUI.BaseElement;
 using TMPro;
 using UnityEngine;
 
-namespace SharedUI.IGUI
+namespace SharedUI.Journal.Journal.IGUI.Entries
 {
     public class EntryTopicPaneListElem : SelectionListElementNavigable<JournalTopic>
     {
@@ -19,6 +20,7 @@ namespace SharedUI.IGUI
         public override void Select()
         {
             Debug.Log("You selected " + entryNameText.text);
+            JournalTopicEvent.Trigger(JournalTopicEventType.Selected, ObjectData.UniqueID);
         }
         public override void Deselect()
         {

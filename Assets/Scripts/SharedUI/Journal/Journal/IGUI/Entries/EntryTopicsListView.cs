@@ -1,10 +1,9 @@
 using Helpers.Events.PlayerData;
 using Manager.PlayerDataManagers;
 using SharedUI.BaseElement;
-using SharedUI.IGUI;
 using UnityEngine;
 
-namespace SharedUI.Journal.Journal.IGUI
+namespace SharedUI.Journal.Journal.IGUI.Entries
 {
     public class EntryTopicsListView : SelectionListViewNavigableWithActiveElement<JournalTopicEvent>
     {
