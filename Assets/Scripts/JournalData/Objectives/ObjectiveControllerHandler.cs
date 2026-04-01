@@ -4,7 +4,7 @@ using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Objectives
+namespace JournalData.Objectives
 {
     public class ObjectiveControllerHandler : MonoBehaviour, MMEventListener<ObjectiveEvent>
     {

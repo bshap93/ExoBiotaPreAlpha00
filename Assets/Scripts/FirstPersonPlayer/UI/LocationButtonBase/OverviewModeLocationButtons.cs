@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dirigible.Input;
-using FirstPersonPlayer.Interactable.Doors;
 using FirstPersonPlayer.Interface;
+using JournalData.Objectives.ScriptableObjects;
 using Michsky.MUIP;
 using Objectives;
-using Objectives.ScriptableObjects;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -44,7 +44,7 @@ namespace FirstPersonPlayer.UI.LocationButtonBase
         public abstract void Interact();
         public void Interact(string param)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
 

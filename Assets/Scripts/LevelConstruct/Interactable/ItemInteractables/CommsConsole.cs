@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
-using Events;
 using Helpers.Events;
 using Helpers.Events.Dialog;
 using Helpers.Events.Tutorial;
+using JournalData.Objectives.ScriptableObjects;
 using LevelConstruct.Highlighting;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using Objectives;
-using Objectives.ScriptableObjects;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;

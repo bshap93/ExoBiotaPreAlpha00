@@ -1,7 +1,8 @@
 ﻿using System;
+using Objectives;
 using UnityEngine;
 
-namespace Objectives.ScriptableObjects
+namespace JournalData.Objectives.ScriptableObjects
 {
     public enum ObjectiveStatus
     {

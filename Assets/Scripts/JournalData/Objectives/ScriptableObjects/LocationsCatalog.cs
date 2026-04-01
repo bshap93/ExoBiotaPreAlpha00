@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Objectives.ScriptableObjects;
 using Sirenix.OdinInspector;
-using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
 using Sirenix.Utilities.Editor;
-#endif
+using UnityEditor;
+using UnityEngine;
 
-namespace Objectives.ScriptableObjects
+namespace JournalData.Objectives.ScriptableObjects
 {
     [CreateAssetMenu(
         fileName = "LocationsCatalog",
