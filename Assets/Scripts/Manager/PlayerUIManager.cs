@@ -56,6 +56,8 @@ namespace Manager
                 if (eventType.ModeName == GameMode.DirigibleFlight)
                 {
                 }
+
+                if (eventType.ModeName == GameMode.FreeLook) gameObject.SetActive(false);
             }
         }
 

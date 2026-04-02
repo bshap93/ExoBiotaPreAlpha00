@@ -13,7 +13,8 @@ namespace Helpers.Collider
 
         void OnTriggerEnter(UnityEngine.Collider other)
         {
-            if (other.CompareTag("FirstPersonPlayer")) ActivateLights();
+            if (other.CompareTag("FirstPersonPlayer"))
+                ActivateLights();
         }
 
         void OnTriggerExit(UnityEngine.Collider other)

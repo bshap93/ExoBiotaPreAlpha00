@@ -53,9 +53,9 @@ namespace Utilities.Static
             root.transform.SetPositionAndRotation(point.Xform.position, point.Xform.rotation);
             SpawnCheckpoint.NotifySpawned(); // <- add this
 
-            if (point != null && info.Mode != point.Mode) info.Mode = point.Mode; // Ensure we use the correct mode
+            if (point != null && info.Mode != point.Mode && info.Mode != GameMode.FreeLook)
+                info.Mode = point.Mode; // Now switch to the mode (instantiate dirigible)
 
-            // Now switch to the mode (instantiate dirigible)
             ModeLoadEvent.Trigger(ModeLoadEventType.Enabled, info.Mode);
 
 

@@ -24,6 +24,7 @@ namespace Manager.Global
         public string OverviewCategoryName = "LocationOverview";
         public string DefaultCategoryName = "Default";
         public string InGameUICategoryName = "InGameUI";
+        public string FreeLookCategoryName = "FreeLook";
 
 
         ModeController _current;
@@ -60,7 +61,8 @@ namespace Manager.Global
             {
                 { GameMode.DirigibleFlight, pawns[0] },
                 { GameMode.FirstPerson, pawns[1] },
-                { GameMode.Overview, pawns[2] }
+                { GameMode.Overview, pawns[2] },
+                { GameMode.FreeLook, pawns[3] }
             };
 
 
@@ -124,6 +126,9 @@ namespace Manager.Global
                 case GameMode.FirstPerson:
                     _currentGameplayCategory = "FirstPerson";
                     break;
+                case GameMode.FreeLook:
+                    _currentGameplayCategory = FreeLookCategoryName;
+                    break;
                 default:
                     _currentGameplayCategory = "None";
                     break;
@@ -163,6 +168,9 @@ namespace Manager.Global
                     // AmbienceManager.DeactivateEvent(DirigibleModeAmbienceEvent);
                     // AmbienceManager.DeactivateEvent(FirstPersonModeAmbienceEvent);
                     break;
+                case GameMode.FreeLook:
+                    AmbienceManager.DeactivateEvent(OverviewModeAmbienceEvent);
+                    break;
             }
         }
 
@@ -194,6 +202,9 @@ namespace Manager.Global
 
                 case GameMode.Overview: // settlement view
                     player.controllers.maps.SetMapsEnabled(true, OverviewCategoryName);
+                    break;
+                case GameMode.FreeLook:
+                    player.controllers.maps.SetMapsEnabled(true, FreeLookCategoryName);
                     break;
             }
         }

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Objectives.ScriptableObjects;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using Sirenix.Utilities.Editor;
+#endif
 
 namespace JournalData.Objectives.ScriptableObjects
 {
