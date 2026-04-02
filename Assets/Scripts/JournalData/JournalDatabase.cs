@@ -74,11 +74,16 @@ namespace JournalData
 
         public JournalEntry GetEntryAsset(string uniqueID)
         {
-            if (_entryLookup == null || _entryLookup.Count != entries.Count)
-                BuildLookup();
+            if (_entryLookup == null || _entryLookup.Count != entries.Count) BuildLookup();
 
-            _entryLookup.TryGetValue(uniqueID, out var entry);
-            return entry;
+            if (_entryLookup != null)
+            {
+                _entryLookup.TryGetValue(uniqueID, out var entry);
+                return entry;
+            }
+
+            Debug.LogWarning("No entry found for " + uniqueID);
+            return null;
         }
     }
 }

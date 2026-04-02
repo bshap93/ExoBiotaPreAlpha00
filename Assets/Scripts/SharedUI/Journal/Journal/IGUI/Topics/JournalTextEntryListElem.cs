@@ -21,7 +21,7 @@ namespace SharedUI.Journal.Journal.IGUI.Topics
         public override void Initialize(JournalTextEntry data)
         {
             ObjectData = data;
-            entryNameText.text = data.entryTextDescription;
+            entryNameText.text = data.entryName;
             entryDescriptionText.text = data.entryTextDescription;
             entryNameText.color = data.nameTextColor;
             entryDescriptionText.color = data.descriptionTextColor;

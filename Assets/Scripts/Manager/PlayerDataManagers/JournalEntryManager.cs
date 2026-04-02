@@ -167,10 +167,11 @@ namespace Manager.PlayerDataManagers
         public List<JournalEntry> GetEntriesAquired(string topicID)
         {
             var entries = new List<JournalEntry>();
-            foreach (var entryID in _entryInstances.Keys)
+            var topicData = journalDatabase.GetTopicAsset(topicID);
+            foreach (var entry in topicData.associatedEntries)
             {
-                var entryData = journalDatabase.GetEntryAsset(entryID);
-                if (entryData != null && entryData.parentalTopic.UniqueID == topicID)
+                var entryData = journalDatabase.GetEntryAsset(entry.UniqueID);
+                if (entryData != null)
                     entries.Add(entryData);
             }
 
