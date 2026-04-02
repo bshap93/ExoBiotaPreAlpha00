@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Helpers.Events.Journal;
 using Helpers.Events.PlayerData;
 using Helpers.Interfaces;
 using JournalData;
@@ -115,8 +116,54 @@ namespace Manager.PlayerDataManagers
         }
         public void OnMMEvent(JournalEntryEvent eventType)
         {
-            throw new NotImplementedException();
+            if (eventType.EventType == JournalEntryEventType.Added)
+            {
+                if (_entryInstances.ContainsKey(eventType.JournalEntryUniqueId))
+                {
+                    Debug.LogWarning(
+                        $"Journal entry with unique ID {eventType.JournalEntryUniqueId} already exists in journal. Ignoring add event.");
+
+                    return;
+                }
+
+                // Add entry 
+                var newEntryInstance = new JournalEntryInstance
+                {
+                    entryID = eventType.JournalEntryUniqueId,
+                    AquiredAt = DateTime.Now,
+                    state = JournalEntryState.Unread
+                };
+
+                _entryInstances[eventType.JournalEntryUniqueId] = newEntryInstance;
+
+                var entryData = journalDatabase.GetEntryAsset(eventType.JournalEntryUniqueId);
+                if (entryData == null)
+                {
+                    Debug.LogError($"Could not find journal entry data for unique ID {eventType.JournalEntryUniqueId}");
+                    return;
+                }
+                
+                JournalNotificationEvent.Trigger(JournalEntityType.Entry, entryData.entryName);
+
+                // If topic isn't added, automatically add it
+                var topicId = entryData.parentalTopic.uniqueID;
+                if (!_topicInstances.ContainsKey(topicId))
+                {
+                    _topicInstances[topicId] = new JournalTopicInstance
+                    {
+                        aquiredJournalEntryUniqueIds = new List<string> { eventType.JournalEntryUniqueId },
+                        aquiredAt = DateTime.Now,
+                        journalTopicUniqueId = topicId
+                    };
+                }
+                else
+                {
+                    if (!_topicInstances[topicId].aquiredJournalEntryUniqueIds.Contains(eventType.JournalEntryUniqueId))
+                        _topicInstances[topicId].aquiredJournalEntryUniqueIds.Add(eventType.JournalEntryUniqueId);
+                }
+            }
         }
+
         void PopulateDummyData()
         {
             if (hasInitialTopicsAndEntries)
@@ -151,6 +198,7 @@ namespace Manager.PlayerDataManagers
                 JournalTopicEvent.Trigger(JournalTopicEventType.Initialized);
             }
         }
+
         public List<JournalTopic> GetTopicsAquired()
         {
             var topics = new List<JournalTopic>();

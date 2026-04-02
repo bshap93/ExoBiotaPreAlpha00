@@ -4714,9 +4714,9 @@ MonoBehaviour:
   attributesManager: {fileID: 0}
   animancerArmController: {fileID: 985055603499480454}
   planarMovementParameters:
-    baseSpeedLimit: 5
-    canRun: 0
-    runInputMode: 1
+    baseSpeedLimit: 6
+    canRun: 1
+    runInputMode: 0
     boostSpeedLimit: 5
     stableGroundedAcceleration: 50
     stableGroundedDeceleration: 40
@@ -4852,6 +4852,7 @@ MonoBehaviour:
   jumpStartFeedbacks: {fileID: 7366301731144274982}
   enableFallDamage: 1
   increasedMinFallDmgSpdPerToughness: 1.25
+  fractionAmtSpeedIncreasePerAgility: 0.175
   minimumFallDamageSpeed: 15
   fallDamageMultiplier: 1
   jetPackActivationDelay: 0.3
@@ -12282,7 +12283,7 @@ MonoBehaviour:
   footstepsBigHall: {fileID: 6593665615403566448}
   footstepsMetalPlatform: {fileID: 5896402678738682783}
   footstepsTileFloor: {fileID: 6738264785740041849}
-  baseStepInterval: 2.25
+  baseStepInterval: 2.5
   playerInteraction: {fileID: 8398371441896539530}
   characterActor: {fileID: 4146534566586365169}
 --- !u!82 &6074801543626250433
@@ -15006,7 +15007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8672673151611072129}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0012757038, y: 0.99835014, z: -0.024541706, w: 0.051895294}
+  m_LocalRotation: {x: 0.007301906, y: 0.98929924, z: -0.053258244, w: 0.13563666}
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15073,7 +15074,7 @@ MonoBehaviour:
   ReferenceFrame: 1
   RecenterTarget: 1
   PanAxis:
-    Value: 174.04877
+    Value: 164.38641
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -15083,7 +15084,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   TiltAxis:
-    Value: 2.8163526
+    Value: 6.1630087
     Center: 0
     Range: {x: -70, y: 70}
     Wrap: 0

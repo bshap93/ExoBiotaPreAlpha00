@@ -4,6 +4,7 @@ using Helpers.Events.Dialog;
 using Helpers.Events.Machine;
 using Helpers.Events.ManagerEvents;
 using Helpers.Events.NPCs;
+using Helpers.Events.PlayerData;
 using Helpers.Events.Progression;
 using Helpers.Events.Status;
 using Helpers.Events.Terminals;
@@ -144,6 +145,9 @@ namespace Helpers.YarnSpinner
 
             dialogueRunner.AddCommandHandler<string>(
                 "trigger_scene_unload", TriggerSceneUnload);
+            
+            dialogueRunner.AddCommandHandler<string>(
+                "trigger_aquire_journal_entry", TriggerAquireJournalEntry);
         }
 
         // The method that gets called when '<<camera_look>>' is run.
@@ -155,6 +159,11 @@ namespace Helpers.YarnSpinner
         void TriggerElevatorMoveToDestination(string elevatorSystemUniqueId, string destinationId)
         {
             ElevatorRootSystemEvent.Trigger(elevatorSystemUniqueId, destinationId);
+        }
+
+        void TriggerAquireJournalEntry(string journalEntryId)
+        {
+            JournalEntryEvent.Trigger(JournalEntryEventType.Added, journalEntryId);
         }
 
         // Game State Save

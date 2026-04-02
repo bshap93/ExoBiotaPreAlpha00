@@ -40,9 +40,6 @@ namespace FirstPersonPlayer.InputHandling
         PlayerMutableStatsManager playerMutableStatsManager;
         [SerializeField] AttributesManager attributesManager;
 
-        int _toughness;
-        
-
 
         [FormerlySerializedAs("animancerRightArmController")]
         public AnimancerArmController animancerArmController;
@@ -94,7 +91,9 @@ namespace FirstPersonPlayer.InputHandling
         // Add these new fields for fall damage
         [Header("Fall Damage")] [SerializeField]
         protected bool enableFallDamage = true;
-        [SerializeField] protected float increasedMinFallDmgSpdPerToughness = 1.25f; 
+        [SerializeField] protected float increasedMinFallDmgSpdPerToughness = 1.25f;
+        [SerializeField]
+        protected float fractionAmtSpeedIncreasePerAgility = 0.2f; // Each point of Agility increases speed by 10%
 
         [SerializeField] protected float minimumFallDamageSpeed = 10f;
         [SerializeField] protected float fallDamageMultiplier = 1f;
@@ -112,6 +111,8 @@ namespace FirstPersonPlayer.InputHandling
         Vector3 _attackLungeVelocity;
 
         bool _isDead;
+
+        int _toughness;
 
         protected PlanarMovementParameters.PlanarMovementProperties currentMotion;
         protected float currentPlanarSpeedLimit;
@@ -385,7 +386,7 @@ namespace FirstPersonPlayer.InputHandling
             // Based on Agility attribute (from AttributesManager)
             if (attributesManager != null)
             {
-                var agilityMultiplier = 1f + (attributesManager.Agility - 1) * 0.1f;
+                var agilityMultiplier = 1f + (attributesManager.Agility - 1) * fractionAmtSpeedIncreasePerAgility;
                 speedMultiplier *= agilityMultiplier;
                 // Debug.Log("Speed multipliler: " + speedMultiplier);
             }
@@ -645,7 +646,8 @@ namespace FirstPersonPlayer.InputHandling
         {
             var toughness = attributesManager.Toughness;
             var workingMinimumFallDamageSpeed =
-                minimumFallDamageSpeed + (toughness * increasedMinFallDmgSpdPerToughness);
+                minimumFallDamageSpeed + toughness * increasedMinFallDmgSpdPerToughness;
+
             var percentHardnessOfLanding = Mathf.InverseLerp(
                 workingMinimumFallDamageSpeed, minimumFallDamageSpeed + 20f, maxFallSpeed);
 
