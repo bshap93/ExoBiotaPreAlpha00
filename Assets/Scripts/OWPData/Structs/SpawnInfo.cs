@@ -8,7 +8,8 @@ namespace Structs
         DirigibleFlight,
         FirstPerson,
         Overview,
-        None
+        None,
+        FreeLook
     }
 
     [Serializable]
