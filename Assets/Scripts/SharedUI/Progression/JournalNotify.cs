@@ -1,15 +1,17 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SharedUI.Progression
 {
     public class JournalNotify : MonoBehaviour
     {
-        [SerializeField] TMP_Text journalEntityName;
+        [FormerlySerializedAs("journalEntityName")] [SerializeField]
+        TMP_Text journalEntityText;
 
         public void SetJournalEntityText(string text)
         {
-            journalEntityName.text = text;
+            journalEntityText.text = text;
         }
     }
 }

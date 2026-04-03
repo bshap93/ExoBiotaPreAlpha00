@@ -1,4 +1,5 @@
-﻿using MoreMountains.Tools;
+﻿using Helpers.Events;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace SharedUI.BaseElement
@@ -19,6 +20,10 @@ namespace SharedUI.BaseElement
         }
 
         public abstract void OnMMEvent(TE eventType);
-        public abstract void Refresh();
+        public void OnMMEvent(LoadedManagerEvent eventType)
+        {
+            Refresh();
+        }
+        protected abstract void Refresh();
     }
 }

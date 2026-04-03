@@ -1,14 +1,29 @@
-﻿using Helpers.Events.PlayerData;
+﻿using Helpers.Events;
+using Helpers.Events.PlayerData;
 using JournalData.JournalEntries;
 using Manager.PlayerDataManagers;
+using MoreMountains.Tools;
 using SharedUI.BaseElement;
+using SharedUI.Journal.Journal.IGUI.Topics;
 using UnityEngine;
 
-namespace SharedUI.Journal.Journal.IGUI.Topics
+namespace SharedUI.Journal.Journal.IGUI.Entry
 {
-    public class JournalEntryListViewByTopic : SelectionListViewNavigableWithActiveElement<JournalTopicEvent>
+    public class JournalEntryListViewByTopic : SelectionListViewNavigableWithActiveElement<JournalTopicEvent>,
+        MMEventListener<LoadedManagerEvent>
     {
         string _topicId;
+
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            this.MMEventStartListening<LoadedManagerEvent>();
+        }
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            this.MMEventStopListening<LoadedManagerEvent>();
+        }
         public override void OnMMEvent(JournalTopicEvent eventType)
         {
             if (eventType.EventType == JournalTopicEventType.Selected)
@@ -17,7 +32,7 @@ namespace SharedUI.Journal.Journal.IGUI.Topics
                 Refresh();
             }
         }
-        public override void Refresh()
+        protected override void Refresh()
         {
             var journalMgr = JournalEntryManager.Instance;
             if (journalMgr == null) return;

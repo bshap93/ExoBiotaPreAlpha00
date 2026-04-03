@@ -142,8 +142,7 @@ namespace Manager.PlayerDataManagers
                     Debug.LogError($"Could not find journal entry data for unique ID {eventType.JournalEntryUniqueId}");
                     return;
                 }
-                
-                JournalNotificationEvent.Trigger(JournalEntityType.Entry, entryData.entryName);
+
 
                 // If topic isn't added, automatically add it
                 var topicId = entryData.parentalTopic.uniqueID;
@@ -155,11 +154,21 @@ namespace Manager.PlayerDataManagers
                         aquiredAt = DateTime.Now,
                         journalTopicUniqueId = topicId
                     };
+
+                    JournalNotificationEvent.Trigger(
+                        JournalEntityType.Topic, entryData.entryName,
+                        "New " + entryData.parentalTopic.topicType + "Topic");
+
+                    JournalTopicEvent.Trigger(JournalTopicEventType.Added, topicId);
                 }
                 else
                 {
                     if (!_topicInstances[topicId].aquiredJournalEntryUniqueIds.Contains(eventType.JournalEntryUniqueId))
                         _topicInstances[topicId].aquiredJournalEntryUniqueIds.Add(eventType.JournalEntryUniqueId);
+
+                    JournalNotificationEvent.Trigger(
+                        JournalEntityType.Entry, entryData.entryName,
+                        "New " + entryData.parentalTopic.topicType + "Entry");
                 }
             }
         }
@@ -215,13 +224,16 @@ namespace Manager.PlayerDataManagers
         public List<JournalEntry> GetEntriesAquired(string topicID)
         {
             var entries = new List<JournalEntry>();
-            var topicData = journalDatabase.GetTopicAsset(topicID);
-            foreach (var entry in topicData.associatedEntries)
-            {
-                var entryData = journalDatabase.GetEntryAsset(entry.UniqueID);
-                if (entryData != null)
-                    entries.Add(entryData);
-            }
+            if (topicID == null) return entries;
+            var topicInstance = _topicInstances[topicID];
+            if (topicInstance != null)
+                foreach (var topicEntryID in topicInstance.aquiredJournalEntryUniqueIds)
+                {
+                    var entryData = journalDatabase.GetEntryAsset(topicEntryID);
+                    if (entryData != null)
+                        entries.Add(entryData);
+                }
+
 
             return entries;
         }
