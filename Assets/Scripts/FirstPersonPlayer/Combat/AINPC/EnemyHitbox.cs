@@ -10,7 +10,7 @@ namespace FirstPersonPlayer.Combat.AINPC
         [SerializeField] AttackUsed attackType;
         bool _active;
         Collider _collider;
-        bool _hasHit;
+        // bool _hasHit;
 
         void Awake()
         {
@@ -20,41 +20,37 @@ namespace FirstPersonPlayer.Combat.AINPC
         void Update()
         {
             // Actively check for player overlap every frame while active
-            if (_active && !_hasHit) CheckForPlayerHit();
+            if (_active) CheckForPlayerHit();
         }
 
         void OnTriggerEnter(Collider other)
         {
-            if (!_active || _hasHit) return;
+            if (!_active) return;
 
             if (other.CompareTag("FirstPersonPlayer"))
             {
                 owner.OnHitPlayer(other, attackType);
-                _hasHit = true;
             }
         }
 
         void OnTriggerStay(Collider other)
         {
-            if (!_active || _hasHit) return;
+            if (!_active) return;
 
             if (other.CompareTag("FirstPersonPlayer"))
             {
                 owner.OnHitPlayer(other, attackType);
-                _hasHit = true;
             }
         }
 
         public void Activate()
         {
             _active = true;
-            _hasHit = false;
         }
 
         public void Deactivate()
         {
             _active = false;
-            _hasHit = false;
         }
 
         /// <summary>
@@ -63,7 +59,7 @@ namespace FirstPersonPlayer.Combat.AINPC
         /// </summary>
         void CheckForPlayerHit()
         {
-            if (_collider == null || _hasHit) return;
+            if (_collider == null) return;
 
             Collider[] hits;
 
@@ -94,7 +90,6 @@ namespace FirstPersonPlayer.Combat.AINPC
                 if (hit.CompareTag("FirstPersonPlayer"))
                 {
                     owner.OnHitPlayer(hit, attackType);
-                    _hasHit = true;
                     break;
                 }
         }

@@ -20,6 +20,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         [SerializeField] protected float movementSpeedThreshold = 0.1f;
         [SerializeField] protected float walkRunThreshold = 2f;
 
+
         [Header("Ranged Attack")] [SerializeField]
         bool hasRangedAttack;
         [ShowIf("hasRangedAttack")] [SerializeField]
@@ -44,6 +45,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
 
         protected AnimancerState AttackState;
         protected AnimancerState DeathState;
+
+        public bool HasHitPlayerThisAttack { get; private set; }
 
 
         public bool IsAttacking { get; set; }
@@ -212,7 +215,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
 
             AttackState = animancerComponent.Play(animationClip, 0.05f);
             yield return new WaitForSeconds(attackInstances[attackIndex].leadupTime);
-            ActivateHitboxes(hasSoleHitbox, soleHitboxCollider, multipleHitboxes);
+            ActivateHitboxes(hasSoleHitbox, soleHitboxCollider, multipleHitboxes, this);
             AttackState.Speed = animSpeedMult;
             yield return new WaitForSeconds(attackInstances[attackIndex].attackDuration);
             DecactivateHitBoxes(hasSoleHitbox, soleHitboxCollider, multipleHitboxes);
@@ -222,8 +225,10 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             yield return new WaitForSeconds(creatureType.primaryAttackDuration);
             FinishAttack(attackIndex);
         }
-        static void ActivateHitboxes(bool hasSoleHitbox, EnemyHitbox soleHitboxCollider, EnemyHitbox[] multipleHitboxes)
+        static void ActivateHitboxes(bool hasSoleHitbox, EnemyHitbox soleHitboxCollider, EnemyHitbox[] multipleHitboxes, EnemyController owner)
         {
+         
+            owner.HasHitPlayerThisAttack = false;
             if (hasSoleHitbox && soleHitboxCollider != null)
                 soleHitboxCollider.Activate();
             else if (!hasSoleHitbox && multipleHitboxes != null && multipleHitboxes.Length > 0)
@@ -253,22 +258,26 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         }
         public void OnHitPlayer(Collider other, AttackUsed attackUsed)
         {
-            if (other.CompareTag("FirstPersonPlayer"))
-                switch (attackUsed)
-                {
-                    case AttackUsed.Primary:
-                        if (attackInstances.Length < 1) return;
-                        NPCAttackEvent.Trigger(attackInstances[0].playerAttackData);
-                        break;
-                    case AttackUsed.Secondary:
-                        if (attackInstances.Length < 2) return;
-                        NPCAttackEvent.Trigger(attackInstances[1].playerAttackData);
-                        break;
-                    case AttackUsed.Third:
-                        if (attackInstances.Length < 3) return;
-                        NPCAttackEvent.Trigger(attackInstances[2].playerAttackData);
-                        break;
-                }
+            if (!other.CompareTag("FirstPersonPlayer")) return;
+            if (HasHitPlayerThisAttack) return;
+
+            HasHitPlayerThisAttack = true;
+
+            switch (attackUsed)
+            {
+                case AttackUsed.Primary:
+                    if (attackInstances.Length < 1) return;
+                    NPCAttackEvent.Trigger(attackInstances[0].playerAttackData);
+                    break;
+                case AttackUsed.Secondary:
+                    if (attackInstances.Length < 2) return;
+                    NPCAttackEvent.Trigger(attackInstances[1].playerAttackData);
+                    break;
+                case AttackUsed.Third:
+                    if (attackInstances.Length < 3) return;
+                    NPCAttackEvent.Trigger(attackInstances[2].playerAttackData);
+                    break;
+            }
         }
     }
 }
