@@ -10,7 +10,7 @@ using UnityEngine;
 namespace SharedUI.Progression
 {
     public class XPDebugChip : MonoBehaviour, MMEventListener<MMInventoryEvent>,
-        MMEventListener<ProgressionUpdateListenerNotifier>, MMEventListener<StaminaRestoreRateEvent>
+        MMEventListener<ProgressionUpdateListenerNotifier>
     {
         [Header("Main Canvas Group")] [SerializeField]
         CanvasGroup debugCanvasGroup;
@@ -18,7 +18,6 @@ namespace SharedUI.Progression
         [Header("Debug")] [SerializeField] CanvasGroup debugChipsCanvasGroup;
         [SerializeField] TMP_Text totalXPText;
         [SerializeField] TMP_Text currentLevelText;
-        [SerializeField] TMP_Text staminaRestoreRateText;
         [SerializeField] TMP_Text unusedAttributePointsText;
         [SerializeField] TMP_Text coresNumberText;
         [Header("References")] [SerializeField]
@@ -42,14 +41,12 @@ namespace SharedUI.Progression
         {
             this.MMEventStartListening<MMInventoryEvent>();
             this.MMEventStartListening<ProgressionUpdateListenerNotifier>();
-            this.MMEventStartListening<StaminaRestoreRateEvent>();
         }
 
         void OnDisable()
         {
             this.MMEventStopListening<MMInventoryEvent>();
             this.MMEventStopListening<ProgressionUpdateListenerNotifier>();
-            this.MMEventStopListening<StaminaRestoreRateEvent>();
         }
 
 
@@ -67,10 +64,6 @@ namespace SharedUI.Progression
             // unusedUpgradesText.text = eventType.CurrentUpgradesUnused.ToString();
             unusedAttributePointsText.text = eventType.CurrentAttributePointsUnused.ToString();
         }
-        public void OnMMEvent(StaminaRestoreRateEvent eventType)
-        {
-            // For debug: show current stamina restore rate in the debug panel
-            if (debugMode) staminaRestoreRateText.text = $"{eventType.CurrentStaminaRestoreRate}";
-        }
+
     }
 }

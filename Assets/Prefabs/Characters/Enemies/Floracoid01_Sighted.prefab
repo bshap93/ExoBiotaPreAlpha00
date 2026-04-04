@@ -32770,16 +32770,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f5af975cf4e10b7ec39e864108c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
-  isBeingAttacked: 0
   uniqueID: 
   extractableInteractable: {fileID: 11400000, guid: 5895cacb716c43b4c9d2670d07ebec27, type: 2}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 6303951586462562092}
+  highlightEffectController: {fileID: 469490868428281246}
   blackboard: {fileID: 1661560855928007753}
-  animancerComponent: {fileID: 8855108282264343631}
   fsmOwner: {fileID: 6588288626416064837}
-  feedbacksContainer: {fileID: 5746700362765108588}
+  uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 07aa8c4f0bd12a946858dd585a4a8b31, type: 2}
+  animancerComponent: {fileID: 8855108282264343631}
   initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 5746700362765108588}
   deathFeedbacks: {fileID: 6246899901291337763}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 6434860750391843974, guid: 964aa30d8bab1ee4ab20219738bf72e2, type: 3}
@@ -32789,10 +32791,13 @@ MonoBehaviour:
   rangedHitFeedbacksHeavy: {fileID: 5633118161157908741}
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
+  startAsActivated: 0
+  isInitiallyHostile: 1
+  destroyAfterDeath: 0
+  doesNotImmediatelyNeedToMove: 0
+  appearsOnlyOnce: 0
   secondsBeforeSettingShouldBeDestroyed: 5
-  wasHit: 0
-  wasHitHeavy: 0
-  currentHealth: 40
+  deathDelay: 2.3
   attackCount: 1
   attackInstances:
   - attackName: 
@@ -32800,25 +32805,25 @@ MonoBehaviour:
     attackAnimationClip: {fileID: 6720303635017113406, guid: 45901148462c04748b9c9f77ec2f9194, type: 3}
     animationSpeedMultiplier: 1
     attackDuration: 0
+    attackHasMultipleHitboxes: 0
     attackHitbox: {fileID: 8033288492765110798}
+    multipleHitboxes: []
     leadupTime: 0.1
-  currentStunDamage: 0
-  highlightEffect: {fileID: 6303951586462562092}
-  highlightEffectController: {fileID: 469490868428281246}
-  startAsActivated: 0
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
   isStunned: 0
   isPlacated: 0
-  destroyAfterDeath: 0
-  deathDelay: 2.3
-  doesNotImmediatelyNeedToMove: 0
-  appearsOnlyOnce: 0
+  currentStunDamage: 0
+  currentHealth: 40
   navMeshAgent: {fileID: 4739854027701427398}
   movementSpeedThreshold: 0.1
+  walkRunThreshold: 2
   hasRangedAttack: 0
   rangedAttackOrigin: {fileID: 0}
   onDeathLayer: 8
   doNotUseIdleState: 0
-  walkRunThreshold: 2
   movementLoopFeedbacks: {fileID: 634697667294985226}
   deathParticlesDustPrefab: {fileID: 0}
 --- !u!114 &8855108282264343631
