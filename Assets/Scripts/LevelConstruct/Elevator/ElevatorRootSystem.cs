@@ -3,6 +3,7 @@ using DG.Tweening;
 using FirstPersonPlayer;
 using Helpers.Events;
 using Helpers.Events.Terminals;
+using Helpers.Events.Triggering;
 using Manager.SceneManagers;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
@@ -50,6 +51,8 @@ namespace LevelConstruct.Elevator
 
         string _currentDestinationId;
         bool _isMoving;
+
+        ElevatorDestination _lastDestination;
 
         // ── Unity lifecycle ────────────────────────────────────────────────────
 
@@ -122,6 +125,7 @@ namespace LevelConstruct.Elevator
                 if (saved != null)
                 {
                     SnapToDestination(saved, savedId);
+                    _lastDestination = saved;
                     return;
                 }
             }
@@ -131,7 +135,10 @@ namespace LevelConstruct.Elevator
             {
                 var first = elevatorDestinations[0];
                 if (first.destinationTransform != null)
+                {
                     SnapToDestination(first, first.destinationID);
+                    _lastDestination = first;
+                }
             }
         }
 
@@ -167,6 +174,8 @@ namespace LevelConstruct.Elevator
                 Debug.LogWarning($"[ElevatorRootSystem] No elevator cabin assigned on '{name}'.");
                 return;
             }
+
+            _lastDestination = GetDestinationById(_currentDestinationId);
 
             ExecuteMove(dest, destinationId);
         }
@@ -204,6 +213,7 @@ namespace LevelConstruct.Elevator
 
                     // Persist the new position
                     ElevatorManager.Instance?.SetDestination(uniqueID, destinationId);
+                    TriggerSceneUnload(_lastDestination.sceneName);
 
                     arrivalFeedbacks?.PlayFeedbacks();
                     travelFeedbacks?.StopFeedbacks();
@@ -215,6 +225,12 @@ namespace LevelConstruct.Elevator
         {
             elevatorCabin.position = dest.destinationTransform.position;
             _currentDestinationId = destinationId;
+        }
+
+        void TriggerSceneUnload(string sceneName)
+        {
+            MySceneTransitionAdditiveEvent.Trigger(
+                MySceneTransitionAdditiveEvent.MySceneTransEventType.Unload, sceneName);
         }
 
         ElevatorDestination GetDestinationById(string id)
@@ -235,6 +251,7 @@ namespace LevelConstruct.Elevator
             public string destinationID;
             public string destinationName;
             public Transform destinationTransform;
+            public string sceneName;
         }
     }
 }

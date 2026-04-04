@@ -42,13 +42,6 @@ namespace SharedUI.Alert
             // _canvasGroup.blocksRaycasts = true;
         }
 
-        void Start()
-        {
-            AlertEvent.Trigger(
-                AlertReason.Test,
-                "Use the Toggle Locations button to turn location indicators off and on",
-                "Locations");
-        }
 
         void OnEnable()
         {

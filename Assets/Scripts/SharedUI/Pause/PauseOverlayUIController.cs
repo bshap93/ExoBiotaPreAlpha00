@@ -1,4 +1,6 @@
-﻿using Helpers.Events;
+﻿using Events;
+using Helpers.Events;
+using Structs;
 using UnityEngine;
 
 namespace SharedUI.Pause
@@ -22,7 +24,6 @@ namespace SharedUI.Pause
 
         public void TriggerResumeGame()
         {
-
         }
 
         public void TriggerResetAndSave()
@@ -30,6 +31,11 @@ namespace SharedUI.Pause
             ResetDataEvent.Trigger();
             SaveDataEvent.Trigger();
             AlertEvent.Trigger(AlertReason.SavingGame, "All data wiped successfully!", "Wiped Data");
+        }
+
+        public void TriggerFreeLookMode()
+        {
+            ModeLoadEvent.Trigger(ModeLoadEventType.Enabled, GameMode.FreeLook);
         }
     }
 }
