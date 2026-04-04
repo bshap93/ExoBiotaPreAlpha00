@@ -192,8 +192,17 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             if (IsAttacking) yield break;
 
             if (attackIndex >= attackInstances.Length) yield break;
+            EnemyHitbox soleHitboxCollider = null;
+            EnemyHitbox[] multipleHitboxes = null;
 
-            var hitboxCollider = attackInstances[attackIndex].attackHitbox;
+            var hasSoleHitbox = attackInstances[attackIndex].AttackHasSingleHitbox;
+
+            if (hasSoleHitbox)
+                soleHitboxCollider = attackInstances[attackIndex].attackHitbox;
+            else
+                multipleHitboxes = attackInstances[attackIndex].multipleHitboxes;
+
+            // var hitboxCollider = attackInstances[attackIndex].attackHitbox;
             var animationClip = attackInstances[attackIndex].attackAnimationClip;
             var animSpeedMult = attackInstances[attackIndex].animationSpeedMultiplier;
 
@@ -203,15 +212,35 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
 
             AttackState = animancerComponent.Play(animationClip, 0.05f);
             yield return new WaitForSeconds(attackInstances[attackIndex].leadupTime);
-            hitboxCollider.Activate();
+            ActivateHitboxes(hasSoleHitbox, soleHitboxCollider, multipleHitboxes);
             AttackState.Speed = animSpeedMult;
             yield return new WaitForSeconds(attackInstances[attackIndex].attackDuration);
-            hitboxCollider.Deactivate();
+            DecactivateHitBoxes(hasSoleHitbox, soleHitboxCollider, multipleHitboxes);
 
             // wait for attack duration
             AttackState.Events(this).OnEnd = () => { AttackState.Speed = 1f; };
             yield return new WaitForSeconds(creatureType.primaryAttackDuration);
             FinishAttack(attackIndex);
+        }
+        static void ActivateHitboxes(bool hasSoleHitbox, EnemyHitbox soleHitboxCollider, EnemyHitbox[] multipleHitboxes)
+        {
+            if (hasSoleHitbox && soleHitboxCollider != null)
+                soleHitboxCollider.Activate();
+            else if (!hasSoleHitbox && multipleHitboxes != null && multipleHitboxes.Length > 0)
+                foreach (var multipleHitbox in multipleHitboxes)
+                    if (multipleHitbox != null)
+                        multipleHitbox.Activate();
+        }
+
+        static void DecactivateHitBoxes(bool hasSoleHitbox, EnemyHitbox soleHitboxCollider,
+            EnemyHitbox[] multipleHitboxes)
+        {
+            if (hasSoleHitbox && soleHitboxCollider != null)
+                soleHitboxCollider.Deactivate();
+            else if (!hasSoleHitbox && multipleHitboxes != null && multipleHitboxes.Length > 0)
+                foreach (var multipleHitbox in multipleHitboxes)
+                    if (multipleHitbox != null)
+                        multipleHitbox.Deactivate();
         }
 
         void FinishAttack(int attackIndex)

@@ -267,9 +267,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8077856464535242538}
   - component: {fileID: 6275930143487262325}
-  m_Layer: 27
+  - component: {fileID: 7331311629899342728}
+  m_Layer: 26
   m_Name: L_Up_hand_4
-  m_TagString: Untagged
+  m_TagString: EnemyNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,12 +305,26 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.00001
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7331311629899342728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920368302350965102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617c9ee5ad81449eaee4c318b737873c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.EnemyHitbox
+  owner: {fileID: 8932435574992022780}
+  attackType: 0
 --- !u!1 &2167493804744548312
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,9 +463,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6661054713942205080}
   - component: {fileID: 7783950949075436274}
-  m_Layer: 27
+  - component: {fileID: 6748853896818498758}
+  m_Layer: 26
   m_Name: L_Bottom_hand_4
-  m_TagString: Untagged
+  m_TagString: EnemyNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,12 +501,26 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.00001
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6748853896818498758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499228979837239901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617c9ee5ad81449eaee4c318b737873c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.EnemyHitbox
+  owner: {fileID: 8932435574992022780}
+  attackType: 0
 --- !u!1 &2637754420650384381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,9 +1866,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4336652646972356568}
   - component: {fileID: 3131099369482403155}
-  m_Layer: 27
+  - component: {fileID: 7965017466562331688}
+  m_Layer: 26
   m_Name: R_Bottom_hand_4
-  m_TagString: Untagged
+  m_TagString: EnemyNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1873,12 +1904,26 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.00001
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7965017466562331688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058586071557285537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617c9ee5ad81449eaee4c318b737873c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.EnemyHitbox
+  owner: {fileID: 8932435574992022780}
+  attackType: 0
 --- !u!1 &6167965954930749551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,9 +2811,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6537797941527268960}
   - component: {fileID: 7011131713066318458}
-  m_Layer: 27
+  - component: {fileID: 4040508454302600614}
+  m_Layer: 26
   m_Name: R_Up_hand_4
-  m_TagString: Untagged
+  m_TagString: EnemyNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2803,12 +2849,26 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.00001
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4040508454302600614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930131836422331047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617c9ee5ad81449eaee4c318b737873c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.EnemyHitbox
+  owner: {fileID: 8932435574992022780}
+  attackType: 0
 --- !u!1 &7941856104727347013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,16 +3759,26 @@ MonoBehaviour:
     playerAttackData: {fileID: 11400000, guid: d39730f790c802442ac0e7b36c168a76, type: 2}
     attackAnimationClip: {fileID: 8992522252433359312, guid: 853acc8b1ba78cd4d9582f93d4190314, type: 3}
     animationSpeedMultiplier: 1
-    attackDuration: 0
+    attackDuration: 0.33
+    attackHasMultipleHitboxes: 1
     attackHitbox: {fileID: 0}
-    leadupTime: 0
+    multipleHitboxes:
+    - {fileID: 7965017466562331688}
+    - {fileID: 4040508454302600614}
+    leadupTime: 0.17
   - attackName: Symmetric Lunge
     playerAttackData: {fileID: 11400000, guid: bd6d976f067cf6943b2bb1d2adf11574, type: 2}
     attackAnimationClip: {fileID: 8457827382905983551, guid: 5519f9cb154a892458e78bab5ed527ad, type: 3}
     animationSpeedMultiplier: 1
-    attackDuration: 0
+    attackDuration: 0.22
+    attackHasMultipleHitboxes: 1
     attackHitbox: {fileID: 0}
-    leadupTime: 0
+    multipleHitboxes:
+    - {fileID: 6748853896818498758}
+    - {fileID: 7965017466562331688}
+    - {fileID: 7331311629899342728}
+    - {fileID: 4040508454302600614}
+    leadupTime: 0.14
   isDead: 0
   isBeingAttacked: 0
   wasHit: 0
