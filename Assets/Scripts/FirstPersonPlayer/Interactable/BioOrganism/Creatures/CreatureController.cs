@@ -20,6 +20,7 @@ using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities.Interface;
@@ -718,7 +719,9 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             public float attackDuration;
             // public float attackStartupTime;
             // public float hitActiveTime;
-            public EnemyHitbox attackHitbox;
+            public bool attackHasMultipleHitboxes;
+            [ShowIf("AttackHasSingleHitbox")] public EnemyHitbox attackHitbox;
+            [ShowIf("attackHasMultipleHitboxes")] public EnemyHitbox[] multipleHitboxes;
             /// <summary>
             ///     Second part is used when Animation has two distinct attack parts (e.g. bite + swipe)
             ///     If animation is single part, leave this unchecked and use multiple AttackInstances instead.
@@ -727,6 +730,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             // [ShowIf("hasSecondPart")] public float delayBetweenAttacks;
             // [ShowIf("hasSecondPart")] public EnemyAttack secondPartPlayerAttackData;
             public float leadupTime;
+            public bool AttackHasSingleHitbox => !attackHasMultipleHitboxes;
         }
     }
 }

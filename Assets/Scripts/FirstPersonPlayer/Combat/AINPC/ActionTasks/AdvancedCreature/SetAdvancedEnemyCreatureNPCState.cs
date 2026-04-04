@@ -2,11 +2,12 @@ using FirstPersonPlayer.FPNPCs.AlienNPC;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using NodeCanvas.Framework;
 
-namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
+namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.AdvancedCreature
 {
-    public class SetNonHumanoidAlienNPCState : ActionTask
+    public class SetAdvancedEnemyCreatureNPCState : ActionTask
     {
-        public BBParameter<HumanoidNPCCreature> HumanoidNPCCreature;
+        public BBParameter<AdvancedCreatureEnemyController> CreatureController;
+        public BBParameter<bool> IsHostile;
         public BBParameter<AlienNPCState> NewState;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -20,6 +21,9 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         //EndAction can be called from anywhere.
         protected override void OnExecute()
         {
+            if (CreatureController.value != null)
+                CreatureController.value.SetState(NewState.value, IsHostile.value);
+
             EndAction(true);
         }
     }
