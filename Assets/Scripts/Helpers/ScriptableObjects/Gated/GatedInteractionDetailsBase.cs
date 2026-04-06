@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
 using Helpers.Events.Gated;
 using Sirenix.OdinInspector;
 using UnityEngine;

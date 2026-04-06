@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
+using UnityEngine;
 
 namespace FirstPersonPlayer.Tools.ItemObjectTypes
 {

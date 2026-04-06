@@ -1,5 +1,6 @@
 ﻿using System;
 using FirstPersonPlayer.ScriptableObjects.BioticAbility;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
 using Helpers.Events.Feedback;
 using MoreMountains.InventoryEngine;
 using UnityEngine;

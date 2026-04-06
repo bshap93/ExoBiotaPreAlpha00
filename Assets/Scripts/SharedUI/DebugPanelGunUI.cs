@@ -1,4 +1,4 @@
-using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.ToolHelper;
 using Helpers.Events.Combat;
 using Manager;
 using MoreMountains.Tools;

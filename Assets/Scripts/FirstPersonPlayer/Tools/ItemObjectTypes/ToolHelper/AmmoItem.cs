@@ -1,7 +1,7 @@
 ﻿using Helpers.Events.Combat;
 using UnityEngine;
 
-namespace FirstPersonPlayer.Tools.ItemObjectTypes
+namespace FirstPersonPlayer.Tools.ItemObjectTypes.ToolHelper
 {
     public enum AmmoType
     {

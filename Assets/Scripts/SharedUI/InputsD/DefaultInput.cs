@@ -82,15 +82,26 @@ namespace SharedUI.InputsD
                 MyUIEvent.Trigger(
                     UIType.InGameUI, UIActionType.Close
                 );
+                Time.timeScale =  1;
 
+
+                UnPauseAudio();
                 return;
+                
+
             }
 
             var canOpen = !gatedOpen && !modalOpen;
             if (canOpen)
+            {
                 MyUIEvent.Trigger(
                     UIType.InGameUI, UIActionType.Open
                 );
+                Time.timeScale =  0;
+
+
+                PauseAudio();
+            }
         }
 
         static void UnPauseAudio()

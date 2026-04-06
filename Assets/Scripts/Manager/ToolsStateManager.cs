@@ -1,5 +1,5 @@
 using FirstPersonPlayer.Tools.Interface;
-using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.ToolHelper;
 using Helpers.Events;
 using Helpers.Events.Combat;
 using Helpers.Events.Inventory;

@@ -2,13 +2,13 @@
 using MoreMountains.InventoryEngine;
 using UnityEngine;
 
-namespace FirstPersonPlayer.Tools.ItemObjectTypes
+namespace FirstPersonPlayer.Tools.ItemObjectTypes.Tools
 {
     [CreateAssetMenu(
         fileName = "PickaxeItemObject", menuName = "Scriptable Objects/Items/PickaxeItemObject",
         order = 0)]
     [Serializable]
-    public class PickaxeItemObject : RightHandEquippableTool 
+    public class PickaxeItemObject : RightHandEquippableTool
     {
         public override bool Equip(string playerID)
         {

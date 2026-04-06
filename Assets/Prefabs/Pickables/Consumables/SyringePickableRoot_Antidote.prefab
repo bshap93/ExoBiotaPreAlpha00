@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1735771229296344668, guid: 8f62b4cfb3a5b98469deb864879c0ae5, type: 3}
+      propertyPath: interactionDistance
+      value: 3.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7178109574208019038, guid: 8f62b4cfb3a5b98469deb864879c0ae5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.220789
@@ -63,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 7299812080277378947, guid: 8f62b4cfb3a5b98469deb864879c0ae5, type: 3}
       propertyPath: m_Name
       value: SyringePickableRoot_Antidote
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468693044936946568, guid: 8f62b4cfb3a5b98469deb864879c0ae5, type: 3}
+      propertyPath: m_Radius
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,7 +6,7 @@ using FirstPersonPlayer.InputHandling;
 using FirstPersonPlayer.Interactable;
 using FirstPersonPlayer.Tools.Animation;
 using FirstPersonPlayer.Tools.Interface;
-using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
 using FirstPersonPlayer.Tools.ToolPrefabScripts;
 using FirstPersonPlayer.UI.ProgressBars;
 using Helpers.AnimancerHelper;
@@ -177,8 +177,8 @@ namespace FirstPersonPlayer.Tools
             {
                 case MMInventoryEventType.ItemEquipped:
                     if (e.EventItem is BaseTool tool) EquipTool(tool);
-                    
-                    
+
+
                     break;
 
                 case MMInventoryEventType.ItemUnEquipped:

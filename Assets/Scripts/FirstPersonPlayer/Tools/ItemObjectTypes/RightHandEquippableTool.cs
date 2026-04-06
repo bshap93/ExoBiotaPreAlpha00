@@ -1,5 +1,6 @@
 ﻿using System;
 using CompassNavigatorPro;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
 using MoreMountains.InventoryEngine;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,6 +15,8 @@ namespace FirstPersonPlayer.Tools.ItemObjectTypes
     public class RightHandEquippableTool : BaseTool
     {
         public ScanProfile scannerProfile;
+
+        [FormerlySerializedAs("ToolReach")] public float toolReach;
 
         // [SerializeField] float baseStaminaConsumedPerUse = 3f;
 
@@ -30,8 +33,6 @@ namespace FirstPersonPlayer.Tools.ItemObjectTypes
 
             return base.Equip(playerID);
         }
-
-        [FormerlySerializedAs("ToolReach")] public float toolReach;
         public Vector3 GetToolAttackOrigin()
         {
             return Vector3.zero;

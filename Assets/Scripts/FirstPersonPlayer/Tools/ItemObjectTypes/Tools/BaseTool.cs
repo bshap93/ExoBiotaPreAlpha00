@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace FirstPersonPlayer.Tools.ItemObjectTypes
+namespace FirstPersonPlayer.Tools.ItemObjectTypes.Tools
 {
     [CreateAssetMenu(fileName = "BaseTool", menuName = "Scriptable Objects/Items/BaseTool", order = 0)]
     [Serializable]

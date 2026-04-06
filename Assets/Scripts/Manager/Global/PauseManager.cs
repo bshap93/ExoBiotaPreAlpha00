@@ -81,17 +81,17 @@ namespace Manager.Global
                 pauseFeedback?.PlayFeedbacks();
             }
 
-            if (defaultInput.isIGUITogglePressed)
-            {
-                IguiOpen = !IguiOpen;
-                Time.timeScale = IguiOpen ? 0 : 1;
-                // Cursor.lockState = _iguiOpen ? CursorLockMode.None : CursorLockMode.Locked;
-                // Cursor.visible = _iguiOpen;
-                if (IguiOpen)
-                    PauseAudio();
-                else
-                    UnPauseAudio();
-            }
+            // if (defaultInput.isIGUITogglePressed)
+            // {
+            //     IguiOpen = !IguiOpen;
+            //     Time.timeScale = IguiOpen ? 0 : 1;
+            //     // Cursor.lockState = _iguiOpen ? CursorLockMode.None : CursorLockMode.Locked;
+            //     // Cursor.visible = _iguiOpen;
+            //     if (IguiOpen)
+            //         PauseAudio();
+            //     else
+            //         UnPauseAudio();
+            // }
         }
 
         void OnEnable()

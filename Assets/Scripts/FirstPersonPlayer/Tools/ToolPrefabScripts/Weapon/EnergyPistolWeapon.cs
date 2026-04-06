@@ -4,6 +4,7 @@ using FirstPersonPlayer.Combat.Player.ScriptableObjects;
 using FirstPersonPlayer.Interactable;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.ToolHelper;
 using Helpers.AnimancerHelper;
 using Helpers.Events;
 using Helpers.Events.Combat;
