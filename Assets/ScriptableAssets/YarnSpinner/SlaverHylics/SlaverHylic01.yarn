@@ -4,6 +4,7 @@ Matriarch's Hylic: Hold it, human. You pass in the tunnels of our Matriarch, lor
 Matriarch's Hylic: State your purpose, if 'tis not to submit to Her for thralldom as have your half-brothers.
 -> No, uh, I don't. I come at the request of The Diplomat, your fellow Hylic. I am only here for the Hybrid named Ala'an.
     <<make_contact_with_npc "SlaverHylic01">>
+    <<jump YouClaimToBeRescuingAlaan>>
 -> Exactly yes, I've come to submit to your master for thralldom. 
     <<make_contact_with_npc "SlaverHylic01">>
     <<jump YouClaimedToBeSumbittingForThralldom>>

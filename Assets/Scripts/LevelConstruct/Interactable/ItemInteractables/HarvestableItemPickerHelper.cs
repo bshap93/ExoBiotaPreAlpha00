@@ -418,47 +418,7 @@ namespace LevelConstruct.Interactable.ItemInteractables
             yield return null;
         }
 
-        public void ApplyCatalyst(ReagentType reagentType)
-        {
-            var coreGradesDissolved = reagentType.coreGradesAffected;
 
-            if (coreGradesDissolved.Contains(_coreReactivity))
-                // Change state to HadCatalystApplied
-            {
-                AdvanceState(HarvestableState.HadCatalystApplied);
-                if (objectiveProgressOnCatalyst != null)
-                    ObjectiveEvent.Trigger(
-                        objectiveProgressOnCatalyst.objectiveId, ObjectiveEventType.IncrementObjectiveProgress,
-                        NotifyType.Regular, 1);
-
-                catalystAppliedFeedback.PlayFeedbacks();
-            }
-        }
-        public void ApplySolvent(ReagentType reagentType)
-        {
-            var coreGradesDissolved = reagentType.coreGradesAffected;
-
-            if (coreGradesDissolved.Contains(_coreReactivity))
-                // Dissolve the core
-            {
-                AdvanceState(HarvestableState.Dissolved);
-
-                if (objectiveProgressOnSolvent != null)
-                    ObjectiveEvent.Trigger(
-                        objectiveProgressOnSolvent.objectiveId, ObjectiveEventType.IncrementObjectiveProgress,
-                        NotifyType.Regular, 1);
-
-                if (dissolver != null)
-                {
-                    dissolver.FindMaterials();
-                    dissolver.Dissolve();
-                }
-
-                solventAppliedFeedback.PlayFeedbacks();
-
-                // StartCoroutine(WaitThenResetDissolver());
-            }
-        }
 
         public void OnPlacedByPlayer()
         {
