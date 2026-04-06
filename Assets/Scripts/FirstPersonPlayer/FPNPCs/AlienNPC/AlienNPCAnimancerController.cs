@@ -58,8 +58,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         {
             if (alienIdleAnimations == null || alienIdleAnimations.Length == 0)
             {
-                Debug.LogWarning($"[{name}] No idle animations assigned.");
-                return;
+                throw new InvalidOperationException($"[{name}] No idle animations assigned.");
             }
 
             CancelPendingAudio();

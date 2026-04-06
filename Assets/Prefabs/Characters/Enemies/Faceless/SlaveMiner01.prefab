@@ -3311,9 +3311,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3252907983223927856}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.60876137, z: -0, w: 0.7933534}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: 24.66925, y: -3.781855, z: 6.789715}
-  m_LocalScale: {x: 0.84180677, y: 0.8418063, z: 0.84180677}
+  m_LocalScale: {x: 0.8418069, y: 0.8418063, z: 0.8418069}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9068279259065344959}
@@ -3359,7 +3359,8 @@ MonoBehaviour:
   highlightEffectController: {fileID: 7432845600046818955}
   blackboard: {fileID: 4884309355904347907}
   fsmOwner: {fileID: 3311436234791006107}
-  uniqueIdOfFriends: []
+  uniqueIdOfFriends:
+  - MinerThrall002
   creatureType: {fileID: 11400000, guid: f69a31cb8cb3fb740b124cf55789fb20, type: 2}
   animancerComponent: {fileID: 5610557049203597732}
   initialCreatureInitializationState: 1
@@ -3419,7 +3420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCAnimancerController
   hasWorkingAnimations: 1
-  hasIdleAnimations: 0
+  hasIdleAnimations: 1
   initialState: 0
   alienWorkingAnimations:
   - doubleAction: 0
@@ -3432,7 +3433,14 @@ MonoBehaviour:
     audioDelay: 0.36
     feedbacks: {fileID: 6552066324852494585}
     audioDelaySecondClip: 0
-  alienIdleAnimations: []
+  alienIdleAnimations:
+  - doubleAction: 0
+    actionId: Idle 01
+    animationClip: {fileID: -2576967968662016515, guid: 56fd86b76fc74d24d83522069f5deb9b, type: 3}
+    audioClipList: []
+    audioDelay: 0
+    feedbacks: {fileID: 0}
+    audioDelaySecondClip: 0
   animancerComponent: {fileID: 5610557049203597732}
   audioSource: {fileID: 2626259696270212459}
   creatureController: {fileID: 722968108097733997}
@@ -3482,7 +3490,9 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"getHitHeavyAnimationClip":{"_value":8,"_name":"getHitHeavyAnimationClip","_id":"685817fd-3625-4c22-abcc-6f03b8daa30e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IsHostile":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isAttacking":{"_name":"isAttacking","_id":"6e1ce85b-88ad-4c10-a46c-3885f6993471","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"personalSpace":{"_value":3.0,"_name":"personalSpace","_id":"c5d83cf2-0c37-4b2e-a191-68f466b33fbe","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"magniumNodeTransform":{"_name":"magniumNodeTransform","_id":"673facd4-f48a-4f6a-97fd-6f862cf6cbcc","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 7392371710694596478}
@@ -3605,6 +3615,12 @@ MonoBehaviour:
     _references: []
   - _json: '{"_name":"isAttacking","_id":"6e1ce85b-88ad-4c10-a46c-3885f6993471","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":3.0,"_name":"personalSpace","_id":"c5d83cf2-0c37-4b2e-a191-68f466b33fbe","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_name":"magniumNodeTransform","_id":"673facd4-f48a-4f6a-97fd-6f862cf6cbcc","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
 --- !u!114 &3311436234791006107
 MonoBehaviour:
