@@ -1,4 +1,33 @@
 title: SlaverHylic01Interaction
 ---
-Slaver Hylic: Why are you here? Have you come to offer yourself as a slave?
+Matriarch's Hylic: Hold it, human. You pass in the tunnels of our Matriarch, lord of these mines.
+Matriarch's Hylic: State your purpose, if 'tis not to submit to Her for thralldom as have your half-brothers.
+-> No, uh, I don't. I come at the request of The Diplomat, your fellow Hylic. I am only here for the Hybrid named Ala'an.
+    <<make_contact_with_npc "SlaverHylic01">>
+-> Exactly yes, I've come to submit to your master for thralldom. 
+    <<make_contact_with_npc "SlaverHylic01">>
+    <<jump YouClaimedToBeSumbittingForThralldom>>
+===
+
+title: YouClaimedToBeSumbittingForThralldom
+---
+Matriarch's Hylic: This is irregular. I would not stop you, however, if you indeed wish to be thrall to my master.
+-> Ok, then. What now? 
+Matriarch's Hylic: I'm just an enforcer. You'll have to talk to the supervisor. It will likely grant you your wish, with our master's approval.
+-> And where are they?
+    Matriarch's Hylic: The mine of course. The one where you wish to work as a thrall. South of here.
+-> I'll head there.
+===
+
+title: YouClaimToBeRescuingAlaan
+---
+Matriarch's Hylic: The Hylic you speak of is known to us. That one adopts no master. Our Matriarch warns us not to trust it.
+Matriarch's Hylic: You should not trust it either. Am I to take it that you are in league with this traitor?
+-> Are you not also an outcast? You speak as though pledging yourself to this 'Matriarch' changes that.
+    Matriarch's Hylic: How dare you? Our Matriarch is good and just. You will leave us.
+-> But I do trust it. It seems to be trying to do right by all in Midsheol. 
+    Matriarch's Hylic: I'm sure it thinks that it is. I warn you, you do not understand our ways, and this 'Diplomat' courts trouble.
+    -> Still, I think I want to at least try to help him and Ala'an.
+        Matriarch's Hylic: I'm just an enforcer. I do not decide what thralls may come or go.
+        Matriarch's Hylic: If you must, speak with the Supervisor. I cannot see how it would allow what you ask.
 ===

@@ -2772,14 +2772,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee07663f137f40fe825f98feedc4847f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.FPNPCs.AlienNPC.SlaverMotile
-  uniqueID: 
+  uniqueID: 8dae30d5-92b8-41e1-8ee7-963f53be121f
   extractableInteractable: {fileID: 0}
   callDeathFeedbacksFromBTree: 0
   highlightEffect: {fileID: 5973880324435435388}
   highlightEffectController: {fileID: 7271560752256300741}
   blackboard: {fileID: 8706609048684020976}
   fsmOwner: {fileID: 4829423555163603725}
-  isInitiallyHostile: 0
   uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 12879314eae9b274788476150360da17, type: 2}
   animancerComponent: {fileID: 1977752759973705609}
@@ -2795,6 +2794,7 @@ MonoBehaviour:
   placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
   startAsActivated: 0
+  isInitiallyHostile: 0
   destroyAfterDeath: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
@@ -2833,7 +2833,7 @@ MonoBehaviour:
   - {fileID: 2090807712346221315}
   - {fileID: 7206601631825020239}
   - {fileID: 8478055421302514867}
-  bodyHeadCenterAnchor: {fileID: 1371748783802925300}
+  bodyHeadCenterAnchor: {fileID: 432900377398200051}
   animancerController: {fileID: 4801222749065197297}
   thrallCreatureCharacters: []
   initialSlaverMotileState: 0

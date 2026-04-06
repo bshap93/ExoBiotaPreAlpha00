@@ -66,8 +66,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         public int actionId;
 
         SceneObjectData _sceneObjectData;
-        Transform dialogueFocusPoint;
-        MMFeedbacks startDialogueFeedback;
+        Transform _dialogueFocusPoint;
+        MMFeedbacks _startDialogueFeedback;
 
         public AlienNPCState CurrentState { get; private set; }
 
@@ -219,11 +219,13 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             if (friendlyNPCManager != null && !friendlyNPCManager.HasNPCBeenContactedAtLeastOnce(npcDefinition.npcId))
                 EnemyXPRewardEvent.Trigger(npcDefinition.xpForFirstMeeting);
 
+            _dialogueFocusPoint = bodyHeadCenterAnchor;
+
             // Focus the dialogue camera on this NPC
-            var focusTarget = dialogueFocusPoint != null ? dialogueFocusPoint : transform;
+            var focusTarget = _dialogueFocusPoint != null ? _dialogueFocusPoint : transform;
             DialogueCameraEvent.Trigger(DialogueCameraEventType.FocusOnTarget, focusTarget);
 
-            startDialogueFeedback?.PlayFeedbacks();
+            _startDialogueFeedback?.PlayFeedbacks();
             MyUIEvent.Trigger(UIType.Any, UIActionType.Open);
         }
 
@@ -319,7 +321,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
         void OnDrawGizmosSelected()
         {
-            var target = dialogueFocusPoint != null ? dialogueFocusPoint.position : transform.position;
+            var target = _dialogueFocusPoint != null ? _dialogueFocusPoint.position : transform.position;
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(target, 0.08f);
             Gizmos.DrawLine(transform.position, target);
