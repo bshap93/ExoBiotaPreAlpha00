@@ -1,29 +1,65 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Animancer;
+using Dirigible.Input;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
+using FirstPersonPlayer.Interface;
 using FirstPersonPlayer.ScriptableObjects;
+using Helpers.Events;
 using Helpers.Events.Combat;
+using Helpers.Events.Dialog;
+using Helpers.Events.NPCs;
+using Helpers.Events.Progression;
+using Lightbug.Utilities;
+using Manager;
+using Manager.DialogueScene;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using Overview.NPC;
+using SharedUI.Interface;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace FirstPersonPlayer.FPNPCs.AlienNPC
 {
     [RequireComponent(typeof(AlienNPCAnimancerController))]
-    public class HumanoidNPCCreature : EnemyController, MMEventListener<AlienNotifyFriendsOfStateEvent>
+    public class HumanoidNPCCreature : EnemyController, MMEventListener<AlienNotifyFriendsOfStateEvent>, IInteractable,
+        IHoverable, IBillboardable
     {
-        [SerializeField] bool hasWeapon;
+        [Header("Weapon Setup")] [SerializeField]
+        bool hasWeapon;
         [ShowIf("hasWeapon")] [SerializeField] EnemyWeaponDefinition defaultWeaponDefinition;
         [ShowIf("hasWeapon")] [SerializeField] Transform primaryWeaponAnchor;
-        [SerializeField] AlienNPCAnimancerController animancerController;
+        [Header("Humanoid Animation")] [SerializeField]
+        AlienNPCAnimancerController animancerController;
         [SerializeField] AlienNPCState[] statesWithFullBodyAnimations;
 
-        [SerializeField] MMFeedbacks walkingLoopFeedbacks;
+        [Header("Ambulation Feedbacks")] [SerializeField]
+        MMFeedbacks walkingLoopFeedbacks;
         [SerializeField] MMFeedbacks runningLoopFeedbacks;
+        [Header("Interaction")] [SerializeField]
+        float interactDistanceOverride = 5f;
+        [SerializeField] string defaultStartNode;
+
+        [SerializeField] LayerMask npcInteractableLayer;
+        [SerializeField] LayerMask enemyLayer;
+
+        [Header("Dialogue Camera")] [SerializeField]
+        Transform dialogueFocusPoint;
+        [SerializeField] MMFeedbacks startDialogueFeedback;
+
+        [ValueDropdown("GetNpcIdOptions")] public
+            string npcId;
+        [Header("Controls Help & Action Info")]
+#if UNITY_EDITOR
+        [ValueDropdown(nameof(GetAllRewiredActions))]
+#endif
+        public int actionId;
+        [SerializeField] NpcDefinition npcDefinition;
 
         AnimationClip _equippedHoldPose; // cached at equip time
         Coroutine _footstepCoroutine;
+        SceneObjectData _sceneObjectData;
         // public AlienNPCState initialDefaultState = AlienNPCState.Working;
 
         protected AnimancerState WorkingState;
@@ -106,9 +142,131 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             this.MMEventStopListening<PlayerStartsAttackEvent>();
             this.MMEventStopListening<AlienNotifyFriendsOfStateEvent>();
         }
+        public string GetName()
+        {
+            return npcDefinition != null ? npcDefinition.characterName : "NPC";
+        }
+        public Sprite GetIcon()
+        {
+            return npcDefinition != null ? npcDefinition.characterIcon : null;
+        }
+        public string ShortBlurb()
+        {
+            return npcDefinition != null ? npcDefinition.npcDescription : string.Empty;
+        }
+        public Sprite GetActionIcon()
+        {
+            // For now, just return a generic talk icon. This can be expanded in the future to return different icons based on the NPC's state or other factors.
+            return PlayerUIManager.Instance.defaultIconRepository.talkIcon;
+        }
+        public string GetActionText()
+        {
+            // For now, just return "Talk". This can be expanded in the future to return different action texts based on the NPC's state or other factors.
+            return "Talk";
+        }
+        public bool OnHoverStart(GameObject go)
+        {
+            _sceneObjectData = SceneObjectData.Empty();
+
+            _sceneObjectData.ActionIcon = GetActionIcon();
+            _sceneObjectData.ActionText = GetActionText();
+            _sceneObjectData.Name = GetName();
+            _sceneObjectData.ShortBlurb = ShortBlurb();
+            _sceneObjectData.Icon = GetIcon();
+
+            BillboardEvent.Trigger(_sceneObjectData, BillboardEventType.Show);
+
+            if (actionId != 0) ControlsHelpEvent.Trigger(ControlHelpEventType.Show, actionId);
+
+            return true;
+        }
+        public bool OnHoverStay(GameObject go)
+        {
+            return true;
+        }
+        public bool OnHoverEnd(GameObject go)
+        {
+            if (_sceneObjectData == null) _sceneObjectData = SceneObjectData.Empty();
+
+            BillboardEvent.Trigger(_sceneObjectData, BillboardEventType.Hide);
+            if (actionId != 0) ControlsHelpEvent.Trigger(ControlHelpEventType.Hide, actionId);
+
+            return true;
+        }
+
+        public void Interact()
+        {
+            if (!CanInteract()) return;
+
+
+            var nodeToUse = GetAppropriateDialogueNode();
+
+            StartDialogue(nodeToUse);
+        }
+        public void Interact(string param)
+        {
+            Interact();
+        }
+        public void OnInteractionStart()
+        {
+        }
+        public void OnInteractionEnd(string param)
+        {
+            DialogueCameraEvent.Trigger(DialogueCameraEventType.ReleaseFocus);
+        }
+        public bool CanInteract()
+        {
+            return IsInteractable();
+        }
+        public bool IsInteractable()
+        {
+            if (isDead) return false;
+            if (IsHostile) return false;
+            return true;
+        }
+        public void OnFocus()
+        {
+        }
+        public void OnUnfocus()
+        {
+        }
+
+        public float GetInteractionDistance()
+        {
+            return interactDistanceOverride;
+        }
         public void OnMMEvent(AlienNotifyFriendsOfStateEvent eventType)
         {
             if (uniqueIdOfFriends.Contains(eventType.UniqueID) && eventType.IsHostile) SetState(CurrentState, true);
+        }
+        static string[] GetNpcIdOptions()
+        {
+            return DialogueManager.GetAllNpcIdOptions();
+        }
+
+        void StartDialogue(string nodeToUse)
+        {
+            if (nodeToUse.IsNullOrWhiteSpace())
+                FirstPersonDialogueEvent.Trigger(FirstPersonDialogueEventType.StartDialogue, npcId, defaultStartNode);
+            else
+                FirstPersonDialogueEvent.Trigger(FirstPersonDialogueEventType.StartDialogue, npcId, nodeToUse);
+
+            var friendlyNPCManager = FriendlyNPCManager.Instance;
+            if (friendlyNPCManager != null && !friendlyNPCManager.HasNPCBeenContactedAtLeastOnce(npcDefinition.npcId))
+                EnemyXPRewardEvent.Trigger(npcDefinition.xpForFirstMeeting);
+
+            // Focus the dialogue camera on this NPC
+            var focusTarget = dialogueFocusPoint != null ? dialogueFocusPoint : transform;
+            DialogueCameraEvent.Trigger(DialogueCameraEventType.FocusOnTarget, focusTarget);
+
+            startDialogueFeedback?.PlayFeedbacks();
+            MyUIEvent.Trigger(UIType.Any, UIActionType.Open);
+        }
+
+        protected string GetAppropriateDialogueNode()
+        {
+            // For now, just return the default start node.
+            return defaultStartNode;
         }
 
 
@@ -163,5 +321,21 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
 
             _equippedHoldPose = weaponDefinition.HoldPoseClip;
         }
+
+#if UNITY_EDITOR
+        public IEnumerable<ValueDropdownItem<int>> GetAllRewiredActions()
+        {
+            return AllRewiredActions.GetAllRewiredActions();
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            var target = dialogueFocusPoint != null ? dialogueFocusPoint.position : transform.position;
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(target, 0.08f);
+            Gizmos.DrawLine(transform.position, target);
+        }
+
+#endif
     }
 }

@@ -254,7 +254,7 @@ namespace Manager
                 "ElevatorRoomInitSpawn", "treeside_spawn", "ShoalAlcoveSpawn",
                 "SupervisorHouse", "OpeningToTeeGap", "SmallRoomL1Spawn",
                 "SouthernTeeSpawn", "MineCavernEntrySpawn",
-                "ScrapVillageMine", "MineEscapeTunnelEntrySpawn", "ElevatorRoomBunkerSpawn",
+                "ScrapVillageMine", "MineEscapeTunnelEntrySpawn", "ElevatorRoomBunkerSpawn", "MineForeHylicBuilding",
                 // Lake Scene
                 "FakeIslandSpawn"
             };

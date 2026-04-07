@@ -32,7 +32,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         [Header("Flags")] [SerializeField] protected bool doNotUseIdleState;
 
 
-        [Header("Feedbacks")] [SerializeField] protected MMFeedbacks movementLoopFeedbacks;
+        [Header("Enemy Controller Feedbacks")] [SerializeField]
+        protected MMFeedbacks movementLoopFeedbacks;
         [SerializeField] GameObject deathParticlesDustPrefab;
 
         Tween _hitTween;
@@ -225,9 +226,9 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             yield return new WaitForSeconds(creatureType.primaryAttackDuration);
             FinishAttack(attackIndex);
         }
-        static void ActivateHitboxes(bool hasSoleHitbox, EnemyHitbox soleHitboxCollider, EnemyHitbox[] multipleHitboxes, EnemyController owner)
+        static void ActivateHitboxes(bool hasSoleHitbox, EnemyHitbox soleHitboxCollider, EnemyHitbox[] multipleHitboxes,
+            EnemyController owner)
         {
-         
             owner.HasHitPlayerThisAttack = false;
             if (hasSoleHitbox && soleHitboxCollider != null)
                 soleHitboxCollider.Activate();

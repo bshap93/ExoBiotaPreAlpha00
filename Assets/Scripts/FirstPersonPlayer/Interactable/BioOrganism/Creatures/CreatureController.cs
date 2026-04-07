@@ -66,23 +66,22 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         [Header("Animation")] [SerializeField] protected AnimancerComponent animancerComponent;
         [FormerlySerializedAs("initialCreatureState")]
         public CreatureStateManager.CreatureInitializationState initialCreatureInitializationState;
-        [Header("Feedbacks")] [SerializeField] protected GameObject feedbacksContainer;
 
+
+        [Header("Creature Controller Feedbacks")] [SerializeField]
+        protected GameObject feedbacksContainer;
         public MMFeedbacks deathFeedbacks;
-
-        [SerializeField] public MMFeedbacks curedOrPlacatedFeedbacks;
-
+        public MMFeedbacks curedOrPlacatedFeedbacks;
         [SerializeField] protected MMFeedbacks critDamageFeedbacks;
-        [Header("Basic Hit Feedbacks")] [SerializeField]
+        [SerializeField] protected MMFeedbacks placatedFeedbacks;
+        [Header("Creature Controller GET HIT Feedbacks")] [SerializeField]
         protected MMFeedbacks meleeHitFeedbacksBasic;
         [SerializeField] protected MMFeedbacks rangedHitFeedbacksBasic;
-        [Header("Heavy Hit Feedbacks")] [SerializeField]
-        protected MMFeedbacks meleeHitFeedbacksHeavy;
+        [SerializeField] protected MMFeedbacks meleeHitFeedbacksHeavy;
         [SerializeField] protected MMFeedbacks rangedHitFeedbacksHeavy;
 
-        [SerializeField] protected MMFeedbacks placatedFeedbacks;
 
-        [Header("Designer flags")] [SerializeField]
+        [Header("Designer flags (Creature Ctrl)")] [SerializeField]
         protected bool cannotBeAttacked;
         public bool startAsActivated;
         [SerializeField] protected bool isInitiallyHostile;
@@ -100,7 +99,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         public float deathDelay = 1f;
 
 
-        [Header("Attacks")] public int attackCount = 1;
+        [Header("Attack Setup")] public int attackCount = 1;
 
         public AttackInstance[] attackInstances;
 
