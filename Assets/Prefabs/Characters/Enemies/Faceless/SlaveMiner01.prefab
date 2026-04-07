@@ -3367,11 +3367,11 @@ MonoBehaviour:
   deathFeedbacks: {fileID: 54720015589633371}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
+  placatedFeedbacks: {fileID: 0}
   meleeHitFeedbacksBasic: {fileID: 1977323516249709125}
   rangedHitFeedbacksBasic: {fileID: 1977323516249709125}
   meleeHitFeedbacksHeavy: {fileID: 3271297054938335957}
   rangedHitFeedbacksHeavy: {fileID: 3271297054938335957}
-  placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
   startAsActivated: 0
   isInitiallyHostile: 0
@@ -3479,7 +3479,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"StunDuration":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.HumanoidNPCCreature.StunDuration","_name":"StunDuration","_id":"35df085b-1f87-437d-af71-70e903369a3c","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentStunDamage":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.HumanoidNPCCreature.currentStunDamage","_name":"currentStunDamage","_id":"ff503a74-077e-44f7-b301-20481f81780a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunIdleSpeedMultiplier":{"_value":0.25,"_name":"stunIdleSpeedMultiplier","_id":"0cf2fa72-7fe9-405e-b14a-1dd26ae6b95a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Alerted":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.HumanoidNPCCreature.Alerted","_name":"Alerted","_id":"49d722ed-8ab4-4e64-9791-ec9577724db0","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Alerted":{"_name":"Alerted","_id":"49d722ed-8ab4-4e64-9791-ec9577724db0","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"CurrentState":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCAnimancerController.CurrentState","_name":"CurrentState","_id":"7dade11c-053b-4389-94c1-288063ed5646","$type":"NodeCanvas.Framework.Variable`1[[FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCState,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"canSeeDistance":{"_value":20.0,"_name":"canSeeDistance","_id":"9ece2c9d-9299-4d2d-822a-01abc56fdb57","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"canSenseDistance":{"_value":5.0,"_name":"canSenseDistance","_id":"16e3764f-97d3-401a-965c-8d3eaacd0afa","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -3547,7 +3547,7 @@ MonoBehaviour:
   - _json: '{"_value":0.25,"_name":"stunIdleSpeedMultiplier","_id":"0cf2fa72-7fe9-405e-b14a-1dd26ae6b95a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.HumanoidNPCCreature.Alerted","_name":"Alerted","_id":"49d722ed-8ab4-4e64-9791-ec9577724db0","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  - _json: '{"_name":"Alerted","_id":"49d722ed-8ab4-4e64-9791-ec9577724db0","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCAnimancerController.CurrentState","_name":"CurrentState","_id":"7dade11c-053b-4389-94c1-288063ed5646","$type":"NodeCanvas.Framework.Variable`1[[FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCState,

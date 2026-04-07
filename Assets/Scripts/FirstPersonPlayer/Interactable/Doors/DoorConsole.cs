@@ -21,6 +21,9 @@ namespace FirstPersonPlayer.Interactable.Doors
         public Vector3 switchOnPosition;
         public Vector3 switchOffPosition;
 
+        [FormerlySerializedAs("operableByPlayer")]
+        public bool initiallyOperableByPlayer = true;
+
         public Vector3 switchOnRotation;
         public Vector3 switchOffRotation;
 
@@ -32,15 +35,19 @@ namespace FirstPersonPlayer.Interactable.Doors
 
         [SerializeField] MMFeedbacks switchFeedbacks;
 
+        bool _operableByPlayer;
         void Start()
         {
             // Initialize switch animation based on door state
             AnimateSwitch(!persistentLockedDoor.IsLocked);
+
+            _operableByPlayer = initiallyOperableByPlayer;
         }
 
 
         public void Interact()
         {
+            if (!_operableByPlayer) return;
             if (!CanInteract()) return;
 
 

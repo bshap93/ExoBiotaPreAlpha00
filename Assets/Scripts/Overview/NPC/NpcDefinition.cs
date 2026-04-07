@@ -65,7 +65,7 @@ namespace Overview.NPC
         [FormerlySerializedAs("NativeLanguage")]
         public LanguageType nativeLanguage;
 
-        public bool hasAvatarDiorama = true;
+        public bool hasAvatarDiorama  ;
 
         public float gestureTransitionDuration = 0.2f;
         public float idleTransitionDuration = 0.2f;
