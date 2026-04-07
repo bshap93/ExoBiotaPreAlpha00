@@ -4,6 +4,12 @@ using MoreMountains.Tools;
 namespace Helpers.Events
 {
     [Serializable]
+    public enum AudioType
+    {
+        All,
+        
+    }
+    [Serializable]
     public enum AudioEventType
     {
         PauseAudio,
