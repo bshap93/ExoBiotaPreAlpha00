@@ -104,6 +104,10 @@ namespace LevelConstruct.Interactable.Door
                 if (navMeshLink != null)
                     navMeshLink.enabled = isOpen;
 
+            if (DoorManager.Instance != null)
+                if (DoorManager.Instance.GetDoorOpenState(uniqueID) == DoorManager.DoorOpenState.Open)
+                    OpenDoor();
+
             StartCoroutine(InitializeAfterBarrierStateManager());
         }
         void OnEnable()

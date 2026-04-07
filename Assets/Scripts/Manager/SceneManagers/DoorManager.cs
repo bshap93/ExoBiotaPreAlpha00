@@ -18,11 +18,20 @@ namespace Manager.SceneManagers
             None
         }
 
+        [Serializable]
+        public enum DoorOpenState
+        {
+            Open,
+            Closed,
+            None
+        }
+
         [SerializeField] bool autoSave;
 
         bool _dirty;
 
         Dictionary<string, DoorLockState> _doorsLocked = new();
+        Dictionary<string, DoorOpenState> _doorsOpen = new();
 
 
         string _savePath;
@@ -60,6 +69,7 @@ namespace Manager.SceneManagers
         {
             var path = GetSaveFilePath();
             ES3.Save("DoorsLockedState", _doorsLocked, path);
+            ES3.Save("DoorsOpenState", _doorsOpen, path);
 
             _dirty = false;
         }
@@ -67,6 +77,7 @@ namespace Manager.SceneManagers
         public void Reset()
         {
             _doorsLocked.Clear();
+            _doorsOpen.Clear();
             _dirty = true;
             ConditionalSave();
         }
@@ -97,18 +108,33 @@ namespace Manager.SceneManagers
             if (ES3.KeyExists("DoorsLockedState", path))
                 _doorsLocked = ES3.Load<Dictionary<string, DoorLockState>>("DoorsLockedState", path);
 
+            if (ES3.KeyExists("DoorsOpenState", path))
+                _doorsOpen = ES3.Load<Dictionary<string, DoorOpenState>>("DoorsOpenState", path);
+
             _dirty = false;
         }
 
 
         public void OnMMEvent(DoorEvent eventType)
         {
-            if (eventType.EventType == DoorEventType.Unlock) AddDoor(eventType.UniqueId, DoorLockState.Unlocked);
+            if (eventType.EventType == DoorEventType.Unlock)
+                AddDoor(eventType.UniqueId, DoorLockState.Unlocked);
+            else if (eventType.EventType == DoorEventType.Lock)
+                AddDoor(eventType.UniqueId, DoorLockState.Locked);
+            else if (eventType.EventType == DoorEventType.Open)
+                AddDoor(eventType.UniqueId, DoorLockState.None, DoorOpenState.Open);
+            else if (eventType.EventType == DoorEventType.Close)
+                AddDoor(eventType.UniqueId, DoorLockState.None, DoorOpenState.Closed);
         }
 
         public bool DoorHasLockedState(string doorId)
         {
             return _doorsLocked.ContainsKey(doorId);
+        }
+
+        public bool DoorHasOpenState(string doorId)
+        {
+            return _doorsOpen.ContainsKey(doorId);
         }
 
         public DoorLockState GetDoorLockState(string doorId)
@@ -119,9 +145,22 @@ namespace Manager.SceneManagers
             return DoorLockState.None;
         }
 
-        void AddDoor(string doorId, DoorLockState lockState)
+        public DoorOpenState GetDoorOpenState(string doorId)
         {
-            _doorsLocked[doorId] = lockState;
+            if (_doorsOpen.TryGetValue(doorId, out var openState))
+                return openState;
+
+            return DoorOpenState.None;
+        }
+
+        void AddDoor(string doorId, DoorLockState lockState, DoorOpenState openState = DoorOpenState.None)
+        {
+            if (lockState != DoorLockState.None)
+                _doorsLocked[doorId] = lockState;
+
+            if (openState != DoorOpenState.None)
+                _doorsOpen[doorId] = openState;
+
             MarkDirty();
             ConditionalSave();
         }

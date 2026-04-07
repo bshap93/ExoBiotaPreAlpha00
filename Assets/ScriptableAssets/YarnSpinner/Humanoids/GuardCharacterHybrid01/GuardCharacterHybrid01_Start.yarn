@@ -1,5 +1,22 @@
 title: GuardCharacterHybrid01_Start
 ---
+<<if has_npc_been_contacted("GuardCharacterHybrid01")>>
+    <<jump GuardCharacterHybrid01_Start_Followup>>
+<<else>>
+    <<jump GuardCharacterHybrid01_Start_Initial>>
+<<endif>>>>
+===
+
+title: GuardCharacterHybrid01_Start_Initial
+---
 Thrall Guard: You there! State your business with the Matriarch's mine.
--> I have come to submit myself as Thrall to your Matriarch.
+-> I have come to submit myself as Thrall to your Matriarch. Will you open up?
+    Thrall Guard: Yes, come on through. See that you make no trouble and proceed straight to the boss.
+    <<make_contact_with_npc "GuardCharacterHybrid01">>
+    <<open_door "ZytMaginumMineGate">>
+===
+
+title: GuardCharacterHybrid01_Start_Followup
+---
+Thrall Guard: Yes, come on through. See that you make no trouble and proceed straight to the boss.
 ===

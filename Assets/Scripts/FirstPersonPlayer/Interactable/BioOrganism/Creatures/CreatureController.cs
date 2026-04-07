@@ -61,7 +61,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         public string[] uniqueIdOfFriends;
 
 
-        [Header("Creature Info")] [SerializeField]
+        [TitleGroup("Feedbacks", horizontalLine: true)] [Header("Creature Info")] [SerializeField]
         public CreatureType creatureType;
         [Header("Animation")] [SerializeField] protected AnimancerComponent animancerComponent;
         [FormerlySerializedAs("initialCreatureState")]

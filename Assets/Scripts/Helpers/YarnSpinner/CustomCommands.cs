@@ -101,6 +101,11 @@ namespace Helpers.YarnSpinner
                 "unlock_door",
                 UnlockDoor);
 
+            dialogueRunner.AddCommandHandler<string>(
+                "open_door",
+                OpenDoor
+            );
+
             dialogueRunner.AddCommandHandler<int>(
                 "heal_player",
                 HealPlayer);
@@ -145,7 +150,7 @@ namespace Helpers.YarnSpinner
 
             dialogueRunner.AddCommandHandler<string>(
                 "trigger_scene_unload", TriggerSceneUnload);
-            
+
             dialogueRunner.AddCommandHandler<string>(
                 "trigger_aquire_journal_entry", TriggerAquireJournalEntry);
         }
@@ -323,6 +328,11 @@ namespace Helpers.YarnSpinner
         void UnlockDoor(string uniqueId)
         {
             DoorEvent.Trigger(uniqueId, DoorEventType.Unlock);
+        }
+
+        void OpenDoor(string uniqueId)
+        {
+            DoorEvent.Trigger(uniqueId, DoorEventType.Open);
         }
 
         // Dialogue Gestures

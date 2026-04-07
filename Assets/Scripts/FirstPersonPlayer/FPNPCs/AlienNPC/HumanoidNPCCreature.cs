@@ -285,7 +285,8 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
             // this prevents Update() from stomping them with IdleState.
             IsPlayingCustomAnimation = newState == AlienNPCState.Working
                                        || newState == AlienNPCState.InDialogue
-                                       || newState == AlienNPCState.FriendlyAndHailable;
+                                       || newState == AlienNPCState.FriendlyAndHailable
+                                       || newState == AlienNPCState.Idling;
 
 
             if (stateChanged)

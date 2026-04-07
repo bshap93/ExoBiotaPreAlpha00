@@ -57,9 +57,7 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         public void PlaySequenceOfIdleAnimations()
         {
             if (alienIdleAnimations == null || alienIdleAnimations.Length == 0)
-            {
                 throw new InvalidOperationException($"[{name}] No idle animations assigned.");
-            }
 
             CancelPendingAudio();
 
@@ -68,7 +66,12 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
                 var state = animancerComponent.States.GetOrCreate(alienIdleAnimations[i].animationClip);
                 // state.Events(this).Clear();
                 var capturedNext = alienIdleAnimations[(i + 1) % alienIdleAnimations.Length];
-                state.Events(this).OnEnd = () => animancerComponent.Play(capturedNext.animationClip);
+                state.Events(this).OnEnd = () =>
+                {
+                    // animancerComponent.Play(capturedNext.animationClip);
+                    var next = animancerComponent.Play(capturedNext.animationClip);
+                    next.Time = 0f; // forces restart even when capturedNext == current clip
+                };
             }
 
             animancerComponent.Play(alienIdleAnimations[0].animationClip);
@@ -91,7 +94,12 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
                 var state = animancerComponent.States.GetOrCreate(clip.animationClip);
                 // state.Events(this).Clear();
                 var capturedNext = alienWorkingAnimations[(i + 1) % alienWorkingAnimations.Length];
-                state.Events(this).OnEnd = () => animancerComponent.Play(capturedNext.animationClip);
+                state.Events(this).OnEnd = () =>
+                {
+                    // animancerComponent.Play(capturedNext.animationClip);
+                    var next = animancerComponent.Play(capturedNext.animationClip);
+                    next.Time = 0f; // forces restart even when capturedNext == current clip 
+                };
             }
 
             // animancerComponent.Play(alienWorkingAnimations[0].animationClip);
