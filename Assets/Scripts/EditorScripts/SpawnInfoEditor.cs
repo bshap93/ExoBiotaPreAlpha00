@@ -25,10 +25,10 @@ namespace EditorScripts
         {
             return new SpawnInfo
             {
-                SceneName = SceneName,
-                SpawnPointId = SpawnPointId,
-                Mode = Mode,
-                OverSceneName = OverSceneName
+                sceneName = SceneName,
+                spawnPointId = SpawnPointId,
+                mode = Mode,
+                overSceneName = OverSceneName
             };
         }
 

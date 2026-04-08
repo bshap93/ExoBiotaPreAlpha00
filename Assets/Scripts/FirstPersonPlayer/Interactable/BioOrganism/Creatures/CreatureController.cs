@@ -224,6 +224,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         public virtual void ProcessAttackDamage(PlayerAttack playerAttack, Vector3 attackOrigin)
         {
             if (cannotBeAttacked) return;
+            if (isDead)  return;
             var attributeManager = AttributesManager.Instance;
             var damageAmount = playerAttack.rawDamage;
             var stunAmount = playerAttack.rawStunDamage;

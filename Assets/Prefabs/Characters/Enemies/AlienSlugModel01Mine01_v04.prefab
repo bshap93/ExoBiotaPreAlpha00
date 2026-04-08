@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5925543699047660864}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_c5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6227612043561989306}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_c4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173487818443935298}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 695364148576259880}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_c2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223181544808618452}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_d5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2649651648092162436}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_b6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 8655321797429626522}
   - component: {fileID: 7672664979584154715}
   - component: {fileID: 3112292963320893407}
+  - component: {fileID: 4347002340313121443}
   m_Layer: 27
   m_Name: ETC_09
   m_TagString: EnemyNPC
@@ -598,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888380afc233049ce9e618f9f36c8ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 7266c3bf2cbaff34788a9cb35973bfaf, type: 2}
-  profileSync: 0
+  profile: {fileID: 11400000, guid: d77b9c41e18234a49b42c5d239354f69, type: 2}
+  profileSync: 1
   camerasLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -645,7 +646,7 @@ MonoBehaviour:
   overlayTextureScrolling: {x: 0, y: 0}
   overlayVisibility: 0
   outline: 1
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineColor: {r: 0.69182384, g: 0, b: 0.051547863, a: 1}
   outlineColorStyle: 0
   outlineGradient:
     serializedVersion: 2
@@ -678,7 +679,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   outlineGradientInLocalSpace: 0
-  outlineWidth: 0.2
+  outlineWidth: 0.69
   outlineBlurPasses: 2
   outlineQuality: 1
   outlineEdgeMode: 0
@@ -725,8 +726,8 @@ MonoBehaviour:
   innerGlowBlendMode: 0
   innerGlowVisibility: 0
   targetFX: 0
-  targetFXTexture: {fileID: 0}
-  targetFXColor: {r: 1, g: 1, b: 1, a: 1}
+  targetFXTexture: {fileID: 2800000, guid: d3f9f79929c708d45b0cc96aa9af8fdd, type: 3}
+  targetFXColor: {r: 0.93333334, g: 0.9490196, b: 0.7294118, a: 1}
   targetFXCenter: {fileID: 0}
   targetFXRotationSpeed: 50
   targetFXInitialScale: 4
@@ -762,7 +763,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   seeThroughOccluderThreshold: 0.4
-  seeThroughOccluderMaskAccurate: 0
+  seeThroughOccluderMaskAccurate: 1
   seeThroughOccluderCheckInterval: 1
   seeThroughOccluderCheckIndividualObjects: 0
   seeThroughDepthOffset: 0
@@ -781,7 +782,7 @@ MonoBehaviour:
   seeThroughTextureScale: 1
   seeThroughChildrenSortingMode: 0
   rmsCount: 1
-  hitFxInitialIntensity: 0.248
+  hitFxInitialIntensity: 1
   hitFxMode: 0
   hitFxFadeOutDuration: 0.25
   hitFxColor: {r: 1, g: 1, b: 1, a: 1}
@@ -829,12 +830,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0986de822ecb4835bfb249feaeb7996f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 951ab6ae-9101-4277-aa69-fba8c4b5e19c
+  targetID: 
   seeThroughDuration: 5
   onScanned:
     m_PersistentCalls:
       m_Calls: []
   secondaryStateHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &4347002340313121443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417064364897111538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdabf22a16cd7064e8610771648b5561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 8f2889af-d3cc-478a-97dd-69a51394ebd1
+  bioOrganismType: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
+  actionId: 43
+  actionText: Sample
+  trigger: {fileID: 7672664979584154715}
+  creatureController: {fileID: 5254758109377356150}
+  interactionDistance: 4
 --- !u!1 &1558775809171983465
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3331939047073045555}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_d1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,7 +896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6740805650798752127}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_a3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5122699915725845157}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3068258330209403050}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Down_Jaw_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5819902846807466802}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1005,7 +1025,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857586187761815499}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_b3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5876,7 +5896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3264697568516767420}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Neck_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5908,7 +5928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8111473570180410707}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_b1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5940,7 +5960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4744706882003360277}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15524,7 +15544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131651502788023524}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: R_Jaw_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15587,7 +15607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5476739846716279834}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: L_Jaw_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16215,7 +16235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6070011093081809826}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_a5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16247,7 +16267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7836795863664371196}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16279,7 +16299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2928124405995415082}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_b4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16311,7 +16331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3362179973253554293}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Up_Jaw_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16814,7 +16834,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4679312965804483452}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17211,7 +17231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6546906848637436659}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17243,7 +17263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4653782747825842691}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_a6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17275,7 +17295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6138230969713403720}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_b2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17930,7 +17950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2415083037428799574}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_b5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17962,7 +17982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2365305645768502916}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_a1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17994,7 +18014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 239707150276277968}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18027,7 +18047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3207650784828198606}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Down_Jaw_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22909,7 +22929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7044810779084429230}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22944,7 +22964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5632339922785052293}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_d4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28191,7 +28211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5289977489731711021}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28224,7 +28244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7439858163355085588}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_c3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28256,7 +28276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533854486881253736}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_d3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28289,7 +28309,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2201217437127625435}
   - component: {fileID: 5254758109377356150}
-  - component: {fileID: 2748921063369638569}
   - component: {fileID: 2650558392967395566}
   - component: {fileID: 4213191547505358671}
   - component: {fileID: 3923672407371036268}
@@ -28300,9 +28319,6 @@ GameObject:
   - component: {fileID: 7489985743336851958}
   - component: {fileID: 5495503647615790751}
   - component: {fileID: 6914125059913159400}
-  - component: {fileID: 6045107951516355315}
-  - component: {fileID: 3517512796345217467}
-  - component: {fileID: 1788531912934123447}
   - component: {fileID: 5958545333108774879}
   m_Layer: 27
   m_Name: AlienSlugModel01Mine01_v04
@@ -28344,14 +28360,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f5af975cf4e10b7ec39e864108c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: 654990d2-8617-4b3f-aa86-8c9f3ef26659
+  uniqueID: 
   extractableInteractable: {fileID: 11400000, guid: 5895cacb716c43b4c9d2670d07ebec27, type: 2}
   callDeathFeedbacksFromBTree: 0
   highlightEffect: {fileID: 8655321797429626522}
   highlightEffectController: {fileID: 3112292963320893407}
   blackboard: {fileID: 6935839604250593367}
   fsmOwner: {fileID: 9030777537301804226}
-  isInitiallyHostile: 0
   uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: b70dcc55abc25f84db676e6cf78a12b6, type: 2}
   animancerComponent: {fileID: 3923672407371036268}
@@ -28360,18 +28375,19 @@ MonoBehaviour:
   deathFeedbacks: {fileID: 3291354668953918157}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
+  placatedFeedbacks: {fileID: 0}
   meleeHitFeedbacksBasic: {fileID: 2925060562031159641}
   rangedHitFeedbacksBasic: {fileID: 2925060562031159641}
   meleeHitFeedbacksHeavy: {fileID: 363966855796393735}
   rangedHitFeedbacksHeavy: {fileID: 363966855796393735}
-  placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 0
   startAsActivated: 0
+  isInitiallyHostile: 0
   destroyAfterDeath: 0
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
   secondsBeforeSettingShouldBeDestroyed: 5
-  deathDelay: 2
+  deathDelay: 1.5
   attackCount: 1
   attackInstances:
   - attackName: 
@@ -28379,7 +28395,9 @@ MonoBehaviour:
     attackAnimationClip: {fileID: 6720303635017113406, guid: 8050bcaf15e2106489a22ac249b53626, type: 3}
     animationSpeedMultiplier: 1
     attackDuration: 0
+    attackHasMultipleHitboxes: 0
     attackHitbox: {fileID: 7593388456315202082}
+    multipleHitboxes: []
     leadupTime: 0
   isDead: 0
   isBeingAttacked: 0
@@ -28394,28 +28412,11 @@ MonoBehaviour:
   walkRunThreshold: 2
   hasRangedAttack: 0
   rangedAttackOrigin: {fileID: 0}
+  shouldSwitchLayersOnDeath: 0
   onDeathLayer: 8
   doNotUseIdleState: 0
   movementLoopFeedbacks: {fileID: 4182894261112851031}
   deathParticlesDustPrefab: {fileID: 0}
---- !u!114 &2748921063369638569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373913810266448617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdabf22a16cd7064e8610771648b5561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueID: 34562c39-ac29-4e6f-ac0a-3c614235c3c5
-  bioOrganismType: {fileID: 11400000, guid: 7a3997b125ea4b3449d97fed52122b48, type: 2}
-  actionId: 43
-  actionText: Sample
-  trigger: {fileID: 7672664979584154715}
-  creatureController: {fileID: 5254758109377356150}
 --- !u!95 &2650558392967395566
 Animator:
   serializedVersion: 7
@@ -28880,7 +28881,7 @@ MonoBehaviour:
   bioOrganismType: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
   actionId: 54
   actionText: Sample
-  trigger: {fileID: 0}
+  trigger: {fileID: 7672664979584154715}
   sampleItem:
     uniqueID: 
     parentOrgamism: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
@@ -28910,257 +28911,8 @@ MonoBehaviour:
   interactionDistance: 2
   actionTextIfNotToolEquipped: Equip
   actionIdIfNotToolEquipped: 43
-  highlightEffectController: {fileID: 1788531912934123447}
+  highlightEffectController: {fileID: 3112292963320893407}
   jiggleFeedbacks: {fileID: 3848454574879713874}
---- !u!114 &6045107951516355315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373913810266448617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 888380afc233049ce9e618f9f36c8ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::HighlightPlus.HighlightEffect
-  profile: {fileID: 11400000, guid: d77b9c41e18234a49b42c5d239354f69, type: 2}
-  profileSync: 1
-  camerasLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  effectGroup: 0
-  effectTarget: {fileID: 0}
-  effectGroupLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  effectNameFilter: 
-  effectNameUseRegEx: 0
-  combineMeshes: 0
-  alphaCutOff: 0
-  cullBackFaces: 1
-  padding: 0
-  ignoreObjectVisibility: 0
-  reflectionProbes: 0
-  GPUInstancing: 1
-  sortingPriority: 0
-  optimizeSkinnedMesh: 1
-  depthClip: 0
-  cameraDistanceFade: 0
-  cameraDistanceFadeNear: 0
-  cameraDistanceFadeFar: 1000
-  normalsOption: 0
-  ignore: 0
-  _highlighted: 0
-  fadeInDuration: 0
-  fadeOutDuration: 0
-  flipY: 0
-  constantWidth: 1
-  extraCoveragePixels: 0
-  minimumWidth: 0
-  subMeshMask: -1
-  overlay: 0
-  overlayMode: 0
-  overlayColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  overlayAnimationSpeed: 1
-  overlayMinIntensity: 0.5
-  overlayBlending: 1
-  overlayTexture: {fileID: 0}
-  overlayTextureUVSpace: 0
-  overlayTextureScale: 1
-  overlayTextureScrolling: {x: 0, y: 0}
-  overlayVisibility: 0
-  outline: 1
-  outlineColor: {r: 0.69182384, g: 0, b: 0.051547863, a: 1}
-  outlineColorStyle: 0
-  outlineGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  outlineGradientInLocalSpace: 0
-  outlineWidth: 0.69
-  outlineBlurPasses: 2
-  outlineQuality: 1
-  outlineEdgeMode: 0
-  outlineEdgeThreshold: 0.995
-  outlineSharpness: 1
-  outlineDownsampling: 2
-  outlineVisibility: 0
-  glowBlendMode: 0
-  outlineBlitDebug: 0
-  outlineIndependent: 0
-  outlineContourStyle: 0
-  outlineMaskMode: 0
-  glow: 0
-  glowWidth: 0.5
-  glowQuality: 1
-  glowBlurMethod: 0
-  glowDownsampling: 2
-  glowHQColor: {r: 0.64, g: 1, b: 0, a: 1}
-  glowDithering: 1
-  glowDitheringStyle: 0
-  glowMagicNumber1: 0.75
-  glowMagicNumber2: 0.5
-  glowAnimationSpeed: 1
-  glowVisibility: 0
-  glowBlitDebug: 0
-  glowBlendPasses: 1
-  glowPasses:
-  - offset: 4
-    alpha: 0.1
-    color: {r: 0.1882353, g: 0.8, b: 0.6784314, a: 1}
-  - offset: 3
-    alpha: 0.2
-    color: {r: 0.1882353, g: 0.8, b: 0.6784314, a: 1}
-  - offset: 2
-    alpha: 0.3
-    color: {r: 0.1882353, g: 0.8, b: 0.6784314, a: 1}
-  - offset: 1
-    alpha: 0.4
-    color: {r: 0.1882353, g: 0.8, b: 0.6784314, a: 1}
-  glowMaskMode: 0
-  innerGlow: 0.05
-  innerGlowWidth: 1
-  innerGlowColor: {r: 1, g: 1, b: 1, a: 1}
-  innerGlowBlendMode: 0
-  innerGlowVisibility: 0
-  targetFX: 0
-  targetFXTexture: {fileID: 2800000, guid: d3f9f79929c708d45b0cc96aa9af8fdd, type: 3}
-  targetFXColor: {r: 0.93333334, g: 0.9490196, b: 0.7294118, a: 1}
-  targetFXCenter: {fileID: 0}
-  targetFXRotationSpeed: 50
-  targetFXInitialScale: 4
-  targetFXEndScale: 1.5
-  targetFXScaleToRenderBounds: 0
-  targetFXUseEnclosingBounds: 0
-  targetFXAlignToGround: 0
-  targetFXOffset: {x: 0, y: 0, z: 0}
-  targetFXFadePower: 32
-  targetFXGroundMaxDistance: 15
-  targetFXGroundLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  targetFXTransitionDuration: 0.5
-  targetFXStayDuration: 1.5
-  targetFXVisibility: 1
-  iconFX: 0
-  iconFXMesh: {fileID: 0}
-  iconFXLightColor: {r: 1, g: 1, b: 1, a: 1}
-  iconFXDarkColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  iconFXCenter: {fileID: 0}
-  iconFXRotationSpeed: 50
-  iconFXAnimationOption: 0
-  iconFXAnimationAmount: 0.1
-  iconFXAnimationSpeed: 3
-  iconFXScale: 1
-  iconFXScaleToRenderBounds: 0
-  iconFXOffset: {x: 0, y: 1, z: 0}
-  iconFXTransitionDuration: 0.5
-  iconFXStayDuration: 1.5
-  seeThrough: 2
-  seeThroughOccluderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  seeThroughOccluderThreshold: 0.4
-  seeThroughOccluderMaskAccurate: 1
-  seeThroughOccluderCheckInterval: 1
-  seeThroughOccluderCheckIndividualObjects: 0
-  seeThroughDepthOffset: 0
-  seeThroughMaxDepth: 0
-  seeThroughIntensity: 0.8
-  seeThroughTintAlpha: 0.5
-  seeThroughTintColor: {r: 1, g: 0, b: 0, a: 1}
-  seeThroughNoise: 1
-  seeThroughBorder: 0
-  seeThroughBorderColor: {r: 0, g: 0, b: 0, a: 1}
-  seeThroughBorderOnly: 0
-  seeThroughBorderWidth: 0.45
-  seeThroughOrdered: 1
-  seeThroughTexture: {fileID: 0}
-  seeThroughTextureUVSpace: 0
-  seeThroughTextureScale: 1
-  seeThroughChildrenSortingMode: 0
-  rmsCount: 1
-  hitFxInitialIntensity: 1
-  hitFxMode: 0
-  hitFxFadeOutDuration: 0.25
-  hitFxColor: {r: 1, g: 1, b: 1, a: 1}
-  hitFxRadius: 0.5
---- !u!114 &3517512796345217467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373913810266448617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5009cbb7e54994bb586cde7a70f34e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::Plugins.HighlightPlus.Runtime.Scripts.HighlightTrigger
-  highlightOnHover: 1
-  triggerMode: 1
-  raycastCamera: {fileID: 0}
-  raycastSource: 1
-  raycastLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  minDistance: 0
-  maxDistance: 3
-  respectUI: 1
-  volumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  selectOnClick: 0
-  selectedProfile: {fileID: 0}
-  selectedAndHighlightedProfile: {fileID: 0}
-  singleSelection: 0
-  toggle: 0
-  keepSelection: 1
---- !u!114 &1788531912934123447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373913810266448617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0986de822ecb4835bfb249feaeb7996f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelConstruct.Highlighting.HighlightEffectController
-  targetID: ac20e7f6-dccd-41ae-afde-2d69a80d4569
-  seeThroughDuration: 5
-  onScanned:
-    m_PersistentCalls:
-      m_Calls: []
-  secondaryStateHighlightColor: {r: 1, g: 0.90512943, b: 0, a: 1}
 --- !u!114 &5958545333108774879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29248,7 +29000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3248474112361947701}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Up_Jaw_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29280,7 +29032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5023375458842001706}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29312,7 +29064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3667807246858428455}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29344,7 +29096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5471480159058471650}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: ETC_09_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29376,7 +29128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7685873578572539977}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: R_Jaw_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29407,7 +29159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8226839362118281768}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Neck_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29439,7 +29191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 277618178347365199}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_d2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29471,7 +29223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6272488240961263317}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Body_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29504,7 +29256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1705502115510883174}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: L_Jaw_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29606,7 +29358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1794309653774682214}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_c1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29638,7 +29390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2573418017329082673}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_a2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29703,7 +29455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7179601006307348945}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_a4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29735,7 +29487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506176839894343594}
-  m_Layer: 24
+  m_Layer: 27
   m_Name: Tent_d6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

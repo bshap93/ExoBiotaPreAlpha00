@@ -6,7 +6,6 @@ using LevelConstruct.Spawn;
 using Manager;
 using Manager.Global;
 using OWPData.Structs;
-using Structs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,22 +41,22 @@ namespace Utilities.Static
 
         public static async Task LoadAndSpawnAsync(SpawnInfo info)
         {
-            await LoadOverScene(info.OverSceneName);
-            await LoadWorldScene(info.SceneName, info.OverSceneName);
+            await LoadOverScene(info.overSceneName);
+            await LoadWorldScene(info.sceneName, info.overSceneName);
 
             // Give the scene a moment to fully initialize
             await Task.Delay(100);
 
             // Move PlayerRoot BEFORE switching modes
             var root = GameObject.FindWithTag("PlayerRoot");
-            var point = SpawnRegistry.Get(info.SpawnPointId);
+            var point = SpawnRegistry.Get(info.spawnPointId);
             root.transform.SetPositionAndRotation(point.Xform.position, point.Xform.rotation);
             SpawnCheckpoint.NotifySpawned(); // <- add this
 
-            if (point != null && info.Mode != point.Mode && info.Mode != GameMode.FreeLook)
-                info.Mode = point.Mode; // Now switch to the mode (instantiate dirigible)
+            if (point != null && info.mode != point.Mode && info.mode != GameMode.FreeLook)
+                info.mode = point.Mode; // Now switch to the mode (instantiate dirigible)
 
-            ModeLoadEvent.Trigger(ModeLoadEventType.Enabled, info.Mode);
+            ModeLoadEvent.Trigger(ModeLoadEventType.Enabled, info.mode);
 
 
             CurrentSpawn = info;
@@ -133,9 +132,9 @@ namespace Utilities.Static
             // build a SpawnInfo on the fly and delegate
             var info = new SpawnInfo
             {
-                SceneName = req.Scene,
-                Mode = req.Mode,
-                SpawnPointId = req.PointId
+                sceneName = req.Scene,
+                mode = req.Mode,
+                spawnPointId = req.PointId
             };
 
             await LoadAndSpawnAsync(info); // reuse the old method

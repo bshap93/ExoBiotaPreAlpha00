@@ -5,7 +5,6 @@ using LevelConstruct;
 using Manager;
 using OWPData.Structs;
 using Sirenix.OdinInspector;
-using Structs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utilities.Static;
@@ -73,7 +72,7 @@ public class BootLoader : MonoBehaviour
         if (isBridge && BridgeData.HasPendingSpawn)
         {
             info = BridgeData.ConsumeTarget();
-            Debug.Log($"[BootLoader] Bridge mode: Using BridgeData target {info.SceneName}");
+            Debug.Log($"[BootLoader] Bridge mode: Using BridgeData target {info.sceneName}");
         }
         else if (useOverrideSpawnInfo)
         {
@@ -89,10 +88,10 @@ public class BootLoader : MonoBehaviour
             else
                 info = new SpawnInfo
                 {
-                    SceneName = "AshpoolMine",
-                    Mode = GameMode.FirstPerson,
-                    SpawnPointId = "StartSpawn",
-                    OverSceneName = "MineOverScene"
+                    sceneName = "AshpoolMine",
+                    mode = GameMode.FirstPerson,
+                    spawnPointId = "StartSpawn",
+                    overSceneName = "MineOverScene"
                 };
         }
 

@@ -15,6 +15,21 @@ namespace Manager
     {
         const string SpawnKey = "SpawnInfo";
         const string SpawnDictKey = "SpawnDict";
+        static readonly Dictionary<string, string[]> ScenesByOverSceneName = new()
+        {
+            {
+                "MineOverScene", new[]
+                {
+                    "AshpoolMine", "KinshipMagniumMine", "LakesideHollow"
+                }
+            },
+            {
+                "TestOverScene", new[]
+                {
+                    "FirstPersonTestbed", "FirstPersonTestbed02"
+                }
+            }
+        };
 
         static readonly Dictionary<string, string[]> SpawnPointsByScene = new()
         {
@@ -181,9 +196,9 @@ namespace Manager
             if (eventType.SpawnAssignmentEventType == SpawnAssignmentEventType.SetMostRecentSpawnPoint)
                 LastAssignedSpawn = new SpawnInfo
                 {
-                    SceneName = eventType.SceneName,
-                    SpawnPointId = eventType.SpawnPointID,
-                    Mode = GameMode.FirstPerson
+                    sceneName = eventType.SceneName,
+                    spawnPointId = eventType.SpawnPointID,
+                    mode = GameMode.FirstPerson
                 };
         }
 
@@ -207,9 +222,9 @@ namespace Manager
         {
             var defaultSpawn = new SpawnInfo
             {
-                SceneName = defaultStartScene,
-                Mode = GameMode.FirstPerson,
-                SpawnPointId = defaultStartSpawn
+                sceneName = defaultStartScene,
+                mode = GameMode.FirstPerson,
+                spawnPointId = defaultStartSpawn
             };
 
             // Save(defaultSpawn);
@@ -221,7 +236,7 @@ namespace Manager
         public void Save(SpawnInfo spawn)
         {
             var dict = ES3.Load(SpawnDictKey, _savePath, new Dictionary<string, SpawnInfo>());
-            dict[spawn.SpawnPointId] = spawn;
+            dict[spawn.spawnPointId] = spawn;
             ES3.Save(SpawnDictKey, dict, _savePath);
             ES3.Save(SpawnKey, spawn, _savePath);
             LastLoadedSpawn = spawn;
@@ -244,15 +259,15 @@ namespace Manager
                 SpawnKey, _savePath,
                 new SpawnInfo // <- default value if the record is unreadable
                 {
-                    SceneName = defaultStartScene,
-                    Mode = GameMode.DirigibleFlight,
-                    SpawnPointId = defaultStartSpawn
+                    sceneName = defaultStartScene,
+                    mode = GameMode.DirigibleFlight,
+                    spawnPointId = defaultStartSpawn
                 });
 
-            if (string.IsNullOrEmpty(spawn.SceneName) || string.IsNullOrEmpty(spawn.SpawnPointId))
+            if (string.IsNullOrEmpty(spawn.sceneName) || string.IsNullOrEmpty(spawn.spawnPointId))
             {
-                spawn.SceneName = defaultStartScene;
-                spawn.SpawnPointId = defaultStartSpawn;
+                spawn.sceneName = defaultStartScene;
+                spawn.spawnPointId = defaultStartSpawn;
             }
 
             LastLoadedSpawn = spawn;
@@ -286,8 +301,6 @@ namespace Manager
 
             return all.ToArray();
         }
-
-
 
 
         public static string[] GetSceneOptions()

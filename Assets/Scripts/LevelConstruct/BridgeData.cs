@@ -1,5 +1,4 @@
 ﻿using OWPData.Structs;
-using Structs;
 using UnityEngine;
 
 namespace LevelConstruct
@@ -19,9 +18,9 @@ namespace LevelConstruct
         {
             TargetSpawn = new SpawnInfo
             {
-                SceneName = sceneName,
-                Mode = mode,
-                SpawnPointId = spawnPointId
+                sceneName = sceneName,
+                mode = mode,
+                spawnPointId = spawnPointId
             };
 
             Debug.Log($"[BridgeData] Target set: {sceneName} @ {spawnPointId} ({mode})");
@@ -33,7 +32,7 @@ namespace LevelConstruct
         public static void SetTarget(SpawnInfo spawnInfo)
         {
             TargetSpawn = spawnInfo;
-            Debug.Log($"[BridgeData] Target set: {spawnInfo.SceneName} @ {spawnInfo.SpawnPointId} ({spawnInfo.Mode})");
+            Debug.Log($"[BridgeData] Target set: {spawnInfo.sceneName} @ {spawnInfo.spawnPointId} ({spawnInfo.mode})");
         }
 
         /// <summary>

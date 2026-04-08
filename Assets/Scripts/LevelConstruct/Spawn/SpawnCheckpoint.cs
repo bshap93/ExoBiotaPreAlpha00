@@ -8,7 +8,6 @@ using Manager.Status;
 using Manager.Status.Scriptable;
 using OWPData.Structs;
 using Sirenix.OdinInspector;
-using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities.Interface;
@@ -100,9 +99,9 @@ namespace LevelConstruct.Spawn
 
             var spawnInfo = new SpawnInfo
             {
-                SceneName = gameObject.scene.name,
-                Mode = GameStateManager.Instance.CurrentMode,
-                SpawnPointId = point.Id
+                sceneName = gameObject.scene.name,
+                mode = GameStateManager.Instance.CurrentMode,
+                spawnPointId = point.Id
             };
 
             PlayerSpawnManager.Instance.Save(spawnInfo);
@@ -115,7 +114,8 @@ namespace LevelConstruct.Spawn
 
 
             AlertEvent.Trigger(
-                AlertReason.AutoSave, "Saved at checkpoint: " + checkpointName, "Checkpoint Reached", AlertType.Basic, 2f);
+                AlertReason.AutoSave, "Saved at checkpoint: " + checkpointName, "Checkpoint Reached", AlertType.Basic,
+                2f);
             // CheckpointEvent.Trigger(spawnInfo);
         }
         public string UniqueID => uniqueCheckpointId;

@@ -1,4 +1,3 @@
-using System;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using FirstPersonPlayer.Interface;
 using UnityEngine;
@@ -8,6 +7,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism
     public class CreatureSampleNode : BioOrganismBase, IInteractable
     {
         [SerializeField] CreatureController creatureController;
+        [SerializeField] float interactionDistance = 4f;
 
         public void Interact()
         {
@@ -15,7 +15,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism
         }
         public void Interact(string param)
         {
-            throw new NotImplementedException();
+            // Try to switch to the Sampling tool
         }
         public void OnInteractionStart()
         {
@@ -39,7 +39,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism
         }
         public float GetInteractionDistance()
         {
-            throw new NotImplementedException();
+            return interactionDistance;
         }
         protected override string GetActionText(bool recognizableOnSight)
         {

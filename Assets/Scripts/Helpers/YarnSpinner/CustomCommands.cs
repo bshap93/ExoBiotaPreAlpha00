@@ -17,7 +17,6 @@ using Objectives;
 using Overview.NPC;
 using OWPData.Structs;
 using SharedUI.Progression;
-using Structs;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -205,9 +204,9 @@ namespace Helpers.YarnSpinner
         {
             var info = new SpawnInfo
             {
-                SceneName = sceneName,
-                SpawnPointId = spawnPointId,
-                Mode = GameMode.FirstPerson
+                sceneName = sceneName,
+                spawnPointId = spawnPointId,
+                mode = GameMode.FirstPerson
             };
 
             PlayerSpawnManager.Instance.Save(info); // writes checkpoint

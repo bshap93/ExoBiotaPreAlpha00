@@ -27,7 +27,9 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         Transform rangedAttackOrigin;
 
 
-        [Header("Layers")] [SerializeField] int onDeathLayer;
+        [Header("Layers")] [SerializeField] bool shouldSwitchLayersOnDeath;
+        [ShowIf("shouldSwitchLayersOnDeath")] [SerializeField]
+        int onDeathLayer;
 
         [Header("Flags")] [SerializeField] protected bool doNotUseIdleState;
 
@@ -180,7 +182,9 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             navMeshAgent.isStopped = true;
             movementLoopFeedbacks?.StopFeedbacks();
 
-            SetLayerRecursively(gameObject, onDeathLayer);
+
+            if (shouldSwitchLayersOnDeath)
+                SetLayerRecursively(gameObject, onDeathLayer);
 
             base.OnDeath();
         }

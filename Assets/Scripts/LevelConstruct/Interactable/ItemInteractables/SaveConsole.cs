@@ -2,11 +2,9 @@
 using System.Collections;
 using FirstPersonPlayer.Interface;
 using Helpers.Events;
-using LevelConstruct.Highlighting;
 using LevelConstruct.Spawn;
 using Manager;
 using OWPData.Structs;
-using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities.Interface;
@@ -48,9 +46,9 @@ namespace LevelConstruct.Interactable.ItemInteractables
             var hasSpawn = spawnPoint != null;
             var info = new SpawnInfo
             {
-                SceneName = sceneName,
-                SpawnPointId = hasSpawn ? spawnPoint.Id : null,
-                Mode = hasSpawn ? spawnPoint.Mode : default
+                sceneName = sceneName,
+                spawnPointId = hasSpawn ? spawnPoint.Id : null,
+                mode = hasSpawn ? spawnPoint.Mode : default
             };
 
             // Ask the player first

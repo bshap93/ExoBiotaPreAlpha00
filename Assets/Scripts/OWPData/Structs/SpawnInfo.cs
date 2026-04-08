@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace OWPData.Structs
 {
+    [Serializable]
     public enum GameMode
     {
         DirigibleFlight,
@@ -15,11 +17,12 @@ namespace OWPData.Structs
     [Serializable]
     public class SpawnInfo
     {
-        public string SceneName; // Name of the scene to spawn in
-        public GameMode Mode;
-        public string SpawnPointId;
-        public Vector3 OverridePos;
-        public Quaternion OverrideRot;
-        public string OverSceneName;
+        [FormerlySerializedAs("SceneName")] public string sceneName; // Name of the scene to spawn in
+        [FormerlySerializedAs("Mode")] public GameMode mode;
+        [FormerlySerializedAs("SpawnPointId")] public string spawnPointId;
+        [FormerlySerializedAs("OverridePos")] public Vector3 overridePos;
+        [FormerlySerializedAs("OverrideRot")] public Quaternion overrideRot;
+        [FormerlySerializedAs("OverSceneName")]
+        public string overSceneName;
     }
 }
