@@ -6,9 +6,9 @@ namespace SharedUI.Trade
     public class CurrencyNotify : MonoBehaviour
     {
         [SerializeField] TMP_Text currencyAmtText;
-        public void SetCurrencyText(int currencyAmount)
+        public void SetCurrencyText(string currencyAmount)
         {
-            currencyAmtText.text = currencyAmount.ToString();
+            currencyAmtText.text = currencyAmount;
         }
     }
 }

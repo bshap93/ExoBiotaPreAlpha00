@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Helpers.Events;
 using Helpers.Events.Journal;
 using Helpers.Events.Progression;
 using Manager;
 using MoreMountains.Tools;
 using SharedUI.Trade;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,7 +13,7 @@ namespace SharedUI.Progression
 {
     public class XphudElement : MonoBehaviour, MMEventListener<XPEvent>,
         MMEventListener<LevelingEvent>,
-        MMEventListener<JournalNotificationEvent>
+        MMEventListener<JournalNotificationEvent>, MMEventListener<CurrencyEvent>
     {
         [SerializeField] PlayerMutableStatsManager playerMutableStatsManager;
 
@@ -28,7 +28,7 @@ namespace SharedUI.Progression
         [SerializeField] CanvasGroup topicNotifyCanvasGroup;
         [SerializeField] CanvasGroup entryNotifyCanvasGroup;
         [FormerlySerializedAs("currencyAmountText")] [SerializeField]
-        TextMeshProUGUI currencyNotifyCanvasGroup;
+        CanvasGroup currencyNotifyCanvasGroup;
 
         [Header("Notification")] [SerializeField]
         GameObject xpNotify;
@@ -63,7 +63,7 @@ namespace SharedUI.Progression
             this.MMEventStartListening<XPEvent>();
             this.MMEventStartListening<LevelingEvent>();
             this.MMEventStartListening<JournalNotificationEvent>();
-            // Currency
+            this.MMEventStartListening<CurrencyEvent>();
         }
 
         void OnDisable()
@@ -71,6 +71,12 @@ namespace SharedUI.Progression
             this.MMEventStopListening<XPEvent>();
             this.MMEventStopListening<LevelingEvent>();
             this.MMEventStopListening<JournalNotificationEvent>();
+            this.MMEventStopListening<CurrencyEvent>();
+        }
+        public void OnMMEvent(CurrencyEvent eventType)
+        {
+            if (eventType.EventType == CurrencyEventType.AddCurrency)
+                ShowCurrencyNotification(eventType.Amount.ToString("F0"));
         }
 
         public void OnMMEvent(JournalNotificationEvent eventType)
@@ -108,6 +114,24 @@ namespace SharedUI.Progression
         void ShowNewEntryNotification(string entryTxt)
         {
             StartCoroutine(ShowEntryNotificationCoroutine(entryTxt));
+        }
+
+        void ShowCurrencyNotification(string currencyTxt)
+        {
+            StartCoroutine(ShowCurrencyNotificationCoroutine(currencyTxt));
+        }
+
+        IEnumerator ShowCurrencyNotificationCoroutine(string currencyTxt)
+        {
+            currencyNotify.SetActive(true);
+            currencyNotifyComponent.SetCurrencyText(currencyTxt);
+            // fades in tween
+            currencyNotifyCanvasGroup.DOFade(1f, fadeInDuration);
+            yield return new WaitForSeconds(fadeInDuration);
+            currencyNotifyCanvasGroup.DOFade(0f, fadeOutDuration);
+
+            yield return new WaitForSeconds(fadeOutDuration);
+            currencyNotify.SetActive(false);
         }
 
         IEnumerator ShowLevelUpNotificationCoroutine(int newLevel)

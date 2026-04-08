@@ -9,17 +9,26 @@ namespace Helpers.Events
         SetCurrency
     }
 
+    public enum CurrencyType
+    {
+        Neume,
+        Scrap
+    }
+
     public struct CurrencyEvent
     {
         public CurrencyEventType EventType;
         public float Amount;
+        public CurrencyType CurrencyType;
 
-        public static void Trigger(CurrencyEventType eventType, float amount)
+        public static void Trigger(CurrencyEventType eventType, float amount,
+            CurrencyType currencyType = CurrencyType.Neume)
         {
             var currencyEvent = new CurrencyEvent
             {
                 EventType = eventType,
-                Amount = amount
+                Amount = amount,
+                CurrencyType = currencyType
             };
 
             MMEventManager.TriggerEvent(currencyEvent);
