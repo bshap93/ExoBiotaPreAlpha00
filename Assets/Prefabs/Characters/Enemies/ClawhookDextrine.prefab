@@ -1443,8 +1443,8 @@ MonoBehaviour:
         SequentialOrderHoldCooldownDuration: 2
         RandomUnique: 0
         SoundDataSO: {fileID: 0}
-        MinVolume: 0.96
-        MaxVolume: 1
+        MinVolume: 0.735
+        MaxVolume: 0.754
         MinPitch: 1
         MaxPitch: 1
         MmSoundManagerTrack: 0
@@ -18266,8 +18266,8 @@ MonoBehaviour:
         SequentialOrderHoldCooldownDuration: 2
         RandomUnique: 0
         SoundDataSO: {fileID: 0}
-        MinVolume: 1.04
-        MaxVolume: 1.05
+        MinVolume: 0.772
+        MaxVolume: 0.791
         MinPitch: 1.26
         MaxPitch: 1.23
         MmSoundManagerTrack: 0
@@ -24575,7 +24575,7 @@ MonoBehaviour:
         DopplerLevel: 1
         Spread: 112
         RolloffMode: 0
-        MinDistance: 1
+        MinDistance: 0.1
         MaxDistance: 35
         UseCustomRolloffCurve: 0
         CustomRolloffCurve:
@@ -24847,10 +24847,10 @@ GameObject:
   - component: {fileID: 2491918486077190490}
   - component: {fileID: 9032600150145087876}
   - component: {fileID: 6414244101486495133}
-  - component: {fileID: 1507906734431040872}
   - component: {fileID: 8470665100301659531}
   - component: {fileID: 5222870900975716472}
   - component: {fileID: 234045973957308747}
+  - component: {fileID: 6955991799832738095}
   m_Layer: 27
   m_Name: Body
   m_TagString: EnemyNPC
@@ -25021,54 +25021,6 @@ CapsuleCollider:
   m_Height: 2.7
   m_Direction: 1
   m_Center: {x: -0.0045574587, y: 0.99559265, z: -0.015457481}
---- !u!114 &1507906734431040872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4078516504026213923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69d075c2c9541f88e2621fca29a4908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueID: 
-  bioOrganismType: {fileID: 11400000, guid: 1142e283f80e09a4992ffd1f4cd4cd68, type: 2}
-  actionId: 54
-  actionText: Sample
-  trigger: {fileID: 0}
-  sampleItem:
-    uniqueID: 
-    parentOrgamism: {fileID: 11400000, guid: 1142e283f80e09a4992ffd1f4cd4cd68, type: 2}
-    parentOrganismID: HentrauxClawhook
-    associatedBioLogFile:
-      speciesId: 
-      speciesName: 
-      sampleIds: []
-    isKnown: 0
-  OnDepleted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6346566135687932414}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Tools
-        m_MethodName: PlayFeedbacks
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  baseBlowbackContaminationAmt: 0.5
-  timesAllowedToSample: 1
-  interactionDistance: 2
-  actionTextIfNotToolEquipped: Equip
-  actionIdIfNotToolEquipped: 43
-  highlightEffectController: {fileID: 0}
-  jiggleFeedbacks: {fileID: 7760702163237984239}
 --- !u!114 &8470665100301659531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25318,6 +25270,25 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   secondaryStateHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6955991799832738095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4078516504026213923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdabf22a16cd7064e8610771648b5561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Interactable.BioOrganism.CreatureSampleNode
+  uniqueID: 
+  bioOrganismType: {fileID: 11400000, guid: 1142e283f80e09a4992ffd1f4cd4cd68, type: 2}
+  actionId: 43
+  actionText: Sample
+  trigger: {fileID: 5222870900975716472}
+  creatureController: {fileID: 2997571173381857298}
+  interactionDistance: 4
 --- !u!1 &4102049181967618645
 GameObject:
   m_ObjectHideFlags: 0
@@ -36313,7 +36284,7 @@ MonoBehaviour:
   isStunned: 0
   isPlacated: 0
   currentStunDamage: 0
-  currentHealth: 70
+  currentHealth: 50
   navMeshAgent: {fileID: 4910336818156672049}
   movementSpeedThreshold: 0.05
   walkRunThreshold: 2
@@ -37752,8 +37723,8 @@ MonoBehaviour:
         SequentialOrderHoldCooldownDuration: 2
         RandomUnique: 0
         SoundDataSO: {fileID: 0}
-        MinVolume: 1.02
-        MaxVolume: 1.01
+        MinVolume: 0.742
+        MaxVolume: 0.76
         MinPitch: 1
         MaxPitch: 1
         MmSoundManagerTrack: 0
@@ -38628,6 +38599,10 @@ PrefabInstance:
     - target: {fileID: 8839638563831169494, guid: e914cdb3928234f4e9f3bd1903f9c831, type: 3}
       propertyPath: managedReferences[1616504596478820352].MaxDistance
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839638563831169494, guid: e914cdb3928234f4e9f3bd1903f9c831, type: 3}
+      propertyPath: managedReferences[1616504596478820352].MinDistance
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8839638563831169494, guid: e914cdb3928234f4e9f3bd1903f9c831, type: 3}
       propertyPath: managedReferences[1616504596478820352].RolloffMode
@@ -39838,17 +39813,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6785253903978863507, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
   m_PrefabInstance: {fileID: 6380195994762360271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7760702163237984239 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3690857175364264480, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
-  m_PrefabInstance: {fileID: 6380195994762360271}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6570353675572839066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39931,14 +39895,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1854615161938722096, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
   m_PrefabInstance: {fileID: 6570353675572839066}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6346566135687932414 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 233375316041558884, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
-  m_PrefabInstance: {fileID: 6570353675572839066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
