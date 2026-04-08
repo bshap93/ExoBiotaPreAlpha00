@@ -12,6 +12,7 @@ using Manager.SceneManagers.Pickable;
 using MoreMountains.Feedbacks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Utilities.Inputs;
 using ItemPicker = LevelConstruct.Interactable.ItemInteractables.ItemPicker.ItemPicker;
 
 namespace FirstPersonPlayer.Interactable

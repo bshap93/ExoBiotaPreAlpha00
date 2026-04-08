@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Lightbug.CharacterControllerPro.Implementation;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utilities.Inputs;
 
 // [WIP] Placeholder for revised First Person Interaction-Inventory system	
 

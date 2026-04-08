@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
-using FirstPersonPlayer;
 using Helpers.Events;
 using Unity.Cinemachine;
+using Utilities.Inputs;
 
 // [WIP] Placeholder for revised First Person Interaction-Inventory system	
 

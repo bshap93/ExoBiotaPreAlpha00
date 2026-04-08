@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using FirstPersonPlayer;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
 using Gameplay.Events;
 using Helpers.Events;
@@ -12,6 +11,7 @@ using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Utilities.Inputs;
 
 namespace Manager.SceneManagers.Pickable
 {

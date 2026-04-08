@@ -1,7 +1,6 @@
+using System;
 using System.Collections.Generic;
 using Dirigible.Input;
-using Events;
-using FirstPersonPlayer;
 using FirstPersonPlayer.Interactable.Stateful;
 using FirstPersonPlayer.Interface;
 using Helpers.Events;
@@ -13,6 +12,7 @@ using SharedUI.Interface;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utilities.Inputs;
 
 namespace CustomAssets.Scripts
 {
@@ -149,7 +149,7 @@ namespace CustomAssets.Scripts
         }
         public void Interact(string param)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void OnInteractionStart()

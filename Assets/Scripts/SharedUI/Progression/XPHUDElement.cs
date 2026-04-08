@@ -4,7 +4,10 @@ using Helpers.Events.Journal;
 using Helpers.Events.Progression;
 using Manager;
 using MoreMountains.Tools;
+using SharedUI.Trade;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SharedUI.Progression
 {
@@ -18,17 +21,21 @@ namespace SharedUI.Progression
         [SerializeField] LevelNotify levelNotifyComponent;
         [SerializeField] JournalNotify topicNotifyComponent;
         [SerializeField] JournalNotify entryNotifyComponent;
+        [SerializeField] CurrencyNotify currencyNotifyComponent;
 
         [SerializeField] CanvasGroup xpNotifyCanvasGroup;
         [SerializeField] CanvasGroup levelNotifyCanvasGroup;
         [SerializeField] CanvasGroup topicNotifyCanvasGroup;
         [SerializeField] CanvasGroup entryNotifyCanvasGroup;
+        [FormerlySerializedAs("currencyAmountText")] [SerializeField]
+        TextMeshProUGUI currencyNotifyCanvasGroup;
 
         [Header("Notification")] [SerializeField]
         GameObject xpNotify;
         [SerializeField] GameObject levelNotify;
         [SerializeField] GameObject topicNotify;
         [SerializeField] GameObject entryNotify;
+        [SerializeField] GameObject currencyNotify;
 
 
         [SerializeField] float showDuration = 2f;
@@ -42,11 +49,13 @@ namespace SharedUI.Progression
             levelNotifyCanvasGroup.alpha = 0;
             topicNotifyCanvasGroup.alpha = 0;
             entryNotifyCanvasGroup.alpha = 0;
+            currencyNotifyCanvasGroup.alpha = 0;
 
             xpNotify.SetActive(false);
             levelNotify.SetActive(false);
             topicNotify.SetActive(false);
             entryNotify.SetActive(false);
+            currencyNotify.SetActive(false);
         }
 
         void OnEnable()
@@ -54,6 +63,7 @@ namespace SharedUI.Progression
             this.MMEventStartListening<XPEvent>();
             this.MMEventStartListening<LevelingEvent>();
             this.MMEventStartListening<JournalNotificationEvent>();
+            // Currency
         }
 
         void OnDisable()

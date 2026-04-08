@@ -36,7 +36,7 @@ namespace FirstPersonPlayer.Interactable
 
         [SerializeField] bool givesMoney;
         [ShowIf("givesMoney")] [SerializeField]
-        int moneyAmount;
+        float moneyAmount;
 
         public string actionText = "Receive Key Data";
 
@@ -123,6 +123,8 @@ namespace FirstPersonPlayer.Interactable
                     keyItem.TargetInventoryName, keyItem, 1, 0, GlobalInventoryManager.Instance.playerId);
 
                 getKeyItemFeedback?.PlayFeedbacks();
+
+                if (givesMoney) CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, moneyAmount);
 
                 PerformObjectiveAction();
             }

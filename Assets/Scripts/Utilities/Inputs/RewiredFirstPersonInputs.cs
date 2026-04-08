@@ -6,7 +6,7 @@ using Rewired;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace FirstPersonPlayer
+namespace Utilities.Inputs
 {
     public class RewiredFirstPersonInputs : MonoBehaviour, MMEventListener<PlayerDeathEvent>
     {

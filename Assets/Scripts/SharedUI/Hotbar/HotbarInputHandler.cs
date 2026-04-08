@@ -1,10 +1,10 @@
-﻿using FirstPersonPlayer;
-using Helpers.Events;
+﻿using Helpers.Events;
 using Manager;
 using Manager.DialogueScene;
 using Manager.Global;
 using MoreMountains.Tools;
 using UnityEngine;
+using Utilities.Inputs;
 
 namespace SharedUI.Hotbar
 {

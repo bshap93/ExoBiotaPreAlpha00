@@ -4,7 +4,6 @@ using System.Linq;
 using creepycat.scifikitvol4;
 using CustomAssets.Scripts;
 using DG.Tweening;
-using Events;
 using FirstPersonPlayer.ScriptableObjects;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
 using Helpers.Events;
@@ -17,6 +16,7 @@ using Objectives.ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utilities.Inputs;
 using Utilities.Interface;
 
 namespace FirstPersonPlayer.Interactable.Stateful

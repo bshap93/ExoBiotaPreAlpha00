@@ -16,6 +16,7 @@ using MoreMountains.Tools;
 using SharedUI;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Utilities.Inputs;
 
 namespace FirstPersonPlayer.Interactable
 {

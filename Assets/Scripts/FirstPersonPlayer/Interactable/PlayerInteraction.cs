@@ -15,6 +15,7 @@ using Sirenix.OdinInspector;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utilities.Inputs;
 using Utilities.Interface;
 
 // using Digger.Modules.Core.Sources;
