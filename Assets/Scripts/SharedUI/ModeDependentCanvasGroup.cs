@@ -1,6 +1,7 @@
 using System;
 using Events;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 

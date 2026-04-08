@@ -3,6 +3,7 @@ using EditorScripts;
 using Helpers.ScriptableObjects;
 using LevelConstruct;
 using Manager;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;

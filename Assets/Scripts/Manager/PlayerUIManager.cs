@@ -2,6 +2,7 @@ using Events;
 using Helpers.Events;
 using Helpers.ScriptableObjects.IconRepositories;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 

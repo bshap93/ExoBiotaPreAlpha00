@@ -127,7 +127,7 @@ namespace SharedUI.Progression
             currencyNotifyComponent.SetCurrencyText(currencyTxt);
             // fades in tween
             currencyNotifyCanvasGroup.DOFade(1f, fadeInDuration);
-            yield return new WaitForSeconds(fadeInDuration);
+            yield return new WaitForSeconds(showDuration);
             currencyNotifyCanvasGroup.DOFade(0f, fadeOutDuration);
 
             yield return new WaitForSeconds(fadeOutDuration);

@@ -15,6 +15,7 @@ using Manager.ProgressionMangers;
 using MoreMountains.InventoryEngine;
 using Objectives;
 using Overview.NPC;
+using OWPData.Structs;
 using SharedUI.Progression;
 using Structs;
 using UnityEngine;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Manager;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 

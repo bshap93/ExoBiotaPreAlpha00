@@ -4,6 +4,7 @@ using Manager.DialogueScene;
 using Manager.UI;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using SharedUI.InputsD;
 using Structs;
 using UnityEngine;

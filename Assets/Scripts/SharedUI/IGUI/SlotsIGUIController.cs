@@ -6,6 +6,7 @@ using Michsky.MUIP;
 using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;

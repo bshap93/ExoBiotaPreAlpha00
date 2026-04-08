@@ -5,6 +5,7 @@ using Events;
 using LevelConstruct.Spawn;
 using Manager;
 using Manager.Global;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 using UnityEngine.SceneManagement;

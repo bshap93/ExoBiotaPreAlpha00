@@ -6,6 +6,7 @@ using Manager.ProgressionMangers;
 using Manager.Settings;
 using Manager.Status;
 using Manager.Status.Scriptable;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;

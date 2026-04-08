@@ -4,6 +4,7 @@ using Events;
 using Helpers.Events;
 using ModeControllers;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Rewired;
 using SharedUI.Utilities;
 using Structs;

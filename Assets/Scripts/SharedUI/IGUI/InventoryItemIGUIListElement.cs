@@ -10,6 +10,7 @@ using Manager.UI;
 using Michsky.MUIP;
 using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
+using OWPData.Structs;
 using Structs;
 using TMPro;
 using UnityEngine;

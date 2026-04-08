@@ -3,6 +3,7 @@
 
 using Domains.Gameplay.Managers.Messages;
 using Events;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;

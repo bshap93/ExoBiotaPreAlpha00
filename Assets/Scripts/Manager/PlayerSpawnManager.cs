@@ -3,6 +3,7 @@ using Helpers.Events;
 using Helpers.Events.Spawn;
 using Helpers.Interfaces;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;

@@ -1,5 +1,6 @@
 ﻿using Events;
 using Helpers.Events;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 

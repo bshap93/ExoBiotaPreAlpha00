@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Structs
+namespace OWPData.Structs
 {
     public enum GameMode
     {

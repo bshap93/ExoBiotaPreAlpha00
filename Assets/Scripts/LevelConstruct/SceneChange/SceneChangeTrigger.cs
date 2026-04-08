@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Helpers.Events;
 using Helpers.Events.UI;
 using Manager;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;

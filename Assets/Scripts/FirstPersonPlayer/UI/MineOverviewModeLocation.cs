@@ -4,6 +4,7 @@ using FirstPersonPlayer.UI.LocationButtonBase;
 using Helpers.Events;
 using Helpers.Events.UI;
 using Inventory;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 

@@ -6,6 +6,7 @@ using Manager.Status.Scriptable;
 using Michsky.MUIP;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;

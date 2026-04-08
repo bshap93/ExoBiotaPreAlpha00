@@ -4,6 +4,7 @@ using Manager.Global;
 using Michsky.MUIP;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;

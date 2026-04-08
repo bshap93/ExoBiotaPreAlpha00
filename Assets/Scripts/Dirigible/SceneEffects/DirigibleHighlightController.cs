@@ -2,6 +2,7 @@ using Events;
 using HighlightPlus;
 using ModeControllers;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 

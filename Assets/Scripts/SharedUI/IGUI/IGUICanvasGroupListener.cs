@@ -5,6 +5,7 @@ using Manager.Global;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
 using NewScript.UI;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;

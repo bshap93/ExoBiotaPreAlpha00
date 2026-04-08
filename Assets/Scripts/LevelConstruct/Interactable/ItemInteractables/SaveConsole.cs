@@ -5,6 +5,7 @@ using Helpers.Events;
 using LevelConstruct.Highlighting;
 using LevelConstruct.Spawn;
 using Manager;
+using OWPData.Structs;
 using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;

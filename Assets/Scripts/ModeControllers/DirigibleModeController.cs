@@ -5,6 +5,7 @@ using Dirigible.Input;
 using Events;
 using Helpers.Events;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Rewired.Integration.Cinemachine3;
 using Structs;
 using Unity.Cinemachine;

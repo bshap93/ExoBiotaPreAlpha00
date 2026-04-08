@@ -1,5 +1,6 @@
 ﻿using System;
 using MoreMountains.Tools;
+using OWPData.Structs;
 using Structs;
 
 namespace Helpers.Events

@@ -13,6 +13,7 @@ using MoreMountains.Tools;
 using Objectives;
 using Overview.NPC;
 using Overview.UI;
+using OWPData.Structs;
 using Sirenix.OdinInspector;
 using Structs;
 using UnityEngine;
