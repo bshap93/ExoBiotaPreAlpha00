@@ -1,22 +1,25 @@
 using System.Collections.Generic;
+using EditorScripts;
 using Helpers.Events;
 using Helpers.Events.UI;
 using Manager;
 using OWPData.Structs;
 using Sirenix.OdinInspector;
-using Structs;
 using UnityEngine;
 
 namespace LevelConstruct.SceneChange
 {
     public class SceneChangeTrigger : MonoBehaviour
     {
-        [ValueDropdown(nameof(GetSceneNames))] [SerializeField]
-        string sceneToLoad;
+        // [ValueDropdown(nameof(GetSceneNames))] [SerializeField]
+        // string sceneToLoad;
+        //
+        //
+        // [ValueDropdown(nameof(GetSpawnPoints))] [SerializeField]
+        // string spawnPointId;
 
-
-        [ValueDropdown(nameof(GetSpawnPoints))] [SerializeField]
-        string spawnPointId;
+        [SerializeField] [InlineProperty] [HideLabel]
+        SpawnInfoEditor overrideSpawnInfo;
 
         // [FormerlySerializedAs("BridgeName")] public string bridgeName;
 
@@ -29,8 +32,8 @@ namespace LevelConstruct.SceneChange
                 SaveDataEvent.Trigger();
 
                 SpawnEvent.Trigger(
-                    SpawnEventType.ToCaverns, sceneToLoad, GameMode.FirstPerson,
-                    spawnPointId
+                    SpawnEventType.ToCaverns, overrideSpawnInfo.SceneName, GameMode.FirstPerson,
+                    overrideSpawnInfo.SpawnPointId
                 );
             }
         }

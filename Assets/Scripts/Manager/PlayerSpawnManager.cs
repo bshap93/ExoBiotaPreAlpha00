@@ -4,7 +4,6 @@ using Helpers.Events.Spawn;
 using Helpers.Interfaces;
 using MoreMountains.Tools;
 using OWPData.Structs;
-using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities.Static;
@@ -16,6 +15,48 @@ namespace Manager
     {
         const string SpawnKey = "SpawnInfo";
         const string SpawnDictKey = "SpawnDict";
+
+        static readonly Dictionary<string, string[]> SpawnPointsByScene = new()
+        {
+            {
+                "AshpoolMine", new[]
+                {
+                    "AshpoolMineDoorSpawn", "c1_entrance", "m1_entrance", "apm_debug", "m1_exit",
+                    "C1_Bluehole_Intersection", "b1_foyer", "spawnpoint_elevator_upto_l1",
+                    "chapel_center", "chapel_exit", "hotspring_house", "WestEntrySpawnHSAdjCorr",
+                    "SouthEntrySpawnHSAdjCorr",
+                    "AshpoolMineDoorSpawn", "c1_entrance", "m1_entrance", "apm_debug", "m1_exit",
+                    "C1_Bluehole_Intersection", "b1_foyer", "spawnpoint_elevator_upto_l1",
+                    "chapel_center", "chapel_exit", "hotspring_house", "WestEntrySpawnHSAdjCorr",
+                    "SouthEntrySpawnHSAdjCorr",
+                    "StartSpawn", "TerminalSpawn00", "FacilityUtilityC2Spawn", "DownwardPsgTopSpawn",
+                    "BattlefieldGateSpawn", "hotspring_gate", "BunkerSpawnL2",
+                    "spawnpoint_terr_gate", "mine_embankment_spawn",
+                    "StrengthAlleySpawn", "treeside_spawn"
+                }
+            },
+            {
+                "FirstPersonTestbed", new[]
+                {
+                    "BionicsLabSpawn", "BionicsLab02Spawn"
+                }
+            },
+            {
+                "KinshipMagniumMine", new[]
+                {
+                    "ElevatorRoomInitSpawn", "ShoalAlcoveSpawn",
+                    "SupervisorHouse", "OpeningToTeeGap", "SmallRoomL1Spawn",
+                    "SouthernTeeSpawn", "MineCavernEntrySpawn",
+                    "ScrapVillageMine", "MineEscapeTunnelEntrySpawn", "ElevatorRoomBunkerSpawn", "MineForeHylicBuilding"
+                }
+            },
+            {
+                "LakesideHollow", new[]
+                {
+                    "FakeIslandSpawn"
+                }
+            }
+        };
 
         [SerializeField] bool autoSave; // checkpoint-only by default
 
@@ -228,38 +269,26 @@ namespace Manager
             return info; // null if not found
         }
 
-        public static string[] GetSpawnPointIdOptions()
+        /// <summary>
+        ///     Returns spawn point IDs for a specific scene.
+        ///     Falls back to all known spawn points if the scene has no entry.
+        /// </summary>
+        public static string[] GetSpawnPointIdOptions(string sceneName = null)
         {
-            return new[]
-            {
-                // Overworld
-                // "ScienceDockSpawn", "Mine01Dock", "MidFlightTestSpawn", "TestFPSpawn",
-                // "EnterValleySpawn", "DockAshpoolMineSpawn",
-                // Mine01
-                // "Mine01DoorSpawn", "CorePatchSpawn", "BailoutFacilitySpawn", "UndergroundSpawnMine01",
-                // "UndergroundSpawnMine02",
-                // Bionics Lab
-                "BionicsLabSpawn", "BionicsLab02Spawn",
+            if (!string.IsNullOrEmpty(sceneName) &&
+                SpawnPointsByScene.TryGetValue(sceneName, out var points))
+                return points;
 
-                // Choked Caverns
-                // Ashpool Mine,
-                "AshpoolMineDoorSpawn", "c1_entrance", "m1_entrance", "apm_debug", "m1_exit",
-                "C1_Bluehole_Intersection", "b1_foyer", "spawnpoint_elevator_upto_l1",
-                "chapel_center", "chapel_exit", "hotspring_house", "WestEntrySpawnHSAdjCorr",
-                "SouthEntrySpawnHSAdjCorr",
-                "StartSpawn", "TerminalSpawn00", "FacilityUtilityC2Spawn", "DownwardPsgTopSpawn",
-                "BattlefieldGateSpawn", "hotspring_gate", "BunkerSpawnL2",
-                "spawnpoint_terr_gate", "mine_embankment_spawn",
-                "StrengthAlleySpawn",
-                // Kinship Magnium Mine,
-                "ElevatorRoomInitSpawn", "treeside_spawn", "ShoalAlcoveSpawn",
-                "SupervisorHouse", "OpeningToTeeGap", "SmallRoomL1Spawn",
-                "SouthernTeeSpawn", "MineCavernEntrySpawn",
-                "ScrapVillageMine", "MineEscapeTunnelEntrySpawn", "ElevatorRoomBunkerSpawn", "MineForeHylicBuilding",
-                // Lake Scene
-                "FakeIslandSpawn"
-            };
+            // Fallback: flatten everything (e.g. when no scene is selected yet)
+            var all = new List<string>();
+            foreach (var kvp in SpawnPointsByScene)
+                all.AddRange(kvp.Value);
+
+            return all.ToArray();
         }
+
+
+
 
         public static string[] GetSceneOptions()
         {

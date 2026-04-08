@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Manager;
 using OWPData.Structs;
 using Sirenix.OdinInspector;
-using Structs;
 
 namespace EditorScripts
 
@@ -11,7 +10,8 @@ namespace EditorScripts
     [Serializable]
     public struct SpawnInfoEditor
     {
-        [ValueDropdown(nameof(GetSceneNames))] public string SceneName;
+        [ValueDropdown(nameof(GetSceneNames))] [OnValueChanged(nameof(OnSceneChanged))]
+        public string SceneName;
 
         [ValueDropdown(nameof(GetSpawnPoints))]
         public string SpawnPointId;
@@ -36,6 +36,12 @@ namespace EditorScripts
         {
             return PlayerSpawnManager.GetSceneOptions();
         }
+        // Clear the spawn point selection whenever the scene changes so the
+        // inspector never holds a stale ID from the previous scene.
+        void OnSceneChanged()
+        {
+            SpawnPointId = string.Empty;
+        }
 
         static IEnumerable<string> GetOverSceneNames()
         {
@@ -44,7 +50,7 @@ namespace EditorScripts
 
         IEnumerable<string> GetSpawnPoints()
         {
-            return PlayerSpawnManager.GetSpawnPointIdOptions();
+            return PlayerSpawnManager.GetSpawnPointIdOptions(SceneName);
         }
     }
 }
