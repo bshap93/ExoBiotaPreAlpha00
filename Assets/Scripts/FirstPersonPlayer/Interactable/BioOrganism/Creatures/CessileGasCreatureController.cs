@@ -193,6 +193,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
                     CreatureStateManager.CreatureInitializationState.ShouldBeDestroyed);
 
             EnemyDamageEvent.Trigger(
+                uniqueID,
                 0f, currentHealth, creatureType.maxHealth, DamageEventType.Death, creatureType.creatureName,
                 DamageType.None);
 

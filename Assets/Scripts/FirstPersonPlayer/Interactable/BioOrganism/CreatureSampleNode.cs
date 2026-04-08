@@ -1,13 +1,27 @@
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using FirstPersonPlayer.Interface;
+using Helpers.Events.Creature;
+using MoreMountains.Tools;
 using UnityEngine;
 
 namespace FirstPersonPlayer.Interactable.BioOrganism
 {
-    public class CreatureSampleNode : BioOrganismBase, IInteractable
+    public class CreatureSampleNode : BioOrganismBase, IInteractable, MMEventListener<CreatureStateChangeEvent>
     {
         [SerializeField] CreatureController creatureController;
         [SerializeField] float interactionDistance = 4f;
+
+        bool _isDead;
+
+        protected override void OnEnable()
+        {
+            this.MMEventStartListening();
+        }
+
+        protected override void OnDisable()
+        {
+            this.MMEventStopListening();
+        }
 
         public void Interact()
         {
@@ -40,6 +54,17 @@ namespace FirstPersonPlayer.Interactable.BioOrganism
         public float GetInteractionDistance()
         {
             return interactionDistance;
+        }
+        public void OnMMEvent(CreatureStateChangeEvent eventType)
+        {
+            if (creatureController.uniqueID == eventType.CreatureUniqueId)
+                if (eventType.NewState == CreatureController.CreatureState.Dead)
+                    _isDead = true;
+        }
+        public override string GetName()
+        {
+            if (_isDead) return "Dead " + bioOrganismType.organismName;
+            return bioOrganismType != null ? bioOrganismType.organismName : "Unknown Organism";
         }
         protected override string GetActionText(bool recognizableOnSight)
         {

@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdabf22a16cd7064e8610771648b5561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: 8f2889af-d3cc-478a-97dd-69a51394ebd1
+  uniqueID: 
   bioOrganismType: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
   actionId: 43
   actionText: Sample
@@ -28318,7 +28318,6 @@ GameObject:
   - component: {fileID: 1529445866068974037}
   - component: {fileID: 7489985743336851958}
   - component: {fileID: 5495503647615790751}
-  - component: {fileID: 6914125059913159400}
   - component: {fileID: 5958545333108774879}
   m_Layer: 27
   m_Name: AlienSlugModel01Mine01_v04
@@ -28387,7 +28386,7 @@ MonoBehaviour:
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
   secondsBeforeSettingShouldBeDestroyed: 5
-  deathDelay: 1.5
+  deathDelay: 1.6
   attackCount: 1
   attackInstances:
   - attackName: 
@@ -28406,7 +28405,7 @@ MonoBehaviour:
   isStunned: 0
   isPlacated: 0
   currentStunDamage: 0
-  currentHealth: 60
+  currentHealth: 50
   navMeshAgent: {fileID: 4213191547505358671}
   movementSpeedThreshold: 0.1
   walkRunThreshold: 2
@@ -28493,56 +28492,58 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"capsule":{"_value":2,"_name":"capsule","_id":"341acc3e-b63d-47d9-90e0-f7250dd2aecc","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"currentHealth":{"_value":1.0,"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.currentHealth","_name":"currentHealth","_id":"753ab610-cd1d-4257-9ce0-073845cc21ee","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"maxHealth":{"_value":20.0,"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.MaxHealth","_name":"maxHealth","_id":"75453a35-5e14-4873-a74d-b557792f4868","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patrolWaypoints":{"_value":[null],"_name":"patrolWaypoints","_id":"05505898-545e-4eb9-9c53-cd8669de6ad5","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackFeedback":{"_value":3,"_name":"attackFeedback","_id":"bda4591b-259b-4035-9ba9-ee745bfbee6e","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"enemyTransform":{"_value":4,"_name":"enemyTransform","_id":"b655003a-34fb-46cc-aa95-f43048d52593","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"isDead":{"_name":"isDead","_id":"ff8e8ca4-a48b-4522-8ea2-114f3f7c6695","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackDistance":{"_value":3.0,"_name":"attackDistance","_id":"f138f71a-4c61-4601-ba07-004900f625a7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"canSeeLayerMask":{"_value":{"value":3849},"_name":"canSeeLayerMask","_id":"0106f851-426a-4fa6-bbc3-f32066e603c5","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.LayerMask,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"wasHit":{"_name":"wasHit","_id":"d1670856-5e86-4f12-bbc9-2bcef8d034fd","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"wasHitAnimationClip":{"_value":5,"_name":"wasHitAnimationClip","_id":"09cdb936-e3bd-4de5-836c-79e24209e46a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"stunDamageThreshold":{"_value":1.0,"_name":"stunDamageThreshold","_id":"7e9ae07d-27e2-4ad4-a3e9-7e789d3afcc0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"pursuitSpeed":{"_value":2.0,"_name":"pursuitSpeed","_id":"06185f8a-8bca-47d4-82ad-348bf5af1e88","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"waitTime":{"_value":4.0,"_name":"waitTime","_id":"ac42ff05-3e65-41b9-a7fb-2436357b571f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"numWaypoints":{"_value":1,"_name":"numWaypoints","_id":"fcf39729-86b7-43b2-8f5f-953891f6326e","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isDead":{"_name":"isDead","_id":"ff8e8ca4-a48b-4522-8ea2-114f3f7c6695","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"wasHit":{"_name":"wasHit","_id":"d1670856-5e86-4f12-bbc9-2bcef8d034fd","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"wasHitHeavy":{"_name":"wasHitHeavy","_id":"2485a3e4-fbe9-420e-8d9f-1cd470bd8c56","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hasAlreadySeenPlayer":{"_name":"hasAlreadySeenPlayer","_id":"64bbaf8d-4003-428d-a011-9ad9358693b6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isStunned":{"_name":"isStunned","_id":"07fa897b-388b-4cad-b17a-e7712b5000fc","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunnedEffect":{"_value":6,"_name":"stunnedEffect","_id":"709c5a68-1604-4638-929c-a359e05ad73a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"mostRecentClosestPoint":{"_name":"mostRecentClosestPoint","_id":"32935082-78c0-416f-8c8f-818702900853","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"battleShoutFB":{"_value":7,"_name":"battleShoutFB","_id":"294f5ea1-b9a6-4fe5-980b-138caad5b5af","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"idle2":{"_value":8,"_name":"idle2","_id":"09abbacf-1715-4d08-8c6e-f4b3e0d19efe","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"stunIdleSpeedMultiplier":{"_value":0.25,"_name":"stunIdleSpeedMultiplier","_id":"47e11d9e-2d6a-49de-8f35-a254a50f6702","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"idle1":{"_value":9,"_name":"idle1","_id":"564c1a3a-34ee-49eb-96f3-77b1f876d60f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"damageFleeThreshold":{"_value":10.0,"_name":"damageFleeThreshold","_id":"8ac74fe1-735f-472a-92f0-a04f57cced11","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunDuration":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.StunDuration","_name":"stunDuration","_id":"22930af7-cfcc-41fc-ba44-3e9d17704b04","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunDamage":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.currentStunDamage","_name":"stunDamage","_id":"06f80a34-a870-4389-805a-222fad9e32c4","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"rangedHurlAnimClip":{"_value":5,"_name":"rangedHurlAnimClip","_id":"a9d2a21e-c5c1-429b-b61e-d3f505b5a708","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"projectilePrefab":{"_value":10,"_name":"projectilePrefab","_id":"5f84526e-fb56-49af-8d8b-9e28fb5a07c8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"projectileOrigin":{"_value":11,"_name":"projectileOrigin","_id":"25572e61-6794-4611-9840-5f0998970aa8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"prepareToUseRange":{"_value":12,"_name":"prepareToUseRange","_id":"bb79b9d6-0729-41fa-a573-c782ca6a4107","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"chargingRangedFB":{"_value":13,"_name":"chargingRangedFB","_id":"f0370c01-5f79-490d-8597-42642e4791e3","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"waitBFHurl01":{"_value":1.0,"_name":"waitBFHurl01","_id":"2faa5e5b-bf78-4c38-a18e-119451b4cd3f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunDamageThreshold":{"_value":1.0,"_name":"stunDamageThreshold","_id":"7e9ae07d-27e2-4ad4-a3e9-7e789d3afcc0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"attackDistance":{"_value":3.0,"_name":"attackDistance","_id":"f138f71a-4c61-4601-ba07-004900f625a7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"canSeeLayerMask":{"_value":{"value":3849},"_name":"canSeeLayerMask","_id":"0106f851-426a-4fa6-bbc3-f32066e603c5","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.LayerMask,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"waitTime":{"_value":4.0,"_name":"waitTime","_id":"ac42ff05-3e65-41b9-a7fb-2436357b571f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunIdleSpeedMultiplier":{"_value":0.25,"_name":"stunIdleSpeedMultiplier","_id":"47e11d9e-2d6a-49de-8f35-a254a50f6702","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"damageFleeThreshold":{"_value":10.0,"_name":"damageFleeThreshold","_id":"8ac74fe1-735f-472a-92f0-a04f57cced11","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"waitBFHurl01":{"_value":1.0,"_name":"waitBFHurl01","_id":"2faa5e5b-bf78-4c38-a18e-119451b4cd3f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"waitBFHurl02":{"_value":0.5,"_name":"waitBFHurl02","_id":"a6a94131-342e-41ec-81ce-b366e35b7801","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"deathAnimationClip":{"_value":14,"_name":"deathAnimationClip","_id":"007ce815-40f7-4402-8a0d-635b6ea17b35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"deathFeedbacks":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.deathFeedbacks","_name":"deathFeedbacks","_id":"398e64e3-de61-4308-a14e-e46f1396f301","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"pursuitSpeed":{"_value":2.0,"_name":"pursuitSpeed","_id":"06185f8a-8bca-47d4-82ad-348bf5af1e88","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunDamage":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.currentStunDamage","_name":"stunDamage","_id":"06f80a34-a870-4389-805a-222fad9e32c4","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stunDuration":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.StunDuration","_name":"stunDuration","_id":"22930af7-cfcc-41fc-ba44-3e9d17704b04","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"enemyTransform":{"_value":3,"_name":"enemyTransform","_id":"b655003a-34fb-46cc-aa95-f43048d52593","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"projectileOrigin":{"_value":4,"_name":"projectileOrigin","_id":"25572e61-6794-4611-9840-5f0998970aa8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"projectilePrefab":{"_value":5,"_name":"projectilePrefab","_id":"5f84526e-fb56-49af-8d8b-9e28fb5a07c8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"stunnedEffect":{"_value":6,"_name":"stunnedEffect","_id":"709c5a68-1604-4638-929c-a359e05ad73a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"attackFeedback":{"_value":7,"_name":"attackFeedback","_id":"bda4591b-259b-4035-9ba9-ee745bfbee6e","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"battleShoutFB":{"_value":8,"_name":"battleShoutFB","_id":"294f5ea1-b9a6-4fe5-980b-138caad5b5af","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"chargingRangedFB":{"_value":9,"_name":"chargingRangedFB","_id":"f0370c01-5f79-490d-8597-42642e4791e3","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"deathFeedbacks":{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.deathFeedbacks","_name":"deathFeedbacks","_id":"398e64e3-de61-4308-a14e-e46f1396f301","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+    MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"mostRecentClosestPoint":{"_name":"mostRecentClosestPoint","_id":"32935082-78c0-416f-8c8f-818702900853","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"numWaypoints":{"_value":1,"_name":"numWaypoints","_id":"fcf39729-86b7-43b2-8f5f-953891f6326e","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"patrolWaypoints":{"_value":[null],"_name":"patrolWaypoints","_id":"05505898-545e-4eb9-9c53-cd8669de6ad5","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"idle1":{"_value":10,"_name":"idle1","_id":"564c1a3a-34ee-49eb-96f3-77b1f876d60f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"idle2":{"_value":11,"_name":"idle2","_id":"09abbacf-1715-4d08-8c6e-f4b3e0d19efe","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"prepareToUseRange":{"_value":12,"_name":"prepareToUseRange","_id":"bb79b9d6-0729-41fa-a573-c782ca6a4107","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"rangedHurlAnimClip":{"_value":13,"_name":"rangedHurlAnimClip","_id":"a9d2a21e-c5c1-429b-b61e-d3f505b5a708","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"deathAnimationClip":{"_value":14,"_name":"deathAnimationClip","_id":"007ce815-40f7-4402-8a0d-635b6ea17b35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"wasHitAnimationClip":{"_value":15,"_name":"wasHitAnimationClip","_id":"3361f368-cc5d-41fc-b10a-d1db5bccb7f9","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 5459808956080126909}
   - {fileID: 433660494459215907}
-  - {fileID: 4407958944134797134}
   - {fileID: 2201217437127625435}
-  - {fileID: 7400000, guid: b834e1d0efda9e04784fa9fa1f056f52, type: 2}
-  - {fileID: 8481615970489057819}
-  - {fileID: 709852135956699652}
-  - {fileID: 1245882690682072010, guid: d012efae3339615448803dc8a5f45070, type: 3}
-  - {fileID: -5533903024747340832, guid: 0b3ae7b4d59b6fb4298ffde2e3a0df20, type: 3}
-  - {fileID: 7036783973982609404, guid: f8d546867e1f67844a257dd271662623, type: 3}
   - {fileID: 4653782747825842691}
-  - {fileID: 7400000, guid: baa5b0c9b031d7a43bb18e59da5f8483, type: 2}
+  - {fileID: 7036783973982609404, guid: f8d546867e1f67844a257dd271662623, type: 3}
+  - {fileID: 8481615970489057819}
+  - {fileID: 4407958944134797134}
+  - {fileID: 709852135956699652}
   - {fileID: 2798036172290499314}
+  - {fileID: -5533903024747340832, guid: 0b3ae7b4d59b6fb4298ffde2e3a0df20, type: 3}
+  - {fileID: 1245882690682072010, guid: d012efae3339615448803dc8a5f45070, type: 3}
+  - {fileID: 7400000, guid: baa5b0c9b031d7a43bb18e59da5f8483, type: 2}
+  - {fileID: 7400000, guid: b834e1d0efda9e04784fa9fa1f056f52, type: 2}
   - {fileID: 7400000, guid: 9490517b011c8e943a898325b2f492d4, type: 2}
+  - {fileID: 7400000, guid: 0222f0cb09bf13040aa11efa79d6a988, type: 2}
   _serializedVariables:
   - _json: '{"_value":1,"_name":"playerTransform","_id":"1e0739de-cf1a-4914-a23c-0dd56246e2c8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
@@ -28560,47 +28561,13 @@ MonoBehaviour:
   - _json: '{"_value":20.0,"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.MaxHealth","_name":"maxHealth","_id":"75453a35-5e14-4873-a74d-b557792f4868","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":[null],"_name":"patrolWaypoints","_id":"05505898-545e-4eb9-9c53-cd8669de6ad5","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":1,"_name":"attackFeedback","_id":"bda4591b-259b-4035-9ba9-ee745bfbee6e","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-      MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 4407958944134797134}
-  - _json: '{"_value":1,"_name":"enemyTransform","_id":"b655003a-34fb-46cc-aa95-f43048d52593","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 2201217437127625435}
   - _json: '{"_name":"isDead","_id":"ff8e8ca4-a48b-4522-8ea2-114f3f7c6695","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":3.0,"_name":"attackDistance","_id":"f138f71a-4c61-4601-ba07-004900f625a7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":{"value":3849},"_name":"canSeeLayerMask","_id":"0106f851-426a-4fa6-bbc3-f32066e603c5","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.LayerMask,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
   - _json: '{"_name":"wasHit","_id":"d1670856-5e86-4f12-bbc9-2bcef8d034fd","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":1,"_name":"wasHitAnimationClip","_id":"09cdb936-e3bd-4de5-836c-79e24209e46a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-      UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 7400000, guid: b834e1d0efda9e04784fa9fa1f056f52, type: 2}
-  - _json: '{"_value":1.0,"_name":"stunDamageThreshold","_id":"7e9ae07d-27e2-4ad4-a3e9-7e789d3afcc0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":2.0,"_name":"pursuitSpeed","_id":"06185f8a-8bca-47d4-82ad-348bf5af1e88","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":4.0,"_name":"waitTime","_id":"ac42ff05-3e65-41b9-a7fb-2436357b571f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":1,"_name":"numWaypoints","_id":"fcf39729-86b7-43b2-8f5f-953891f6326e","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+  - _json: '{"_name":"wasHitHeavy","_id":"2485a3e4-fbe9-420e-8d9f-1cd470bd8c56","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"hasAlreadySeenPlayer","_id":"64bbaf8d-4003-428d-a011-9ad9358693b6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
@@ -28609,25 +28576,85 @@ MonoBehaviour:
   - _json: '{"_name":"isStunned","_id":"07fa897b-388b-4cad-b17a-e7712b5000fc","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_value":1.0,"_name":"stunDamageThreshold","_id":"7e9ae07d-27e2-4ad4-a3e9-7e789d3afcc0","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":3.0,"_name":"attackDistance","_id":"f138f71a-4c61-4601-ba07-004900f625a7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":{"value":3849},"_name":"canSeeLayerMask","_id":"0106f851-426a-4fa6-bbc3-f32066e603c5","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.LayerMask,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_value":4.0,"_name":"waitTime","_id":"ac42ff05-3e65-41b9-a7fb-2436357b571f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":0.25,"_name":"stunIdleSpeedMultiplier","_id":"47e11d9e-2d6a-49de-8f35-a254a50f6702","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":10.0,"_name":"damageFleeThreshold","_id":"8ac74fe1-735f-472a-92f0-a04f57cced11","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":1.0,"_name":"waitBFHurl01","_id":"2faa5e5b-bf78-4c38-a18e-119451b4cd3f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":0.5,"_name":"waitBFHurl02","_id":"a6a94131-342e-41ec-81ce-b366e35b7801","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":2.0,"_name":"pursuitSpeed","_id":"06185f8a-8bca-47d4-82ad-348bf5af1e88","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.currentStunDamage","_name":"stunDamage","_id":"06f80a34-a870-4389-805a-222fad9e32c4","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.StunDuration","_name":"stunDuration","_id":"22930af7-cfcc-41fc-ba44-3e9d17704b04","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":1,"_name":"enemyTransform","_id":"b655003a-34fb-46cc-aa95-f43048d52593","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 2201217437127625435}
+  - _json: '{"_value":1,"_name":"projectileOrigin","_id":"25572e61-6794-4611-9840-5f0998970aa8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 4653782747825842691}
+  - _json: '{"_value":1,"_name":"projectilePrefab","_id":"5f84526e-fb56-49af-8d8b-9e28fb5a07c8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 7036783973982609404, guid: f8d546867e1f67844a257dd271662623, type: 3}
   - _json: '{"_value":1,"_name":"stunnedEffect","_id":"709c5a68-1604-4638-929c-a359e05ad73a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
     - {fileID: 8481615970489057819}
-  - _json: '{"_name":"mostRecentClosestPoint","_id":"32935082-78c0-416f-8c8f-818702900853","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+  - _json: '{"_value":1,"_name":"attackFeedback","_id":"bda4591b-259b-4035-9ba9-ee745bfbee6e","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+      MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 4407958944134797134}
   - _json: '{"_value":1,"_name":"battleShoutFB","_id":"294f5ea1-b9a6-4fe5-980b-138caad5b5af","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
       MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
     - {fileID: 709852135956699652}
-  - _json: '{"_value":1,"_name":"idle2","_id":"09abbacf-1715-4d08-8c6e-f4b3e0d19efe","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-      UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+  - _json: '{"_value":1,"_name":"chargingRangedFB","_id":"f0370c01-5f79-490d-8597-42642e4791e3","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+      MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
-    - {fileID: 1245882690682072010, guid: d012efae3339615448803dc8a5f45070, type: 3}
-  - _json: '{"_value":0.25,"_name":"stunIdleSpeedMultiplier","_id":"47e11d9e-2d6a-49de-8f35-a254a50f6702","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    - {fileID: 2798036172290499314}
+  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.deathFeedbacks","_name":"deathFeedbacks","_id":"398e64e3-de61-4308-a14e-e46f1396f301","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
+      MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_name":"mostRecentClosestPoint","_id":"32935082-78c0-416f-8c8f-818702900853","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+  - _json: '{"_value":1,"_name":"numWaypoints","_id":"fcf39729-86b7-43b2-8f5f-953891f6326e","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":[null],"_name":"patrolWaypoints","_id":"05505898-545e-4eb9-9c53-cd8669de6ad5","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_value":1,"_name":"idle1","_id":"564c1a3a-34ee-49eb-96f3-77b1f876d60f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
@@ -28635,54 +28662,31 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: -5533903024747340832, guid: 0b3ae7b4d59b6fb4298ffde2e3a0df20, type: 3}
-  - _json: '{"_value":10.0,"_name":"damageFleeThreshold","_id":"8ac74fe1-735f-472a-92f0-a04f57cced11","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.StunDuration","_name":"stunDuration","_id":"22930af7-cfcc-41fc-ba44-3e9d17704b04","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.currentStunDamage","_name":"stunDamage","_id":"06f80a34-a870-4389-805a-222fad9e32c4","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":1,"_name":"rangedHurlAnimClip","_id":"a9d2a21e-c5c1-429b-b61e-d3f505b5a708","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+  - _json: '{"_value":1,"_name":"idle2","_id":"09abbacf-1715-4d08-8c6e-f4b3e0d19efe","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
       UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
-    - {fileID: 7400000, guid: b834e1d0efda9e04784fa9fa1f056f52, type: 2}
-  - _json: '{"_value":1,"_name":"projectilePrefab","_id":"5f84526e-fb56-49af-8d8b-9e28fb5a07c8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 7036783973982609404, guid: f8d546867e1f67844a257dd271662623, type: 3}
-  - _json: '{"_value":1,"_name":"projectileOrigin","_id":"25572e61-6794-4611-9840-5f0998970aa8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references:
-    - {fileID: 0}
-    - {fileID: 4653782747825842691}
+    - {fileID: 1245882690682072010, guid: d012efae3339615448803dc8a5f45070, type: 3}
   - _json: '{"_value":1,"_name":"prepareToUseRange","_id":"bb79b9d6-0729-41fa-a573-c782ca6a4107","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
       UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
     - {fileID: 7400000, guid: baa5b0c9b031d7a43bb18e59da5f8483, type: 2}
-  - _json: '{"_value":1,"_name":"chargingRangedFB","_id":"f0370c01-5f79-490d-8597-42642e4791e3","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-      MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+  - _json: '{"_value":1,"_name":"rangedHurlAnimClip","_id":"a9d2a21e-c5c1-429b-b61e-d3f505b5a708","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+      UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
-    - {fileID: 2798036172290499314}
-  - _json: '{"_value":1.0,"_name":"waitBFHurl01","_id":"2faa5e5b-bf78-4c38-a18e-119451b4cd3f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
-  - _json: '{"_value":0.5,"_name":"waitBFHurl02","_id":"a6a94131-342e-41ec-81ce-b366e35b7801","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
-    _references: []
+    - {fileID: 7400000, guid: b834e1d0efda9e04784fa9fa1f056f52, type: 2}
   - _json: '{"_value":1,"_name":"deathAnimationClip","_id":"007ce815-40f7-4402-8a0d-635b6ea17b35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
       UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references:
     - {fileID: 0}
     - {fileID: 7400000, guid: 9490517b011c8e943a898325b2f492d4, type: 2}
-  - _json: '{"_propertyPath":"FirstPersonPlayer.Interactable.BioOrganism.Creatures.EnemyController.deathFeedbacks","_name":"deathFeedbacks","_id":"398e64e3-de61-4308-a14e-e46f1396f301","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
-      MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
+  - _json: '{"_value":1,"_name":"wasHitAnimationClip","_id":"3361f368-cc5d-41fc-b10a-d1db5bccb7f9","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
+      UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 7400000, guid: 0222f0cb09bf13040aa11efa79d6a988, type: 2}
 --- !u!114 &9030777537301804226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28865,54 +28869,6 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
---- !u!114 &6914125059913159400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373913810266448617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69d075c2c9541f88e2621fca29a4908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueID: da3fb135-ed0b-4278-80b7-01274efa45c7
-  bioOrganismType: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
-  actionId: 54
-  actionText: Sample
-  trigger: {fileID: 7672664979584154715}
-  sampleItem:
-    uniqueID: 
-    parentOrgamism: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
-    parentOrganismID: NoxiousLimacoid01
-    associatedBioLogFile:
-      speciesId: 
-      speciesName: 
-      sampleIds: []
-    isKnown: 0
-  OnDepleted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 501584894502766811}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Tools
-        m_MethodName: PlayFeedbacks
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  baseBlowbackContaminationAmt: 0.5
-  timesAllowedToSample: 1
-  interactionDistance: 2
-  actionTextIfNotToolEquipped: Equip
-  actionIdIfNotToolEquipped: 43
-  highlightEffectController: {fileID: 3112292963320893407}
-  jiggleFeedbacks: {fileID: 3848454574879713874}
 --- !u!114 &5958545333108774879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34421,17 +34377,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
---- !u!114 &501584894502766811 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 233375316041558884, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
-  m_PrefabInstance: {fileID: 416830702895129535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2050276895439937167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1854615161938722096, guid: 17ce67e75bf89b1488c255b0fdabb6a8, type: 3}
@@ -34498,17 +34443,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
---- !u!114 &3848454574879713874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3690857175364264480, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
-  m_PrefabInstance: {fileID: 455138442345924722}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6375666030774670305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6785253903978863507, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}

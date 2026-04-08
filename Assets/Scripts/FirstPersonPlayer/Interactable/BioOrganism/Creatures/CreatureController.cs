@@ -9,6 +9,7 @@ using FirstPersonPlayer.Combat.Player.ScriptableObjects;
 using FirstPersonPlayer.ScriptableObjects.BioticAbility;
 using Helpers.Events;
 using Helpers.Events.Combat;
+using Helpers.Events.Creature;
 using Helpers.Events.NPCs;
 using Helpers.Events.Progression;
 using Helpers.Events.Status;
@@ -208,8 +209,11 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
 
 
             EnemyDamageEvent.Trigger(
+                uniqueID,
                 0f, currentHealth, MaxHealth,
                 DamageEventType.Death, creatureType.creatureName, DamageType.None);
+
+            CreatureStateChangeEvent.Trigger(uniqueID, creatureType.creatureName, CreatureState.Dead);
 
             if (creatureType.givesExperienceReward) EnemyXPRewardEvent.Trigger(creatureType.experienceRewardAmount);
 
@@ -224,7 +228,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         public virtual void ProcessAttackDamage(PlayerAttack playerAttack, Vector3 attackOrigin)
         {
             if (cannotBeAttacked) return;
-            if (isDead)  return;
+            if (isDead) return;
             var attributeManager = AttributesManager.Instance;
             var damageAmount = playerAttack.rawDamage;
             var stunAmount = playerAttack.rawStunDamage;
@@ -341,10 +345,12 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
                 : DamageEventType.DealtDamage;
 
             EnemyDamageEvent.Trigger(
+                uniqueID,
                 currentHealth - damageAmount, currentHealth, creatureType.maxHealth,
                 eventType, creatureType.creatureName, DamageType.Health);
 
             EnemyDamageEvent.Trigger(
+                uniqueID,
                 currentStunDamage + stunAmount, currentStunDamage, creatureType.stunTreshold,
                 DamageEventType.DealtDamage, creatureType.creatureName, DamageType.Stun);
 
@@ -579,6 +585,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
                 if (timeSinceLastUpdate >= uiUpdateInterval || currentStunDamage <= 0f)
                 {
                     EnemyDamageEvent.Trigger(
+                        uniqueID,
                         currentStunDamage, currentStunDamage + decayRate * Time.deltaTime, StunThreshold,
                         DamageEventType.DealtDamage, creatureType.creatureName, DamageType.Stun);
 

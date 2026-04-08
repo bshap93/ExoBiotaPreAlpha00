@@ -28,6 +28,7 @@ namespace Helpers.Events.Combat
     {
         static EnemyDamageEvent _e;
 
+        public string EnemyUniqueId;
         public float CurrentValue;
         public float LastValue;
         public float DefaultValue;
@@ -35,9 +36,11 @@ namespace Helpers.Events.Combat
         public string EnemyName;
         public DamageType TypeOfDamage;
 
-        public static void Trigger(float currentHealth, float lastHealth, float maxHealth, DamageEventType eventType,
+        public static void Trigger(string enemyUniqueId, float currentHealth, float lastHealth, float maxHealth,
+            DamageEventType eventType,
             string enemyName, DamageType typeOfDamage)
         {
+            _e.EnemyUniqueId = enemyUniqueId;
             _e.CurrentValue = currentHealth;
             _e.DefaultValue = maxHealth;
             _e.EventType = eventType;
