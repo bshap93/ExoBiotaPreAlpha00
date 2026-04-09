@@ -29417,6 +29417,7 @@ GameObject:
   - component: {fileID: 7489985743336851958}
   - component: {fileID: 5495503647615790751}
   - component: {fileID: 5958545333108774879}
+  - component: {fileID: 5326343800683146816}
   m_Layer: 27
   m_Name: AlienSlugModel01Mine01_v04
   m_TagString: EnemyNPC
@@ -30045,6 +30046,42 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   StartShakingButton: 0
+--- !u!114 &5326343800683146816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373913810266448617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69d075c2c9541f88e2621fca29a4908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Interactable.BioOrganism.BioOrganismSampleNode
+  uniqueID: d0483c87-4162-4813-bacf-8835c62582fa
+  bioOrganismType: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
+  actionId: 54
+  actionText: Sample
+  trigger: {fileID: 7672664979584154715}
+  sampleItem:
+    uniqueID: 
+    parentOrgamism: {fileID: 11400000, guid: 4cffe18199468ac46beb7fbcd1ee7a1e, type: 2}
+    parentOrganismID: NoxiousLimacoid01
+    associatedBioLogFile:
+      speciesId: 
+      speciesName: 
+      sampleIds: []
+    isKnown: 0
+  OnDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  baseBlowbackContaminationAmt: 0.5
+  timesAllowedToSample: 1
+  interactionDistance: 2
+  actionTextIfNotToolEquipped: Equip
+  actionIdIfNotToolEquipped: 43
+  highlightEffectController: {fileID: 3112292963320893407}
+  jiggleFeedbacks: {fileID: 3848454574879713874}
 --- !u!1 &6544181958311682609
 GameObject:
   m_ObjectHideFlags: 0
@@ -35541,6 +35578,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
+--- !u!114 &3848454574879713874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3690857175364264480, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
+  m_PrefabInstance: {fileID: 455138442345924722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6375666030774670305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6785253903978863507, guid: 6acadbb6f863f014281e5d8920ac25b4, type: 3}
