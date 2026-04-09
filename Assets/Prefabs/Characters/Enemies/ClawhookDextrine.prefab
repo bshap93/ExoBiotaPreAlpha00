@@ -193,7 +193,7 @@ MonoBehaviour:
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
           InitialDelay: 0
-          CooldownDuration: 0
+          CooldownDuration: 1
           InterruptsOnStop: 1
           NumberOfRepeats: 0
           RepeatForever: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
           InitialDelay: 0
-          CooldownDuration: 0
+          CooldownDuration: 1
           InterruptsOnStop: 1
           NumberOfRepeats: 0
           RepeatForever: 0
@@ -481,8 +481,8 @@ MonoBehaviour:
         SequentialOrderHoldCooldownDuration: 2
         RandomUnique: 0
         SoundDataSO: {fileID: 0}
-        MinVolume: 0.75
-        MaxVolume: 0.76
+        MinVolume: 0.52
+        MaxVolume: 0.52
         MinPitch: 0.92
         MaxPitch: 0.98
         MmSoundManagerTrack: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
         PlaybackDuration: {x: 0, y: 0}
         DopplerLevel: 1
         Spread: 119
-        RolloffMode: 1
+        RolloffMode: 0
         MinDistance: 0.1
         MaxDistance: 30
         UseCustomRolloffCurve: 0
@@ -632,7 +632,7 @@ MonoBehaviour:
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
           InitialDelay: 0
-          CooldownDuration: 0
+          CooldownDuration: 1
           InterruptsOnStop: 1
           NumberOfRepeats: 0
           RepeatForever: 0
@@ -702,8 +702,8 @@ MonoBehaviour:
         SequentialOrderHoldCooldownDuration: 2
         RandomUnique: 0
         SoundDataSO: {fileID: 0}
-        MinVolume: 0.93
-        MaxVolume: 0.94
+        MinVolume: 0.46
+        MaxVolume: 0.53
         MinPitch: 1
         MaxPitch: 1
         MmSoundManagerTrack: 0

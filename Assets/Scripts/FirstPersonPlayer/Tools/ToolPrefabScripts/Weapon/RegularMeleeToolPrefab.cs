@@ -175,6 +175,10 @@ namespace FirstPersonPlayer.Tools.ToolPrefabScripts.Weapon
             if (uniqueCreatureId != null)
                 PlayerStartsAttackEvent.Trigger(toolAttackProfile.basicAttack, uniqueCreatureId);
 
+            PlayerStatsEvent.Trigger(
+                PlayerStatsEvent.PlayerStat.CurrentStamina, PlayerStatsEvent.PlayerStatChangeType.Decrease,
+                StaminaCostPerNormalAttack);
+
             StartCoroutine(ApplyAttackLunge(toolAttackProfile.basicAttack, defaultHitDelay));
 
             if (useMultipleSwings && AnimController.currentToolAnimationSet != null)
