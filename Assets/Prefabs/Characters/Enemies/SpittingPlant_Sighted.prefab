@@ -1560,7 +1560,6 @@ MonoBehaviour:
   highlightEffectController: {fileID: 5397269726235144244}
   blackboard: {fileID: 550776866176231813}
   fsmOwner: {fileID: 8725993989854234321}
-  isInitiallyHostile: 0
   uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 022d43d68b520a048a037a9e43eec4c8, type: 2}
   animancerComponent: {fileID: 3942531856528428783}
@@ -1569,13 +1568,14 @@ MonoBehaviour:
   deathFeedbacks: {fileID: 8492674675664019821}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 8368937230738350371}
+  placatedFeedbacks: {fileID: 5394226578277119422}
   meleeHitFeedbacksBasic: {fileID: 8368937230738350371}
   rangedHitFeedbacksBasic: {fileID: 8368937230738350371}
   meleeHitFeedbacksHeavy: {fileID: 8368937230738350371}
   rangedHitFeedbacksHeavy: {fileID: 8368937230738350371}
-  placatedFeedbacks: {fileID: 5394226578277119422}
   cannotBeAttacked: 0
   startAsActivated: 0
+  isInitiallyHostile: 0
   destroyAfterDeath: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
@@ -1590,7 +1590,7 @@ MonoBehaviour:
   isStunned: 0
   isPlacated: 0
   currentStunDamage: 0
-  currentHealth: 50
+  currentHealth: 40
   trunkPoints:
   - {fileID: 6174884030579763706}
   - {fileID: 7588667836813013695}
@@ -2161,7 +2161,6 @@ MonoBehaviour:
   highlightEffectController: {fileID: 5397269726235144244}
   blackboard: {fileID: 0}
   fsmOwner: {fileID: 0}
-  isInitiallyHostile: 0
   uniqueIdOfFriends: []
   creatureType: {fileID: 11400000, guid: 24d778001cb4f2646b1938f77030fce4, type: 2}
   animancerComponent: {fileID: 3942531856528428783}
@@ -2170,13 +2169,14 @@ MonoBehaviour:
   deathFeedbacks: {fileID: 8492674675664019821}
   curedOrPlacatedFeedbacks: {fileID: 0}
   critDamageFeedbacks: {fileID: 0}
+  placatedFeedbacks: {fileID: 0}
   meleeHitFeedbacksBasic: {fileID: 8368937230738350371}
   rangedHitFeedbacksBasic: {fileID: 8368937230738350371}
   meleeHitFeedbacksHeavy: {fileID: 8368937230738350371}
   rangedHitFeedbacksHeavy: {fileID: 8368937230738350371}
-  placatedFeedbacks: {fileID: 0}
   cannotBeAttacked: 1
   startAsActivated: 0
+  isInitiallyHostile: 0
   destroyAfterDeath: 1
   doesNotImmediatelyNeedToMove: 0
   appearsOnlyOnce: 0
