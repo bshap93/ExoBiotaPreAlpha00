@@ -6,10 +6,8 @@ using FirstPersonPlayer.Combat.Player.ScriptableObjects;
 using FirstPersonPlayer.Interactable;
 using FirstPersonPlayer.Interactable.BioOrganism.Creatures;
 using FirstPersonPlayer.Tools.Interface;
-using Helpers.Events;
 using Helpers.Events.Status;
 using LevelConstruct.Highlighting;
-using Manager;
 using Manager.ProgressionMangers;
 using MoreMountains.Feedbacks;
 using UnityEngine;
@@ -153,15 +151,15 @@ namespace FirstPersonPlayer.Tools.ToolPrefabScripts
 
         public override void Use()
         {
-            if (PlayerMutableStatsManager.Instance.CurrentStamina < StaminaPerConnectingSwing)
-            {
-                // Not enough stamina
-                AlertEvent.Trigger(
-                    AlertReason.NotEnoughStamina, "Not enough stamina to use pickaxe.", "Insufficient Stamina");
-
-                return;
-            }
-
+            // if (PlayerMutableStatsManager.Instance.CurrentStamina < StaminaPerConnectingSwing)
+            // {
+            //     // Not enough stamina
+            //     AlertEvent.Trigger(
+            //         AlertReason.NotEnoughStamina, "Not enough stamina to use pickaxe.", "Insufficient Stamina");
+            //
+            //     return;
+            // }
+            //
             if (attributesManager == null) attributesManager = AttributesManager.Instance;
 
             PerformToolAction();
