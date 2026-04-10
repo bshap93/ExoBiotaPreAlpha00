@@ -1,11 +1,11 @@
-﻿using Helpers.Collider;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FirstPersonPlayer.Combat.AINPC.EnemyWeapon
 {
     public class EnemyMeleeWeaponPrefab : EnemyWeaponPrefab
     {
         [SerializeField] protected Collider weaponHitboxCollider;
+
 
         void Awake()
         {

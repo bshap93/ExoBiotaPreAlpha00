@@ -11,6 +11,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
     [Category("AttackMoves")]
     public class SingleMeleeToolEnemyHumanoidAttack : ActionTask
     {
+        public readonly BBParameter<float> LocalCooldownAfterAttack = 0.0f;
         AlienNPCAnimancerController _animancerAlienController;
         EnemyAttack _attack;
         bool _attackFinished;
@@ -18,6 +19,9 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         float _beginningOfHitBoxWindow;
         HumanoidNPCCreature _creature;
         float _endOfHitBoxWindow;
+
+        bool _hasAttacked;
+        bool _inCooldown;
         float _timer;
 
         EnemyWeaponPrefab _weaponPrefab;
@@ -27,6 +31,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
 
         EnemyWeaponDefinition.AttackEntry entry;
         public BBParameter<AnimationClip> EquippedHoldPose;
+
 
         protected override string OnInit()
         {
@@ -41,6 +46,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
             _timer = 0f;
             _attackFinished = false;
             _creature.IsAttacking = true;
+
 
             entry = _creature.EquippedWeapon.GetAttackEntry(AttackEntryId.value);
 
@@ -68,7 +74,8 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
 
             if (entry.shouldFreeWeaponPoseDuringAttack)
                 _animancerAlienController.ClearUpperBody();
-
+            
+            _hasAttacked = true;
 
             _animancerAlienController.PlayAttackClip(
                 entry.actionClip,
@@ -86,6 +93,8 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         protected override void OnUpdate()
         {
             _timer += Time.deltaTime;
+            
+            
 
             if (entry == null) return;
 
