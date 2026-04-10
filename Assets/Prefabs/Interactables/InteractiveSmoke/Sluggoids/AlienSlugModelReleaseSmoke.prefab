@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167e97079a7b37a47aa818aae6cda982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contaminationPerSecond: 1
+  contaminationPerSecond: 0.1
   startsActive: 1
   activeDuration: 5
   enterFeedbacks: {fileID: 8169114761028667317}
@@ -1700,6 +1700,10 @@ PrefabInstance:
     - target: {fileID: 790512458728592226, guid: ec6513bb95ad1bf4c88a97860cb2b85f, type: 3}
       propertyPath: ambientColorTint.r
       value: 0.9440913
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603139062557144007, guid: ec6513bb95ad1bf4c88a97860cb2b85f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4156508659957069478, guid: ec6513bb95ad1bf4c88a97860cb2b85f, type: 3}
       propertyPath: m_LocalPosition.x

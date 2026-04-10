@@ -1,34 +1,42 @@
 title: SlaverHylic01Interaction
 ---
-Zyt Hylic Prospector: Halt! You are approaching a restricted mining area, hearthed by our Womb Mother, Zyt. State your purpose. 
-Zyt Hylic Prospector: Do you wish to submit to our lady Zyt for thralldom? Would you join your half-brothers in toil?
+Hylic Slaver: Halt! You are approaching a restricted mining area, hearth of our matriarch, Mother Sibulo. State your purpose.
+<<make_contact_with_npc "SlaverHylic01">>
+-> I'm here to rescue a Hybrid named Ala'an. Do you know him?
+    <<jump YouClaimToBeRescuingAlaan>>
+-> I'm here to relinquish my freedom and become a slave.
+    <<jump YouClaimedToBeSumbittingForThralldom>>
+-> I need to talk to the leader of your operation. Sibulo, was it?
+===
+
+title: WishToSubmitToMatriarchForSlavery
+---
 -> No, uh, I don't. I come at the request of The Diplomat, your fellow Hylic. I am only here for the Hybrid named Ala'an.
-    <<make_contact_with_npc "SlaverHylic01">>
     <<jump YouClaimToBeRescuingAlaan>>
 -> Exactly yes, I've come to submit to your master for thralldom. 
-    <<make_contact_with_npc "SlaverHylic01">>
     <<jump YouClaimedToBeSumbittingForThralldom>>
 ===
 
 title: YouClaimedToBeSumbittingForThralldom
 ---
-Zyt Hylic Prospector: This is irregular. I would not stop you, however, if you indeed wish to be thrall to my master.
+Hylic Slaver: This is irregular. I would not stop you, however, if you indeed wish to be thrall to my master.
 -> Ok, then. What now? 
-Zyt Hylic Prospector: I'm just an enforcer. You'll have to talk to the supervisor. It will likely grant you your wish, with our master's approval.
+Hylic Slaver: I'm just an enforcer. You'll have to talk to the supervisor. It will likely grant you your wish, with our master's approval.
 -> And where are they?
-    Zyt Hylic Prospector: The mine of course. The one where you wish to work as a thrall. South of here.
+    Hylic Slaver: The mine of course. The one where you wish to work as a thrall. South of here.
 -> I'll head there.
 ===
 
 title: YouClaimToBeRescuingAlaan
 ---
-Zyt Hylic Prospector: The Hylic you speak of is known to us. That one adopts no master. Our Zyt warns us not to trust it.
-Zyt Hylic Prospector: You should not trust it either. Am I to take it that you are in league with this traitor?
+Hylic Slaver: The Hylic you speak of is known to us. That one adopts no master. Mother Sibulo warns us not to trust it.
+Hylic Slaver: The name of the thrall you speak of is one I recognize, but I don't know any details.
+Hylic Slaver: You should not trust it either. Am I to take it that you are in league with this traitor?
 -> Are you not also an outcast? You speak as though pledging yourself to this 'Zyt' changes that.
-    Zyt Hylic Prospector: How dare you? Our Zyt is good and just. You will leave us.
+    Hylic Slaver: How dare you? Our Zyt is good and just. You will leave us.
 -> But I do trust it. It seems to be trying to do right by all in Midsheol. 
-    Zyt Hylic Prospector: I'm sure it thinks that it is. I warn you, you do not understand our ways, and this 'Diplomat' courts trouble.
+    Hylic Slaver: I'm sure it thinks that it is. I warn you, you do not understand our ways, and this 'Diplomat' courts trouble.
     -> Still, I think I want to at least try to help him and Ala'an.
-        Zyt Hylic Prospector: I'm just an enforcer. I do not decide what thralls may come or go.
-        Zyt Hylic Prospector: If you must, speak with the Supervisor. I cannot see how it would allow what you ask.
+        Hylic Slaver: I'm just an enforcer. I do not decide what thralls may come or go.
+        Hylic Slaver: If you must, speak with the Supervisor. I cannot see how it would allow what you ask.
 ===
