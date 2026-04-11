@@ -6,7 +6,6 @@ using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
 using OWPData.Structs;
 using Sirenix.OdinInspector;
-using Structs;
 using UnityEngine;
 
 public class WeightHUDElem : MonoBehaviour, MMEventListener<MMInventoryEvent>, MMEventListener<LoadedManagerEvent>
@@ -94,17 +93,17 @@ public class WeightHUDElem : MonoBehaviour, MMEventListener<MMInventoryEvent>, M
             weightProgressBar.currentPercent = maxWeight > 0f ? weight : 0f;
             weightProgressBar.UpdateUI();
         }
-        else if (GlobalInventoryManager.Instance.dirigibleInventory.name == targetInventoryName)
-        {
-            var weight =
-                GlobalInventoryManager.Instance.GetTotalWeightInDirigible(
-                );
-
-            var maxWeight = GlobalInventoryManager.Instance.GetPlayerMaxWeight();
-
-            weightProgressBar.maxValue = maxWeight;
-            weightProgressBar.currentPercent = maxWeight > 0f ? weight : 0f;
-            weightProgressBar.UpdateUI();
-        }
+        // else if (GlobalInventoryManager.Instance.dirigibleInventory.name == targetInventoryName)
+        // {
+        //     var weight =
+        //         GlobalInventoryManager.Instance.GetTotalWeightInDirigible(
+        //         );
+        //
+        //     var maxWeight = GlobalInventoryManager.Instance.GetPlayerMaxWeight();
+        //
+        //     weightProgressBar.maxValue = maxWeight;
+        //     weightProgressBar.currentPercent = maxWeight > 0f ? weight : 0f;
+        //     weightProgressBar.UpdateUI();
+        // }
     }
 }

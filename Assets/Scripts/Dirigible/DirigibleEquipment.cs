@@ -5,7 +5,6 @@ using Dirigible.Input;
 using Dirigible.Interactable;
 using FirstPersonPlayer.Tools.Interface;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
-using Inventory;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
 using SharedUI;
@@ -157,10 +156,10 @@ namespace Dirigible
 
         public InventoryItem GetCurrentlyEquippedModule()
         {
-            if (dEquipmentSlot == DirigibleEquipmentSlot.Scanner)
-                dEquipmentInventory =
-                    MoreMountains.InventoryEngine.Inventory.FindInventory(
-                        GlobalInventoryManager.DirigibleScannerInventoryName, "Player1");
+            // if (dEquipmentSlot == DirigibleEquipmentSlot.Scanner)
+            //     dEquipmentInventory =
+            //         MoreMountains.InventoryEngine.Inventory.FindInventory(
+            //             GlobalInventoryManager.DirigibleScannerInventoryName, "Player1");
 
             if (dEquipmentInventory == null)
             {

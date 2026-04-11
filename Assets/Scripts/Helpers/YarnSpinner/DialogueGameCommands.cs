@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Events;
 using Helpers.Events;
 using Helpers.StaticHelpers;
 using Manager.DialogueScene;
@@ -430,9 +429,5 @@ namespace Helpers.YarnSpinner
                 yield return new ValueDropdownItem<int>(action.name, action.id);
         }
 #endif
-        public void RemoveDirigibleItem(string currentItemItemID)
-        {
-            InventoryHelperCommands.RemoveDirigibleItem(currentItemItemID);
-        }
     }
 }

@@ -69,8 +69,8 @@ namespace Manager
 
                     if (shoppingEvent.InventoryId == playerInventoryNameId)
                         _dialogueGameCommands?.RemovePlayerItem(shoppingEvent.CurrentItem.ItemID);
-                    else if (shoppingEvent.InventoryId == dirigibleInventoryNameId)
-                        _dialogueGameCommands?.RemoveDirigibleItem(shoppingEvent.CurrentItem.ItemID);
+                    // else if (shoppingEvent.InventoryId == dirigibleInventoryNameId)
+                    //     _dialogueGameCommands?.RemoveDirigibleItem(shoppingEvent.CurrentItem.ItemID);
 
                     sellFeedbacks?.PlayFeedbacks();
                     break;

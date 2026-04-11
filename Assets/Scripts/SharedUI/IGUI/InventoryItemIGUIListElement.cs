@@ -11,7 +11,6 @@ using Michsky.MUIP;
 using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
 using OWPData.Structs;
-using Structs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -268,14 +267,14 @@ namespace SharedUI.IGUI
             if (_sourceInventory.name == "PlayerMainInventory")
             {
                 Debug.Log("Moving item to DirigibleInventory");
-                var dirigibleInventory = GlobalInventoryManager.Instance.dirigibleInventory;
+                // var dirigibleInventory = GlobalInventoryManager.Instance.dirigibleInventory;
                 // var newWeight = GlobalInventoryManager.Instance.GetTotalWeightInDirigible();
 
-                if (dirigibleInventory == null)
-                {
-                    Debug.LogError("No 'DirigibleInventory' for Player1 found.");
-                    return;
-                }
+                // if (dirigibleInventory == null)
+                // {
+                //     Debug.LogError("No 'DirigibleInventory' for Player1 found.");
+                //     return;
+                // }
 
                 ItemTransactionEvent.Trigger(
                     ItemTransactionEventType.StartMove);
@@ -291,9 +290,9 @@ namespace SharedUI.IGUI
                     , _item, 1, _sourceIndex,
                     "Player1");
 
-                MMInventoryEvent.Trigger(
-                    MMInventoryEventType.Pick, null, dirigibleInventory.name, _item, 1, -1,
-                    "Player1");
+                // MMInventoryEvent.Trigger(
+                //     MMInventoryEventType.Pick, null, dirigibleInventory.name, _item, 1, -1,
+                //     "Player1");
 
                 ItemTransactionEvent.Trigger(
                     ItemTransactionEventType.FinishMove);

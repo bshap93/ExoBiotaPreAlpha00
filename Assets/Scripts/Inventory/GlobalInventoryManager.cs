@@ -41,8 +41,6 @@ namespace Inventory
         public const string RightHandEquipmentInventoryName = "EquippedItemInventory";
         public const string BackEquipmentInventoryName = "BackEquippedItemInv";
         public const string BioticAbilityInventoryName = "BioticAbilityInventory";
-        public const string DirigibleInventoryName = "DirigibleInventory";
-        public const string DirigibleScannerInventoryName = "DirigMainScannerInventory";
         public const string KeyTypeInventoryName = "KeyItemsInventory";
         public const string OuterCoresInventoryName = "OuterCoresInventory";
         public const string AmmoInventoryName = "AmmoInventory";
@@ -68,18 +66,12 @@ namespace Inventory
         public MoreMountains.InventoryEngine.Inventory ammoInventory;
         public MoreMountains.InventoryEngine.Inventory abilitiesBankInventory;
 
-        [Header("Dirigible Inventory")] public MoreMountains.InventoryEngine.Inventory dirigibleInventory;
-
-        [FormerlySerializedAs("dirigibleEquipmentInventory")] [Header("Dirigible Slot Inventories")]
-        public MoreMountains.InventoryEngine.Inventory dirigibleScannerSlot;
-
-        [Header("Default Items")] public DefaultInventoryDefinition playerStartingItems;
+        [Header(" Inventory")] [Header("Default Items")]
+        public DefaultInventoryDefinition playerStartingItems;
         public DefaultInventoryDefinition lEquipmentStartingItems;
         public DefaultInventoryDefinition equipmentStartingItems;
-        public DefaultInventoryDefinition dirigibleStartingItems;
         public DefaultInventoryDefinition backEquipmentStartingItems;
         public DefaultInventoryDefinition bioticAbilityStartingItems;
-        public DefaultInventoryDefinition dirigibleScannerStartingItems;
         public DefaultInventoryDefinition keyItemStartingItems;
         [FormerlySerializedAs("innerCoresStartingItems")]
         public DefaultInventoryDefinition outerCoresStartingItems;
@@ -292,8 +284,6 @@ namespace Inventory
         public float GetTotalWeightInDirigible()
         {
             var totalWeight = 0f;
-            totalWeight += GetWeightOfInventoryItems(dirigibleInventory);
-            totalWeight += GetWeightOfInventoryItems(dirigibleScannerSlot);
             totalWeight += GetWeightOfPlayerMainPlusEquipped();
             // Note: Key items are not counted towards weight
             return totalWeight;
@@ -333,9 +323,7 @@ namespace Inventory
             PopulateInventory(playerInventory, playerStartingItems);
             PopulateInventory(equipmentInventory, equipmentStartingItems);
             PopulateInventory(lEquipmentInventory, lEquipmentStartingItems);
-            PopulateInventory(dirigibleInventory, dirigibleStartingItems);
             PopulateInventory(backEquipmentInventory, backEquipmentStartingItems);
-            PopulateInventory(dirigibleScannerSlot, dirigibleScannerStartingItems);
             PopulateInventory(keyItemInventory, keyItemStartingItems);
             PopulateInventory(outerCoresInventory, outerCoresStartingItems);
             PopulateInventory(bioticAbilityInventory, bioticAbilityStartingItems);
@@ -367,9 +355,7 @@ namespace Inventory
             SaveOne(equipmentInventory);
 
             SaveOne(lEquipmentInventory);
-            SaveOne(dirigibleInventory);
             SaveOne(backEquipmentInventory);
-            SaveOne(dirigibleScannerSlot);
             SaveOne(keyItemInventory);
             SaveOne(outerCoresInventory);
             SaveOne(bioticAbilityInventory);
@@ -400,9 +386,7 @@ namespace Inventory
             ResetOne(playerInventory);
             ResetOne(equipmentInventory);
             ResetOne(lEquipmentInventory);
-            ResetOne(dirigibleInventory);
             ResetOne(backEquipmentInventory);
-            ResetOne(dirigibleScannerSlot);
             ResetOne(keyItemInventory);
             ResetOne(outerCoresInventory);
             ResetOne(bioticAbilityInventory);
@@ -415,9 +399,7 @@ namespace Inventory
             LoadOne(playerInventory);
             LoadOne(equipmentInventory);
             LoadOne(lEquipmentInventory);
-            LoadOne(dirigibleInventory);
             LoadOne(backEquipmentInventory);
-            LoadOne(dirigibleScannerSlot);
             LoadOne(keyItemInventory);
             LoadOne(outerCoresInventory);
             LoadOne(bioticAbilityInventory);

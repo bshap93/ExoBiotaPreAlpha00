@@ -15,7 +15,7 @@ namespace SharedUI.Shop
         [SerializeField] GameObject itemElementPrefab;
 
         string _currentNpcId;
-        MoreMountains.InventoryEngine.Inventory _dirigibleInventory;
+        // MoreMountains.InventoryEngine.Inventory _dirigibleInventory;
 
         bool _illegal;
 
@@ -48,15 +48,14 @@ namespace SharedUI.Shop
         void AssignInventories()
         {
             if (GlobalInventoryManager.Instance == null ||
-                GlobalInventoryManager.Instance.playerInventory == null ||
-                GlobalInventoryManager.Instance.dirigibleInventory == null)
+                GlobalInventoryManager.Instance.playerInventory == null)
             {
                 Debug.LogError("GlobalInventoryManager or its inventories are not set.");
                 return;
             }
 
             _playerInventory = GlobalInventoryManager.Instance.playerInventory;
-            _dirigibleInventory = GlobalInventoryManager.Instance.dirigibleInventory;
+            // _dirigibleInventory = GlobalInventoryManager.Instance.dirigibleInventory;
         }
 
 
@@ -69,7 +68,7 @@ namespace SharedUI.Shop
 
             AssignInventories();
 
-            if (_playerInventory == null || _dirigibleInventory == null)
+            if (_playerInventory == null)
             {
                 Debug.LogError("Inventories are not set.");
                 return;
@@ -85,12 +84,12 @@ namespace SharedUI.Shop
                     else if (myBaseItem.illegalSellable && illegal)
                         itemsToSellFromPlayerInventory.Add(myBaseItem);
 
-            foreach (var item in _dirigibleInventory.Content)
-                if (item is MyBaseItem myBaseItem)
-                    if (myBaseItem.legalSellable && !illegal)
-                        itemsToSellFromDirigibleInventory.Add(myBaseItem);
-                    else if (myBaseItem.illegalSellable && illegal)
-                        itemsToSellFromDirigibleInventory.Add(myBaseItem);
+            // foreach (var item in _dirigibleInventory.Content)
+            //     if (item is MyBaseItem myBaseItem)
+            //         if (myBaseItem.legalSellable && !illegal)
+            //             itemsToSellFromDirigibleInventory.Add(myBaseItem);
+            //         else if (myBaseItem.illegalSellable && illegal)
+            //             itemsToSellFromDirigibleInventory.Add(myBaseItem);
 
 
             for (var i = 0; i < itemsToSellFromPlayerInventory.Count; i++)
@@ -102,14 +101,14 @@ namespace SharedUI.Shop
                     true, npcId, _playerInventory.name);
             }
 
-            for (var i = 0; i < itemsToSellFromDirigibleInventory.Count; i++)
-            {
-                var go = Instantiate(itemElementPrefab, listRoot);
-                var element = go.GetComponent<BuySellItemsElementUI>();
-                element.Initialize(
-                    itemsToSellFromDirigibleInventory[i], 1,
-                    true, npcId, _dirigibleInventory.name);
-            }
+            // for (var i = 0; i < itemsToSellFromDirigibleInventory.Count; i++)
+            // {
+            //     var go = Instantiate(itemElementPrefab, listRoot);
+            //     var element = go.GetComponent<BuySellItemsElementUI>();
+            //     element.Initialize(
+            //         itemsToSellFromDirigibleInventory[i], 1,
+            //         true, npcId, _dirigibleInventory.name);
+            // }
         }
     }
 }

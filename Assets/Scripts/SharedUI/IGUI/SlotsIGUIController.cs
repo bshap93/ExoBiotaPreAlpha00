@@ -7,7 +7,6 @@ using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
 using OWPData.Structs;
-using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities.Static;
@@ -153,11 +152,6 @@ namespace SharedUI.IGUI
                 return;
             }
 
-            if (dirigibleMainScannerSlot.inventory == null)
-            {
-                Debug.LogWarning("SlotsIGUIController: Dirigible main scanner inventory reference is not set.");
-                return;
-            }
 
             if (equippedAbilityWrapperSlot.inventory == null)
             {
@@ -208,18 +202,7 @@ namespace SharedUI.IGUI
             if (equippedAbilityWrapperSlot.unequipButton != null)
                 equippedAbilityWrapperSlot.unequipButton.Interactable(hasEquippedAbilityWrapper);
 
-            // DIRIGIBLE MAIN SCANNER
-            var dirigibleMainScanner = dirigibleMainScannerSlot.inventory.Content.Length > 0
-                ? dirigibleMainScannerSlot.inventory.Content[0]
-                : null;
 
-            var hasDirigibleMainScanner = dirigibleMainScanner != null && !InventoryItem.IsNull(dirigibleMainScanner);
-            dirigibleMainScannerSlot.itemImage.sprite =
-                hasDirigibleMainScanner ? dirigibleMainScanner.GetDisplayIcon() : null;
-
-            dirigibleMainScannerSlot.itemImage.color = hasDirigibleMainScanner ? defaultColor : new Color(1, 1, 1, 0);
-            if (dirigibleMainScannerSlot.unequipButton != null)
-                dirigibleMainScannerSlot.unequipButton.Interactable(hasDirigibleMainScanner);
             // dirigibleMainScannerSlot.unequipButton.gameObject.SetActive(hasDirigibleMainScanner);
         }
 
@@ -236,8 +219,8 @@ namespace SharedUI.IGUI
             TryRemoveByRef(global.equipmentInventory, item);
             TryRemoveByRef(global.lEquipmentInventory, item);
             TryRemoveByRef(global.backEquipmentInventory, item);
-            TryRemoveByRef(global.dirigibleInventory, item);
-            TryRemoveByRef(global.dirigibleScannerSlot, item);
+            // TryRemoveByRef(global.dirigibleInventory, item);
+            // TryRemoveByRef(global.dirigibleScannerSlot, item);
             TryRemoveByRef(global.abilitiesBankInventory, item);
         }
 

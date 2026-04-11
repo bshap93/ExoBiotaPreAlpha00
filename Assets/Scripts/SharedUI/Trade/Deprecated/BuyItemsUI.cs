@@ -15,7 +15,7 @@ namespace SharedUI.Shop
 
         NPCShopStock _currentNpcStock;
 
-        MoreMountains.InventoryEngine.Inventory _dirigibleInventory;
+        // MoreMountains.InventoryEngine.Inventory _dirigibleInventory;
 
 
         public void Initialize(string npcId)
@@ -27,11 +27,11 @@ namespace SharedUI.Shop
 
             AssignInventories();
 
-            if (_dirigibleInventory == null)
-            {
-                Debug.LogError("Dirigible Inventory is not set.");
-                return;
-            }
+            // if (_dirigibleInventory == null)
+            // {
+            //     Debug.LogError("Dirigible Inventory is not set.");
+            //     return;
+            // }
 
             var itemsForSale = _currentNpcStock?.itemsForSale;
 
@@ -51,14 +51,11 @@ namespace SharedUI.Shop
 
         void AssignInventories()
         {
-            if (GlobalInventoryManager.Instance == null ||
-                GlobalInventoryManager.Instance.dirigibleInventory == null)
-            {
+            if (GlobalInventoryManager.Instance == null
+               )
                 Debug.LogError("GlobalInventoryManager or its inventories are not set.");
-                return;
-            }
 
-            _dirigibleInventory = GlobalInventoryManager.Instance.dirigibleInventory;
+            // _dirigibleInventory = GlobalInventoryManager.Instance.dirigibleInventory;
         }
     }
 }

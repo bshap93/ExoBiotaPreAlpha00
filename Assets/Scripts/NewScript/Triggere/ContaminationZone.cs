@@ -20,6 +20,7 @@ namespace NewScript.Triggere
         [SerializeField] GameObject parentObject;
 
         bool _isActive;
+        bool _isPlayerInside;
 
         float _timer;
         void Start()
@@ -44,29 +45,32 @@ namespace NewScript.Triggere
                 }
                 // Optionally, you could disable the collider or visual effects here
             }
+
+            if (_isActive && _isPlayerInside)
+                PlayerStatsEvent.Trigger(
+                    PlayerStatsEvent.PlayerStat.CurrentContamination,
+                    PlayerStatsEvent.PlayerStatChangeType.Increase,
+                    contaminationPerSecond * Time.deltaTime);
         }
 
         void OnTriggerEnter(Collider other)
         {
             if (!_isActive) return;
-            enterFeedbacks?.PlayFeedbacks();
+            if (other.CompareTag("FirstPersonPlayer") || other.CompareTag("Player"))
+            {
+                _isPlayerInside = true;
+                enterFeedbacks?.PlayFeedbacks();
+            }
         }
 
         void OnTriggerExit(Collider other)
         {
             if (!_isActive) return;
-            exitFeedbacks?.PlayFeedbacks();
-        }
-
-        void OnTriggerStay(Collider other)
-        {
-            if (!_isActive) return;
             if (other.CompareTag("FirstPersonPlayer") || other.CompareTag("Player"))
-                // Apply continuous contamination
-                PlayerStatsEvent.Trigger(
-                    PlayerStatsEvent.PlayerStat.CurrentContamination,
-                    PlayerStatsEvent.PlayerStatChangeType.Increase,
-                    contaminationPerSecond * Time.deltaTime);
+            {
+                _isPlayerInside = false;
+                exitFeedbacks?.PlayFeedbacks();
+            }
         }
     }
 }
