@@ -3395,6 +3395,7 @@ MonoBehaviour:
   walkRunThreshold: 2.5
   hasRangedAttack: 0
   rangedAttackOrigin: {fileID: 0}
+  shouldSwitchLayersOnDeath: 0
   onDeathLayer: 0
   doNotUseIdleState: 1
   movementLoopFeedbacks: {fileID: 0}
@@ -3693,7 +3694,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3252907983223927856}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: -629701670
   m_Radius: 0.5
   m_Speed: 1
