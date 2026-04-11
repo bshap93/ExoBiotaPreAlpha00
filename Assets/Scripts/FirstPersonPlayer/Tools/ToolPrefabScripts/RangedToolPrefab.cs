@@ -26,7 +26,7 @@ namespace FirstPersonPlayer.Tools.ToolPrefabScripts
         [SerializeField] protected float maxSpreadAngleAimed = 2f;
         [SerializeField] protected float minSpreadAngleAimed = 0.1f;
         [Tooltip("Dexterity level for perfect accuracy (0 spread)")] [SerializeField]
-        protected int perfectAccuracyDexterity = 20;
+        protected int perfectAccuracyDexterity = 10;
         [Tooltip("Show debug lines for shot trajectory")] [SerializeField]
         protected bool debugAccuracy;
 
