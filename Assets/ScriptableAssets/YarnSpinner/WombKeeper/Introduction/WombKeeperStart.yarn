@@ -3,7 +3,7 @@ position: -111,-622
 ---
 <<if !has_npc_been_contacted("WombKeeper")>>
     <<make_contact_with_npc "WombKeeper">>
-    <<trigger_aquire_journal_entry "WombKeeperIntro">>
+    <<trigger_aquire_journal_entry "MeetWombKeeper">>
     <<jump WombKeeperDialogue01>>
 <<else>>
    <<jump WombKeeperStartAgain>> 

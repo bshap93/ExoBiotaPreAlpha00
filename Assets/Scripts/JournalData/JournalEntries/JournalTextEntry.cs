@@ -13,8 +13,8 @@ namespace JournalData.JournalEntries
     public class JournalTextEntry : JournalEntry
     {
         [Header("Text Entry")] [TextArea] public string entryTextDescription;
-        public Color nameTextColor;
-        public Color descriptionTextColor;
+        public Color nameTextColor = new(238, 242, 187);
+        public Color descriptionTextColor = new(238, 242, 187);
         public JournalTextEntryType entryType = JournalTextEntryType.RegularNoteEntry;
     }
 }

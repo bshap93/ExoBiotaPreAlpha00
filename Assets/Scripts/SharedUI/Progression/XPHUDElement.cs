@@ -4,6 +4,7 @@ using Helpers.Events;
 using Helpers.Events.Journal;
 using Helpers.Events.Progression;
 using Manager;
+using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using SharedUI.Trade;
 using UnityEngine;
@@ -17,13 +18,15 @@ namespace SharedUI.Progression
     {
         [SerializeField] PlayerMutableStatsManager playerMutableStatsManager;
 
-        [SerializeField] XPNotify xpNotifyComponent;
+        [Header("Component Classes")] [SerializeField]
+        XPNotify xpNotifyComponent;
         [SerializeField] LevelNotify levelNotifyComponent;
         [SerializeField] JournalNotify topicNotifyComponent;
         [SerializeField] JournalNotify entryNotifyComponent;
         [SerializeField] CurrencyNotify currencyNotifyComponent;
 
-        [SerializeField] CanvasGroup xpNotifyCanvasGroup;
+        [Header("Canvas Groups")] [SerializeField]
+        CanvasGroup xpNotifyCanvasGroup;
         [SerializeField] CanvasGroup levelNotifyCanvasGroup;
         [SerializeField] CanvasGroup topicNotifyCanvasGroup;
         [SerializeField] CanvasGroup entryNotifyCanvasGroup;
@@ -37,8 +40,11 @@ namespace SharedUI.Progression
         [SerializeField] GameObject entryNotify;
         [SerializeField] GameObject currencyNotify;
 
+        [Header("Feedbacks")] [SerializeField] MMFeedbacks showTopicFeedbacks;
+        [SerializeField] MMFeedbacks showEntryFeedbacks;
 
-        [SerializeField] float showDuration = 2f;
+
+        [Header("Timing")] [SerializeField] float showDuration = 2f;
         [SerializeField] float fadeInDuration = 0.5f;
         [SerializeField] float fadeOutDuration = 0.5f;
 
@@ -167,6 +173,7 @@ namespace SharedUI.Progression
         IEnumerator ShowTopicNotificationCoroutine(string topicTxt)
         {
             topicNotify.SetActive(true);
+            showTopicFeedbacks?.PlayFeedbacks();
             topicNotifyComponent.SetJournalEntityText(topicTxt);
             // fades in tween
             topicNotifyCanvasGroup.DOFade(1f, fadeInDuration);
@@ -181,6 +188,7 @@ namespace SharedUI.Progression
         IEnumerator ShowEntryNotificationCoroutine(string entryTxt)
         {
             entryNotify.SetActive(true);
+            showEntryFeedbacks?.PlayFeedbacks();
             entryNotifyComponent.SetJournalEntityText(entryTxt);
             // fades in tween
             entryNotifyCanvasGroup.DOFade(1f, fadeInDuration);

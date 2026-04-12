@@ -1,4 +1,5 @@
-﻿using MoreMountains.Tools;
+﻿using FirstPersonPlayer.Interactable.ResourceBoxes;
+using MoreMountains.Tools;
 
 namespace Helpers.Events
 {
@@ -9,20 +10,15 @@ namespace Helpers.Events
         SetCurrency
     }
 
-    public enum CurrencyType
-    {
-        Neume,
-        Scrap
-    }
-
     public struct CurrencyEvent
     {
         public CurrencyEventType EventType;
         public float Amount;
-        public CurrencyType CurrencyType;
+        public ResourceCollectionContainerInteractable.ResourceType CurrencyType;
 
         public static void Trigger(CurrencyEventType eventType, float amount,
-            CurrencyType currencyType = CurrencyType.Neume)
+            ResourceCollectionContainerInteractable.ResourceType currencyType =
+                ResourceCollectionContainerInteractable.ResourceType.Neumat)
         {
             var currencyEvent = new CurrencyEvent
             {

@@ -44,5 +44,9 @@ namespace Helpers.ScriptableObjects.IconRepositories
         public Sprite slidingDoorIcon;
         public Sprite hingedDoorIcon;
         public Sprite talkIcon;
+        [FormerlySerializedAs("resourceBoxIcon")]
+        public Sprite getResourceAction;
+        public Sprite neumatIcon;
+        public Sprite scrapIcon;
     }
 }

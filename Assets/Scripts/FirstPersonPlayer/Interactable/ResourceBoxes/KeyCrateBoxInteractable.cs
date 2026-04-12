@@ -14,16 +14,16 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Utilities.Interface;
 
-namespace FirstPersonPlayer.Interactable
+namespace FirstPersonPlayer.Interactable.ResourceBoxes
 {
     public class KeyCrateBoxInteractable : MonoBehaviour, IInteractable, IRequiresUniqueID, IHoverable, IBillboardable
     {
-        static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         public string uniqueID;
         [SerializeField] KeyItemObject keyItem;
         [SerializeField] float interactionDistance = 3f;
         [SerializeField] Sprite icon;
         [SerializeField] HighlightEffectController effectController;
+        [SerializeField] ResourceCollectionContainerInteractable.ResourceType resourceType;
 
 #if UNITY_EDITOR
         [ValueDropdown("@AllRewiredActions.GetAllRewiredActions()")]
@@ -124,7 +124,7 @@ namespace FirstPersonPlayer.Interactable
 
                 getKeyItemFeedback?.PlayFeedbacks();
 
-                if (givesMoney) CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, moneyAmount);
+                if (givesMoney) CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, moneyAmount, resourceType);
 
                 PerformObjectiveAction();
             }
@@ -141,7 +141,7 @@ namespace FirstPersonPlayer.Interactable
         }
         public void Interact(string param)
         {
-            throw new NotImplementedException();
+            Interact();
         }
         public void OnInteractionStart()
         {

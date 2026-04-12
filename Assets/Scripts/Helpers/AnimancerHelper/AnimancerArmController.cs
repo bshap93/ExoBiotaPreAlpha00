@@ -54,6 +54,7 @@ namespace Helpers.AnimancerHelper
         void OnEnable()
         {
             this.MMEventStartListening();
+            // LoopIdleAnimation();
         }
         void OnDisable()
         {

@@ -23,6 +23,8 @@ title: AndWhereShouldIGo
 Womb Keeper: You'll see navigation terminals as you travel around Ashpool Springs.
 Womb Keeper: I'd suggest you visit the Hot Springs to the north. They have powerful healing properties. Or head down to the old chapel on the next level down. 
 Womb Keeper: These are safe places where you can rest at least, and you may find others who can help you further.
+<<trigger_aquire_journal_entry "WKMentionedConsulate">>
+<<trigger_aquire_journal_entry "WKMentionedHotsprings">>
 -> I had another question.
     <<jump WombKeeperDialogue01A_QA>>
 -> [Leave]

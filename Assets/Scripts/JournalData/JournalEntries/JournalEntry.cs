@@ -1,5 +1,6 @@
 ﻿using System;
 using JournalData.JournalTopics;
+using UnityEditor;
 using UnityEngine;
 using Utilities.Interface;
 
@@ -22,6 +23,16 @@ namespace JournalData.JournalEntries
         public Sprite optionalEntryIcon;
 
         public string[] keywords;
+#if UNITY_EDITOR
+        void OnValidate()
+        {
+            if (uniqueID != name)
+            {
+                uniqueID = name;
+                EditorUtility.SetDirty(this);
+            }
+        }
+#endif
 
         public string UniqueID => uniqueID;
         public void SetUniqueID()
