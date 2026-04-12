@@ -40,6 +40,7 @@ namespace Manager.SceneManagers.Pickable
 
         readonly Dictionary<string, PlacedItemData> _placedPickables = new(StringComparer.Ordinal);
 
+
         bool _dirty;
 
         // Input passthrough to preserve your current ItemPicker flow

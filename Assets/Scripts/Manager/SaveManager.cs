@@ -79,7 +79,8 @@ namespace Manager
         PlaytestSettingsSave,
         JournalEntrySave,
         BarrierStateSave,
-        EntryProviderStateSave
+        EntryProviderStateSave,
+        ResourceContainersSave
     }
 
     public enum LocalManagerType
@@ -208,6 +209,9 @@ namespace Manager
             AttributesManager.Instance.Load();
             CreatureStateManager.Instance.Load();
             ConditionalBarrierManager.Instance.Load();
+            ResourceContainerManager.Instance.Load();
+
+
             JournalEntryProviderManager.Instance.Load();
 
             ToolsStateManager.Instance.Load();
@@ -274,6 +278,8 @@ namespace Manager
             // State Managers 
             CreatureStateManager.Instance.Save();
             ConditionalBarrierManager.Instance.Save();
+            ResourceContainerManager.Instance.Save();
+
             JournalEntryProviderManager.Instance.Save();
 
 
@@ -334,6 +340,8 @@ namespace Manager
             AttributesManager.Instance.Reset();
             CreatureStateManager.Instance.Reset();
             ConditionalBarrierManager.Instance.Reset();
+            ResourceContainerManager.Instance.Reset();
+
             JournalEntryManager.Instance.Reset();
 
             ToolsStateManager.Instance.Reset();
@@ -461,6 +469,8 @@ namespace Manager
                     return "BarrierStateSave.es3";
                 case GlobalManagerType.EntryProviderStateSave:
                     return "EntryProviderStateSave.es3";
+                case GlobalManagerType.ResourceContainersSave:
+                    return "ResourceContainersSave.es3";
                 default:
 
                     Debug.LogError($"Unknown manager type: {globalManagerType}");

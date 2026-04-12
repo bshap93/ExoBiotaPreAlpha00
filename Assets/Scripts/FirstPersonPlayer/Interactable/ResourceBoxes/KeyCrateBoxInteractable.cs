@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using FirstPersonPlayer.Interface;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
 using Helpers.Events;
+using Helpers.Events.Machinery;
 using Inventory;
 using LevelConstruct.Highlighting;
 using Manager;
+using Manager.StateManager;
 using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
 using NewScript;
@@ -24,6 +27,8 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
         [SerializeField] Sprite icon;
         [SerializeField] HighlightEffectController effectController;
         [SerializeField] ResourceCollectionContainerInteractable.ResourceType resourceType;
+
+        public ResourceContainerManager.ResourceContainerInitializationState initialContainerState;
 
 #if UNITY_EDITOR
         [ValueDropdown("@AllRewiredActions.GetAllRewiredActions()")]
@@ -54,6 +59,11 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
         SceneObjectData _data;
 
         bool _hasBeenOpened;
+
+        void Start()
+        {
+            StartCoroutine(InitializeAfterBarrierStateManager());
+        }
 
         public string GetName()
         {
@@ -126,7 +136,10 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
 
                 if (givesMoney) CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, moneyAmount, resourceType);
 
-                PerformObjectiveAction();
+                // PerformObjectiveAction();
+                ResourceContainerInitStateEvent.Trigger(
+                    ResourceContainerStateEventType.SetNewResourceContainerState, resourceType,
+                    ResourceContainerManager.ResourceContainerInitializationState.IsDepleted, uniqueID);
             }
             else
             {
@@ -135,9 +148,7 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
 
             // TODO: Add other items to inventory if hasOtherItems is true.
 
-            _hasBeenOpened = true;
-
-            effectController.SetSecondaryStateHighlightColor();
+            SetUsedOrDepleted();
         }
         public void Interact(string param)
         {
@@ -175,6 +186,30 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
         public bool IsUniqueIDEmpty()
         {
             return string.IsNullOrEmpty(uniqueID);
+        }
+        IEnumerator InitializeAfterBarrierStateManager()
+        {
+            yield return null;
+
+            var resourceContainerManager = ResourceContainerManager.Instance;
+            if (resourceContainerManager != null)
+            {
+                var resourceContainerState = resourceContainerManager.GetContainerState(uniqueID);
+                if (resourceContainerState == ResourceContainerManager.ResourceContainerInitializationState.None)
+                    resourceContainerState = initialContainerState;
+
+                if (resourceContainerState == ResourceContainerManager.ResourceContainerInitializationState.IsDepleted)
+                    SetUsedOrDepleted();
+                else if (resourceContainerState ==
+                         ResourceContainerManager.ResourceContainerInitializationState.ShouldBeDestroyed)
+                    Destroy(gameObject);
+            }
+        }
+        void SetUsedOrDepleted()
+        {
+            _hasBeenOpened = true;
+
+            effectController.SetSecondaryStateHighlightColor();
         }
 
 

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using FirstPersonPlayer.Interface;
 using Helpers.Events;
+using Helpers.Events.Machinery;
 using LevelConstruct.Highlighting;
 using Manager;
+using Manager.StateManager;
 using MoreMountains.Feedbacks;
 using SharedUI.Interface;
 using Sirenix.OdinInspector;
@@ -20,12 +23,15 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
             Scrap
         }
 
+
         public string uniqueID;
         [SerializeField] ResourceType resourceType;
         [SerializeField] float interactionDistance = 3f;
         [SerializeField] Sprite icon;
         [SerializeField] HighlightEffectController effectController;
         [SerializeField] float resourceAmount;
+
+        public ResourceContainerManager.ResourceContainerInitializationState initialContainerState;
 
         public string actionText = "Collect Resource";
 
@@ -39,6 +45,10 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
         SceneObjectData _data;
 
         bool _hasBeenDepleted;
+        void Start()
+        {
+            StartCoroutine(InitializeAfterBarrierStateManager());
+        }
         public string GetName()
         {
             switch (resourceType)
@@ -125,6 +135,10 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
                 getResourceFeedback?.PlayFeedbacks();
 
                 CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, resourceAmount, resourceType);
+                
+                ResourceContainerInitStateEvent.Trigger(
+                    ResourceContainerStateEventType.SetNewResourceContainerState, resourceType,
+                    ResourceContainerManager.ResourceContainerInitializationState.IsDepleted, uniqueID);
             }
             else
             {
@@ -171,6 +185,32 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
         public bool IsUniqueIDEmpty()
         {
             return string.IsNullOrEmpty(uniqueID);
+        }
+
+        IEnumerator InitializeAfterBarrierStateManager()
+        {
+            yield return null;
+
+            var resourceContainerManager = ResourceContainerManager.Instance;
+            if (resourceContainerManager != null)
+            {
+                var resourceContainerState = resourceContainerManager.GetContainerState(uniqueID);
+                if (resourceContainerState == ResourceContainerManager.ResourceContainerInitializationState.None)
+                    resourceContainerState = initialContainerState;
+
+                if (resourceContainerState == ResourceContainerManager.ResourceContainerInitializationState.IsDepleted)
+                    SetUsedOrDepleted();
+                else if (resourceContainerState ==
+                         ResourceContainerManager.ResourceContainerInitializationState.ShouldBeDestroyed)
+                    Destroy(gameObject);
+            }
+        }
+
+        void SetUsedOrDepleted()
+        {
+            _hasBeenDepleted = true;
+
+            effectController.SetSecondaryStateHighlightColor();
         }
     }
 }
