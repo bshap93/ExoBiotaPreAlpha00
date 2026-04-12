@@ -14,7 +14,6 @@ namespace FirstPersonPlayer.Interactable
         public string textToRepresentEntry;
         public Sprite iconToRepresentEntry;
 
-        public JournalEntryProviderManager.EntryProviderState initialJournalProviderState;
 
         // Move Cam 2
         public bool hasDialogueFocusPoint;

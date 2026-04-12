@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using FirstPersonPlayer.Combat.Player.ScriptableObjects;
 using Helpers.Events;
+using Helpers.Events.Domains.Player.Events;
 using HighlightPlus;
 using Manager.ProgressionMangers;
 using Manager.SceneManagers;
@@ -24,9 +25,9 @@ namespace FirstPersonPlayer.Interactable
 
         public MMFeedbacks onBreakFeedbacks;
         public MMFeedbacks onHitFeedbacks;
-        HighlightEffect _highlightEffect;
 
         public ConditionalBarrierManager.BarrierInitializationState initialBreakableBarrier;
+        HighlightEffect _highlightEffect;
 
 
         void Awake()
@@ -37,6 +38,11 @@ namespace FirstPersonPlayer.Interactable
                 rayfireRigid = GetComponent<RayfireRigid>();
 
             rayfireRigid.demolitionEvent.LocalEvent += OnDemolished;
+        }
+
+        void Start()
+        {
+            StartCoroutine(InitializeAfterDestructableManager());
         }
 
 
@@ -59,6 +65,9 @@ namespace FirstPersonPlayer.Interactable
                     rayfireRigid.Demolish();
                 else
                     Destroy(root, 0.05f);
+
+                if (!string.IsNullOrEmpty(uniqueId))
+                    DestructableEvent.Trigger(DestructableEventType.Destroyed, uniqueId, transform);
             }
             else // Feedback for hitting but not breaking
             {

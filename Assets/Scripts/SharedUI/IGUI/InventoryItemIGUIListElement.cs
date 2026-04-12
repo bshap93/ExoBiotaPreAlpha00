@@ -458,8 +458,6 @@ namespace SharedUI.IGUI
             {
                 // Switch to that hotbar slot
                 hotbarManager.SetCurrentToolSlotIndex(existingSlotIndex);
-                Debug.Log(
-                    $"[SmartEquip] Tool {_item.ItemName} already in hotbar at slot {existingSlotIndex}, switching to it.");
 
                 return;
             }
