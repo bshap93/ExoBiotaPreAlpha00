@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp-firstpass::Plugins.HighlightPlus.Runtime.Scripts.HighlightTrigger
   highlightOnHover: 1
-  triggerMode: 1
+  triggerMode: 2
   raycastCamera: {fileID: 0}
   raycastSource: 1
   raycastLayerMask:
@@ -875,7 +875,7 @@ MonoBehaviour:
   respectUI: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   selectOnClick: 0
   selectedProfile: {fileID: 0}
   selectedAndHighlightedProfile: {fileID: 0}
@@ -894,12 +894,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0986de822ecb4835bfb249feaeb7996f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelConstruct.Highlighting.HighlightEffectController
-  targetID: b6fad02b-dfa4-4aac-8361-09a8c05b07d2
+  targetID: 
   seeThroughDuration: 5
   onScanned:
     m_PersistentCalls:
       m_Calls: []
-  secondaryStateHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  secondaryStateHighlightColor: {r: 1, g: 0.8225939, b: 0, a: 1}
 --- !u!135 &4220299975630142005
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -919,7 +919,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.05
+  m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7193982509349266636
 GameObject:
@@ -933,6 +933,7 @@ GameObject:
   - component: {fileID: 9132831023136758514}
   - component: {fileID: 7803824692690376550}
   - component: {fileID: 256089088523614940}
+  - component: {fileID: 345513846263516152}
   m_Layer: 8
   m_Name: ScrapContainer
   m_TagString: Untagged
@@ -1024,16 +1025,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dc9795d4264afda76572774e37acce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Interactable.ResourceBoxes.ResourceCollectionContainerInteractable
-  uniqueID: ee49d0ee-6cf3-4458-b42b-75f88568443e
+  uniqueID: 
   resourceType: 1
   interactionDistance: 4
   icon: {fileID: 21300000, guid: c5654ea955fc8e14381d681e6b114fb7, type: 3}
   effectController: {fileID: 6039797573652134301}
   resourceAmount: 2
+  initialContainerState: 1
   actionText: Collect Resource
   getResourceFeedback: {fileID: 1751343465616082954}
   alreadyGotResourceFeedback: {fileID: 3236854824261976184}
   actionId: 43
+--- !u!65 &345513846263516152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7193982509349266636}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.025997318, y: 0.024896864, z: 0.019155672}
+  m_Center: {x: -1.6156318e-16, y: 0.001005571, z: 0.009864421}
 --- !u!1 &7823949831480841321
 GameObject:
   m_ObjectHideFlags: 0

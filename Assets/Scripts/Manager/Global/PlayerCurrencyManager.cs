@@ -1,4 +1,5 @@
-﻿using Helpers.Events;
+﻿using FirstPersonPlayer.Interactable.ResourceBoxes;
+using Helpers.Events;
 using Helpers.Interfaces;
 using MoreMountains.Tools;
 using ScriptableObjects;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Manager.Global
 {
-    public class PlayerCurrencyManager : MonoBehaviour, MMEventListener<CurrencyEvent>, ICoreGameService
+    public class PlayerCurrencyManager : MonoBehaviour, MMEventListener<ResourceCurrencyEvent>, ICoreGameService
     {
         const string KeyDollarAmount = "PlayerDollarAmount";
 
@@ -15,14 +16,21 @@ namespace Manager.Global
 
         [SerializeField] bool autoSave;
 
+        public ResourceCollectionContainerInteractable.ResourceType primaryCurrencyType;
+        public ResourceCollectionContainerInteractable.ResourceType secondaryCurrencyType;
+
         CharacterStatProfile _characterStatProfile;
         bool _dirty;
 
 
         string _savePath;
-        public float PlayerDollarAmount { get; private set; }
+        public float PlayerPrimaryCurrencyAmount { get; private set; }
 
-        public float InitialCurrencyAmount { get; private set; }
+        public float InitialPrimaryCurrencyAmount { get; private set; }
+
+        public float PlayerSecondaryCurrencyAmount { get; private set; }
+
+        public float InitialSecondaryCurrencyAmount { get; private set; }
 
         // instance 
         public static PlayerCurrencyManager Instance { get; private set; }
@@ -86,7 +94,7 @@ namespace Manager.Global
         {
             var saveFilePath = GetSaveFilePath();
             ES3.Save(
-                KeyDollarAmount, PlayerDollarAmount,
+                KeyDollarAmount, PlayerPrimaryCurrencyAmount,
                 saveFilePath);
         }
 
@@ -122,18 +130,18 @@ namespace Manager.Global
                    ES3.KeyExists(KeyDollarAmount, GetSaveFilePath());
         }
 
-        public void OnMMEvent(CurrencyEvent eventType)
+        public void OnMMEvent(ResourceCurrencyEvent eventType)
         {
             switch (eventType.EventType)
             {
-                case CurrencyEventType.AddCurrency:
+                case ResourceCurrencyEventType.AddResource:
                     AddCurrency(eventType.Amount);
                     break;
-                case CurrencyEventType.RemoveCurrency:
+                case ResourceCurrencyEventType.RemoveResource:
                     RemoveCurrency(eventType.Amount);
                     break;
 
-                case CurrencyEventType.SetCurrency:
+                case ResourceCurrencyEventType.SetCurrency:
                     SetCurrency(eventType.Amount);
                     break;
                 default:
@@ -149,7 +157,7 @@ namespace Manager.Global
                 SaveManager.Instance.initialCharacterStatProfile;
 
             if (_characterStatProfile != null)
-                InitialCurrencyAmount = _characterStatProfile.InitialCurrency;
+                InitialPrimaryCurrencyAmount = _characterStatProfile.InitialCurrency;
             else
                 Debug.LogError("CharacterStatProfile not set in PlayerCurrencyManager");
 
@@ -167,7 +175,7 @@ namespace Manager.Global
 
         public void AddCurrency(float amount)
         {
-            PlayerDollarAmount += amount;
+            PlayerPrimaryCurrencyAmount += amount;
             // Add an event trigger to notify UI and other systems
 
             _dirty = true;
@@ -175,19 +183,19 @@ namespace Manager.Global
 
         public void LoseCurrency(float amount)
         {
-            if (PlayerDollarAmount - amount < 0)
-                PlayerDollarAmount = 0;
+            if (PlayerPrimaryCurrencyAmount - amount < 0)
+                PlayerPrimaryCurrencyAmount = 0;
             else
-                PlayerDollarAmount -= amount;
+                PlayerPrimaryCurrencyAmount -= amount;
 
             _dirty = true;
         }
 
         public void RemoveCurrency(float amount)
         {
-            if (PlayerDollarAmount - amount < 0)
+            if (PlayerPrimaryCurrencyAmount - amount < 0)
             {
-                PlayerDollarAmount = 0;
+                PlayerPrimaryCurrencyAmount = 0;
                 AlertEvent.Trigger(
                     AlertReason.InsufficientFunds,
                     "You don't have enough funds to complete this action.",
@@ -195,13 +203,13 @@ namespace Manager.Global
             }
             else
             {
-                PlayerDollarAmount -= amount;
+                PlayerPrimaryCurrencyAmount -= amount;
             }
         }
 
         public void SetCurrency(float amount)
         {
-            PlayerDollarAmount = amount;
+            PlayerPrimaryCurrencyAmount = amount;
         }
 
         static string GetSaveFilePath()
@@ -215,7 +223,7 @@ namespace Manager.Global
 
             if (ES3.FileExists(saveFilePath) && ES3.KeyExists(KeyDollarAmount, saveFilePath))
             {
-                PlayerDollarAmount = ES3.Load<float>(KeyDollarAmount, saveFilePath);
+                PlayerPrimaryCurrencyAmount = ES3.Load<float>(KeyDollarAmount, saveFilePath);
                 if (currencyBarUpdater != null)
                     currencyBarUpdater.Initialize();
             }
@@ -235,11 +243,11 @@ namespace Manager.Global
             if (characterStatProfile == null)
             {
                 Debug.LogError("CharacterStatProfile not found! Using default values.");
-                PlayerDollarAmount = 0; // Default fallback
+                PlayerPrimaryCurrencyAmount = 0; // Default fallback
             }
             else
             {
-                PlayerDollarAmount = characterStatProfile.InitialCurrency;
+                PlayerPrimaryCurrencyAmount = characterStatProfile.InitialCurrency;
             }
         }
     }

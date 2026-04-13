@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SharedUI.Trade
 {
-    public class CurrencyNotify : MonoBehaviour
+    public class ResourceNotify : MonoBehaviour
     {
         [SerializeField] TMP_Text currencyAmtText;
         [SerializeField] MMFeedbacks addCurrencyFeedback;

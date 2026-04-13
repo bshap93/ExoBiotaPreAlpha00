@@ -14,7 +14,7 @@ namespace SharedUI.Progression
 {
     public class XphudElement : MonoBehaviour, MMEventListener<XPEvent>,
         MMEventListener<LevelingEvent>,
-        MMEventListener<JournalNotificationEvent>, MMEventListener<CurrencyEvent>
+        MMEventListener<JournalNotificationEvent>, MMEventListener<ResourceCurrencyEvent>
     {
         [SerializeField] PlayerMutableStatsManager playerMutableStatsManager;
 
@@ -23,22 +23,26 @@ namespace SharedUI.Progression
         [SerializeField] LevelNotify levelNotifyComponent;
         [SerializeField] JournalNotify topicNotifyComponent;
         [SerializeField] JournalNotify entryNotifyComponent;
-        [SerializeField] CurrencyNotify currencyNotifyComponent;
+        [FormerlySerializedAs("currencyNotifyComponent")] [SerializeField]
+        ResourceNotify resourceNotifyComponent;
 
         [Header("Canvas Groups")] [SerializeField]
         CanvasGroup xpNotifyCanvasGroup;
         [SerializeField] CanvasGroup levelNotifyCanvasGroup;
         [SerializeField] CanvasGroup topicNotifyCanvasGroup;
         [SerializeField] CanvasGroup entryNotifyCanvasGroup;
-        [FormerlySerializedAs("currencyAmountText")] [SerializeField]
-        CanvasGroup currencyNotifyCanvasGroup;
+        [FormerlySerializedAs("currencyNotifyCanvasGroup")]
+        [FormerlySerializedAs("currencyAmountText")]
+        [SerializeField]
+        CanvasGroup resourceNotifyCanvasGroup;
 
         [Header("Notification")] [SerializeField]
         GameObject xpNotify;
         [SerializeField] GameObject levelNotify;
         [SerializeField] GameObject topicNotify;
         [SerializeField] GameObject entryNotify;
-        [SerializeField] GameObject currencyNotify;
+        [FormerlySerializedAs("currencyNotify")] [SerializeField]
+        GameObject resourceNotify;
 
         [Header("Feedbacks")] [SerializeField] MMFeedbacks showTopicFeedbacks;
         [SerializeField] MMFeedbacks showEntryFeedbacks;
@@ -55,13 +59,13 @@ namespace SharedUI.Progression
             levelNotifyCanvasGroup.alpha = 0;
             topicNotifyCanvasGroup.alpha = 0;
             entryNotifyCanvasGroup.alpha = 0;
-            currencyNotifyCanvasGroup.alpha = 0;
+            resourceNotifyCanvasGroup.alpha = 0;
 
             xpNotify.SetActive(false);
             levelNotify.SetActive(false);
             topicNotify.SetActive(false);
             entryNotify.SetActive(false);
-            currencyNotify.SetActive(false);
+            resourceNotify.SetActive(false);
         }
 
         void OnEnable()
@@ -69,7 +73,7 @@ namespace SharedUI.Progression
             this.MMEventStartListening<XPEvent>();
             this.MMEventStartListening<LevelingEvent>();
             this.MMEventStartListening<JournalNotificationEvent>();
-            this.MMEventStartListening<CurrencyEvent>();
+            this.MMEventStartListening<ResourceCurrencyEvent>();
         }
 
         void OnDisable()
@@ -77,12 +81,7 @@ namespace SharedUI.Progression
             this.MMEventStopListening<XPEvent>();
             this.MMEventStopListening<LevelingEvent>();
             this.MMEventStopListening<JournalNotificationEvent>();
-            this.MMEventStopListening<CurrencyEvent>();
-        }
-        public void OnMMEvent(CurrencyEvent eventType)
-        {
-            if (eventType.EventType == CurrencyEventType.AddCurrency)
-                ShowCurrencyNotification(eventType.Amount.ToString("F0"));
+            this.MMEventStopListening<ResourceCurrencyEvent>();
         }
 
         public void OnMMEvent(JournalNotificationEvent eventType)
@@ -95,6 +94,11 @@ namespace SharedUI.Progression
         public void OnMMEvent(LevelingEvent eventType)
         {
             if (eventType.EventType == LevelingEventType.LevelUp) ShowLevelUpNotification(eventType.NewLevel);
+        }
+        public void OnMMEvent(ResourceCurrencyEvent eventType)
+        {
+            if (eventType.EventType == ResourceCurrencyEventType.AddResource)
+                ShowCurrencyNotification(eventType.Amount.ToString("F0"));
         }
 
         public void OnMMEvent(XPEvent eventType)
@@ -129,15 +133,15 @@ namespace SharedUI.Progression
 
         IEnumerator ShowCurrencyNotificationCoroutine(string currencyTxt)
         {
-            currencyNotify.SetActive(true);
-            currencyNotifyComponent.SetCurrencyText(currencyTxt);
+            resourceNotify.SetActive(true);
+            resourceNotifyComponent.SetCurrencyText(currencyTxt);
             // fades in tween
-            currencyNotifyCanvasGroup.DOFade(1f, fadeInDuration);
+            resourceNotifyCanvasGroup.DOFade(1f, fadeInDuration);
             yield return new WaitForSeconds(showDuration);
-            currencyNotifyCanvasGroup.DOFade(0f, fadeOutDuration);
+            resourceNotifyCanvasGroup.DOFade(0f, fadeOutDuration);
 
             yield return new WaitForSeconds(fadeOutDuration);
-            currencyNotify.SetActive(false);
+            resourceNotify.SetActive(false);
         }
 
         IEnumerator ShowLevelUpNotificationCoroutine(int newLevel)

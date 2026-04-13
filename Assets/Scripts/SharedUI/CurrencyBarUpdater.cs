@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SharedUI
 {
-    public class CurrencyBarUpdater : MonoBehaviour, MMEventListener<CurrencyEvent>
+    public class CurrencyBarUpdater : MonoBehaviour, MMEventListener<ResourceCurrencyEvent>
     {
         public bool useTextPlaceholder = true;
         public TMP_Text textPlaceholderCurrency;
@@ -30,20 +30,20 @@ namespace SharedUI
             this.MMEventStopListening();
         }
 
-        public void OnMMEvent(CurrencyEvent eventType)
+        public void OnMMEvent(ResourceCurrencyEvent eventType)
         {
             if (useTextPlaceholder)
                 switch (eventType.EventType)
                 {
-                    case CurrencyEventType.AddCurrency:
+                    case ResourceCurrencyEventType.AddResource:
                         _currentCurrency += eventType.Amount;
                         UpdateCurrencyText();
                         break;
-                    case CurrencyEventType.RemoveCurrency:
+                    case ResourceCurrencyEventType.RemoveResource:
                         _currentCurrency = Mathf.Max(0, _currentCurrency - eventType.Amount);
                         UpdateCurrencyText();
                         break;
-                    case CurrencyEventType.SetCurrency:
+                    case ResourceCurrencyEventType.SetCurrency:
                         _currentCurrency = eventType.Amount;
                         UpdateCurrencyText();
                         break;
@@ -51,15 +51,15 @@ namespace SharedUI
             else
                 switch (eventType.EventType)
                 {
-                    case CurrencyEventType.AddCurrency:
+                    case ResourceCurrencyEventType.AddResource:
                         _currentCurrency += eventType.Amount;
                         _bar.UpdateBar(_currentCurrency, 0, _currentCurrency * 2); // Dynamic max for visual effect
                         break;
-                    case CurrencyEventType.RemoveCurrency:
+                    case ResourceCurrencyEventType.RemoveResource:
                         _currentCurrency = Mathf.Max(0, _currentCurrency - eventType.Amount);
                         _bar.UpdateBar(_currentCurrency, 0, _currentCurrency * 2); // Dynamic max for visual effect
                         break;
-                    case CurrencyEventType.SetCurrency:
+                    case ResourceCurrencyEventType.SetCurrency:
                         _currentCurrency = eventType.Amount;
                         _bar.UpdateBar(_currentCurrency, 0, _currentCurrency * 2); // Dynamic max for visual effect
                         break;
@@ -73,7 +73,7 @@ namespace SharedUI
 
         public void Initialize()
         {
-            _currentCurrency = PlayerCurrencyManager.Instance.PlayerDollarAmount;
+            _currentCurrency = PlayerCurrencyManager.Instance.PlayerPrimaryCurrencyAmount;
 
             if (useTextPlaceholder)
                 UpdateCurrencyText();

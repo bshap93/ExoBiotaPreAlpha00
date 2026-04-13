@@ -134,8 +134,8 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
             {
                 getResourceFeedback?.PlayFeedbacks();
 
-                CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, resourceAmount, resourceType);
-                
+                ResourceCurrencyEvent.Trigger(ResourceCurrencyEventType.AddResource, resourceAmount, resourceType);
+
                 ResourceContainerInitStateEvent.Trigger(
                     ResourceContainerStateEventType.SetNewResourceContainerState, resourceType,
                     ResourceContainerManager.ResourceContainerInitializationState.IsDepleted, uniqueID);

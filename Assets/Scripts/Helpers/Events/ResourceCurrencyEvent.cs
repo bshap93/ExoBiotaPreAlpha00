@@ -3,24 +3,24 @@ using MoreMountains.Tools;
 
 namespace Helpers.Events
 {
-    public enum CurrencyEventType
+    public enum ResourceCurrencyEventType
     {
-        AddCurrency,
-        RemoveCurrency,
+        AddResource,
+        RemoveResource,
         SetCurrency
     }
 
-    public struct CurrencyEvent
+    public struct ResourceCurrencyEvent
     {
-        public CurrencyEventType EventType;
+        public ResourceCurrencyEventType EventType;
         public float Amount;
         public ResourceCollectionContainerInteractable.ResourceType CurrencyType;
 
-        public static void Trigger(CurrencyEventType eventType, float amount,
+        public static void Trigger(ResourceCurrencyEventType eventType, float amount,
             ResourceCollectionContainerInteractable.ResourceType currencyType =
                 ResourceCollectionContainerInteractable.ResourceType.Neumat)
         {
-            var currencyEvent = new CurrencyEvent
+            var currencyEvent = new ResourceCurrencyEvent
             {
                 EventType = eventType,
                 Amount = amount,

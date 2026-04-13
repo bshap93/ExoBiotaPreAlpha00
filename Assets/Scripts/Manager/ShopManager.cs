@@ -56,8 +56,8 @@ namespace Manager
             switch (shoppingEvent.EventType)
             {
                 case ShoppingEventType.SoldItem:
-                    CurrencyEvent.Trigger(
-                        CurrencyEventType.AddCurrency,
+                    ResourceCurrencyEvent.Trigger(
+                        ResourceCurrencyEventType.AddResource,
                         shoppingEvent.CurrentItem.normalSellPrice * shoppingEvent.CurrentQuantity);
 
                     // Implement selling logic here  
@@ -75,12 +75,12 @@ namespace Manager
                     sellFeedbacks?.PlayFeedbacks();
                     break;
                 case ShoppingEventType.BoughtItem:
-                    if (PlayerCurrencyManager.Instance.PlayerDollarAmount >= shoppingEvent.CurrentQuantity)
+                    if (PlayerCurrencyManager.Instance.PlayerPrimaryCurrencyAmount >= shoppingEvent.CurrentQuantity)
                     {
-                        CurrencyEvent.Trigger(
-                            CurrencyEventType.RemoveCurrency, shoppingEvent.CurrentQuantity *
-                                                              shoppingEvent.CurrentItem
-                                                                  .normalBuyPrice);
+                        ResourceCurrencyEvent.Trigger(
+                            ResourceCurrencyEventType.RemoveResource, shoppingEvent.CurrentQuantity *
+                                                                      shoppingEvent.CurrentItem
+                                                                          .normalBuyPrice);
 
                         if (_dialogueGameCommands == null)
                             _dialogueGameCommands = FindFirstObjectByType<DialogueGameCommands>();

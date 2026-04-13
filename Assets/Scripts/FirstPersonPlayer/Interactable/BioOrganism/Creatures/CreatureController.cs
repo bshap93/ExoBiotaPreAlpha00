@@ -59,7 +59,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
             FSMOwner fsmOwner;
 
 
-        public string[] uniqueIdOfFriends;
+        [FormerlySerializedAs("uniqueIdOfFriends")]
+        public CreatureController[] creatureFriends;
 
 
         [TitleGroup("Feedbacks", horizontalLine: true)] [Header("Creature Info")] [SerializeField]

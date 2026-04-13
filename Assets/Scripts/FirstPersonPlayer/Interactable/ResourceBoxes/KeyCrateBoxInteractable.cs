@@ -15,6 +15,7 @@ using Objectives.ScriptableObjects;
 using SharedUI.Interface;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities.Interface;
 
 namespace FirstPersonPlayer.Interactable.ResourceBoxes
@@ -22,7 +23,8 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
     public class KeyCrateBoxInteractable : MonoBehaviour, IInteractable, IRequiresUniqueID, IHoverable, IBillboardable
     {
         public string uniqueID;
-        [SerializeField] KeyItemObject keyItem;
+        [SerializeField] bool givesKey;
+        [ShowIf("givesKey")] [SerializeField] KeyItemObject keyItem;
         [SerializeField] float interactionDistance = 3f;
         [SerializeField] Sprite icon;
         [SerializeField] HighlightEffectController effectController;
@@ -46,7 +48,8 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
         public string actionText = "Receive Key Data";
 
 
-        [Header("Feedbacks")] [SerializeField] MMFeedbacks getKeyItemFeedback;
+        [FormerlySerializedAs("getKeyItemFeedback")] [Header("Feedbacks")] [SerializeField]
+        MMFeedbacks getBoxContentsFeedbacks;
         [SerializeField] MMFeedbacks alreadyGotKeyFeedback;
 
         [SerializeField] GameObject holoScreenMesh;
@@ -128,14 +131,16 @@ namespace FirstPersonPlayer.Interactable.ResourceBoxes
             if (!_hasBeenOpened)
 
             {
-                MMInventoryEvent.Trigger(
-                    MMInventoryEventType.Pick, null,
-                    keyItem.TargetInventoryName, keyItem, 1, 0, GlobalInventoryManager.Instance.playerId);
+                if (givesKey)
+                    MMInventoryEvent.Trigger(
+                        MMInventoryEventType.Pick, null,
+                        keyItem.TargetInventoryName, keyItem, 1, 0, GlobalInventoryManager.Instance.playerId);
 
-                getKeyItemFeedback?.PlayFeedbacks();
 
-                if (givesMoney) CurrencyEvent.Trigger(CurrencyEventType.AddCurrency, moneyAmount, resourceType);
+                if (givesMoney)
+                    ResourceCurrencyEvent.Trigger(ResourceCurrencyEventType.AddResource, moneyAmount, resourceType);
 
+                getBoxContentsFeedbacks?.PlayFeedbacks();
                 // PerformObjectiveAction();
                 ResourceContainerInitStateEvent.Trigger(
                     ResourceContainerStateEventType.SetNewResourceContainerState, resourceType,

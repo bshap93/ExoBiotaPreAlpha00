@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Animancer;
 using Dirigible.Input;
@@ -19,6 +20,7 @@ using Overview.NPC;
 using SharedUI.Interface;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace FirstPersonPlayer.FPNPCs.AlienNPC
 {
@@ -237,7 +239,12 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         }
         public void OnMMEvent(AlienNotifyFriendsOfStateEvent eventType)
         {
-            if (uniqueIdOfFriends.Contains(eventType.UniqueID) && eventType.IsHostile) SetState(CurrentState, true);
+            foreach (var creature in creatureFriends)
+                if (creature.uniqueID == eventType.UniqueID)
+                {
+                    SetState(eventType.NewState, eventType.IsHostile, false);
+                    return;
+                }
         }
         static string[] GetNpcIdOptions()
         {
@@ -274,23 +281,30 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
         ///     Central state setter — call this from NodeCanvas FSM state entry
         ///     actions when you're ready to wire those up.
         /// </summary>
-        public void SetState(AlienNPCState newState, bool isHostile)
+        public void SetState(AlienNPCState newState, bool isHostile, bool notifyFriends = true)
         {
             var stateChanged = newState != CurrentState || isHostile != IsHostile;
 
             CurrentState = newState;
             IsHostile = isHostile;
 
-            // Working/stationary states are "custom" from EnemyController's perspective —
-            // this prevents Update() from stomping them with IdleState.
+            // If notify friends is false and this setState is coming from a friendship, 
+            // deal
+
             IsPlayingCustomAnimation = newState == AlienNPCState.Working
                                        || newState == AlienNPCState.InDialogue
                                        || newState == AlienNPCState.FriendlyAndHailable
                                        || newState == AlienNPCState.Idling;
 
 
-            if (stateChanged)
-                AlienNotifyFriendsOfStateEvent.Trigger(uniqueID, isHostile, newState);
+            if (stateChanged && notifyFriends)
+            {
+                // AlienNotifyFriendsOfStateEvent.Trigger(uniqueID, isHostile, newState);
+                // range from 0.3 to 0.9 seconds randomly selected
+                var waitTime = Random.Range(0.3f, 0.9f);
+                Debug.Log("Waiting " + waitTime + " seconds before notifying friends of state change for " + name);
+                StartCoroutine(WaitThenNotifyFriendsOfState(waitTime, newState, isHostile));
+            }
 
 
             if (statesWithFullBodyAnimations.Contains(newState))
@@ -299,6 +313,11 @@ namespace FirstPersonPlayer.FPNPCs.AlienNPC
                 animancerController.PlayWeaponHoldPose(_equippedHoldPose);
 
             animancerController.PlayAnimationsForState(newState);
+        }
+        IEnumerator WaitThenNotifyFriendsOfState(float delay, AlienNPCState newState, bool isHostile)
+        {
+            yield return new WaitForSeconds(delay);
+            AlienNotifyFriendsOfStateEvent.Trigger(uniqueID, isHostile, newState);
         }
 
         void EquipWeapon(EnemyWeaponDefinition weaponDefinition)

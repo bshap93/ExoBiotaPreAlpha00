@@ -343,15 +343,11 @@ namespace FirstPersonPlayer.Interactable
                 if (damageable is CreatureController creatureController && damageableHit.distance <= currentToolRange &&
                     (_creatureControllerCurrentlyInRangeAimed == null ||
                      _creatureControllerCurrentlyInRangeAimed.uniqueID != creatureController.uniqueID))
-                {
                     _creatureControllerCurrentlyInRangeAimed = creatureController;
-                    Debug.Log(creatureController.creatureType.creatureName + " currently aimed at within range.");
-                }
             }
             else if (_creatureControllerCurrentlyInRangeAimed != null)
             {
                 _creatureControllerCurrentlyInRangeAimed = null;
-                Debug.Log("Creature got out of range");
             }
 
 
