@@ -3359,7 +3359,7 @@ MonoBehaviour:
   highlightEffectController: {fileID: 7432845600046818955}
   blackboard: {fileID: 4884309355904347907}
   fsmOwner: {fileID: 3311436234791006107}
-  uniqueIdOfFriends: []
+  creatureFriends: []
   creatureType: {fileID: 11400000, guid: f69a31cb8cb3fb740b124cf55789fb20, type: 2}
   animancerComponent: {fileID: 5610557049203597732}
   initialCreatureInitializationState: 1
@@ -3501,7 +3501,7 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"swingFeedbacks":{"_value":7,"_name":"swingFeedbacks","_id":"fa4ac93f-113f-423c-87cb-d3fbf7617bc2","$type":"NodeCanvas.Framework.Variable`1[[MoreMountains.Feedbacks.MMFeedbacks,
     MoreMountains.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"wasHitHeavy":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.wasHitHeavy","_name":"wasHitHeavy","_id":"96c88b4d-0cce-4c46-b815-0ea1406fd907","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"getHitHeavyAnimationClip":{"_value":8,"_name":"getHitHeavyAnimationClip","_id":"685817fd-3625-4c22-abcc-6f03b8daa30e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AnimationClip,
-    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IsHostile":{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"IsHostile":{"_name":"IsHostile","_id":"d175ed23-fffc-4f99-9493-ac9a36928288","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"isAttacking":{"_name":"isAttacking","_id":"6e1ce85b-88ad-4c10-a46c-3885f6993471","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"personalSpace":{"_value":3.0,"_name":"personalSpace","_id":"c5d83cf2-0c37-4b2e-a191-68f466b33fbe","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"magniumNodeTransform":{"_name":"magniumNodeTransform","_id":"673facd4-f48a-4f6a-97fd-6f862cf6cbcc","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
@@ -3623,7 +3623,7 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 3094330708855449807, guid: 97122988e12a9754e841333bdbbe644b, type: 3}
-  - _json: '{"_propertyPath":"FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature.IsHostile","_name":"IsHostile","_id":"94c09a99-c469-4fdd-87bc-2fd6d3464589","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  - _json: '{"_name":"IsHostile","_id":"d175ed23-fffc-4f99-9493-ac9a36928288","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_name":"isAttacking","_id":"6e1ce85b-88ad-4c10-a46c-3885f6993471","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
@@ -3694,7 +3694,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3252907983223927856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: -629701670
   m_Radius: 0.5
   m_Speed: 1

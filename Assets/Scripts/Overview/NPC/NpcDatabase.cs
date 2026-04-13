@@ -55,7 +55,8 @@ namespace Overview.NPC
                 "WombKeeper", "WombSquire", "OutcastKinMotile", "HospitableFlora", "FloraNimensis",
                 "ElevatorSystemServer01", "MedistatPodServer", "NarratorInnerVoice", "SlaverHylic01",
                 "GuardCharacterHybrid01",
-                "MinerCharacterHybrid01"
+                "MinerCharacterHybrid01",
+                "NeumaticAgent01"
             };
         }
 

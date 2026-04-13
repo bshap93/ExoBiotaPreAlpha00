@@ -47,7 +47,8 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         public string uniqueID;
 
 
-        [Header("Highlighting")] public HighlightProfile extractableInteractable;
+        [Header("Highlighting")] [ShowIf("extractable")]
+        public HighlightProfile extractableInteractable;
         [SerializeField] bool callDeathFeedbacksFromBTree;
         [SerializeField] protected HighlightEffect highlightEffect;
         [SerializeField] protected HighlightEffectController highlightEffectController;
@@ -88,6 +89,7 @@ namespace FirstPersonPlayer.Interactable.BioOrganism.Creatures
         public bool startAsActivated;
         [SerializeField] protected bool isInitiallyHostile;
 
+        [SerializeField] bool extractable = true;
 
         public bool destroyAfterDeath = true;
 

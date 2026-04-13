@@ -13,6 +13,7 @@ namespace Helpers.Events.Gated
         [FormerlySerializedAs("mentalToughness")] [FormerlySerializedAs("MentalToughness")]
         public int toughness;
         [FormerlySerializedAs("Exobiotic")] public int exobiotic;
+        public int willpower;
     }
 
     public struct GatedLevelingEvent

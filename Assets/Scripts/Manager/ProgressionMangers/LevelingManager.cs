@@ -27,6 +27,7 @@ namespace Manager.ProgressionMangers
         public int startingToughness;
         [FormerlySerializedAs("StartingBioticLevel")]
         public int startingBioticLevel;
+        public int startingWillpowerLevel;
     }
 
     public class LevelingManager : MonoBehaviour, ICoreGameService,
@@ -236,13 +237,16 @@ namespace Manager.ProgressionMangers
                 case AttributeType.Exobiotic:
                     attributesManager.Exobiotic += 1;
                     break;
+                case AttributeType.Willpower:
+                    attributesManager.Willpower += 1;
+                    break;
             }
 
             UnspentAttributePoints -= 1;
 
             NotifyAttributesNewlySetEvent.Trigger(
                 attributesManager.Strength, attributesManager.Agility, attributesManager.Dexterity,
-                attributesManager.Exobiotic, attributesManager.Toughness);
+                attributesManager.Exobiotic, attributesManager.Toughness, attributesManager.Willpower);
 
             if (eventType.AttributeType == AttributeType.Toughness)
             {
@@ -292,7 +296,8 @@ namespace Manager.ProgressionMangers
 
             NotifyAttributesNewlySetEvent.Trigger(
                 startingClass.startingStrength, startingClass.startingAgility, startingClass.startingDexterity,
-                startingClass.startingBioticLevel, startingClass.startingToughness);
+                startingClass.startingBioticLevel, startingClass.startingToughness,
+                startingClass.startingWillpowerLevel);
         }
 
 

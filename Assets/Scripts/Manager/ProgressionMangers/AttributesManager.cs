@@ -34,6 +34,8 @@ namespace Manager.ProgressionMangers
         int overrideToughness = 2;
         [ShowIf("overrideAttributesOnLoad")] [SerializeField]
         int overrideExobiotic = 2;
+        [ShowIf("overrideAttributesOnLoad")] [SerializeField]
+        int overrideWillpower = 2;
 
         [SerializeField] float staminaPerAgilityIncrease = 5;
         [FormerlySerializedAs("staminaPerToughnessIncrease")]
@@ -61,6 +63,8 @@ namespace Manager.ProgressionMangers
         int _strength;
 
         int _toughness;
+
+        int _willpower;
 
 
         public int Agility
@@ -113,6 +117,15 @@ namespace Manager.ProgressionMangers
                 MarkDirty();
             }
         }
+        public int Willpower
+        {
+            get => _willpower;
+            set
+            {
+                _willpower = value;
+                MarkDirty();
+            }
+        }
 
 
         public static AttributesManager Instance { get; private set; }
@@ -155,6 +168,7 @@ namespace Manager.ProgressionMangers
             ES3.Save("Dexterity", _dexterity, path);
             ES3.Save("Toughness", _toughness, path);
             ES3.Save("Exobiotic", _exobiotic, path);
+            ES3.Save("Willpower", _willpower, path);
 
 
             _dirty = false;
@@ -168,6 +182,7 @@ namespace Manager.ProgressionMangers
                 _dexterity = overrideDexterity;
                 _toughness = overrideToughness;
                 _exobiotic = overrideExobiotic;
+                _willpower = overrideWillpower;
 
 
                 MarkDirty();
@@ -194,6 +209,9 @@ namespace Manager.ProgressionMangers
 
             if (ES3.KeyExists("Exobiotic", path))
                 _exobiotic = ES3.Load<int>("Exobiotic", path);
+
+            if (ES3.KeyExists("Willpower", path))
+                _willpower = ES3.Load<int>("Willpower", path);
         }
         public void Reset()
         {
@@ -202,6 +220,7 @@ namespace Manager.ProgressionMangers
             _dexterity = 1;
             _toughness = 1;
             _exobiotic = 1;
+            _willpower = 1;
 
 
             MarkDirty();
@@ -252,12 +271,16 @@ namespace Manager.ProgressionMangers
                 if (newAttributeValues.exobiotic > _exobiotic)
                     AttributeLevelUpEvent.Trigger(AttributeType.Exobiotic, newAttributeValues.exobiotic);
 
+                if (newAttributeValues.willpower > _willpower)
+                    AttributeLevelUpEvent.Trigger(AttributeType.Willpower, newAttributeValues.willpower);
+
 
                 Strength = newAttributeValues.strength;
                 Agility = newAttributeValues.agility;
                 Dexterity = newAttributeValues.dexterity;
                 Toughness = newAttributeValues.toughness;
-                _exobiotic = newAttributeValues.exobiotic;
+                Exobiotic = newAttributeValues.exobiotic;
+                Willpower = newAttributeValues.willpower;
 
                 MarkDirty();
             }
@@ -269,6 +292,7 @@ namespace Manager.ProgressionMangers
             Dexterity = eventType.Dexterity;
             Toughness = eventType.Toughness;
             Exobiotic = eventType.BioticLevel;
+            Willpower = eventType.Willpower;
 
             MarkDirty();
         }

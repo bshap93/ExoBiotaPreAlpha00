@@ -7,7 +7,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ScriptableObjects
 {
     [CreateAssetMenu(
         fileName = "EnemyNPCAnimationSet",
-        menuName = "Scriptable Objects/Character/Enemy NPC/Enemy NPC Animation Set",
+        menuName = "Scriptable Objects/Character/Enemy NPC/Creature NPC Animation Set",
         order = 0)]
     public class CreatureAnimationSet : ScriptableObject
     {
@@ -33,7 +33,9 @@ namespace FirstPersonPlayer.Combat.AINPC.ScriptableObjects
         [Tooltip("Played when moving below the walk/run threshold.")]
         [ShowIf("IsHumanoid")]
         public EnemyToolWeaponAnimationSet.ActionClip walkActionClip;
-        [FormerlySerializedAs("runAnimation")] [Tooltip("Played when moving at or above the walk/run threshold.")] [ShowIf("IsHumanoid")]
+        [FormerlySerializedAs("runAnimation")]
+        [Tooltip("Played when moving at or above the walk/run threshold.")]
+        [ShowIf("IsHumanoid")]
         public EnemyToolWeaponAnimationSet.ActionClip runActionClip;
 
         [Header("Humanoid Directional Animations (optional)")]

@@ -129,6 +129,12 @@ namespace Helpers.YarnSpinner
             return AttributesManager.Instance.Exobiotic;
         }
 
+        [YarnFunction("get_willpower")]
+        public static int GetWillpower()
+        {
+            return AttributesManager.Instance.Willpower;
+        }
+
         // Quests
 
         [YarnFunction("has_started_quest")]

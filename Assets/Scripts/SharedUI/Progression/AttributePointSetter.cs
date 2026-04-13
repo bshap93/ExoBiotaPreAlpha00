@@ -15,7 +15,8 @@ namespace SharedUI.Progression
         Agility,
         Dexterity,
         Exobiotic,
-        Toughness
+        Toughness,
+        Willpower
     }
 
     public class AttributePointSetter : MonoBehaviour
