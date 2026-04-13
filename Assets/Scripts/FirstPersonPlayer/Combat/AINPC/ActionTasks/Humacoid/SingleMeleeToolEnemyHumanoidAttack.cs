@@ -24,7 +24,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         bool _inCooldown;
         float _timer;
 
-        EnemyWeaponPrefab _weaponPrefab;
+        EnemyMeleeWeaponPrefab _weaponPrefab;
 
         public BBParameter<string> AttackEntryId;
 
@@ -74,8 +74,9 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
 
             if (entry.shouldFreeWeaponPoseDuringAttack)
                 _animancerAlienController.ClearUpperBody();
-            
+
             _hasAttacked = true;
+            _weaponPrefab.HasHitThisSwing = false; // Reset in case the attack is reused before the hitbox window opens
 
             _animancerAlienController.PlayAttackClip(
                 entry.actionClip,
@@ -93,8 +94,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
         protected override void OnUpdate()
         {
             _timer += Time.deltaTime;
-            
-            
+
 
             if (entry == null) return;
 
@@ -108,6 +108,7 @@ namespace FirstPersonPlayer.Combat.AINPC.ActionTasks.Humacoid
 
             if (_timer >= _beginningOfHitBoxWindow && _timer <= _endOfHitBoxWindow)
             {
+                if (_weaponPrefab.HasHitThisSwing) return;
                 // Hitbox should be active
                 if (!_weaponPrefab.IsHitBoxActive)
                 {

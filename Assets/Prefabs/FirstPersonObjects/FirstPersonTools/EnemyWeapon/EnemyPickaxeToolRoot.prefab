@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.Combat.AINPC.EnemyWeapon.EnemyMeleeWeaponPrefab
   weaponDefinition: {fileID: 11400000, guid: 5526690abf8e913479fde2d56d7e4d0d, type: 2}
-  weaponHitboxCollider: {fileID: 4936158414780863885}
+  hitboxColliderScript: {fileID: 1059111660632856034}
 --- !u!1 &3719350618929068493
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   weaponPrefab: {fileID: 7266299530919309835}
+  weaponHitboxCollider: {fileID: 4936158414780863885}
 --- !u!136 &4936158414780863885
 CapsuleCollider:
   m_ObjectHideFlags: 0
