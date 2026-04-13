@@ -1,6 +1,5 @@
 ﻿using FirstPersonPlayer.Interactable.ResourceBoxes;
 using Manager;
-using MoreMountains.Feedbacks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +12,6 @@ namespace SharedUI.Trade
         [SerializeField] TMP_Text resourceAmtText;
         [SerializeField] TMP_Text resourceUnitsText;
 
-        [SerializeField] MMFeedbacks addResourceFeedback;
-        [SerializeField] MMFeedbacks removeResourceFeedback;
-
-        void OnEnable()
-        {
-        }
 
         public void SetResourceAmountAndType(ResourceCollectionContainerInteractable.ResourceType resourceType,
             string resourceTypeAmount)

@@ -170,7 +170,7 @@ namespace SharedUI.Progression
         IEnumerator ShowResourceNotificationCoroutine(
             ResourceCollectionContainerInteractable.ResourceType eventTypeResourceType, string amountTxt)
         {
-            primaryCurrencyNotify.SetActive(true);
+            resourceNotify.SetActive(true);
             resourceNotifyComponent.SetResourceAmountAndType(eventTypeResourceType, amountTxt);
             resourceNotifyCanvasGroup.DOFade(1f, fadeInDuration);
             yield return new WaitForSeconds(showDuration);
