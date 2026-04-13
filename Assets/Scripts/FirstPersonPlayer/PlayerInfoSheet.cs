@@ -1,8 +1,6 @@
 using Domains.Player.Scripts;
-using Domains.Player.Scripts.ScriptableObjects;
-using ScriptableObjects;
+using OWPData.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace FirstPersonPlayer
 {
@@ -10,11 +8,11 @@ namespace FirstPersonPlayer
     {
         public static int WeightLimit;
 
-        [FormerlySerializedAs("InitialStats")] private CharacterStatProfile initialStats;
-        private static PlayerInfoSheet Instance { get; set; }
+        CharacterStatProfile initialStats;
+        static PlayerInfoSheet Instance { get; set; }
 
 
-        private void Awake()
+        void Awake()
         {
             initialStats = Resources.Load<CharacterStatProfile>(CharacterResourcePaths.CharacterStatProfileFilePath);
             if (Instance != null && Instance != this)
@@ -28,7 +26,7 @@ namespace FirstPersonPlayer
             if (initialStats != null)
                 WeightLimit = initialStats.InitialWeightLimit;
             else
-                UnityEngine.Debug.LogError("CharacterStatProfile not set in PlayerInfoSheet");
+                Debug.LogError("CharacterStatProfile not set in PlayerInfoSheet");
         }
     }
 }

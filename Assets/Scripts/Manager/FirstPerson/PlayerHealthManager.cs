@@ -2,7 +2,7 @@ using Domains.Player.Events;
 using FirstPersonPlayer.UI;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
-using ScriptableObjects;
+using OWPData.ScriptableObjects;
 using UnityEngine;
 
 namespace Domains.Player.Scripts

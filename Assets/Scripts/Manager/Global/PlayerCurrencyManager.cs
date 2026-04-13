@@ -2,7 +2,7 @@
 using Helpers.Events;
 using Helpers.Interfaces;
 using MoreMountains.Tools;
-using ScriptableObjects;
+using OWPData.ScriptableObjects;
 using SharedUI;
 using UnityEngine;
 
@@ -10,7 +10,8 @@ namespace Manager.Global
 {
     public class PlayerCurrencyManager : MonoBehaviour, MMEventListener<ResourceCurrencyEvent>, ICoreGameService
     {
-        const string KeyDollarAmount = "PlayerDollarAmount";
+        const string PrimaryResourceAmount = "PrimaryResourceAmount";
+        const string SecondaryResourceAmount = "SecondaryResourceAmount";
 
         public CurrencyBarUpdater currencyBarUpdater;
 
@@ -19,6 +20,10 @@ namespace Manager.Global
         public ResourceCollectionContainerInteractable.ResourceType primaryCurrencyType;
         public ResourceCollectionContainerInteractable.ResourceType secondaryCurrencyType;
 
+        public float InitialPrimaryCurrencyAmount;
+
+        public float InitialSecondaryCurrencyAmount;
+
         CharacterStatProfile _characterStatProfile;
         bool _dirty;
 
@@ -26,11 +31,7 @@ namespace Manager.Global
         string _savePath;
         public float PlayerPrimaryCurrencyAmount { get; private set; }
 
-        public float InitialPrimaryCurrencyAmount { get; private set; }
-
         public float PlayerSecondaryCurrencyAmount { get; private set; }
-
-        public float InitialSecondaryCurrencyAmount { get; private set; }
 
         // instance 
         public static PlayerCurrencyManager Instance { get; private set; }
@@ -41,8 +42,8 @@ namespace Manager.Global
             {
                 Instance = this;
 
-                if (SaveManager.Instance.saveManagersDontDestroyOnLoad)
-                    DontDestroyOnLoad(gameObject);
+                // if (SaveManager.Instance.saveManagersDontDestroyOnLoad)
+                //     DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -60,7 +61,8 @@ namespace Manager.Global
             if (!ES3.FileExists(_savePath))
             {
                 Debug.Log("[PlayerCurrencyManager] No save file found, forcing initial save...");
-                ResetPlayerCurrency(); // Ensure default values are set
+                ResetPlayerCurrency(primaryCurrencyType); // Ensure default values are set
+                ResetPlayerCurrency(secondaryCurrencyType);
             }
 
             LoadPlayerCurrency();
@@ -94,13 +96,21 @@ namespace Manager.Global
         {
             var saveFilePath = GetSaveFilePath();
             ES3.Save(
-                KeyDollarAmount, PlayerPrimaryCurrencyAmount,
+                PrimaryResourceAmount, PlayerPrimaryCurrencyAmount,
                 saveFilePath);
+
+            ES3.Save(
+                SecondaryResourceAmount, PlayerSecondaryCurrencyAmount,
+                saveFilePath);
+
+            _dirty = false;
         }
 
         public void Load()
         {
             LoadPlayerCurrency();
+
+            _dirty = false;
         }
 
         public void Reset()
@@ -127,7 +137,8 @@ namespace Manager.Global
         public bool HasSavedData()
         {
             return ES3.FileExists(GetSaveFilePath()) &&
-                   ES3.KeyExists(KeyDollarAmount, GetSaveFilePath());
+                   ES3.KeyExists(PrimaryResourceAmount, GetSaveFilePath()) &&
+                   ES3.KeyExists(SecondaryResourceAmount, GetSaveFilePath());
         }
 
         public void OnMMEvent(ResourceCurrencyEvent eventType)
@@ -135,14 +146,14 @@ namespace Manager.Global
             switch (eventType.EventType)
             {
                 case ResourceCurrencyEventType.AddResource:
-                    AddCurrency(eventType.Amount);
+                    AddCurrency(eventType.ResourceType, eventType.Amount);
                     break;
                 case ResourceCurrencyEventType.RemoveResource:
-                    RemoveCurrency(eventType.Amount);
+                    RemoveCurrency(eventType.ResourceType, eventType.Amount);
                     break;
 
                 case ResourceCurrencyEventType.SetCurrency:
-                    SetCurrency(eventType.Amount);
+                    SetCurrency(eventType.ResourceType, eventType.Amount);
                     break;
                 default:
                     Debug.LogWarning($"Unknown CurrencyEventType: {eventType.EventType}");
@@ -157,9 +168,14 @@ namespace Manager.Global
                 SaveManager.Instance.initialCharacterStatProfile;
 
             if (_characterStatProfile != null)
-                InitialPrimaryCurrencyAmount = _characterStatProfile.InitialCurrency;
+            {
+                InitialPrimaryCurrencyAmount = _characterStatProfile.initialPrimaryCurrency;
+                InitialSecondaryCurrencyAmount = _characterStatProfile.initialSecondaryCurrency;
+            }
             else
+            {
                 Debug.LogError("CharacterStatProfile not set in PlayerCurrencyManager");
+            }
 
 
             currencyBarUpdater?.Initialize();
@@ -167,49 +183,64 @@ namespace Manager.Global
             ConditionalSave();
         }
 
-        public void Initialize()
+        public void AddCurrency(ResourceCollectionContainerInteractable.ResourceType resourceType, float amount)
         {
-            ResetPlayerCurrency();
-            currencyBarUpdater?.Initialize();
-        }
+            if (resourceType == primaryCurrencyType)
+                PlayerPrimaryCurrencyAmount += amount;
 
-        public void AddCurrency(float amount)
-        {
-            PlayerPrimaryCurrencyAmount += amount;
-            // Add an event trigger to notify UI and other systems
+            if (resourceType == secondaryCurrencyType)
+                PlayerSecondaryCurrencyAmount += amount;
 
             _dirty = true;
         }
 
-        public void LoseCurrency(float amount)
+        public void RemoveCurrency(ResourceCollectionContainerInteractable.ResourceType resourceType, float amount)
         {
-            if (PlayerPrimaryCurrencyAmount - amount < 0)
-                PlayerPrimaryCurrencyAmount = 0;
-            else
-                PlayerPrimaryCurrencyAmount -= amount;
+            if (resourceType == primaryCurrencyType)
+            {
+                if (PlayerPrimaryCurrencyAmount - amount < 0)
+                {
+                    PlayerPrimaryCurrencyAmount = 0;
+                    AlertEvent.Trigger(
+                        AlertReason.InsufficientFunds,
+                        "You don't have enough funds to complete this action.",
+                        "Insufficient Funds");
+                }
+                else
+                {
+                    PlayerPrimaryCurrencyAmount -= amount;
+                }
+
+                _dirty = true;
+            }
+            else if (resourceType == secondaryCurrencyType)
+            {
+                if (PlayerSecondaryCurrencyAmount - amount < 0)
+                {
+                    PlayerSecondaryCurrencyAmount = 0;
+                    AlertEvent.Trigger(
+                        AlertReason.InsufficientResources,
+                        "You don't have enough resources to complete this action.",
+                        "Insufficient Resources");
+                }
+                else
+                {
+                    PlayerSecondaryCurrencyAmount -= amount;
+                }
+
+                _dirty = true;
+            }
+        }
+
+        public void SetCurrency(ResourceCollectionContainerInteractable.ResourceType resourceType, float amount)
+        {
+            if (resourceType == primaryCurrencyType)
+                PlayerPrimaryCurrencyAmount = amount;
+
+            if (resourceType == secondaryCurrencyType)
+                PlayerSecondaryCurrencyAmount = amount;
 
             _dirty = true;
-        }
-
-        public void RemoveCurrency(float amount)
-        {
-            if (PlayerPrimaryCurrencyAmount - amount < 0)
-            {
-                PlayerPrimaryCurrencyAmount = 0;
-                AlertEvent.Trigger(
-                    AlertReason.InsufficientFunds,
-                    "You don't have enough funds to complete this action.",
-                    "Insufficient Funds");
-            }
-            else
-            {
-                PlayerPrimaryCurrencyAmount -= amount;
-            }
-        }
-
-        public void SetCurrency(float amount)
-        {
-            PlayerPrimaryCurrencyAmount = amount;
         }
 
         static string GetSaveFilePath()
@@ -221,21 +252,26 @@ namespace Manager.Global
         {
             var saveFilePath = GetSaveFilePath();
 
-            if (ES3.FileExists(saveFilePath) && ES3.KeyExists(KeyDollarAmount, saveFilePath))
+            if (ES3.FileExists(saveFilePath) && ES3.KeyExists(PrimaryResourceAmount, saveFilePath))
             {
-                PlayerPrimaryCurrencyAmount = ES3.Load<float>(KeyDollarAmount, saveFilePath);
+                PlayerPrimaryCurrencyAmount = ES3.Load<float>(PrimaryResourceAmount, saveFilePath);
                 if (currencyBarUpdater != null)
                     currencyBarUpdater.Initialize();
             }
             else
             {
-                ResetPlayerCurrency();
+                ResetPlayerCurrency(primaryCurrencyType);
                 if (currencyBarUpdater != null)
                     currencyBarUpdater.Initialize();
             }
+
+            if (ES3.FileExists(saveFilePath) && ES3.KeyExists(SecondaryResourceAmount, saveFilePath))
+                PlayerSecondaryCurrencyAmount = ES3.Load<float>(SecondaryResourceAmount, saveFilePath);
+            else
+                ResetPlayerCurrency(secondaryCurrencyType);
         }
 
-        public void ResetPlayerCurrency()
+        public void ResetPlayerCurrency(ResourceCollectionContainerInteractable.ResourceType resourceType)
         {
             var characterStatProfile =
                 SaveManager.Instance.initialCharacterStatProfile;
@@ -247,7 +283,7 @@ namespace Manager.Global
             }
             else
             {
-                PlayerPrimaryCurrencyAmount = characterStatProfile.InitialCurrency;
+                PlayerPrimaryCurrencyAmount = characterStatProfile.initialPrimaryCurrency;
             }
         }
     }

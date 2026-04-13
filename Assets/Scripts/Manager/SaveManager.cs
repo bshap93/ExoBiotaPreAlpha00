@@ -19,7 +19,7 @@ using Manager.UI;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using Objectives;
-using ScriptableObjects;
+using OWPData.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -48,5 +48,6 @@ namespace Helpers.ScriptableObjects.IconRepositories
         public Sprite getResourceAction;
         public Sprite neumatIcon;
         public Sprite scrapIcon;
+        public Sprite resourceIcon;
     }
 }

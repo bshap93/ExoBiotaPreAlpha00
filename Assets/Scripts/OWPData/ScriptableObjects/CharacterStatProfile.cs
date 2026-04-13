@@ -2,9 +2,10 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace ScriptableObjects
+namespace OWPData.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "CharacterStatProfile",
+    [CreateAssetMenu(
+        fileName = "CharacterStatProfile",
         menuName = "Scriptable Objects/Character/Character Stat Profile")]
     public class CharacterStatProfile : ScriptableObject
     {
@@ -16,7 +17,12 @@ namespace ScriptableObjects
         public Color initialUpgradeColor;
 
         [Header("Inventory Stats")] public int InitialWeightLimit;
-        [Header("Currency Stats")] public int InitialCurrency;
+        [FormerlySerializedAs("InitialPrimaryCurrency")]
+        [FormerlySerializedAs("InitialCurrency")]
+        [Header("Currency Stats")]
+        public float initialPrimaryCurrency;
+        [FormerlySerializedAs("InitialSecondaryCurrency")]
+        public float initialSecondaryCurrency;
 
 
         [Header("Skip Tutorial")] public bool SkipTutorial;

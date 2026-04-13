@@ -70,7 +70,8 @@ namespace Helpers.Events
         HealtMaxIncrease,
         HotbarFull,
         AutoSave,
-        RangedWeaponInUse
+        RangedWeaponInUse,
+        InsufficientResources
     }
 
     [Serializable]

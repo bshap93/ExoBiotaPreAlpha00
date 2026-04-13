@@ -14,7 +14,7 @@ namespace Helpers.Events
     {
         public ResourceCurrencyEventType EventType;
         public float Amount;
-        public ResourceCollectionContainerInteractable.ResourceType CurrencyType;
+        public ResourceCollectionContainerInteractable.ResourceType ResourceType;
 
         public static void Trigger(ResourceCurrencyEventType eventType, float amount,
             ResourceCollectionContainerInteractable.ResourceType currencyType =
@@ -24,7 +24,7 @@ namespace Helpers.Events
             {
                 EventType = eventType,
                 Amount = amount,
-                CurrencyType = currencyType
+                ResourceType = currencyType
             };
 
             MMEventManager.TriggerEvent(currencyEvent);

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using FirstPersonPlayer.Interactable.ResourceBoxes;
 using Helpers.Events;
 using Helpers.Events.Journal;
 using Helpers.Events.Progression;
 using Manager;
+using Manager.Global;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using SharedUI.Trade;
@@ -16,33 +18,41 @@ namespace SharedUI.Progression
         MMEventListener<LevelingEvent>,
         MMEventListener<JournalNotificationEvent>, MMEventListener<ResourceCurrencyEvent>
     {
-        [SerializeField] PlayerMutableStatsManager playerMutableStatsManager;
+        [Header("references")] [SerializeField]
+        PlayerMutableStatsManager playerMutableStatsManager;
+        [SerializeField] PlayerCurrencyManager playerCurrencyManager;
+
 
         [Header("Component Classes")] [SerializeField]
         XPNotify xpNotifyComponent;
         [SerializeField] LevelNotify levelNotifyComponent;
         [SerializeField] JournalNotify topicNotifyComponent;
         [SerializeField] JournalNotify entryNotifyComponent;
-        [FormerlySerializedAs("currencyNotifyComponent")] [SerializeField]
-        ResourceNotify resourceNotifyComponent;
+        [FormerlySerializedAs("currencyNotifyComponent")]
+        [FormerlySerializedAs("resourceNotifyComponent")]
+        [SerializeField]
+        PrimaryCurrencyNotify primaryCurrencyNotifyComponent;
+        [SerializeField] ResourceNotify resourceNotifyComponent;
 
         [Header("Canvas Groups")] [SerializeField]
         CanvasGroup xpNotifyCanvasGroup;
         [SerializeField] CanvasGroup levelNotifyCanvasGroup;
         [SerializeField] CanvasGroup topicNotifyCanvasGroup;
         [SerializeField] CanvasGroup entryNotifyCanvasGroup;
-        [FormerlySerializedAs("currencyNotifyCanvasGroup")]
+        [FormerlySerializedAs("resourceNotifyCanvasGroup")]
         [FormerlySerializedAs("currencyAmountText")]
         [SerializeField]
-        CanvasGroup resourceNotifyCanvasGroup;
+        CanvasGroup currencyNotifyCanvasGroup;
+        [SerializeField] CanvasGroup resourceNotifyCanvasGroup;
 
         [Header("Notification")] [SerializeField]
         GameObject xpNotify;
         [SerializeField] GameObject levelNotify;
         [SerializeField] GameObject topicNotify;
         [SerializeField] GameObject entryNotify;
-        [FormerlySerializedAs("currencyNotify")] [SerializeField]
-        GameObject resourceNotify;
+        [FormerlySerializedAs("currencyNotify")] [FormerlySerializedAs("resourceNotify")] [SerializeField]
+        GameObject primaryCurrencyNotify;
+        [SerializeField] GameObject resourceNotify;
 
         [Header("Feedbacks")] [SerializeField] MMFeedbacks showTopicFeedbacks;
         [SerializeField] MMFeedbacks showEntryFeedbacks;
@@ -59,12 +69,14 @@ namespace SharedUI.Progression
             levelNotifyCanvasGroup.alpha = 0;
             topicNotifyCanvasGroup.alpha = 0;
             entryNotifyCanvasGroup.alpha = 0;
+            currencyNotifyCanvasGroup.alpha = 0;
             resourceNotifyCanvasGroup.alpha = 0;
 
             xpNotify.SetActive(false);
             levelNotify.SetActive(false);
             topicNotify.SetActive(false);
             entryNotify.SetActive(false);
+            primaryCurrencyNotify.SetActive(false);
             resourceNotify.SetActive(false);
         }
 
@@ -98,13 +110,24 @@ namespace SharedUI.Progression
         public void OnMMEvent(ResourceCurrencyEvent eventType)
         {
             if (eventType.EventType == ResourceCurrencyEventType.AddResource)
-                ShowCurrencyNotification(eventType.Amount.ToString("F0"));
+            {
+                if (eventType.ResourceType == playerCurrencyManager.primaryCurrencyType)
+                    ShowCurrencyNotification(eventType.Amount.ToString("F0"));
+                else if (eventType.ResourceType == playerCurrencyManager.secondaryCurrencyType)
+                    ShowResourceNotification(eventType.ResourceType, eventType.Amount.ToString("F0"));
+            }
         }
 
         public void OnMMEvent(XPEvent eventType)
         {
             if (eventType.EventType == XPEventType.AwardXPToPlayer) ShowXPNotification(eventType.Amount);
         }
+        void ShowResourceNotification(ResourceCollectionContainerInteractable.ResourceType eventTypeResourceType,
+            string toString)
+        {
+            StartCoroutine(ShowResourceNotificationCoroutine(eventTypeResourceType, toString));
+        }
+
 
         void ShowXPNotification(int amount)
         {
@@ -133,9 +156,22 @@ namespace SharedUI.Progression
 
         IEnumerator ShowCurrencyNotificationCoroutine(string currencyTxt)
         {
-            resourceNotify.SetActive(true);
-            resourceNotifyComponent.SetCurrencyText(currencyTxt);
+            primaryCurrencyNotify.SetActive(true);
+            primaryCurrencyNotifyComponent.SetPrimaryCurrencyAmountText(currencyTxt);
             // fades in tween
+            currencyNotifyCanvasGroup.DOFade(1f, fadeInDuration);
+            yield return new WaitForSeconds(showDuration);
+            currencyNotifyCanvasGroup.DOFade(0f, fadeOutDuration);
+
+            yield return new WaitForSeconds(fadeOutDuration);
+            primaryCurrencyNotify.SetActive(false);
+        }
+
+        IEnumerator ShowResourceNotificationCoroutine(
+            ResourceCollectionContainerInteractable.ResourceType eventTypeResourceType, string amountTxt)
+        {
+            primaryCurrencyNotify.SetActive(true);
+            resourceNotifyComponent.SetResourceAmountAndType(eventTypeResourceType, amountTxt);
             resourceNotifyCanvasGroup.DOFade(1f, fadeInDuration);
             yield return new WaitForSeconds(showDuration);
             resourceNotifyCanvasGroup.DOFade(0f, fadeOutDuration);
