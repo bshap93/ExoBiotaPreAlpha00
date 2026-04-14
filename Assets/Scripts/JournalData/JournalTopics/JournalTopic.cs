@@ -10,7 +10,7 @@ namespace JournalData.JournalTopics
     public enum JournalTopicType
     {
         Character,
-        Narrative,
+        Scenario,
         Location
     }
 

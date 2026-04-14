@@ -312,7 +312,7 @@ namespace Helpers.YarnSpinner
 
         void TriggerPlayerIncrementAttribute(int attributeId)
         {
-            if (attributeId < 0 || attributeId > 4)
+            if (attributeId < 0 || attributeId > 5)
             {
                 Debug.LogWarning($"Invalid AttributeType id: {attributeId}");
                 return;

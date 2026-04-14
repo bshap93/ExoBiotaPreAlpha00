@@ -40,7 +40,7 @@ namespace SharedUI.Journal.Journal.IGUI.Entries
                     else categoryNameText.color = defaultCategoryTextColor;
 
                     break;
-                case JournalTopicType.Narrative:
+                case JournalTopicType.Scenario:
                     categoryNameText.text = "Narrative";
                     if (categoryTextColors.Length > 0)
                         categoryNameText.color = categoryTextColors[0];

@@ -1,4 +1,5 @@
 ﻿using FirstPersonPlayer.FPNPCs;
+using Helpers.Exceptions;
 using Inventory;
 using Manager;
 using Manager.ProgressionMangers;
@@ -133,6 +134,28 @@ namespace Helpers.YarnSpinner
         public static int GetWillpower()
         {
             return AttributesManager.Instance.Willpower;
+        }
+
+        // Scenarios
+
+        [YarnFunction("get_scenario_flag_value")]
+        public static bool GetScenarioFlagValue(string scenarioID, string flagName)
+        {
+            var scenarioManager = ScenarioManager.Instance;
+            if (scenarioManager != null)
+                return scenarioManager.GetBooleanFlagValue(scenarioID, flagName);
+
+            throw new ValueNotFoundException();
+        }
+
+        [YarnFunction("get_scenario_counter_value")]
+        public static int GetScenarioCounterValue(string scenarioID, string counterName)
+        {
+            var scenarioManager = ScenarioManager.Instance;
+            if (scenarioManager != null)
+                return scenarioManager.GetIntCounter(scenarioID, counterName);
+
+            throw new ValueNotFoundException();
         }
 
         // Quests
