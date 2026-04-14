@@ -225,7 +225,7 @@ namespace Manager.PlayerDataManagers
         {
             var entries = new List<JournalEntry>();
             if (topicID == null) return entries;
-            var topicInstance = _topicInstances[topicID];
+            var topicInstance = _topicInstances.TryGetValue(topicID, out var instance) ? instance : null;
             if (topicInstance != null)
                 foreach (var topicEntryID in topicInstance.aquiredJournalEntryUniqueIds)
                 {

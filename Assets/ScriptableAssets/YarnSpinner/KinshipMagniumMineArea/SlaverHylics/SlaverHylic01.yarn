@@ -1,0 +1,119 @@
+title: SlaverHylic01Interaction
+---
+Hylic Slaver: Halt! You are approaching a restricted mining area, hearth of our matriarch. State your purpose.
+<<make_contact_with_npc "SlaverHylic01">>
+-> I'm here to rescue a Hybrid named Ala'an. Do you know him?
+    <<jump YouClaimToBeRescuingAlaan>>
+// -> I'm here to relinquish my freedom and become a slave.
+//     <<jump YouClaimedToBeSumbittingForThralldom>>
+-> I need to talk to the leader of your operation, whoever she is.
+    <<jump SlaverThatDepends_Cont>>
+===
+
+title: SlaverThatDepends_Cont
+---
+Hylic Slaver: She doesn't speak with your kind except through us Hylics, and only then, when she commands us to make some change to working priorities.
+Hylic Slaver: Why are you here? Do you grow tired of tired of self-determination and wish to serve as thrall to our lord mother?
+<<jump SlaverThatDepends_Cont_QS>>
+===
+
+title: SlaverThatDepends_Cont_QS
+---
+// -> Yes! I wish to be enslaved and to work in the mines of your master.
+//     <<jump YouClaimedToBeSumbittingForThralldom>>
+-> I'm here to rescue a Hybrid named Ala'an. Do you know him?
+    <<jump YouClaimToBeRescuingAlaan>>
+-> I'm here to buy a slave. I heard you have the best selection in Midsheol.
+    <<jump DiscussPretendingToBeBuyingSlave>>
+-> [Leave]
+===
+
+title: DiscussPretendingToBeBuyingSlave
+---
+Hylic Slaver: Is that so? This is highly irregular for a human. We do not advertise to humans.
+Hylic Slaver: You say you 'heard' about us? This is impossible. We do not communicate through audible noises as do you humans.
+Hylic Slaver: A figure of speech, then? Fine, my master wouldn't have me turn away a customer. Just show me a Neumat balance of more than 500 PN.
+<<if get_neumat_balance() >= 500>>
+    -> [Success] Here, take a look. (Required: 500PN)
+        Hylic Slaver: Ok, I'll signal the gate keeper to let you through.
+<<else>>
+    -> I don't have that much.
+        Hylic Slaver: You won't be buying any slaves, then. Leave us now. Leave the grounds of this mine now and we won't have a problem. 
+<<endif>>
+===
+
+title: WishToSubmitToMatriarchForSlavery
+---
+-> No, uh, I don't. I come at the request of The Diplomat, your fellow Hylic. I am only here for the Hybrid named Ala'an.
+    <<jump YouClaimToBeRescuingAlaan>>
+-> Exactly yes, I've come to submit to your master for thralldom. 
+    <<jump YouClaimedToBeSumbittingForThralldom>>
+===
+
+title: YouClaimedToBeSumbittingForThralldom
+---
+Hylic Slaver: This is irregular. I would not stop you, however, if you indeed wish to be thrall to my master.
+-> Ok, then. What now? 
+Hylic Slaver: You'll have to talk to the supervisor. He'll likely grant you your wish, with our master's approval.
+-> And where are they?
+    Hylic Slaver: The mine of course, to the southwest. The one where you wish to work as a thrall.
+-> I'll head there.
+===
+
+title: YouClaimToBeRescuingAlaan
+---
+Hylic Slaver: You're here to rescue one of my master's thralls? That is absurd.
+Hylic Slaver: Suddenly a Human cares about one of its abandoned, tainted cross-breeds? No. You're here on behalf of another's behalf.
+Hylic Slaver: For whom are you doing this? What is this Ala'an to you?
+<<jump YouClaimToBeRescuingAlaan_QS2>>
+===
+
+title: YouClaimToBeRescuingAlaan_QS1
+---
+-> Are you not also an outcast? You speak as though pledging yourself to your Matriarch changes that. (Suggested Willpower: 3)
+    <<if get_willpower() < 3>>
+        Hylic Slaver: How dare you? Our Zyt is good and just. You will leave us.
+    <<else>>
+        <<jump SlaverHy01_Passed_Check_WP_01>>
+    <<endif>>
+-> But I do trust it. It seems to be trying to do right by all in Midsheol. 
+    Hylic Slaver: I'm sure it thinks that it is. I warn you, you do not understand our ways, and this 'Diplomat' courts trouble.
+    -> Still, I think I want to at least try to help him and Ala'an.
+        Hylic Slaver: I'm just an enforcer. I do not decide what thralls may come or go.
+        Hylic Slaver: If you must, speak with the Supervisor. I cannot see how it would allow what you ask.
+-> [Leave]
+===
+
+title: YouClaimToBeRescuingAlaan_QS2
+---
+-> I do care about the Hybrids! That is why I'm here. That is all I'll say. (Suggested Willpower: 3)
+    <<if get_willpower() < 3>>
+        Hylic Slaver: Bah! You won't tell me why? I have no more to say.
+        <<jump YouClaimToBeRescuingAlaan_QS2>>
+    <<else>>
+        <<jump SlaverHy01_Passed_Check_WP_01>>
+    <<endif>>
+-> I'm here to help the Diplomat of Midsheol. Ala'an is to represent the fallen tribes in a diplomatic delegation.
+    Hylic Slaver: The Diplomat you speak of is known to us. That one adopts no master. Our lady mother warns us about that one.
+    Hylic Slaver: You should not trust it either. Am I to take it that you are in league with this traitor?
+    <<jump SlaverHy01_Passed_Check_WP_02>>
+-> [Leave]
+===
+
+title: SlaverHy01_Passed_Check_WP_01
+---
+Hylic Slaver: You make sense, human, much as I find solace in this parapolity, I'll listen carefully to what you have to say.
+    -> Let me speak with your Matriarch. Let her make up her own mind.
+        Hylic Slaver: That seems to me acceptable. I will signal to the gatekeeper to expect and admit you.
+        <<set_scenario_flag_value "MineRescueAlaanScenario" "Slaver01GrantsEntryToMine" true>>
+    -> I would have you bring Ala'an here to work as do these two outside the gate. Then, if he would follow where I lead, him and I would leave.
+        Hylic Slaver: I cannot allow this. I thought you were going to talk sense.
+        <<jump SlaverHy01_Passed_Check_WP_01>>
+    -> [Leave]
+===
+
+title: SlaverHy01_Passed_Check_WP_02
+---
+Hylic Slaver: [Passed] Ok, so be it. I doubt you'll have any luck getting a thrall freed, but you seem sincere. I'll signal the gate guard to admit you.
+<<set_scenario_flag_value "MineRescueAlaanScenario" "Slaver01GrantsEntryToMine" true>>
+===

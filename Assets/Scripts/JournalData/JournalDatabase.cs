@@ -28,6 +28,15 @@ namespace JournalData
             BuildLookup();
         }
 
+
+        void ValidateNoDuplicateIDs()
+        {
+            var seenTopics = new HashSet<string>();
+            foreach (var t in topics)
+                if (t != null && !seenTopics.Add(t.UniqueID))
+                    Debug.LogError($"Duplicate topic UniqueID: {t.UniqueID}");
+        }
+
         [Button("Auto-Populate From Resources", ButtonSizes.Large)]
         void AutoPopulateFromResources()
         {

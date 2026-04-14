@@ -6,6 +6,7 @@ using Helpers.Events.ManagerEvents;
 using Helpers.Events.NPCs;
 using Helpers.Events.PlayerData;
 using Helpers.Events.Progression;
+using Helpers.Events.Progression.Scenario;
 using Helpers.Events.Status;
 using Helpers.Events.Terminals;
 using Helpers.Events.Triggering;
@@ -153,6 +154,19 @@ namespace Helpers.YarnSpinner
 
             dialogueRunner.AddCommandHandler<string>(
                 "trigger_aquire_journal_entry", TriggerAquireJournalEntry);
+
+            // scenario methods
+            dialogueRunner.AddCommandHandler<string, string, bool>(
+                "set_scenario_flag_value", SetScenarioFlagValue);
+
+            dialogueRunner.AddCommandHandler<string, string, int>(
+                "set_scenario_counter_value", SetScenarioCounterValue);
+
+            dialogueRunner.AddCommandHandler<string, string>(
+                "increment_scenario_counter_value", IncrementScenarioCounterValue);
+
+            dialogueRunner.AddCommandHandler<string, string>(
+                "decrement_scenario_counter_value", DecrementScenarioCounterValue);
         }
 
         // The method that gets called when '<<camera_look>>' is run.
@@ -238,6 +252,32 @@ namespace Helpers.YarnSpinner
         {
             QuestEvent.Trigger(questId, QuestEvent.QuestEventType.Completed);
         }
+
+        // Scenario Commands
+        void SetScenarioFlagValue(string scenarioID, string flagName, bool value)
+        {
+            ScenarioBoolValueEvent.Trigger(scenarioID, flagName, value);
+        }
+
+        void SetScenarioCounterValue(string scenarioID, string counterName, int value)
+        {
+            ScenarioIntValueEvent.Trigger(
+                ScenarioIntValueEvent.ScenarioDataEventType.SetValue, scenarioID, counterName, value);
+        }
+
+        void IncrementScenarioCounterValue(string scenarioID, string counterName)
+        {
+            ScenarioIntValueEvent.Trigger(
+                ScenarioIntValueEvent.ScenarioDataEventType.IncrementValue, scenarioID, counterName, 1);
+        }
+
+        void DecrementScenarioCounterValue(string scenarioID, string counterName)
+        {
+            ScenarioIntValueEvent.Trigger(
+                ScenarioIntValueEvent.ScenarioDataEventType.DecrementValue, scenarioID, counterName, 1);
+        }
+
+        // Healing
 
         void HealPlayer(int amount)
         {

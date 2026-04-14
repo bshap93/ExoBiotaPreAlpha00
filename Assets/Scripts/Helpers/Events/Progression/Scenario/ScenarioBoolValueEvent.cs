@@ -10,7 +10,7 @@ namespace Helpers.Events.Progression.Scenario
         public string KeyId;
         public bool Value;
 
-        public void Trigger(string scenarioUniqueID, string keyId, bool value)
+        public static void Trigger(string scenarioUniqueID, string keyId, bool value)
         {
             _e.ScenarioUniqueID = scenarioUniqueID;
             _e.KeyId = keyId;

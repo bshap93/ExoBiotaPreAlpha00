@@ -2,6 +2,7 @@
 using Helpers.Exceptions;
 using Inventory;
 using Manager;
+using Manager.Global;
 using Manager.ProgressionMangers;
 using Manager.SceneManagers;
 using Manager.StateManager;
@@ -96,6 +97,28 @@ namespace Helpers.YarnSpinner
             return 0;
         }
 
+        // Trade Resources
+
+        [YarnFunction("get_neumat_balance")]
+        public static float GetNeumatBalance()
+        {
+            if (PlayerCurrencyManager.Instance != null)
+                return PlayerCurrencyManager.Instance.PlayerPrimaryCurrencyAmount;
+
+            Debug.LogError("PlayerCurrencyManager instance is null. Returning 0 for neumat balance.");
+            return 0;
+        }
+
+        [YarnFunction("get_secondary_balance")]
+        public static float GetSecondaryBalance()
+        {
+            if (PlayerCurrencyManager.Instance != null)
+                return PlayerCurrencyManager.Instance.PlayerSecondaryCurrencyAmount;
+
+            Debug.LogError("PlayerCurrencyManager instance is null. Returning 0 for secondary balance.");
+            return 0;
+        }
+
         // Attribute Getters
 
         [YarnFunction("get_dexterity")]
@@ -154,6 +177,16 @@ namespace Helpers.YarnSpinner
             var scenarioManager = ScenarioManager.Instance;
             if (scenarioManager != null)
                 return scenarioManager.GetIntCounter(scenarioID, counterName);
+
+            throw new ValueNotFoundException();
+        }
+
+        [YarnFunction("get_scenario_active")]
+        public static bool GetScenarioActive(string scenarioID)
+        {
+            var scenarioManager = ScenarioManager.Instance;
+            if (scenarioManager != null)
+                return scenarioManager.IsScenarioActive(scenarioID);
 
             throw new ValueNotFoundException();
         }

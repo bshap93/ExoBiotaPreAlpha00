@@ -207,5 +207,13 @@ namespace Manager.StateManager
 
             return instance.BooleanFlagValuesDict[flagKeyValue];
         }
+        public bool IsScenarioActive(string scenarioID)
+        {
+            foreach (var scenario in _scenarioInstances)
+                if (scenario.Key == scenarioID)
+                    return true;
+
+            return false;
+        }
     }
 }

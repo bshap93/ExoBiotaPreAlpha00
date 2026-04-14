@@ -1,5 +1,4 @@
 ﻿using System;
-using JournalData.JournalEntries;
 using UnityEditor;
 using UnityEngine;
 using Utilities.Interface;
@@ -25,7 +24,6 @@ namespace JournalData.JournalTopics
     {
         public string uniqueID;
         public string journalTopicName;
-        public JournalEntry[] associatedEntries;
         public JournalTopicType topicType;
         public ExobiotaArea associatedArea;
 
