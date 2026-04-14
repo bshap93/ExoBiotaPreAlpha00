@@ -51,6 +51,10 @@ title: ExplainAttributes
     Meta Terminal: Your Max Vitality is increased, and you are less susceptible to status effects like staggering or poison.
     Meta Terminal: Your bones can withstand further falls without breaking and your skin is thicker, so it's harder for enemies to make you bleed.
     <<jump ExplainAttributes>>
+-> Explain Willpower
+    Meta Terminal: Your measure in contests of will against sapient species whom you engage in telepathic dialogue.
+    Meta Terminal: Because your 'changes' included the removal of your vocal cords , the main factor in your persuasiveness is not charm but willpower.
+    <<jump ExplainAttributes>>
 -> Explain Intelligence/Biotic Strength
     Meta Terminal: Your exobiotic abilities are stronger, use less contamination, and with fewer ill effects.
     Meta Terminal: You must have this at certain level to use certain Biotic abilities. 
@@ -81,6 +85,9 @@ Meta Terminal: Choose one of the following attributes to level:
 <<declare $currentToughness = 0>>
 <<declare $newToughness = 0>>
 <<set $currentToughness = get_toughness()>>
+<<declare $currentWillpower = 0>>
+<<declare $newWillpower = 0>>
+<<set $currentWillpower = get_toughness()>>
 <<declare $currentBiotic = 0>>
 <<declare $newBiotic = 0>>
 <<set $currentBiotic = get_biotic_level()>>
@@ -131,6 +138,19 @@ Meta Terminal: Choose one of the following attributes to level:
         <<wait 2>>
         <<set $newToughness = get_toughness()>>
         <<if $newToughness == $currentToughness + 1>>
+            Meta Terminal: Success
+        <<else>>
+            Meta Terminal: Failure
+        <<endif>>
+    -> No
+-> Willpower from {$currentWillpower} to {$currentWillpower + 1}
+    Meta Terminal: Are you sure?
+    -> Yes
+        Meta Terminal: Incrementing your willpower points now.
+        <<trigger_player_increment_attribute 5>>
+        <<wait 2>>
+        <<set $newWillpower = get_willpower()>>
+        <<if $newWillpower == $currentWillpower + 1>>
             Meta Terminal: Success
         <<else>>
             Meta Terminal: Failure
