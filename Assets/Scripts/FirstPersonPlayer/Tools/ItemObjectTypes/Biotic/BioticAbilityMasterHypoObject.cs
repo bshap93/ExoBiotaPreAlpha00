@@ -1,4 +1,5 @@
-﻿using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
+﻿using FirstPersonPlayer.Tools.ItemObjectTypes.Biotic;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
 using UnityEngine;
 
 namespace FirstPersonPlayer.Tools.ItemObjectTypes

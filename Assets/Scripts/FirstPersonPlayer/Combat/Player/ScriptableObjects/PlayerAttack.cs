@@ -59,6 +59,13 @@ namespace FirstPersonPlayer.Combat.Player.ScriptableObjects
         [ShowIf("causesStagger")] [Range(0f, 1f)]
         public float chanceToCauseStagger;
 
+        [Header("Corrosion Effect Properties")]
+        public bool causesCorrosion;
+        // Is not as fast if enemy is corrosive resistant
+        [ShowIf("causesCorrosion")] public float baseCorrosionDuration;
+        [ShowIf("causesCorrosion")] public float baseDamagePerSecond;
+
+
         [Header("Effect on Player Character Controller")]
         public bool playerMovesWithAttack;
         [ShowIf("playerMovesWithAttack")] public float movementAmount;

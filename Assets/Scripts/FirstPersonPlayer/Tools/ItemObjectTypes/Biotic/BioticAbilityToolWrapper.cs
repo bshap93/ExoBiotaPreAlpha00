@@ -3,7 +3,7 @@ using FirstPersonPlayer.Tools.ItemObjectTypes.Tools;
 using MoreMountains.InventoryEngine;
 using UnityEngine;
 
-namespace FirstPersonPlayer.Tools.ItemObjectTypes
+namespace FirstPersonPlayer.Tools.ItemObjectTypes.Biotic
 {
     [CreateAssetMenu(
         fileName = "BioticAbilityToolWrapper", menuName = "Scriptable Objects/Items/BioticAbilityToolWrapper",

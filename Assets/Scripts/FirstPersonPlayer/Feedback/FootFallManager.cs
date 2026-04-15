@@ -93,13 +93,15 @@ namespace FirstPersonPlayer.Feedback
 
             if (groundInfo.tag == "Untagged")
                 defaultFootstepFeedbacks?.PlayFeedbacks();
+            else if (groundInfo.tag == "RockFloor")
+                rockFootstepFeedbacks?.PlayFeedbacks();
             else if (groundInfo.tag == "Water")
                 waterFootstepFeedbacks?.PlayFeedbacks();
             else if (groundInfo.tag == "FloorBigHall")
                 footstepsBigHall?.PlayFeedbacks();
             else if (groundInfo.tag == "WoodSurface")
                 woodFootstepFeedbacks?.PlayFeedbacks();
-            else if (groundInfo.tag == "TileFloor") 
+            else if (groundInfo.tag == "TileFloor")
                 footstepsTileFloor?.PlayFeedbacks();
             else if (groundInfo.tag == "MetalPlatform")
                 footstepsMetalPlatform?.PlayFeedbacks();

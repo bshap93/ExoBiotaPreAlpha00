@@ -1,6 +1,7 @@
 ﻿using System;
 using FirstPersonPlayer.Combat.AINPC.ScriptableObjects;
 using FirstPersonPlayer.ScriptableObjects;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Biotic;
 using Helpers.Events;
 using Sirenix.OdinInspector;
 using UnityEngine;

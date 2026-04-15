@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Biotic;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
 using TMPro;

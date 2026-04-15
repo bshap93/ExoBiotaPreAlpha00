@@ -1,4 +1,4 @@
-﻿using FirstPersonPlayer.Tools.ItemObjectTypes;
+﻿using FirstPersonPlayer.Tools.ItemObjectTypes.Biotic;
 using MoreMountains.Tools;
 
 namespace Helpers.Events.Feedback

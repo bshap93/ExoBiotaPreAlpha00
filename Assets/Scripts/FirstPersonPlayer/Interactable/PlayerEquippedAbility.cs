@@ -6,7 +6,7 @@ using FirstPersonPlayer.InputHandling;
 using FirstPersonPlayer.ScriptableObjects.BioticAbility;
 using FirstPersonPlayer.Tools;
 using FirstPersonPlayer.Tools.Interface;
-using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Biotic;
 using FirstPersonPlayer.UI.ProgressBars;
 using Helpers.AnimancerHelper;
 using Helpers.AnimancerHelper.Helpers.AnimancerHelper;

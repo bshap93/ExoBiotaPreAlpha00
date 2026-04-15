@@ -64,7 +64,7 @@ Hylic Slaver: You'll have to talk to the supervisor. He'll likely grant you your
 title: YouClaimToBeRescuingAlaan
 ---
 Hylic Slaver: You're here to rescue one of my master's thralls? That is absurd.
-Hylic Slaver: Suddenly a Human cares about one of its abandoned, tainted cross-breeds? No. You're here on behalf of another's behalf.
+Hylic Slaver: Suddenly a Human cares about one of its abandoned, tainted cross-breeds? No. You're here on behalf of another.
 Hylic Slaver: For whom are you doing this? What is this Ala'an to you?
 <<jump YouClaimToBeRescuingAlaan_QS2>>
 ===
@@ -89,7 +89,7 @@ title: YouClaimToBeRescuingAlaan_QS2
 ---
 -> I do care about the Hybrids! That is why I'm here. That is all I'll say. (Willpower {get_willpower()}/3)
     <<if get_willpower() < 3>>
-        Hylic Slaver: Bah! You won't tell me why? I have no more to say.
+        Hylic Slaver: [Failure] Bah! You won't tell me why? I have no more to say.
         <<jump YouClaimToBeRescuingAlaan_QS2>>
     <<else>>
         <<jump SlaverHy01_Passed_Check_WP_02>>

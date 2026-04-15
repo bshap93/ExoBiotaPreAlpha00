@@ -2,6 +2,7 @@ using System;
 using FirstPersonPlayer.Interactable;
 using FirstPersonPlayer.Tools;
 using FirstPersonPlayer.Tools.ItemObjectTypes;
+using FirstPersonPlayer.Tools.ItemObjectTypes.Biotic;
 using Helpers.Events;
 using Helpers.Events.UI;
 using Inventory;
