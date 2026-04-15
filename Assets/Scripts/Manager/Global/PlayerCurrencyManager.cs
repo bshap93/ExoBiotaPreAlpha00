@@ -2,7 +2,6 @@
 using Helpers.Events;
 using Helpers.Interfaces;
 using MoreMountains.Tools;
-using OWPData.ScriptableObjects;
 using SharedUI;
 using UnityEngine;
 
@@ -24,7 +23,6 @@ namespace Manager.Global
 
         public float InitialSecondaryCurrencyAmount;
 
-        CharacterStatProfile _characterStatProfile;
         bool _dirty;
 
 
@@ -164,18 +162,8 @@ namespace Manager.Global
 
         public void ResetData()
         {
-            _characterStatProfile =
-                SaveManager.Instance.initialCharacterStatProfile;
-
-            if (_characterStatProfile != null)
-            {
-                InitialPrimaryCurrencyAmount = _characterStatProfile.initialPrimaryCurrency;
-                InitialSecondaryCurrencyAmount = _characterStatProfile.initialSecondaryCurrency;
-            }
-            else
-            {
-                Debug.LogError("CharacterStatProfile not set in PlayerCurrencyManager");
-            }
+            PlayerPrimaryCurrencyAmount = InitialPrimaryCurrencyAmount;
+            PlayerSecondaryCurrencyAmount = InitialSecondaryCurrencyAmount;
 
 
             currencyBarUpdater?.Initialize();
@@ -273,18 +261,8 @@ namespace Manager.Global
 
         public void ResetPlayerCurrency(ResourceCollectionContainerInteractable.ResourceType resourceType)
         {
-            var characterStatProfile =
-                SaveManager.Instance.initialCharacterStatProfile;
-
-            if (characterStatProfile == null)
-            {
-                Debug.LogError("CharacterStatProfile not found! Using default values.");
-                PlayerPrimaryCurrencyAmount = 0; // Default fallback
-            }
-            else
-            {
-                PlayerPrimaryCurrencyAmount = characterStatProfile.initialPrimaryCurrency;
-            }
+            PlayerPrimaryCurrencyAmount = InitialPrimaryCurrencyAmount;
+            PlayerSecondaryCurrencyAmount = InitialSecondaryCurrencyAmount;
         }
     }
 }

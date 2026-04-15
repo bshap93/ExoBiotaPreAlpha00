@@ -1,4 +1,5 @@
 using System.Collections;
+using FirstPersonPlayer.Interactable.ResourceBoxes;
 using Helpers.Events;
 using Helpers.Events.Dialog;
 using Helpers.Events.Machine;
@@ -167,6 +168,15 @@ namespace Helpers.YarnSpinner
 
             dialogueRunner.AddCommandHandler<string, string>(
                 "decrement_scenario_counter_value", DecrementScenarioCounterValue);
+
+            // Resource methods
+
+            // 0 = AddResource, 1 = RemoveResource, 2 = SetCurrency
+            dialogueRunner.AddCommandHandler<int, float>(
+                "remove_player_resources", RemovePlayerResources);
+
+            dialogueRunner.AddCommandHandler<int, float>(
+                "add_player_resources", AddPlayerResources);
         }
 
         // The method that gets called when '<<camera_look>>' is run.
@@ -275,6 +285,22 @@ namespace Helpers.YarnSpinner
         {
             ScenarioIntValueEvent.Trigger(
                 ScenarioIntValueEvent.ScenarioDataEventType.DecrementValue, scenarioID, counterName, 1);
+        }
+
+        // Currency
+
+        void RemovePlayerResources(int resourceTypeEnumIndex, float amount)
+        {
+            ResourceCurrencyEvent.Trigger(
+                ResourceCurrencyEventType.RemoveResource, amount,
+                (ResourceCollectionContainerInteractable.ResourceType)resourceTypeEnumIndex);
+        }
+
+        void AddPlayerResources(int resourceTypeEnumIndex, float amount)
+        {
+            ResourceCurrencyEvent.Trigger(
+                ResourceCurrencyEventType.AddResource, amount,
+                (ResourceCollectionContainerInteractable.ResourceType)resourceTypeEnumIndex);
         }
 
         // Healing

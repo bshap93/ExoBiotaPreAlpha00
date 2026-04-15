@@ -10,13 +10,24 @@ title: GuardCharacterHybrid01_Start
 title: GuardCharacterHybrid01_Start_Initial
 ---
 Thrall Guard: You there! State your business with the Matriarch's mine.
--> I have come to submit myself as Thrall to your Matriarch. Will you open up?
-    Thrall Guard: Yes, come on through. See that you make no trouble and proceed straight to the boss.
+// -> I have come to submit myself as Thrall to your Matriarch. Will you open up?
+<<if get_scenario_flag_value("MineRescueAlaanScenario", "Slaver01GrantsEntryToMine") == true>>
     <<make_contact_with_npc "GuardCharacterHybrid01">>
-    <<open_door "ZytMaginumMineGate">>
+    <<jump GuardCharacterHybrid01_Start_Followup>>
+<<else>>
+    Thrall Guard: I have no order to allow you through. You can talk to Niv to the northwest. I don't have the authority to allow unauthorized guests in.
+    <<if get_neumat_balance() >= 250 && get_dexterity() >= 2>>
+        -> [Passive Success: Dexterity {get_dexterity()}] You're a slave, so I suppose you have no need for money, right? (You subtly tilt your PIM so he can see your Neumat balance.)
+            Thrall Guard: What's that? Niv giving you permission? (He jots down a record of the fake order from Niv).
+                <<remove_player_resources 0 250.0>>
+                <<jump GuardCharacterHybrid01_Start_Followup>>
+        -> Ok, then. [Leave]
+    <<endif>>
+<<endif>>
 ===
 
 title: GuardCharacterHybrid01_Start_Followup
 ---
 Thrall Guard: Yes, come on through. See that you make no trouble and proceed straight to the boss.
+<<open_door "ZytMaginumMineGate">>
 ===
