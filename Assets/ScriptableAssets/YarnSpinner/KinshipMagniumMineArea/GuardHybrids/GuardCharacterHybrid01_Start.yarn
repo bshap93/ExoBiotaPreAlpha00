@@ -10,7 +10,6 @@ title: GuardCharacterHybrid01_Start
 title: GuardCharacterHybrid01_Start_Initial
 ---
 Thrall Guard: You there! State your business with the Matriarch's mine.
-// -> I have come to submit myself as Thrall to your Matriarch. Will you open up?
 <<if get_scenario_flag_value("MineRescueAlaanScenario", "Slaver01GrantsEntryToMine") == true>>
     <<make_contact_with_npc "GuardCharacterHybrid01">>
     <<jump GuardCharacterHybrid01_Start_Followup>>

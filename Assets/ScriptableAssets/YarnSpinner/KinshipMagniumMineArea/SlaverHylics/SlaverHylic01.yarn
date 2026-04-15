@@ -35,7 +35,8 @@ Hylic Slaver: You say you 'heard' about us? This is impossible. We do not commun
 Hylic Slaver: A figure of speech, then? Fine, my master wouldn't have me turn away a customer. Just show me a Neumat balance of more than 500 PN.
 <<if get_neumat_balance() >= 500>>
     -> [Success] Here, take a look. (Required: 500PN)
-        Hylic Slaver: Ok, I'll signal the gate keeper to let you through.
+        Hylic Slaver: Ok, I'll signal the gate keeper to let you through. [Leave]
+        <<set_scenario_flag_value "MineRescueAlaanScenario" "Slaver01GrantsEntryToMine" true>>
 <<else>>
     -> I don't have that much. ({get_neumat_balance()}/500 PN)
         Hylic Slaver: You won't be buying any slaves, then. Leave us now. Leave the grounds of this mine now and we won't have a problem. 

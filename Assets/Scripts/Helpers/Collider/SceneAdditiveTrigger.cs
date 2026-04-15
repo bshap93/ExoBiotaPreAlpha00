@@ -118,11 +118,8 @@ namespace Helpers.Collider
         {
             var scene = SceneManager.GetSceneByName(sceneToLoad);
 
-            if (setActiveOnLoad && scene.IsValid() && scene.isLoaded)
-            {
-                SceneManager.SetActiveScene(scene);
-                Debug.Log($"Active scene set to '{sceneToLoad}'");
-            }
+            if (setActiveOnLoad && scene.IsValid() && scene.isLoaded) SceneManager.SetActiveScene(scene);
+            // Debug.Log($"Active scene set to '{sceneToLoad}'");
         }
     }
 }

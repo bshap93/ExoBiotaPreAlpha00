@@ -136,18 +136,24 @@ namespace Manager.StateManager
             }
 
             _scenarioInstances.Add(scenarioUniqueID, instance);
+            Debug.Log($"Started scenario '{scenarioUniqueID}'");
             MarkDirty();
             ConditionalSave();
         }
 
         void SetBooleanFlag(string scenarioUniqueID, string flagKey, bool value)
         {
-            if (!_scenarioInstances.TryGetValue(scenarioUniqueID, out var instance)) return;
-            if (!instance.BooleanFlagValuesDict.ContainsKey(flagKey))
+            if (!_scenarioInstances.TryGetValue(scenarioUniqueID, out var instance))
             {
-                Debug.LogWarning($"Unknown bool flag '{flagKey}' on scenario '{scenarioUniqueID}'");
-                return;
+                StartScenario(scenarioUniqueID);
+                instance = _scenarioInstances[scenarioUniqueID];
+                if (instance == null)
+                {
+                    Debug.LogError($"Failed to create scenario instance for '{scenarioUniqueID}'");
+                    return;
+                }
             }
+
 
             instance.BooleanFlagValuesDict[flagKey] = value;
             MarkDirty();
@@ -156,12 +162,17 @@ namespace Manager.StateManager
 
         void SetIntCounter(string scenarioUniqueID, string counterKey, int value)
         {
-            if (!_scenarioInstances.TryGetValue(scenarioUniqueID, out var instance)) return;
-            if (!instance.IntCountValuesDict.ContainsKey(counterKey))
+            if (!_scenarioInstances.TryGetValue(scenarioUniqueID, out var instance))
             {
-                Debug.LogWarning($"Unknown int counter '{counterKey}' on scenario '{scenarioUniqueID}'");
-                return;
+                StartScenario(scenarioUniqueID);
+                instance = _scenarioInstances[scenarioUniqueID];
+                if (instance == null)
+                {
+                    Debug.LogError($"Failed to create scenario instance for '{scenarioUniqueID}'");
+                    return;
+                }
             }
+
 
             instance.IntCountValuesDict[counterKey] = value;
             MarkDirty();
