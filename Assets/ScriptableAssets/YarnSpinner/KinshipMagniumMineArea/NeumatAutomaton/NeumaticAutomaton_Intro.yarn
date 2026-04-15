@@ -1,0 +1,27 @@
+title: NeumaticAutomaton_Intro_Start
+---
+<<if has_npc_been_contacted("NeumaticAutomaton01")>>
+    Neumic Automaton: What now, human?
+    <<jump NeumaticAutomaton_Intro_Main_QS>>
+<<else>>
+    Mysterious Automaton: That's close enough.
+    <<make_contact_with_npc "NeumaticAutomaton01">>
+    -> [Stay silent but move no closer]
+    Mysterious Automaton: Put your weapon back in your pack slowly.
+    Mysterious Automaton: I can see into your bag and everything you carry. Do not try subterfuge.
+    Mysterious Automaton: Why have you come to this location? Were you told I was here? By who?
+    -> I have nothing to hide, and I wasn't told about you. I had no idea you were here.
+    Mysterious Automaton: You do now.
+    -> I can just leave. [Take a step back]
+    Mysterious Automaton: Halt or I'll shoot!
+    Mysterious Automaton: You may not leave until I have total operational understanding of your unit and orders. 
+<<endif>>
+===
+
+
+
+
+title: NeumaticAutomaton_Intro_Main_QS
+---
+-> TBD Question
+===

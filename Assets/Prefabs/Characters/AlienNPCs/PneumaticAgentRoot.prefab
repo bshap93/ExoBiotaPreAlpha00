@@ -1768,6 +1768,37 @@ Transform:
   - {fileID: 7847528428626672879}
   m_Father: {fileID: 6389721804169217489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3637549249611315703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4310556574945070408}
+  m_Layer: 8
+  m_Name: DialogFocusPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4310556574945070408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637549249611315703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.496, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7286323551047570460}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3674199125025655605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,7 +3570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6736661163307427768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -29.150002, y: -0.053138733, z: 70.770996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5748,14 +5779,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7286323551047570460}
+  - component: {fileID: 1863798122840381156}
   - component: {fileID: 8460851315097871828}
-  - component: {fileID: 1801870515324174503}
   - component: {fileID: 9202570380725347238}
   - component: {fileID: 4923582798827723940}
   - component: {fileID: 1586287979973863964}
   - component: {fileID: 3089761498688841759}
   - component: {fileID: 8181448859993263299}
   - component: {fileID: 3846737299759500178}
+  - component: {fileID: 3827881119880516030}
   m_Layer: 8
   m_Name: Mesh_SteamPunkAndroid
   m_TagString: Untagged
@@ -5784,8 +5816,70 @@ Transform:
   - {fileID: 8656215965214948853}
   - {fileID: 8073865647444947088}
   - {fileID: 5010093176058544270}
+  - {fileID: 4310556574945070408}
   m_Father: {fileID: 5924757698811661071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1863798122840381156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757744870861876356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d587ea0930b47baa39930eebdd6823e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCController
+  uniqueID: 944f9e0e-cfa9-4353-a3df-d590892569b8
+  extractableInteractable: {fileID: 0}
+  callDeathFeedbacksFromBTree: 0
+  highlightEffect: {fileID: 5087635266254742782}
+  highlightEffectController: {fileID: 5949622224585845148}
+  blackboard: {fileID: 8181448859993263299}
+  fsmOwner: {fileID: 3846737299759500178}
+  creatureFriends: []
+  creatureType: {fileID: 11400000, guid: 4dcf408404934ea4192a2bb07f57ef50, type: 2}
+  animancerComponent: {fileID: 4923582798827723940}
+  initialCreatureInitializationState: 1
+  feedbacksContainer: {fileID: 5682083446475093078}
+  deathFeedbacks: {fileID: 0}
+  curedOrPlacatedFeedbacks: {fileID: 0}
+  critDamageFeedbacks: {fileID: 0}
+  placatedFeedbacks: {fileID: 0}
+  meleeHitFeedbacksBasic: {fileID: 0}
+  rangedHitFeedbacksBasic: {fileID: 0}
+  meleeHitFeedbacksHeavy: {fileID: 0}
+  rangedHitFeedbacksHeavy: {fileID: 0}
+  cannotBeAttacked: 0
+  startAsActivated: 0
+  isInitiallyHostile: 0
+  extractable: 0
+  destroyAfterDeath: 0
+  doesNotImmediatelyNeedToMove: 0
+  appearsOnlyOnce: 0
+  secondsBeforeSettingShouldBeDestroyed: 5
+  deathDelay: 1
+  attackCount: 1
+  attackInstances: []
+  isDead: 0
+  isBeingAttacked: 0
+  wasHit: 0
+  wasHitHeavy: 0
+  isStunned: 0
+  isPlacated: 0
+  currentStunDamage: 0
+  currentHealth: 25
+  npcId: NeumaticAgent01
+  interactDistanceOverride: 5
+  exobioticLanguageThreshold: 2
+  defaultStartNode: 
+  startDialogueFeedback: {fileID: 4241880226350328093}
+  initialState: 5
+  isInteractable: 1
+  npcDefinition: {fileID: 11400000, guid: f016da6c78163d44e8bd4738a77a9d1a, type: 2}
+  dialogueFocusPoint: {fileID: 4310556574945070408}
+  actionId: 43
 --- !u!95 &8460851315097871828
 Animator:
   serializedVersion: 7
@@ -5808,87 +5902,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1801870515324174503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8757744870861876356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aeeda3c7f6d42d791f918334591a6ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.FPNPCs.AlienNPC.HumanoidNPCCreature
-  uniqueID: dabb0d3b-8997-4030-b4c9-558b22bfde52
-  extractableInteractable: {fileID: 0}
-  callDeathFeedbacksFromBTree: 0
-  highlightEffect: {fileID: 5087635266254742782}
-  highlightEffectController: {fileID: 5949622224585845148}
-  blackboard: {fileID: 8181448859993263299}
-  fsmOwner: {fileID: 3846737299759500178}
-  creatureFriends: []
-  creatureType: {fileID: 0}
-  animancerComponent: {fileID: 0}
-  initialCreatureInitializationState: 0
-  feedbacksContainer: {fileID: 0}
-  deathFeedbacks: {fileID: 0}
-  curedOrPlacatedFeedbacks: {fileID: 0}
-  critDamageFeedbacks: {fileID: 0}
-  placatedFeedbacks: {fileID: 0}
-  meleeHitFeedbacksBasic: {fileID: 0}
-  rangedHitFeedbacksBasic: {fileID: 0}
-  meleeHitFeedbacksHeavy: {fileID: 0}
-  rangedHitFeedbacksHeavy: {fileID: 0}
-  cannotBeAttacked: 0
-  startAsActivated: 0
-  isInitiallyHostile: 0
-  extractable: 0
-  destroyAfterDeath: 1
-  doesNotImmediatelyNeedToMove: 0
-  appearsOnlyOnce: 0
-  secondsBeforeSettingShouldBeDestroyed: 5
-  deathDelay: 1
-  attackCount: 1
-  attackInstances: []
-  isDead: 0
-  isBeingAttacked: 0
-  wasHit: 0
-  wasHitHeavy: 0
-  isStunned: 0
-  isPlacated: 0
-  currentStunDamage: 0
-  currentHealth: 0
-  navMeshAgent: {fileID: 0}
-  movementSpeedThreshold: 0.1
-  walkRunThreshold: 2
-  hasRangedAttack: 0
-  rangedAttackOrigin: {fileID: 0}
-  shouldSwitchLayersOnDeath: 0
-  onDeathLayer: 0
-  doNotUseIdleState: 0
-  movementLoopFeedbacks: {fileID: 0}
-  deathParticlesDustPrefab: {fileID: 0}
-  hasWeapon: 0
-  defaultWeaponDefinition: {fileID: 0}
-  primaryWeaponAnchor: {fileID: 0}
-  animancerController: {fileID: 0}
-  statesWithFullBodyAnimations: 
-  walkingLoopFeedbacks: {fileID: 0}
-  runningLoopFeedbacks: {fileID: 0}
-  interactDistanceOverride: 5
-  defaultStartNode: 
-  npcInteractableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  dialogueFocusPoint: {fileID: 0}
-  startDialogueFeedback: {fileID: 0}
-  npcId: NeumaticAgent01
-  actionId: 43
-  npcDefinition: {fileID: 11400000, guid: f016da6c78163d44e8bd4738a77a9d1a, type: 2}
 --- !u!114 &9202570380725347238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,10 +5916,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonPlayer.FPNPCs.AlienNPC.AlienNPCAnimancerController
   hasWorkingAnimations: 0
   hasIdleAnimations: 1
-  initialState: 0
+  initialState: 1
   alienWorkingAnimations: []
-  alienIdleAnimations: []
-  animancerComponent: {fileID: 0}
+  alienIdleAnimations:
+  - doubleAction: 0
+    actionId: Idle
+    animationClip: {fileID: 8993902097722301239, guid: 2533830312a6ca14d9f6919d32fb91d3, type: 3}
+    audioClipList: []
+    audioDelay: 0
+    feedbacks: {fileID: 0}
+    audioDelaySecondClip: 0
+  - doubleAction: 0
+    actionId: 
+    animationClip: {fileID: 0}
+    audioClipList: []
+    audioDelay: 0
+    feedbacks: {fileID: 0}
+    audioDelaySecondClip: 0
+  animancerComponent: {fileID: 4923582798827723940}
   audioSource: {fileID: 0}
   creatureController: {fileID: 0}
   upperBodyMask: {fileID: 0}
@@ -6010,6 +6037,28 @@ MonoBehaviour:
   _updateMode: 0
   _graph: {fileID: 11400000, guid: c0f5b765e8060d745b5a2a54eee715dc, type: 2}
   _blackboard: {fileID: 8181448859993263299}
+--- !u!195 &3827881119880516030
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757744870861876356}
+  m_Enabled: 1
+  m_AgentTypeID: -629701670
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8840351852558297360
 GameObject:
   m_ObjectHideFlags: 0
